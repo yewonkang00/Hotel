@@ -1,0 +1,35 @@
+/*
+ * Noto Sans CJK Korean
+ */
+
+@font-face {
+  font-family: 'Noto Sans CJK Korean';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Noto Sans CJK Light'), local('NotoSans-CJK-Light'),
+  url(/assets/fonts/otf/NotoSansCJKkr-Light.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Noto Sans CJK Korean';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Noto Sans CJK Regular'), local('NotoSans-CJK-Regular'),
+  url(/assets/fonts/otf/NotoSansCJKkr-Regular.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Noto Sans CJK Korean';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Noto Sans CJK Medium'), local('NotoSans-CJK-Medium'),
+  url(/assets/fonts/otf/NotoSansCJKkr-Medium.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Noto Sans CJK Korean';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Noto Sans CJK Bold'), local('NotoSans-CJK-Bold'),
+  url(/assets/fonts/otf/NotoSansCJKkr-Bold.otf) format('opentype');
+}

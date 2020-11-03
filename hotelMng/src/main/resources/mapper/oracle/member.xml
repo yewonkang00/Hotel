@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="member">
+	
+	<select id="selectBoardCount" resultType="Integer">
+		SELECT COUNT(*) FROM Member
+	</select>
+
+	<select id="listBlockSelect" parameterType="java.util.Map" resultType="MemberVo">
+		SELECT *
+		FROM (
+		SELECT @NO := @NO + 1 AS ROWNUM, A.*
+		FROM
+		  (
+		    SELECT *
+		    FROM Member
+		  ) A,
+		  ( SELECT @NO := 0 ) B 
+		) C
+		WHERE C.ROWNUM BETWEEN #{startNum} AND #{endNum}
+	</select>
+	
+	<select id="boardView" parameterType="String" resultType="MemberVo">
+		SELECT * FROM Member WHERE id=#{id}
+	</select>
+
+	
+	<select id="viewList" parameterType="java.util.Map" resultType="MemberVo">	
+	SELECT *
+	FROM(
+		SELECT *
+		FROM (
+		SELECT @NO := @NO + 1 AS ROWNUM, A.*
+		FROM
+		  (
+			SELECT *
+			FROM Member 
+		  ) A,
+		  ( SELECT @NO := 0 ) B 
+		) C
+		WHERE C.ROWNUM BETWEEN #{startNum} AND #{endNum}
+	)D
+	WHERE DATE(joinDate) BETWEEN #{startDate} AND #{endDate}
+		<if test="name != null">
+			AND subscriberName LIKE CONCAT('%',#{name},'%')
+		</if> 
+	</select>
+	
+	<select id="findDateTotal" parameterType="java.util.Map" resultType="Integer">
+		SELECT COUNT(*) FROM Member WHERE DATE(joinDate) between #{startDate} and #{endDate}
+	</select>
+	
+	<select id="selectMember" parameterType="MemberVo" resultType="MemberVo">
+		SELECT * 
+		FROM Member 
+		WHERE id = #{id}
+	</select>
+	
+	<insert id="insertMember" parameterType="MemberVo">
+		INSERT INTO Member (id
+						,password
+						,subscriberName
+						,subscriberTelephone
+						,subscriberCellphone
+						,buisnessName
+						,buisnessNumber
+						,chargemanagerName
+						,chargemanagerTelephone
+						,chargemanagerFaxnumber
+						,chargemanagerMailnumber
+						,chargemanagerAddress
+						,chargemanagerAddressDetail
+						,chargemanagerEmail
+						,joinDate
+		)
+		VALUES (#{id}
+				, #{password}
+				, #{subscriberName}
+				, #{subscriberTelephone}
+				, #{subscriberCellphone}
+				, #{buisnessName}
+				, #{buisnessNumber}
+				, #{chargemanagerName}
+				, #{chargemanagerTelephone}
+				, #{chargemanagerFaxnumber}
+				, #{chargemanagerMailnumber}
+				, #{chargemanagerAddress}
+				, #{chargemanagerAddressDetail}
+				, #{chargemanagerEmail}
+				, now()
+		)
+	</insert>
+	
+	<update id="updateMember" parameterType="MemberVo">
+		UPDATE Member SET password=#{password}
+						,subscriberName=#{subscriberName}
+						,subscriberTelephone=#{subscriberTelephone}
+						,subscriberCellphone=#{subscriberCellphone}
+						,buisnessName=#{buisnessName}
+						,buisnessNumber=#{buisnessNumber}
+						,chargemanagerName=#{chargemanagerName}
+						,chargemanagerTelephone=#{chargemanagerTelephone}
+						,chargemanagerFaxnumber=#{chargemanagerFaxnumber}
+						,chargemanagerMailnumber=#{chargemanagerMailnumber}
+						,chargemanagerAddress=#{chargemanagerAddress}
+						,chargemanagerAddressDetail=#{chargemanagerAddressDetail}
+						,chargemanagerEmail=#{chargemanagerEmail}
+		WHERE id=#{id}
+	</update>
+	
+	<select id="checkId" parameterType="String" resultType="MemberVo">
+		SELECT id from Member WHERE id=#{id}
+	</select>
+	
+	<insert id="insertUser" parameterType="MemberVo">
+		INSERT INTO use (userid
+						,userpassword
+		)
+		VALUES (#{id}
+				, #{password}
+
+		)
+	</insert>	
+</mapper>
