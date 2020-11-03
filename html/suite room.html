@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <style>
+          body {
+              margin-left:auto;
+              margin-right: auto;
+              padding:0px;
+              background-color: white;
+              font-family:나눔고딕;
+          }
+          a {
+            color:#111111;
+          }
+          a { text-decoration:none }
+          .header{
+              margin-left:auto;
+              margin-right: auto;
+              background-color: #D4C1A1;
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              height: 50px;
+              text-align: center;
+              padding: 8px;
+              color: #111111;
+              font-size: 5px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            }
+            .header nav {
+              list-style-type: none;
+              text-align: center;
+              margin: 0;
+              padding: 0;
+            }
+            .header nav span {
+              display:inline-block;
+              font-size: 15px;
+              padding: 20px;
+            }
+            .container{
+              margin-top: 100px;
+              display:table;
+            }
+            .contents{
+              display: table-cell;
+            }
+            .sidebar{
+              display: table-cell;
+              margin-left:25px;
+              margin-right:25px;
+              width:150px;
+              padding:20px;
+              float:left;
+              background-color:#D4C1A1;
+            }
+            .sidebar ul{
+              list-style: none;
+              margin: 0;
+              padding:10px 0;
+            }
+            .sidebar li{
+              margin: 10px 0;
+            }
+            .contents{
+                margin-top: auto;
+                width: 1050px;
+                margin-left: auto;
+                margin-right: auto;
+                min-height: 500px;
+                background-color: white;
+                font-size: 18px;
+                float:right;
+                color: #333333
+            }
+            table.suite {
+                width: 800px;
+                border-collapse: separate;
+                border-spacing: 1px;
+                text-align: middle;
+                line-height: 1.5;
+                border-top: 1px solid #D4C1A1;
+                margin : 20px 10px;
+            }
+            table.suite th {
+                width: 150px;
+                padding: 10px;
+                font-weight: bold;
+                vertical-align: middle;
+                border-bottom: 1px solid #D4C1A1;
+            }
+            table.suite td {
+                width: 350px;
+                padding: 10px;
+                vertical-align: top;
+                border-bottom: 1px solid #D4C1A1;
+            }
+            .finish {
+                clear:both;
+                width: 1200px;
+                margin-left:auto;
+                margin-right: auto;
+                padding: 50px;
+                background-color: white;
+                font-size: 18px;
+                color: #333333
+            }
+
+        </style>
+        <title>Suite room</title>
+
+    </head>
+    <body>
+        <div class=header>
+            <img src="moon.png" width="100" height="100">
+            <nav>
+              <span><a href="intro.html">호텔 소개</a></span>
+              <span><a href="room.html">객실</a></span>
+              <span><a href="restaurant.html">레스토랑</a></span>
+              <span><a href="res.html">예약</a></span>
+              <span><a href="res_confirm.html">예약 확인</a></span>
+              <span><a href="qna.html">고객문의</a></span>
+              <span><a href="facility.html">편의시설</a></span>
+              <span><a href="login.html">로그인</a></span>
+            </nav>
+        </div>
+        <div class=container>
+          <div class=sidebar>
+            <h2>호텔 객실 소개</h2>
+            <ul class=sidebar-list>
+              <li class=sidebar-item><a href="suite room.html">Suite Room</a></li>
+              <li class=sidebar-item><a href="standard room.html">Standard Room</a></li>
+            </ul>
+          </div>
+          <div class=contents>
+            <h1>Suite Room</h1>
+            <img src="suite room.jpg" width="800" height="500">
+            <p> 스위트룸은 프라이빗한 휴식을 즐길 수 있는 객실입니다.<br/>
+                스위트룸과 함께 최고의 휴식을 경험해보십시오.<br/>
+                문의전화 02-0000-0000<br/>
+                전망 : 시티 뷰 | 침대 : 더블(킹 사이즈) | 크기 : 159m<br/>
+                룸 구성 : 침실 1, 욕실 1, 화장실 2, 응접실 1, 집무실 1, 다이닝 룸 1<br/>
+            </p>
+            <table class=suite>
+              <thead>
+                <tr>
+                  <th scope="row">객실이용</th>
+                  <td>65인치 스마트 TV<br/>
+                      50~100Mbps 초고속 유무선(wifi) 인터넷 무료<br/>
+                      220V, 110V 전압 사용 가능<br/>
+                      커피, 차 티백 무료 제공<br/>
+                      엑스트라 베드 1개 추가 30,000원/1박<br/>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">부대시설</th>
+                  <td>피트니스 클럽 이용 안내<br/>
+                      -체육관 무료 이용<br/>
+                      -실내 수영장 무료 이용<br/>
+                      -사우나 무료 이용<br/>
+                      -피트니스 클럽은 매월 둘 째 월요일 정기휴일입니다.<br/>
+                      투숙 기간 내 무료 주차 가능<br/>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">룸서비스</th>
+                  <td>객실에서 즐기실 수 있는 다양한 룸서비스가 준비되어 있습니다.<br/>
+                      식사 및 음료 : 24시간 서비스<br/>
+                  </td>
+                </tr>
+            </table>
+          </div>
+          <div class="finish">
+              <p> 사업자 번호: 110-10-12345<br/>
+                  사업장소재지: 경기도 이천시 마장면 장암리<br/>
+                  대표자: 궈닌돌<br/>
+                  Copyright ⓒ 2020 Hotel Group. All rights reserved.
+              </p>
+          </div>
+        </div>
+    </body>
+</html>
