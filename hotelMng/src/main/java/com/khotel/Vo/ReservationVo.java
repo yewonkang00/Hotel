@@ -1,4 +1,4 @@
-package com.khotel.Vo;
+package hotel_make.hotelmake.DTO;
 
 public class ReservationVo {
 	private String ReservationCode = null;
@@ -7,7 +7,7 @@ public class ReservationVo {
 	private String ReservationPeopleNumber = null;
 	private String ReservationDate = null;
 	private String UserId = null;
-	private int RoomCode = 0;
+	private Integer RoomCode = null;
 	public String getReservationCode() {
 		return ReservationCode;
 	}
@@ -44,10 +44,10 @@ public class ReservationVo {
 	public void setUserId(String userId) {
 		UserId = userId;
 	}
-	public int getRoomCode() {
+	public Integer getRoomCode() {
 		return RoomCode;
 	}
-	public void setRoomCode(int roomCode) {
+	public void setRoomCode(Integer roomCode) {
 		RoomCode = roomCode;
 	}
 	

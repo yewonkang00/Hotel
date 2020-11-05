@@ -1,4 +1,4 @@
-package com.khotel.Vo;
+package hotel_make.hotelmake.DTO;
 
 
 public class MemberVo {
@@ -16,6 +16,8 @@ public class MemberVo {
 	private String UserLevel = null;
 	private String UserGrade = null;
 	private String UserMile = null;
+
+
 	public String getUserId() {
 		return UserId;
 	}
