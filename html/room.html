@@ -2,97 +2,13 @@
 <html lang="ko">
     <head>
         <meta charset="UTF-8">
-        <style>
-            body {
-                margin-left:auto;
-                margin-right: auto;
-                padding:0px;
-                background-color: white;
-                font-family:나눔고딕;
-                overflow:hidden;
-            }
-            a {
-                color:#111111;
-            }
-            a { text-decoration:none }
-            .header{
-                margin-left:auto;
-                margin-right: auto;
-                background-color: #D4C1A1;
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                height: 50px;
-                text-align: center;
-                padding: 8px;
-                color: #111111;
-                font-size: 5px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-            .header nav {
-                list-style-type: none;
-                text-align: center;
-                margin: 0;
-                padding: 0;
-            }
-            .header nav span {
-                display:inline-block;
-                font-size: 15px;
-                padding: 20px;
-            }
-            .container{
-              margin-top: 100px;
-              display:table;
-            }
-            .sidebar{
-              display:table-cell;
-              margin-left:25px;
-              margin-right:25px;
-              width:150px;
-              padding:20px;
-              float:left;
-              background-color:#D4C1A1;
-            }
-            .sidebar ul{
-              list-style: none;
-              margin: 0;
-              padding:10px 0;
-            }
-            .sidebar li{
-              margin: 10px 0;
-            }
-            .contents{
-                margin-top: auto;
-                width: 1050px;
-                margin-left: auto;
-                margin-right: auto;
-                min-height: 500px;
-                background-color: white;
-                font-size: 18px;
-                float:right;
-                color: #333333
-            }
-            .finish {
-                clear:both;
-                width: 1200px;
-                margin-left:auto;
-                margin-right: auto;
-                padding: 50px;
-                background-color: white;
-                font-size: 18px;
-                color: #333333
-            }
-
-        </style>
+        <link rel="stylesheet" href="style.css" type="text/css">
         <title>Room</title>
 
     </head>
     <body>
         <div class=header>
-            <img src="moon.png" width="80" height="80">
+            <a href="index.html"><img src="moon.png" width="80" height="80"></a>
             <nav>
               <span><a href="intro.html">호텔 소개</a></span>
               <span><a href="room.html">객실</a></span>
@@ -104,13 +20,23 @@
               <span><a href="login.html">로그인</a></span>
             </nav>
         </div>
-        <div class=container>
-          <div class=sidebar>
-            <h2>호텔 객실 소개</h2>
-            <ul class=sidebar-list>
-              <li class=sidebar-item><a href="suite room.html">Suite Room</a></li>
-              <li class=sidebar-item><a href="standard room.html">Standard Room</a></li>
-            </ul>
+        <div class=contain>
+          <div class=left>
+            <div class=banner>
+              <h2 class=tit>객실 소개</h2>
+                <ul class=menu>
+                  <li class="m1">
+                    <a href="suite room.html">
+                      <span>Suite Room</span>
+                    </a>
+                  </li>
+                  <li class="m2">
+                    <a href="standard room.html">
+                      <span>Standard Room</span>
+                    </a>
+                  </li>
+                </ul>
+            </div>
           </div>
           <div class=contents>
             <h1>Hotel Delluna</h1>
