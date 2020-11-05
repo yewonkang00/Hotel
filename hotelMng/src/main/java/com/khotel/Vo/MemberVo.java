@@ -3,113 +3,100 @@ package com.khotel.Vo;
 
 public class MemberVo {
 	
-	private String id   = null;
-	private String password = null;
-	private String subscriberName = null;
-	private String subscriberTelephone = null;
-	private String subscriberCellphone = null;
-	private String buisnessName = null;
-	private String buisnessNumber = null;
-	private String chargemanagerName = null;
-	private String chargemanagerTelephone = null;
-	private String chargemanagerFaxnumber = null;
-	private String chargemanagerMailnumber = null;
-	private String chargemanagerAddress = null;
-	private String chargemanagerAddressDetail = null;
-	private String joinDate= null;
+	private String UserId  = null;
+	private String UserPassword = null;
+	private String UserName = null;
+	private String UserPhone = null;
+	private String UserBirth = null;
+	private String UserEmail = null;
+	private String UserAddressState = null;
+	private String UserAddressCity = null;
+	private String UserAddressStreet = null;
+	private String UserAddressDetail = null;
+	private String UserLevel = null;
+	private String UserGrade = null;
+	private String UserMile = null;
+	public String getUserId() {
+		return UserId;
+	}
+	public void setUserId(String userId) {
+		UserId = userId;
+	}
+	public String getUserPassword() {
+		return UserPassword;
+	}
+	public void setUserPassword(String userPassword) {
+		UserPassword = userPassword;
+	}
+	public String getUserName() {
+		return UserName;
+	}
+	public void setUserName(String userName) {
+		UserName = userName;
+	}
+	public String getUserPhone() {
+		return UserPhone;
+	}
+	public void setUserPhone(String userPhone) {
+		UserPhone = userPhone;
+	}
+	public String getUserBirth() {
+		return UserBirth;
+	}
+	public void setUserBirth(String userBirth) {
+		UserBirth = userBirth;
+	}
+	public String getUserEmail() {
+		return UserEmail;
+	}
+	public void setUserEmail(String userEmail) {
+		UserEmail = userEmail;
+	}
+	public String getUserAddressState() {
+		return UserAddressState;
+	}
+	public void setUserAddressState(String userAddressState) {
+		UserAddressState = userAddressState;
+	}
+	public String getUserAddressCity() {
+		return UserAddressCity;
+	}
+	public void setUserAddressCity(String userAddressCity) {
+		UserAddressCity = userAddressCity;
+	}
+	public String getUserAddressStreet() {
+		return UserAddressStreet;
+	}
+	public void setUserAddressStreet(String userAddressStreet) {
+		UserAddressStreet = userAddressStreet;
+	}
+	public String getUserAddressDetail() {
+		return UserAddressDetail;
+	}
+	public void setUserAddressDetail(String userAddressDetail) {
+		UserAddressDetail = userAddressDetail;
+	}
+	public String getUserLevel() {
+		return UserLevel;
+	}
+	public void setUserLevel(String userLevel) {
+		UserLevel = userLevel;
+	}
+	public String getUserGrade() {
+		return UserGrade;
+	}
+	public void setUserGrade(String userGrade) {
+		UserGrade = userGrade;
+	}
+	public String getUserMile() {
+		return UserMile;
+	}
+	public void setUserMile(String userMile) {
+		UserMile = userMile;
+	}
 	
-	public String getJoinDate() {
-		return joinDate;
-	}
-	public void setJoinDate(String joinDate) {
-		this.joinDate = joinDate;
-	}
-	private String chargemanagerEmail = null;
-
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String getSubscriberName() {
-		return subscriberName;
-	}
-	public void setSubscriberName(String subscriberName) {
-		this.subscriberName = subscriberName;
-	}
-	public String getSubscriberTelephone() {
-		return subscriberTelephone;
-	}
-	public void setSubscriberTelephone(String subscriberTelephone) {
-		this.subscriberTelephone = subscriberTelephone;
-	}
-	public String getSubscriberCellphone() {
-		return subscriberCellphone;
-	}
-	public void setSubscriberCellphone(String subscriberCellphone) {
-		this.subscriberCellphone = subscriberCellphone;
-	}
-	public String getBuisnessName() {
-		return buisnessName;
-	}
-	public void setBuisnessName(String buisnessName) {
-		this.buisnessName = buisnessName;
-	}
-	public String getBuisnessNumber() {
-		return buisnessNumber;
-	}
-	public void setBuisnessNumber(String buisnessNumber) {
-		this.buisnessNumber = buisnessNumber;
-	}
-	public String getChargemanagerName() {
-		return chargemanagerName;
-	}
-	public void setChargemanagerName(String chargemanagerName) {
-		this.chargemanagerName = chargemanagerName;
-	}
-	public String getChargemanagerTelephone() {
-		return chargemanagerTelephone;
-	}
-	public void setChargemanagerTelephone(String chargemanagerTelephone) {
-		this.chargemanagerTelephone = chargemanagerTelephone;
-	}
-	public String getChargemanagerFaxnumber() {
-		return chargemanagerFaxnumber;
-	}
-	public void setChargemanagerFaxnumber(String chargemanagerFaxnumber) {
-		this.chargemanagerFaxnumber = chargemanagerFaxnumber;
-	}
-	public String getChargemanagerMailnumber() {
-		return chargemanagerMailnumber;
-	}
-	public void setChargemanagerMailnumber(String chargemanagerMailnumber) {
-		this.chargemanagerMailnumber = chargemanagerMailnumber;
-	}
-	public String getChargemanagerAddress() {
-		return chargemanagerAddress;
-	}
-	public void setChargemanagerAddress(String chargemanagerAddress) {
-		this.chargemanagerAddress = chargemanagerAddress;
-	}
-	public String getChargemanagerAddressDetail() {
-		return chargemanagerAddressDetail;
-	}
-	public void setChargemanagerAddressDetail(String chargemanagerAddressDetail) {
-		this.chargemanagerAddressDetail = chargemanagerAddressDetail;
-	}
-	public String getChargemanagerEmail() {
-		return chargemanagerEmail;
-	}
-	public void setChargemanagerEmail(String chargemanagerEmail) {
-		this.chargemanagerEmail = chargemanagerEmail;
-	}
+	
+	
 	
 	
 }
