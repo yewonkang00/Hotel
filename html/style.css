@@ -1,8 +1,9 @@
 @charset "utf-8";
 
 body {
-    margin-left:auto;
-    margin-right: auto;
+    /* margin-left:auto;
+    margin-right: auto; */
+    margin: 0px;
     padding:0px;
     background-color: white;
     font-family:나눔고딕;
@@ -11,36 +12,40 @@ body {
 ::-webkit-scrollbar {
   display: none;
 }
-
-
 a {
     color:#111111;
     text-decoration:none
 }
 .header{
-    /* margin-left:auto; */
+    /* margin-left: auto; */
     /* margin-right: auto; */
     background-color: #D4C1A1;
-    position: fixed;
+    min-width: 1500px;
+    /* position: relative; */
     top: 0;
-    left: 0;
-    right: 0;
+    /* left: 0; */
+    /* right: 0; */
     height: 50px;
+    display: flex;
+    /* border-bottom-style: solid;
+    border-bottom-color: #9B9B9B;
+    border-bottom-width: thin; */
     text-align: center;
     padding: 8px;
     color: #111111;
     font-size: 5px;
-    display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .header nav {
     list-style-type: none;
-    text-align: center;
+    text-align: right;
+    min-width: 800px;
     margin: 0;
     padding: 0;
 }
 .header nav span {
+    /* justify-content: flex-end; */
     display:inline-block;
     font-size: 15px;
     padding: 20px;
@@ -68,7 +73,7 @@ a {
 }
 .contain{
     width: 1200px;
-    margin-top:100px;
+    margin-top:30px;
     min-height: 500px;
     background-color: white;
     font-size: 18px;
@@ -79,29 +84,6 @@ a {
   margin-right:-120px;
   width:960px;
   height:1200px;
-  display: table-cell;
-}
-table.suite {
-    width: 800px;
-    border-collapse: separate;
-    border-spacing: 1px;
-    text-align: middle;
-    line-height: 1.5;
-    border-top: 1px solid #D4C1A1;
-    margin : 20px 10px;
-}
-table.suite th {
-    width: 150px;
-    padding: 10px;
-    font-weight: bold;
-    vertical-align: middle;
-    border-bottom: 1px solid #D4C1A1;
-}
-table.suite td {
-    width: 350px;
-    padding: 10px;
-    vertical-align: top;
-    border-bottom: 1px solid #D4C1A1;
 }
 .finish {
    clear: both;
@@ -127,4 +109,95 @@ table.suite td {
 .intro_right{
     float: right;
     font-size: 17px;
+}
+.login-form {
+  position: absolute;
+  background-color: #d2d2d4;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  padding: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.text-field {
+  border: none;
+  width: 90%;
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 10px;
+  margin-bottom: -12px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.submit-btn {
+  border: none;
+  width: 90%;
+  background-color: #D4C1A1;
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 7px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  color: white;
+}
+.links {
+  text-align: center;
+}
+.links a {
+  justify-content: space-between;
+  font-size: 12px;
+  color: #515A5A;
+}
+  .login-form {
+    position: absolute;
+    background-color: #d2d2d4;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    padding: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+  .text-field {
+    border: none;
+    width: 90%;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 10px;
+    margin-bottom: -12px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+  .submit-btn {
+    border: none;
+    width: 90%;
+    background-color: #D4C1A1;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 7px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    color: white;
+}
+  .links {
+    text-align: center;
+
+}
+  .links a {
+    justify-content: space-between;
+    font-size: 12px;
+    color: #515A5A;
 }
