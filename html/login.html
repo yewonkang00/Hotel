@@ -1,116 +1,20 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>로그인</title>
-  <style>
-   {
-    box-sizing: border-box;
-    font-family: 'Noto Sans KR', sans-serif;
-  }
-
-  body {
-    margin: 0;
-    background-color: #EEEFF1;
-    font-family: 나눔고딕;
-    overflow-y: hidden;
-  }
-  a {
-      color:#111111;
-      text-decoration:none
-  }
-
-  .header{
-      /* margin-left: auto; */
-      /* margin-right: auto; */
-      background-color: #D4C1A1;
-      min-width: 1500px;
-      /* position: relative; */
-      top: 0;
-      /* left: 0; */
-      /* right: 0; */
-      height: 50px;
-      display: flex;
-      /* border-bottom-style: solid;
-      border-bottom-color: #9B9B9B;
-      border-bottom-width: thin; */
-      text-align: center;
-      padding: 8px;
-      color: #111111;
-      font-size: 5px;
-      justify-content: space-between;
-      align-items: center;
-  }
-  .header nav {
-      list-style-type: none;
-      text-align: right;
-      min-width: 800px;
-      margin: 0;
-      padding: 0;
-  }
-  .header nav span {
-      /* justify-content: flex-end; */
-      display:inline-block;
-      font-size: 15px;
-      padding: 20px;
-  }
-
-  .login-form {
-    position: absolute;
-    background-color: #d2d2d4;
-    border-radius: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 300px;
-    padding: 20px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .text-field {
-    border: none;
-    width: 90%;
-    border-radius: 5px;
-    font-size: 14px;
-    padding: 10px;
-    margin-bottom: -12px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-  }
-
-  .submit-btn {
-    border: none;
-    width: 90%;
-    background-color: #D4C1A1;
-    border-radius: 5px;
-    font-size: 14px;
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 7px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    color: white;
-  }
-
-  .links {
-    text-align: center;
-  }
-
-  .links a {
-    font-size: 12px;
-    color: #9B9B9B;
-  }
-  </style>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="css/styles.css">
-  <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
-</head>
-
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>로그인</title>
+    <style>
+      body {
+        margin: 0;
+        background-color: #EEEFF1;
+        font-family: 나눔고딕;
+      }
+    </style>
+  </head>
 <body>
   <div class=header>
-      <img src="moon.png" width="80" height="80">
+      <a href="index.html"><img src="moon.png" width="80" height="80s"></a>
       <nav>
         <span><a href="intro.html">호텔 소개</a></span>
         <span><a href="room.html">객실</a></span>
@@ -129,11 +33,11 @@
       <input type="text" name="email" class="text-field" placeholder="ID"><br>
       <input type="password" name="password" class="text-field" placeholder="Password"><br>
       <input type="submit" value="SIGN IN" class="submit-btn">
-      <input type="submit" value="SIGN UP" class="submit-btn">
+      <input type="button" value="SIGN UP" onclick="location.href = 'register.html'"class="submit-btn">
     </form>
 
     <div class="links">
-      <a href="find_password.html">비밀번호를 잊어버리셨나요?</a>
+      <a href="find_password.html">비밀번호 찾기</a>
     </div>
   </div>
 </body>
