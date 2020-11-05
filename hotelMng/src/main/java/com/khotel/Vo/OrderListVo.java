@@ -19,4 +19,12 @@ class OrderListVO {
     public void setFoodCode(int foodCode) {
         FoodCode = foodCode;
     }
+
+    @Override
+    public String toString() {
+        return "OrderListVO{" +
+                "FoodOrderCode=" + FoodOrderCode +
+                ", FoodCode=" + FoodCode +
+                '}';
+    }
 }

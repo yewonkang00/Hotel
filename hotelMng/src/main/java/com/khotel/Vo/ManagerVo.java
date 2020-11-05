@@ -65,4 +65,17 @@ public class ManagerVo {
     public void setManagerDepartment(String managerDepartment) {
         ManagerDepartment = managerDepartment;
     }
+
+    @Override
+    public String toString() {
+        return "ManagerVo{" +
+                "ManagerCode=" + ManagerCode +
+                ", ManagerSex='" + ManagerSex + '\'' +
+                ", ManagerBirth='" + ManagerBirth + '\'' +
+                ", ManagerName='" + ManagerName + '\'' +
+                ", ManagerPosition='" + ManagerPosition + '\'' +
+                ", ManagerEnterdate='" + ManagerEnterdate + '\'' +
+                ", ManagerDepartment='" + ManagerDepartment + '\'' +
+                '}';
+    }
 }

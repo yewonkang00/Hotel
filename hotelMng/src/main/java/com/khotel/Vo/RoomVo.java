@@ -82,4 +82,19 @@ public class RoomVo {
     public void setRoonView(String roonView) {
         RoonView = roonView;
     }
+
+    @Override
+    public String toString() {
+        return "RoomVo{" +
+                "RoomCode=" + RoomCode +
+                ", RoomInfo='" + RoomInfo + '\'' +
+                ", RoomType='" + RoomType + '\'' +
+                ", RoomMaxpeople=" + RoomMaxpeople +
+                ", RoomFee=" + RoomFee +
+                ", Roomthings='" + Roomthings + '\'' +
+                ", RoomSize='" + RoomSize + '\'' +
+                ", ManagerCode=" + ManagerCode +
+                ", RoonView='" + RoonView + '\'' +
+                '}';
+    }
 }

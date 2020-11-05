@@ -50,7 +50,18 @@ public class ReservationVo {
 	public void setRoomCode(Integer roomCode) {
 		RoomCode = roomCode;
 	}
-	
-	
 
+
+	@Override
+	public String toString() {
+		return "ReservationVo{" +
+				"ReservationCode='" + ReservationCode + '\'' +
+				", ReservationCheckIn='" + ReservationCheckIn + '\'' +
+				", ReservationCheckOut='" + ReservationCheckOut + '\'' +
+				", ReservationPeopleNumber='" + ReservationPeopleNumber + '\'' +
+				", ReservationDate='" + ReservationDate + '\'' +
+				", UserId='" + UserId + '\'' +
+				", RoomCode=" + RoomCode +
+				'}';
+	}
 }

@@ -47,4 +47,15 @@ public class QnaVo {
     public void setQnaTitle(String qnaTitle) {
         QnaTitle = qnaTitle;
     }
+
+    @Override
+    public String toString() {
+        return "QnaVo{" +
+                "QnaCode=" + QnaCode +
+                ", QnaTitle='" + QnaTitle + '\'' +
+                ", QnaRegisterDate='" + QnaRegisterDate + '\'' +
+                ", QnaContent='" + QnaContent + '\'' +
+                ", UserId='" + UserId + '\'' +
+                '}';
+    }
 }

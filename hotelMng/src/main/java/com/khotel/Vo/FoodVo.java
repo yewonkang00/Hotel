@@ -49,5 +49,14 @@ public class FoodVo {
     }
 
 
-
+    @Override
+    public String toString() {
+        return "FoodVo{" +
+                "FoodCode=" + FoodCode +
+                ", FoodType='" + FoodType + '\'' +
+                ", FoodName='" + FoodName + '\'' +
+                ", Price=" + Price +
+                ", FoodCost=" + FoodCost +
+                '}';
+    }
 }

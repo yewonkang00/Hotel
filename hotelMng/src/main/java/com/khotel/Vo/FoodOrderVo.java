@@ -39,4 +39,14 @@ public class FoodOrderVo {
     public void setUserId(String userId) {
         UserId = userId;
     }
+
+    @Override
+    public String toString() {
+        return "FoodOrderVo{" +
+                "FoodOrderCode=" + FoodOrderCode +
+                ", FoodOrderTime='" + FoodOrderTime + '\'' +
+                ", Order=" + Order +
+                ", UserId='" + UserId + '\'' +
+                '}';
+    }
 }
