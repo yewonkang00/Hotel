@@ -1,4 +1,4 @@
-package com.khotel.Vo;
+package hotel_make.hotelmake.DTO;
 
 
 public class MemberVo {
@@ -16,6 +16,8 @@ public class MemberVo {
 	private String UserLevel = null;
 	private String UserGrade = null;
 	private String UserMile = null;
+
+
 	public String getUserId() {
 		return UserId;
 	}
@@ -94,9 +96,23 @@ public class MemberVo {
 	public void setUserMile(String userMile) {
 		UserMile = userMile;
 	}
-	
-	
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return "MemberVo{" +
+				"UserId='" + UserId + '\'' +
+				", UserPassword='" + UserPassword + '\'' +
+				", UserName='" + UserName + '\'' +
+				", UserPhone='" + UserPhone + '\'' +
+				", UserBirth='" + UserBirth + '\'' +
+				", UserEmail='" + UserEmail + '\'' +
+				", UserAddressState='" + UserAddressState + '\'' +
+				", UserAddressCity='" + UserAddressCity + '\'' +
+				", UserAddressStreet='" + UserAddressStreet + '\'' +
+				", UserAddressDetail='" + UserAddressDetail + '\'' +
+				", UserLevel='" + UserLevel + '\'' +
+				", UserGrade='" + UserGrade + '\'' +
+				", UserMile='" + UserMile + '\'' +
+				'}';
+	}
 }

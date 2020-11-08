@@ -1,8 +1,8 @@
-package com.khotel.Vo;
+package hotel_make.hotelmake.DTO;
 
 public class ManagerVo {
 
-    private int ManagerCode = null; // PK
+    private Integer ManagerCode = null; // PK
     private String ManagerSex = null;
     private String ManagerBirth = null;
     private String ManagerName = null;
@@ -10,11 +10,11 @@ public class ManagerVo {
     private String ManagerEnterdate = null;
     private String ManagerDepartment = null;
 
-    public int getManagerCode() {
+    public Integer getManagerCode() {
         return ManagerCode;
     }
 
-    public void setManagerCode(int managerCode) {
+    public void setManagerCode(Integer managerCode) {
         ManagerCode = managerCode;
     }
 
@@ -64,5 +64,18 @@ public class ManagerVo {
 
     public void setManagerDepartment(String managerDepartment) {
         ManagerDepartment = managerDepartment;
+    }
+
+    @Override
+    public String toString() {
+        return "ManagerVo{" +
+                "ManagerCode=" + ManagerCode +
+                ", ManagerSex='" + ManagerSex + '\'' +
+                ", ManagerBirth='" + ManagerBirth + '\'' +
+                ", ManagerName='" + ManagerName + '\'' +
+                ", ManagerPosition='" + ManagerPosition + '\'' +
+                ", ManagerEnterdate='" + ManagerEnterdate + '\'' +
+                ", ManagerDepartment='" + ManagerDepartment + '\'' +
+                '}';
     }
 }

@@ -1,18 +1,18 @@
-package com.khotel.Vo;
+package hotel_make.hotelmake.DTO;
 
-public class FoodOrderVo() {
+public class FoodOrderVo {
 
-    private int FoodOrderCode= null; /* 주키 */
+    private Integer FoodOrderCode= null; /* 주키 */
     private String FoodOrderTime = null;
-    private int Order = null;
+    private Integer Order = null;
     private String UserId = null;/* 외래키 */
     /* 음식코드 삭제 */
 
-    public int getFoodOrderCode() {
+    public Integer getFoodOrderCode() {
         return FoodOrderCode;
     }
 
-    public int getOrder() {
+    public Integer getOrder() {
         return Order;
     }
 
@@ -24,7 +24,7 @@ public class FoodOrderVo() {
         return UserId;
     }
 
-    public void setFoodOrderCode(int foodOrderCode) {
+    public void setFoodOrderCode(Integer foodOrderCode) {
         FoodOrderCode = foodOrderCode;
     }
 
@@ -32,12 +32,21 @@ public class FoodOrderVo() {
         FoodOrderTime = foodOrderTime;
     }
 
-    public void setOrder(int order) {
+    public void setOrder(Integer order) {
         Order = order;
     }
 
     public void setUserId(String userId) {
         UserId = userId;
     }
-    get
+
+    @Override
+    public String toString() {
+        return "FoodOrderVo{" +
+                "FoodOrderCode=" + FoodOrderCode +
+                ", FoodOrderTime='" + FoodOrderTime + '\'' +
+                ", Order=" + Order +
+                ", UserId='" + UserId + '\'' +
+                '}';
+    }
 }

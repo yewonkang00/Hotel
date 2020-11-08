@@ -1,23 +1,23 @@
-package com.khotel.Vo;
+package hotel_make.hotelmake.DTO;
 
 public class RoomVo {
 
-    private int RoomCode = null; // PK
+    private Integer RoomCode = null; // PK
     private String RoomInfo = null;
     private String RoomType = null;
-    private int RoomMaxpeople = null;
-    private int RoomFee = null;
+    private Integer RoomMaxpeople = null;
+    private Integer RoomFee = null;
     private String Roomthings = null;
     private String RoomSize = null;
-    private int ManagerCode = null; // FK
+    private Integer ManagerCode = null; // FK
     private String RoonView = null;
 
 
-    public int getRoomCode() {
+    public Integer getRoomCode() {
         return RoomCode;
     }
 
-    public void setRoomCode(int roomCode) {
+    public void setRoomCode(Integer roomCode) {
         RoomCode = roomCode;
     }
 
@@ -37,19 +37,19 @@ public class RoomVo {
         RoomType = roomType;
     }
 
-    public int getRoomMaxpeople() {
+    public Integer getRoomMaxpeople() {
         return RoomMaxpeople;
     }
 
-    public void setRoomMaxpeople(int roomMaxpeople) {
+    public void setRoomMaxpeople(Integer roomMaxpeople) {
         RoomMaxpeople = roomMaxpeople;
     }
 
-    public int getRoomFee() {
+    public Integer getRoomFee() {
         return RoomFee;
     }
 
-    public void setRoomFee(int roomFee) {
+    public void setRoomFee(Integer roomFee) {
         RoomFee = roomFee;
     }
 
@@ -65,16 +65,14 @@ public class RoomVo {
         return RoomSize;
     }
 
-    public void setRoomSize(String roomSize) {
-        RoomSize = roomSize;
+    public void setRoomSize(String roomSize) { RoomSize = roomSize; }
+
+    public Integer getStaffCode() {
+        return ManagerCode;
     }
 
-    public int getStaffCode() {
-        return StaffCode;
-    }
-
-    public void setStaffCode(int staffCode) {
-        StaffCode = staffCode;
+    public void setStaffCode(Integer staffCode) {
+        ManagerCode = staffCode;
     }
 
     public String getRoonView() {
@@ -83,5 +81,20 @@ public class RoomVo {
 
     public void setRoonView(String roonView) {
         RoonView = roonView;
+    }
+
+    @Override
+    public String toString() {
+        return "RoomVo{" +
+                "RoomCode=" + RoomCode +
+                ", RoomInfo='" + RoomInfo + '\'' +
+                ", RoomType='" + RoomType + '\'' +
+                ", RoomMaxpeople=" + RoomMaxpeople +
+                ", RoomFee=" + RoomFee +
+                ", Roomthings='" + Roomthings + '\'' +
+                ", RoomSize='" + RoomSize + '\'' +
+                ", ManagerCode=" + ManagerCode +
+                ", RoonView='" + RoonView + '\'' +
+                '}';
     }
 }

@@ -1,10 +1,10 @@
-package com.khotel.Vo;
+package hotel_make.hotelmake.DTO;
 
-public class OrderList() {
-    private int FoodOrderCode = null;
-    private int FoodCode = null;
+class OrderListVO {
+    private Integer FoodOrderCode = null;
+    private Integer FoodCode = null;
 
-    public int getFoodOrderCode() {
+    public Integer getFoodOrderCode() {
         return FoodOrderCode;
     }
 
@@ -18,5 +18,13 @@ public class OrderList() {
 
     public void setFoodCode(int foodCode) {
         FoodCode = foodCode;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderListVO{" +
+                "FoodOrderCode=" + FoodOrderCode +
+                ", FoodCode=" + FoodCode +
+                '}';
     }
 }

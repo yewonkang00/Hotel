@@ -1,22 +1,22 @@
-package com.khotel.Vo;
+package hotel_make.hotelmake.DTO;
 
-public class FoodVo() {
+public class FoodVo {
 
-    private int FoodCode = null;
+    private Integer FoodCode = null;
     private String FoodType = null;
     private String FoodName = null;
-    private int Price = null;
-    private int FoodCost = null;
+    private Integer Price = null;
+    private Integer FoodCost = null;
 
-    public int getFoodCode() {
+    public Integer getFoodCode() {
         return FoodCode;
     }
 
-    public int getFoodCost() {
+    public Integer getFoodCost() {
         return FoodCost;
     }
 
-    public int getPrice() {
+    public Integer getPrice() {
         return Price;
     }
 
@@ -28,11 +28,11 @@ public class FoodVo() {
         return FoodType;
     }
 
-    public void setFoodCode(int foodCode) {
+    public void setFoodCode(Integer foodCode) {
         FoodCode = foodCode;
     }
 
-    public void setFoodCost(int foodCost) {
+    public void setFoodCost(Integer foodCost) {
         FoodCost = foodCost;
     }
 
@@ -44,13 +44,19 @@ public class FoodVo() {
         FoodType = foodType;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(Integer price) {
         Price = price;
     }
 
 
-    Member member = new Member();
-    Reservation reservation = new Reservation();
-
-    reservation.getUser
+    @Override
+    public String toString() {
+        return "FoodVo{" +
+                "FoodCode=" + FoodCode +
+                ", FoodType='" + FoodType + '\'' +
+                ", FoodName='" + FoodName + '\'' +
+                ", Price=" + Price +
+                ", FoodCost=" + FoodCost +
+                '}';
+    }
 }

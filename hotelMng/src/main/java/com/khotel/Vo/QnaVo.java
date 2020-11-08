@@ -1,14 +1,14 @@
-package com.khotel.Vo;
+package hotel_make.hotelmake.DTO;
 
-public class QnaVo() {
+public class QnaVo {
 
-    private int QnaCode = null;       /*주키*/
+    private Integer QnaCode = null;       /*주키*/
     private String QnaTitle = null;
     private String QnaRegisterDate = null;
     private String QnaContent = null;
-    private string UserId = null;   /*외래키*/
+    private String UserId = null;   /*외래키*/
 
-    public int getQnaCode() {
+    public Integer getQnaCode() {
         return QnaCode;
     }
 
@@ -24,15 +24,15 @@ public class QnaVo() {
         return QnaTitle;
     }
 
-    public string getUserId() {
+    public String getUserId() {
         return UserId;
     }
 
-    public void setUserId(string userId) {
+    public void setUserId(String userId) {
         UserId = userId;
     }
 
-    public void setQnaCode(int qnaCode) {
+    public void setQnaCode(Integer qnaCode) {
         QnaCode = qnaCode;
     }
 
@@ -46,5 +46,16 @@ public class QnaVo() {
 
     public void setQnaTitle(String qnaTitle) {
         QnaTitle = qnaTitle;
+    }
+
+    @Override
+    public String toString() {
+        return "QnaVo{" +
+                "QnaCode=" + QnaCode +
+                ", QnaTitle='" + QnaTitle + '\'' +
+                ", QnaRegisterDate='" + QnaRegisterDate + '\'' +
+                ", QnaContent='" + QnaContent + '\'' +
+                ", UserId='" + UserId + '\'' +
+                '}';
     }
 }
