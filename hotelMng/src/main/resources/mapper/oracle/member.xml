@@ -3,6 +3,45 @@
 
 <mapper namespace="member">
 	
+	<select id="selectMember" parameterType="MemberVo" resultType="MemberVo">
+		SELECT * FROM use WHERE UserId = #{UserId}
+	</select>
+		
+		
+	<insert id="insertMember" parameterType="MemberVo">
+		INSERT INTO use (UserId
+						,UserPassword
+						,UserName
+						,UserPhone
+						,UserBirth
+						,UserEmail
+						,UserAddressState
+						,UserAddressCity
+						,UserAddressStreet
+						,UserAddressDetail
+						,UserLevel
+						,UserGrade
+						,UserMile
+						,UserGender
+		)
+		
+		VALUES (#{UserId}
+				, #{UserPassword}
+				, #{UserName}
+				, #{UserPhone}
+				, #{UserBirth}
+				, #{UserEmail}
+				, #{UserAddressState}
+				, #{UserAddressCity}
+				, #{UserAddressStreet}
+				, #{UserAddressDetail}
+				, '1'
+				, '0'
+				, '0'
+				, #{UserGender}
+		)
+	</insert>
+	
 	<select id="selectBoardCount" resultType="Integer">
 		SELECT COUNT(*) FROM Member
 	</select>
@@ -50,47 +89,9 @@
 	<select id="findDateTotal" parameterType="java.util.Map" resultType="Integer">
 		SELECT COUNT(*) FROM Member WHERE DATE(joinDate) between #{startDate} and #{endDate}
 	</select>
+
 	
-	<select id="selectMember" parameterType="MemberVo" resultType="MemberVo">
-		SELECT * 
-		FROM Member 
-		WHERE id = #{id}
-	</select>
 	
-	<insert id="insertMember" parameterType="MemberVo">
-		INSERT INTO Member (id
-						,password
-						,subscriberName
-						,subscriberTelephone
-						,subscriberCellphone
-						,buisnessName
-						,buisnessNumber
-						,chargemanagerName
-						,chargemanagerTelephone
-						,chargemanagerFaxnumber
-						,chargemanagerMailnumber
-						,chargemanagerAddress
-						,chargemanagerAddressDetail
-						,chargemanagerEmail
-						,joinDate
-		)
-		VALUES (#{id}
-				, #{password}
-				, #{subscriberName}
-				, #{subscriberTelephone}
-				, #{subscriberCellphone}
-				, #{buisnessName}
-				, #{buisnessNumber}
-				, #{chargemanagerName}
-				, #{chargemanagerTelephone}
-				, #{chargemanagerFaxnumber}
-				, #{chargemanagerMailnumber}
-				, #{chargemanagerAddress}
-				, #{chargemanagerAddressDetail}
-				, #{chargemanagerEmail}
-				, now()
-		)
-	</insert>
 	
 	<update id="updateMember" parameterType="MemberVo">
 		UPDATE Member SET password=#{password}
@@ -112,14 +113,5 @@
 	<select id="checkId" parameterType="String" resultType="MemberVo">
 		SELECT id from Member WHERE id=#{id}
 	</select>
-	
-	<insert id="insertUser" parameterType="MemberVo">
-		INSERT INTO use (userid
-						,userpassword
-		)
-		VALUES (#{id}
-				, #{password}
 
-		)
-	</insert>	
 </mapper>

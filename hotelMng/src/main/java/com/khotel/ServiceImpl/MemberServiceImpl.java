@@ -20,12 +20,75 @@ public class MemberServiceImpl implements MemberService {
 
 	@Resource(name="memberDao")
 	MemberDao memberDao;
-
-
+	
+	@Override
+	public List<MemberVo> selectMemberList(MemberVo memberVo) throws Exception {
+		return memberDao.selectMemberList(memberVo);
+	}
+	
+	@Override
+	public MemberVo selectMember(MemberVo memberVo) throws Exception {
+		return memberDao.selectMember(memberVo);
+	}
+	
+	@Override
+	public void insertMember(MemberVo memberVo) throws Exception {
+		memberDao.insertMember(memberVo);
+	}
+	
+	@Override
+	public void updateMember(MemberVo memberVo) throws Exception {
+		memberDao.updateMember(memberVo);
+	}
+	
+	@Override
+	public void deleteMember(MemberVo memberVo) throws Exception {
+		memberDao.deleteMember(memberVo);
+	}
 
 	@Override
-	public void insertUser(MemberVo memberVo) throws Exception {
-		memberDao.insertUser(memberVo);
+	public MemberVo checkId(String id) throws Exception {
+		return memberDao.checkId(id);
+	}
+
+	@Override
+	public List<MemberVo> viewMemberList() throws Exception {
+		return memberDao.viewMemberList();
+	}
+
+	@Override
+	public int selectBoardCount() {
+		return memberDao.selectBoardCount();
+	}
+
+	@Override
+	public List<MemberVo> listBlockSelect(HashMap<String, Object> map) {
+		return memberDao.listBlockSelect(map);
+	}
+
+	@Override
+	public MemberVo boardView(String id) {
+		return memberDao.boardView(id);
+	}
+
+	@Override
+	public List<MemberVo> listFindName(HashMap<String, Object> map) {
+		return memberDao.listFindName(map);
+	}
+
+	@Override
+	public int findNameTotal(HashMap<String, Object> map) {
+		return memberDao.findNameTotal(map);
+	}
+
+	@Override
+	public List<MemberVo> viewList(HashMap<String, Object> map) {
+		return memberDao.viewList(map);
+	}
+
+	@Override
+	public int findDateTotal(HashMap<String, Object> map) {
+		return memberDao.findDateTotal(map);
 	}
 
 }

@@ -1,4 +1,4 @@
-package hotel_make.hotelmake.DTO;
+package com.khotel.Vo;
 
 public class ReservationVo {
 	private String ReservationCode = null;
@@ -7,7 +7,7 @@ public class ReservationVo {
 	private String ReservationPeopleNumber = null;
 	private String ReservationDate = null;
 	private String UserId = null;
-	private Integer RoomCode = null;
+	private int RoomCode = 0;
 	public String getReservationCode() {
 		return ReservationCode;
 	}
@@ -44,24 +44,13 @@ public class ReservationVo {
 	public void setUserId(String userId) {
 		UserId = userId;
 	}
-	public Integer getRoomCode() {
+	public int getRoomCode() {
 		return RoomCode;
 	}
-	public void setRoomCode(Integer roomCode) {
+	public void setRoomCode(int roomCode) {
 		RoomCode = roomCode;
 	}
+	
+	
 
-
-	@Override
-	public String toString() {
-		return "ReservationVo{" +
-				"ReservationCode='" + ReservationCode + '\'' +
-				", ReservationCheckIn='" + ReservationCheckIn + '\'' +
-				", ReservationCheckOut='" + ReservationCheckOut + '\'' +
-				", ReservationPeopleNumber='" + ReservationPeopleNumber + '\'' +
-				", ReservationDate='" + ReservationDate + '\'' +
-				", UserId='" + UserId + '\'' +
-				", RoomCode=" + RoomCode +
-				'}';
-	}
 }

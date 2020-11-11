@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.khotel.Service.MemberService;
 import com.khotel.Util.BoardPaging;
-import com.khotel.Util.SHA256;
 import com.khotel.Vo.MemberVo;
 
 
@@ -72,16 +71,71 @@ public class HomeController {
 		
 		return "/login/login";
 	}	
+	
 	@RequestMapping(value = "/memeber/join.do") 
 	public @ResponseBody Map join(MemberVo loginMember, HttpServletRequest request) throws Exception {
+		MemberVo memberVo = new MemberVo();
+		MemberVo selectMemberVo = new MemberVo();
 		Map map = new HashMap();
 		
+		HttpSession session = request.getSession();
+		//session.invalidate();
+		System.out.println(loginMember.getUserId());
+		selectMemberVo = memberService.selectMember(loginMember);
+		if(selectMemberVo == null) {
+			map.put("resultMsg", "IDfail");
+		}
+		else if(!selectMemberVo.getUserPassword().equals(loginMember.getUserPassword())){
+			map.put("resultMsg", "Passwordfail");
+		}
+		else if(selectMemberVo.getUserPassword().equals(loginMember.getUserPassword())){
+			if(selectMemberVo.getUserLevel().equals("2")) {
+				map.put("resultMsg", "Manager");
+			} else {
+				map.put("resultMsg", "Success");
+			}
+			session.setAttribute("sessionUID" , selectMemberVo.getUserId());
+			String json = new ObjectMapper().writeValueAsString(selectMemberVo);
+			session.setAttribute("result", json );
+			session.setAttribute("loginMemberSession" , selectMemberVo);
+		}else {
+			map.put("resultMsg", "fail");
+		}
+		System.out.println(map);
+		return map;
+	}
+	
+
+	@RequestMapping(value = "/memeber/signup.do", method = RequestMethod.GET)
+	public String singup(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
 		
-		memberService.insertUser(loginMember);
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		
+		String formattedDate = dateFormat.format(date);
+		
+		model.addAttribute("serverTime", formattedDate );
+		
+		return "/login/register";
+	}	
+	
+	
+	@RequestMapping(value = "/memeber/regist.do") 
+	public @ResponseBody Map regist(MemberVo registMember, HttpServletRequest request) throws Exception {
+		MemberVo memberVo = new MemberVo();
+		MemberVo insertMemberVo = new MemberVo();
+		Map map = new HashMap();
+		MemberVo selectMemberVo = new MemberVo();
+		
+		selectMemberVo = memberService.selectMember(registMember);
+		if(selectMemberVo != null) {
+			map.put("resultMsg", "IDDup");
+		} else {		
+		memberService.insertMember(registMember);
+		HashMap<String, Object> resultMap = new HashMap<String, Object>();
 		map.put("resultMsg", "success");
-		map.put("auth", "success");
-		
+		}
 		return map;
 	}
 	
@@ -110,7 +164,7 @@ public class HomeController {
 		return "/main";
 	}
 	
-	@RequestMapping(value = "/main2", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String main2(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
@@ -121,7 +175,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "/main2";
+		return "/main";
 	}
 	
 	@RequestMapping(value = "/home2", method = RequestMethod.GET)
