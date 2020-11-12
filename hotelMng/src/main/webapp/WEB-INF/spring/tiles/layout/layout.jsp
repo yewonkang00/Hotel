@@ -35,17 +35,9 @@ html, body { margin:0; padding:0; height:100%; }
 </head>
 <body>
 	<table id="wrapper" style="width:100%">
-		<tr id="header">
-			<td colspan="2"><tiles:insertAttribute name="header"/>
-		</tr>
-
 		<tr id="body">
 			<td style="width:10%;"><tiles:insertAttribute name="leftSide"/></td>
 			<td><tiles:insertAttribute name="content"/></td>
-		</tr>
-		
-		<tr id="footer">
-			<td colspan="2"><tiles:insertAttribute name="footer"/>
 		</tr>
 	</table>
 </body>
