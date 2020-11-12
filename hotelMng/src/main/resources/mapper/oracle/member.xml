@@ -4,12 +4,12 @@
 <mapper namespace="member">
 	
 	<select id="selectMember" parameterType="MemberVo" resultType="MemberVo">
-		SELECT * FROM use WHERE UserId = #{UserId}
+		SELECT * FROM MEMBER WHERE UserId = #{UserId}
 	</select>
 		
 		
 	<insert id="insertMember" parameterType="MemberVo">
-		INSERT INTO use (UserId
+		INSERT INTO MEMBER (UserId
 						,UserPassword
 						,UserName
 						,UserPhone
@@ -42,6 +42,13 @@
 		)
 	</insert>
 	
+		
+	<select id="listMember" resultType="MemberVo">	
+	SELECT *
+	FROM Member
+	</select>
+	
+	
 	<select id="selectBoardCount" resultType="Integer">
 		SELECT COUNT(*) FROM Member
 	</select>
@@ -64,27 +71,7 @@
 		SELECT * FROM Member WHERE id=#{id}
 	</select>
 
-	
-	<select id="viewList" parameterType="java.util.Map" resultType="MemberVo">	
-	SELECT *
-	FROM(
-		SELECT *
-		FROM (
-		SELECT @NO := @NO + 1 AS ROWNUM, A.*
-		FROM
-		  (
-			SELECT *
-			FROM Member 
-		  ) A,
-		  ( SELECT @NO := 0 ) B 
-		) C
-		WHERE C.ROWNUM BETWEEN #{startNum} AND #{endNum}
-	)D
-	WHERE DATE(joinDate) BETWEEN #{startDate} AND #{endDate}
-		<if test="name != null">
-			AND subscriberName LIKE CONCAT('%',#{name},'%')
-		</if> 
-	</select>
+
 	
 	<select id="findDateTotal" parameterType="java.util.Map" resultType="Integer">
 		SELECT COUNT(*) FROM Member WHERE DATE(joinDate) between #{startDate} and #{endDate}

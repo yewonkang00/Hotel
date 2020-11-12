@@ -164,10 +164,11 @@ public class HomeController {
 		return "/main";
 	}
 	
-	@RequestMapping(value = "/admin", method = RequestMethod.GET)
-	public String main2(Locale locale, Model model) {
+	@RequestMapping(value = "/admin")
+	public String main2(Locale locale, Model model, HttpServletRequest request) throws Exception {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
+		List<MemberVo> memberList = null;
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		
@@ -175,7 +176,16 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "/main";
+		//회원 가져오기 - check
+		try {
+			memberList = memberService.listMember();
+		} catch (Exception e) {
+			
+		}
+		System.out.println(memberList.get(0).getUserId());
+		System.out.println(memberList.get(0).getUserName());
+		model.addAttribute("memberList", memberList );
+		return "/admin/memberList";
 	}
 	
 	@RequestMapping(value = "/home2", method = RequestMethod.GET)

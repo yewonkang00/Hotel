@@ -7,15 +7,15 @@
 
 	<!-- (1) 레이아웃을 적용하지않는화면-->
 	<definition name=".mainLayout" template="/WEB-INF/spring/tiles/layout/tilesLayout.jsp">
-		<put-attribute name="header" value="/WEB-INF/spring/tiles/tile/header.jsp" />
+		<put-attribute name="header" value="/WEB-INF/spring/tiles/tile/emptyHeader.jsp" />
 		<put-attribute name="leftSide" value="" />
 		<put-attribute name="footer" value="/WEB-INF/spring/tiles/tile/footer.jsp" />
 	</definition>
 	
 	<!-- (2) 왼쪽 메뉴 레이아웃을 적용하는 화면 -->
 	<definition name=".adminlayout" template="/WEB-INF/spring/tiles/layout/layout.jsp">
-		<put-attribute name="header" value="/WEB-INF/spring/tiles/tile/header.jsp" />
-		<put-attribute name="leftSide" value="/WEB-INF/spring/tiles/tile/leftMenu.jsp" />
+		<put-attribute name="header" value="/WEB-INF/spring/tiles/tile/emptyHeader.jsp" />
+		<put-attribute name="leftSide" value="" />
 		<put-attribute name="footer" value="/WEB-INF/spring/tiles/tile/footer.jsp" />
 	</definition>
 	

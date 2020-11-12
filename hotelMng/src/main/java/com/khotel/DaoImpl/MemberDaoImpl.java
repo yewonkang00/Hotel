@@ -54,8 +54,8 @@ public class MemberDaoImpl implements MemberDao {
 	}
 
 	@Override
-	public List<MemberVo> viewMemberList() throws Exception {
-		return sqlSession.selectList("member.viewMemberList");
+	public List<MemberVo> listMember() throws Exception {
+		return sqlSession.selectList("member.listMember");
 	}
 
 	@Override

@@ -52,8 +52,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public List<MemberVo> viewMemberList() throws Exception {
-		return memberDao.viewMemberList();
+	public List<MemberVo> listMember() throws Exception {
+		return memberDao.listMember();
 	}
 
 	@Override

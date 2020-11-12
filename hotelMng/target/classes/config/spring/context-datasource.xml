@@ -24,9 +24,9 @@
     <!-- 오라클 설정 -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-        <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
-        <property name="username" value="hotel" />
-        <property name="password" value="1234" />
+        <property name="url" value="jdbc:oracle:thin:@hoteloracle.cg2mt2kbfra8.ap-northeast-2.rds.amazonaws.com:1521:DBHOTEL" />
+        <property name="username" value="dbhotel" />
+        <property name="password" value="dbhotel00" />
     </bean>
 	
 	<!-- mysql 
