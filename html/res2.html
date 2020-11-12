@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css" type="text/css">
+        <title>Welcom Delluna!</title>
+
+    </head>
+    <body>
+        <div class=header>
+            <a href="index.html"><img src="moon.png" width="80" height="80s"></a>
+            <nav>
+                <span><a href="intro.html">호텔 소개</a></span>
+                <span><a href="room.html">객실</a></span>
+                <span><a href="restaurant.html">레스토랑</a></span>
+                <span><a href="res.html">예약</a></span>
+                <span><a href="res_confirm.html">예약 확인</a></span>
+                <span><a href="qna.html">고객문의</a></span>
+                <span><a href="facility.html">편의시설</a></span>
+                <span><a href="login.html">로그인</a></span>
+            </nav>
+
+        </div>
+        <div class=res_content>
+          <div class=res_search>
+            <form method="get" action="write_action.php" enctype="multipart/form-data"> <!--예약 작성하는 폼-->
+              <table class="res2_form">
+                <tbody>
+                  <tr>
+                    <td id="res2_tit">요청사항</td>
+                  </tr>
+                  <tr>
+                    <td>기타 남기실 말씀</td>
+                    <td><textarea name="content" cols="85" rows="15"></textarea></td>
+                  </tr>
+                  <tr>
+                    <td id="res2_tit">예약자 정보</td>
+                  </tr>
+                  <tr>
+                    <td>이름</td>
+                    <td><input type="text" name="title" size="20"></td>
+                  </tr>
+                  <tr>
+                    <td>생년월일</td>
+                    <td><input type="text" name="title" size="20"></td>
+                    <td>연락처</td>
+                    <td><input type="text" name="title" size="20"></td>
+                  </tr>
+                  <tr>
+                    <td>주소</td>
+                    <td><input type="text" name="title" size="20" value="시/도"></td>
+                    <td><input type="text" name="title" size="20" value="시/군/구"></td>
+                    <td><input type="text" name="title" size="20" value="동"></td>
+                  </tr>
+                  <tr>
+                    <td>이메일</td>
+                    <td><input type="text" name="title" size="20"></td>
+                    <td><input type="text" name="title" size="20"></td>
+                  </tr>
+                  <tr>
+                    <td id="res2_tit">결재금액</td>
+                  </tr>
+                  <tr>
+                    <td>객실 가격</td>
+                    <td>240,000원</td>
+                  </tr>
+                  <tr>
+                    <td>추가 금액</td>
+                    <td>0원</td>
+                  </tr>
+                  <tr>
+                    <td>부과세</td>
+                    <td>24,000원</td>
+                  </tr>
+                  <tr>
+                    <td>최종 결재 금액</td>
+                    <td>264,000원</td>
+                  </tr>
+                </tbody>
+              </table>
+              <button type="button" id="res_btn" onclick="location.href='res.html'">결재하기</button>
+            </form>
+          </div>
+        </div>
+        <div class="finish">
+            <p> 사업자 번호: 110-10-12345<br/>
+                사업장소재지: 경기도 이천시 마장면 장암리<br/>
+                대표자: 홍길동<br/>
+                Copyright ⓒ 2020 Hotel Group. All rights reserved.
+            </p>
+        </div>
+    </body>
+</html>
