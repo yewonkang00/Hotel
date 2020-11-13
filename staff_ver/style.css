@@ -1,0 +1,105 @@
+/* common */
+
+body {
+    /* margin-left:auto;
+    margin-right: auto; */
+    margin: 0px;
+    padding:0px;
+    background-color: white;
+    font-family:나눔고딕;
+    -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+a {
+    color:#111111;
+    text-decoration:none;
+
+}
+
+/* main_login */
+
+/* login-form */
+
+.login-form {
+  position: absolute;
+  background-color: #d2d2d4;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  padding: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.text-field {
+  border: none;
+  width: 90%;
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 10px;
+  margin-bottom: -12px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.submit-btn {
+  border: none;
+  width: 90%;
+  background-color: #D4C1A1;
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 7px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  color: white;
+}
+
+/* button-menu */
+
+    /* layout */
+.flex-container {
+    height: 100%;
+    position: absolute;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+    /* button */
+.button-menu {
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background-color: #D4C1A1;
+	border-radius:5px;
+	border:1px solid #dcdcdc;
+	display: inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:나눔고딕;
+	font-size:30px;
+	font-weight:bold;
+	padding:64px;
+    margin: 10px;
+    width: 30%;
+	text-decoration:none;
+    text-align: center;
+}
+.button-menu:hover {
+	background-color:#d1c7b6;
+}
+.button-menu:active {
+	position:relative;
+	top:1px;
+}
