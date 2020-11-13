@@ -176,7 +176,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		//회원 가져오기 - check
+		//�쉶�썝 媛��졇�삤湲� - check
 		try {
 			memberList = memberService.listMember();
 		} catch (Exception e) {
@@ -203,11 +203,63 @@ public class HomeController {
 	}
 	
 	
-	@RequestMapping(value = "/introduction", method = RequestMethod.GET)
-	public String introduction(Locale locale, Model model) {
 	
-		return "/main/introduction";
-	}
+	@RequestMapping(value = "/intro.do", method = RequestMethod.GET)
+	   public String intro(Locale locale, Model model) {
+	      logger.info("Welcome home! The client locale is {}.", locale);
+	      
+	      Date date = new Date();
+	      DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+	      
+	      String formattedDate = dateFormat.format(date);
+	      
+	      model.addAttribute("serverTime", formattedDate );
+	      
+	      return "/intro/introduction";
+	   }
+	
+	
+	@RequestMapping(value = "/intro_hotel.do", method = RequestMethod.GET)
+	   public String intro_hotel(Locale locale, Model model) {
+	      logger.info("Welcome home! The client locale is {}.", locale);
+	      
+	      Date date = new Date();
+	      DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+	      
+	      String formattedDate = dateFormat.format(date);
+	      
+	      model.addAttribute("serverTime", formattedDate );
+	      
+	      return "/intro/introduction_hotel";
+	   }
+	
+	@RequestMapping(value = "/room.do", method = RequestMethod.GET)
+	   public String room(Locale locale, Model model) {
+	      logger.info("Welcome home! The client locale is {}.", locale);
+	      
+	      Date date = new Date();
+	      DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+	      
+	      String formattedDate = dateFormat.format(date);
+	      
+	      model.addAttribute("serverTime", formattedDate );
+	      
+	      return "/room/suiteroom";
+	   }
+	
+	@RequestMapping(value = "/room_standard.do", method = RequestMethod.GET)
+	   public String room_standard(Locale locale, Model model) {
+	      logger.info("Welcome home! The client locale is {}.", locale);
+	      
+	      Date date = new Date();
+	      DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+	      
+	      String formattedDate = dateFormat.format(date);
+	      
+	      model.addAttribute("serverTime", formattedDate );
+	      
+	      return "/room/standardroom";
+	   }
 	
 
 	
