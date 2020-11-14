@@ -26,11 +26,19 @@
 	<div class=header>
 		<img src="/resources/image/moon.png" width="100" height="100">
 		<nav>
-			<span><a href="/intro.do">호텔 소개</a></span> <span><a
-				href="/room.do">객실</a></span> <span><a href="menu.html">레스토랑</a></span> <span><a
-				href="menu.html">예약</a></span> <span><a href="menu.html">예약 확인</a></span> <span><a
-				href="menu.html">고객문의</a></span> <span><a href="/login.do">편의시설</a></span>
-			<span><a href="/login.do">로그인</a></span>
+			<span><a href="/intro.do">호텔 소개</a></span>
+            <span><a href="/room.do">객실</a></span>
+            <span><a href="menu.html">레스토랑</a></span>
+            <span><a href="menu.html">예약</a></span>
+            <span><a href="menu.html">예약 확인</a></span>
+            <span><a href="/qna/list.do">고객문의</a></span>
+            <span><a href="/login.do">편의시설</a></span>
+            <span>
+            	<c:choose>
+					<c:when test="${member != null}"><a href="/logout.do">로그아웃</a></c:when>
+					<c:otherwise><a href="/login.do">로그인</a></c:otherwise>
+				</c:choose>
+            </span>
 		</nav>
 
 	</div>
