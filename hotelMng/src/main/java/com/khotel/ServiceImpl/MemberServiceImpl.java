@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.inject.Inject;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +19,7 @@ import com.khotel.Vo.MemberVo;
 public class MemberServiceImpl implements MemberService {
 	private final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
-	@Resource(name="memberDao")
+	@Inject
 	MemberDao memberDao;
 	
 	@Override

@@ -81,7 +81,7 @@
     </head>
     <body>
         <div class=header>
-            <img src="moon.png" width="100" height="100">
+            <img src="/resources/image/moon.png" width="100" height="100">
             <nav>
                 <span><a href="menu.html">호텔 소개</a></span>
                 <span><a href="menu.html">객실</a></span>

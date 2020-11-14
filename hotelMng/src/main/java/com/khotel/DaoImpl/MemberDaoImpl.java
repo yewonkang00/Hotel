@@ -3,6 +3,7 @@ package com.khotel.DaoImpl;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.inject.Inject;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +21,7 @@ public class MemberDaoImpl implements MemberDao {
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@Autowired 
+	@Inject
 	SqlSessionTemplate sqlSession;
 	
 	@Override
