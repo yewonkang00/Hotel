@@ -6,9 +6,8 @@
        * {
            font-family: 'Noto Sans KR', sans-serif;
          }
-
 	</style>
-	
+
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/resources/image/moon.png" type="text/css">
         <link rel="stylesheet" href="/resources/css/style_standardroom.css" type="text/css">
@@ -96,4 +95,3 @@
         </div>
     </body>
 </html>
-

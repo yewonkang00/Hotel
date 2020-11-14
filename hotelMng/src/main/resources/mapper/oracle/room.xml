@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="room">
+
+	<select id="selectRoom" parameterType="RoomVo" resultType="RoomVo">
+		SELECT * FROM Room WHERE Room_No = #{Room_No}
+	</select>
+	
+	<select id="listRoom" resultType="RoomVo">	
+		SELECT *
+		FROM Room
+	</select>
+	
+	<select id="reservation" parameterType="RoomVo" resultType="RoomVo">
+		SELECT 
+	</select>
+	
+</mapper>

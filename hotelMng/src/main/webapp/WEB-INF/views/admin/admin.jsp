@@ -4,6 +4,7 @@
 <html lang="ko">
     <head>
         <meta charset="UTF-8">
+        <script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
         <style>
             * {
                 font-family: 'Noto Sans KR', sans-serif;
@@ -77,25 +78,29 @@
 
         </style>
         <title>Welcom Delluna!</title>
+        
+         <script type="text/javascript">
+        	var sessionLevel = '${member.userLevel}';
+	
+			if(sessionLevel == null || sessionLevel == 'null' || sessionLevel=="" || sessionLevel == "1"){
+				alert("관리자 권한이 없습니다.");
+				location.href="/main";
+			}
+		</script>
 
     </head>
     <body>
         <div class=header>
             <img src="/resources/image/moon.png" width="100" height="100">
             <nav>
-                <span><a href="/intro.do">호텔 소개</a></span>
-                <span><a href="/room.do">객실</a></span>
-                <span><a href="menu.html">레스토랑</a></span>
-                <span><a href="menu.html">예약</a></span>
-                <span><a href="menu.html">예약 확인</a></span>
-                <span><a href="menu.html">고객문의</a></span>
-                <span><a href="/login.do">편의시설</a></span>
+                <span><a href="/admin/memberList">회원리스트</a></span>
+                <span><a href="/admin/roomList">객실List</a></span>
                 <span>
-                	<c:choose>
-   						<c:when test="${member != null}"><a href="/logout.do">로그아웃</a></c:when>
-   						<c:otherwise><a href="/login.do">로그인</a></c:otherwise>
-   					</c:choose>
-                </span>
+		        	<c:choose>
+		  				<c:when test="${member != null}"><a href="/logout.do">로그아웃</a></c:when>
+		   				<c:otherwise><a href="/login.do">로그인</a></c:otherwise>
+		   			</c:choose>
+       			</span>
             </nav>
             
         </div>
