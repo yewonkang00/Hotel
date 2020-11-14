@@ -186,6 +186,7 @@
 		} else if (UserPassword != passwordCheck) {
 			alert("비밀번호를 다시 확인해주세요.")
 			$('#passwordCheck').focus();
+			return false;
 		} else if (UserName == "") {
 			alert("이름을 입력해주세요.");
 			$('#UserName').focus();
@@ -205,12 +206,13 @@
 
 		$.ajax({
 			type : "POST",
-			url : "/memeber/regist.do",
+			url : "/memeber/registAction.do",
 			data : data,
 			datatype : 'json',
 			success : function(data) {
 				var result = data["resultMsg"];
-				if(result == "Success"){
+				if(result == "success"){
+					alert("회원가입이 완료되었습니다!")
 					location.href="/login.do";
 				}else if(result == "IDDup"){
 					alert("이미 사용중인 아이디입니다.");

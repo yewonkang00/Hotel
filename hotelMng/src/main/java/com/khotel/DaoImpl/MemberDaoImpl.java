@@ -44,6 +44,11 @@ public class MemberDaoImpl implements MemberDao {
 	}
 	
 	@Override
+	public void updateLevel(MemberVo memberVo) throws Exception {
+		sqlSession.update("member.updateLevel", memberVo);
+	}
+	
+	@Override
 	public void deleteMember(MemberVo memberVo) throws Exception {
 		sqlSession.delete("member.deleteMember", memberVo);
 	}
