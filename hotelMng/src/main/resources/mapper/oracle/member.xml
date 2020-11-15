@@ -42,6 +42,10 @@
 		)
 	</insert>
 	
+	<update id="updateLevel" parameterType="MemberVo">
+		UPDATE Member SET UserLevel=#{UserLevel}
+		WHERE UserId=#{UserId}
+	</update>
 		
 	<select id="listMember" resultType="MemberVo">	
 	SELECT *
@@ -96,6 +100,8 @@
 						,chargemanagerEmail=#{chargemanagerEmail}
 		WHERE id=#{id}
 	</update>
+	
+	
 	
 	<select id="checkId" parameterType="String" resultType="MemberVo">
 		SELECT id from Member WHERE id=#{id}
