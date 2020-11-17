@@ -6,8 +6,11 @@ public class ReservationVo {
 	private String ReservationCheckOut = null;
 	private String ReservationPeopleNumber = null;
 	private String ReservationDate = null;
+	private String ReservationMemo = null;
 	private String UserId = null;
 	private int RoomCode = 0;
+	private int ReservationDays = 0;
+	
 	public String getReservationCode() {
 		return ReservationCode;
 	}
@@ -49,6 +52,18 @@ public class ReservationVo {
 	}
 	public void setRoomCode(int roomCode) {
 		RoomCode = roomCode;
+	}
+	public String getReservationMemo() {
+		return ReservationMemo;
+	}
+	public void setReservationMemo(String reservationMemo) {
+		ReservationMemo = reservationMemo;
+	}
+	public int getReservationDays() {
+		return ReservationDays;
+	}
+	public void setReservationDays(int reservationDays) {
+		ReservationDays = reservationDays;
 	}
 	
 	

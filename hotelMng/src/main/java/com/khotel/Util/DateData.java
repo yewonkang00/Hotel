@@ -12,6 +12,7 @@ public class DateData {
 	String month = "";
 	String date = "";
 	String value = "";
+	String ymd = "";
 	//스케쥴 추가시 아래처럼 
 	//		1. 변수 추가
 	//		2. getter/setter 추가
@@ -50,6 +51,14 @@ public class DateData {
 
 	public void setValue(String value) {
 		this.value = value;
+	}
+
+	public String getYmd() {
+		return ymd;
+	}
+
+	public void setYmd(String ymd) {
+		this.ymd = ymd;
 	}
 
 	public String getSchedule() {
@@ -100,7 +109,7 @@ public class DateData {
 		Map<String, Integer> before_after_calendar = before_after_calendar(search_year,search_month);
 		
 		//날짜 관련
-		System.out.println("search_month : " + search_month);
+		//System.out.println("search_month : " + search_month);
 		// 캘린더 함수 end
 		today_Data.put("start", start);
 		today_Data.put("startDay", startDay);
@@ -147,6 +156,7 @@ public class DateData {
 		this.year = year;
 		this.month = month;
 		this.date = date;
+		this.ymd = year+String.format("%02d", Integer.parseInt(month))+String.format("%02d", Integer.parseInt(date));
 		this.value = value;
 		this.schedule = schedule;
 		this.schedule_detail = schedule_detail;
@@ -160,6 +170,7 @@ public class DateData {
 			this.month = month;
 			this.date = date;
 			this.value = value;
+			this.ymd = year+String.format("%02d", Integer.parseInt(month))+String.format("%02d", Integer.parseInt(date));
 		}
 	}
 
@@ -168,7 +179,7 @@ public class DateData {
 
 	@Override
 	public String toString() {
-		return "DateData [year=" + year + ", month=" + month + ", date=" + date + ", value=" + value + "]";
+		return "DateData [year=" + year + ", month=" + month + ", date=" + date + ", ymd=" + ymd + ",value=" + value + "]";
 	}
 
 }

@@ -88,7 +88,7 @@
                 <span><a href="menu.html">레스토랑</a></span>
                 <span><a href="menu.html">예약</a></span>
                 <span><a href="menu.html">예약 확인</a></span>
-                <span><a href="menu.html">고객문의</a></span>
+                <span><a href="/qna/list.do">고객문의</a></span>
                 <span><a href="/login.do">편의시설</a></span>
                 <span>
                 	<c:choose>
