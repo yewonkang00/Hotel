@@ -25,7 +25,7 @@ a {
     top: 0;
     /* left: 0; */
     /* right: 0; */
-    height: 50px;
+    height: 65px;
     display: flex;
     /* border-bottom-style: solid;
     border-bottom-color: #9B9B9B;
@@ -33,17 +33,51 @@ a {
     text-align: center;
     padding: 8px;
     color: #111111;
-    font-size: 5px;
+    font-size: 12px;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
+.header .logo {
+  display: inline-block;
+  width:200px;
+  height: 50px;
+  margin-top: 20px;
+  float: middle;
+}
+.topmenu {
+  position: absolute;
+  top: 12px;
+  right: -3px;
+}
+
+.topmenu a{
+  position: relative;
+  display: inline-block;
+  margin-right: 15px;
+  padding-right: 15px;
+}
+
+.topmenu a:first-child::before{
+  content: '';
+}
+
+.topmenu a::before {
+  position: absolute;
+  top: 2px;
+  left: -15px;
+  content: '|';
+  display: inline-block;
+  width: 1px;
+  height: 10px;
+}
 
 .header nav {
     list-style-type: none;
     text-align: right;
     min-width: 800px;
-    margin: 0;
+    margin-top: 15px;
     padding: 0;
 }
 .header nav span {
@@ -54,12 +88,17 @@ a {
 }
 .left{
     float: left;
+    background-color: #D4C1A1;
+    margin-left: 40px;
+    margin-top:15px;
 }
 .banner{
-    width:240px;
-    height:400px;
-    margin-left:50px;
-    background-color: #D4C1A1;
+    background-image: url("../img/oria-hotel-4636405_1280.jpg");
+    background-size: cover;
+    margin-top: auto;
+    min-width: 1500px;
+    height: 700px;
+    padding: 8px;
 }
 .tit{
   padding: 22px;
@@ -100,10 +139,13 @@ h4 {
     font-size: 18px;
     color: #333333
 }
+.index_contents{
+  margin-left: 45px;
+}
 .contents{
   float:right;
   margin-right:-120px;
-  width:960px;
+  width:1000px;
   height:1200px;
 }
 .finish {
