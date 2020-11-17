@@ -11,7 +11,7 @@ public class QnaVo {
 	private String QNAWRITER;
 	private DATE QNAREGISTERDATE;
 	private int QNAVIEWCOUNT;
-	private String name;   //ì‘ì„±ì ì´ë¦„ (member í…Œì´ë¸”ê³¼ ì¡°ì¸)
+	private String name;   //ÀÛ¼ºÀÚ ÀÌ¸§ (member Å×ÀÌºí°ú Á¶ÀÎ)
 	private String show;
 	private String[] files;
 	public int getQNACODE() {
@@ -74,7 +74,7 @@ public class QnaVo {
 				+ QNAWRITER + ", QNAREGISTERDATE=" + QNAREGISTERDATE + ", QNAVIEWCOUNT=" + QNAVIEWCOUNT + ", name="
 				+ name + ", show=" + show + ", files=" + Arrays.toString(files) + "]";
 	}
-
-
+	
+	
 
 }

@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -10,12 +11,15 @@
 body {
 	background-color: #EEEFF1;
 }
+
 .contain {
 	background-color: #EEEFF1;
 }
+
 .finish {
 	background-color: #EEEFF1;
 }
+
 textarea {
 	overflow: auto;
 	vertical-align: top;
@@ -23,6 +27,7 @@ textarea {
 	box-sizing: border-box;
 	border: solid 1px #aaa;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -30,12 +35,15 @@ table {
 	border-spacing: 0;
 	width: 100%;
 }
+
 .tbData td {
 	padding: 14px 20px 14px 20px;
 }
+
 .tbData tbody th:first-child {
 	border-left: none;
 }
+
 .tb-1 td.fm {
 	padding-top: 16px;
 	padding-bottom: 16px;
@@ -81,4 +89,4 @@ table {
 	</div>
 
 </body>
-</html> 
+</html>

@@ -4,77 +4,22 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/resources/css/style.css" type="text/css">
 <title>Insert title here</title>
-
-<style>
-        body {
-          background-color: #EEEFF1;
-        }
-        .contain {
-            background-color: #EEEFF1;
-        }
-        #content {
-            position: absolute;
-            left: 50%;
-            transform: translate(-50%);
-            width: 460px;
-        }
-        #btnJoin {
-            width: 30%;
-        }
-        h3.tit_ {
-            font-size:15px
-        }
-        .finish {
-            background-color: #EEEFF1;
-        }
-    </style>
-  </head>
+<link rel="stylesheet" href="/resources/css/style.css" type="text/css">
 
 
+<script type="text/javascript">
+function list(page){
+	location.href="/qna/list.do?curPage="+page
+}
 
+</script>
+
+</head>
 <body>
-  <div class=header>
-      <img src="/resources/image/moon.png" width="80" height="80s"></a>
-      <nav>
-        <span><a href="/intro.do">호텔 소개</a></span>
-        <span><a href="/room.do">객실</a></span>
-        <span><a href="menu.html">레스토랑</a></span>
-        <span><a href="menu.html">예약</a></span>
-        <span><a href="menu.html">예약 확인</a></span>
-        <span><a href="/qna/list.do">고객문의</a></span>
-        <span><a href="/login.do">편의시설</a></span>
-        <span>
-        	<c:choose>
-			<c:when test="${member != null}"><a href="/logout.do">로그아웃</a></c:when>
-			<c:otherwise><a href="/login.do">로그인</a></c:otherwise>
-			</c:choose>
-        </span>
-      </nav>
-  </div>
-
-  <div class=contain>
-    <div class=left>
-      <div class=banner>
-        <h2 class=tit>문의 사항</h2>
-          <ul class=menu>
-            <li class="m1">
-              <a href="qna.html">
-                <span>자주 하는 질문</span>
-              </a>
-            </li>
-            <li class="m2">
-              <a href="write_qna.html">
-                <span>문의하기</span>
-              </a>
-            </li>
-          </ul>
-      </div>
-    </div>
-
 <h2>게시판</h2>
 <button type="button" id="btnWrite" onclick="location.href='/qna/write.do'">글쓰기</button>
+${map.count}개의 문의사항이 있습니다.
 
 <table border="1" width="600px">
 	<tr>
@@ -87,14 +32,44 @@
 <c:forEach var="row" items="${map.list}">
 	<tr>
 		<td>${row.QNACODE}</td>
-		<td>${row.QNATITLE}</td>
+		
+		<td><a href = "/qna/view.do?QNACODE=${row.QNACODE}&curPage=${map.pager.curPage}">${row.QNATITLE}</a></td>
+		
 		<td>${row.QNAWRITER}</td>
-		<td><fmt:formatDate value="${row.QNAREGISTERDATE}" 
-		pattern="yyyy-mm-dd HH:mm:ss"/></td>
+		<td><fmt:formatDate value="${row.QNAREGISTERDATE}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 		<td>${row.QNAVIEWCOUNT}</td>
 	</tr>
 </c:forEach>
+<!-- 페이지 네비게이션 -->
+<tr>
+	<td colspan="5" align="center">
+		<c:if test="${map.pager.curBlock > 1}">
+			<a href="javascript:list('1')">[처음]</a>
+		</c:if>
+		
+		<c:if test = "${map.pager.curBlock > 1}">
+			<a href= "javascript:list('${map.pager.blockBegin}')">[이전]</a>
+		</c:if>
+		
+		<c:forEach var="num" begin="${map.pager.blockBegin}" end="${map.pager.blockEnd}">
+			<c:choose>
+				<c:when test="${num==map.pager.curPage}">
+					<span style="color:red;">${num}</span>&nbsp;
+				</c:when>
+				<c:otherwise>
+					<a href="javascript:list('${num}')">${num}</a>&nbsp;
+				</c:otherwise>
+			</c:choose>
+		</c:forEach>
+		<c:if test="${map.pager.curBlock <= map.pager.totBlock}">
+			<a href="javascript:list('${map.pager.nextPage}')">[다음]</a>
+		</c:if>
+		<c:if test="${map.pager.curPage <= map.pager.totPage}">
+			<a href="javascript:list('${map.pager.totPage}')">[끝]</a>
+		</c:if>
+	</td>
+</tr>
 
 </table>
 </body>
-</html> 
+</html>
