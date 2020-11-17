@@ -434,8 +434,8 @@ public class HomeController {
 	      return "/intro/introduction_hotel";
 	   }
 	
-	@RequestMapping(value = "/room.do", method = RequestMethod.GET)
-	   public String room(Locale locale, Model model) {
+	@RequestMapping(value = "/room_main.do", method = RequestMethod.GET)
+	   public String room_main(Locale locale, Model model) {
 	      logger.info("Welcome home! The client locale is {}.", locale);
 	
 	      Date date = new Date();
@@ -445,7 +445,7 @@ public class HomeController {
 	
 	      model.addAttribute("serverTime", formattedDate );
 	
-	      return "/room/suiteroom";
+	      return "/room/room_main";
 	   }
 	
 	@RequestMapping(value = "/room_standard.do", method = RequestMethod.GET)
@@ -459,8 +459,50 @@ public class HomeController {
 	
 	      model.addAttribute("serverTime", formattedDate );
 	
-	      return "/room/standardroom";
+	      return "/room/standard_room";
 	   }
+
+	@RequestMapping(value = "/room_deluxe.do", method = RequestMethod.GET)
+	public String room_deluxe(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+
+		String formattedDate = dateFormat.format(date);
+
+		model.addAttribute("serverTime", formattedDate );
+
+		return "/room/deluxe_room";
+	}
+
+	@RequestMapping(value = "/room_executive.do", method = RequestMethod.GET)
+	public String room_executive(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+
+		String formattedDate = dateFormat.format(date);
+
+		model.addAttribute("serverTime", formattedDate );
+
+		return "/room/executive_room";
+	}
+
+	@RequestMapping(value = "/room_suite.do", method = RequestMethod.GET)
+	public String room_suite(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+
+		String formattedDate = dateFormat.format(date);
+
+		model.addAttribute("serverTime", formattedDate );
+
+		return "/room/suite_room";
+	}
 
 
 	

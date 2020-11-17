@@ -1,71 +1,76 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="style.css" type="text/css">
-        <title>Suite room</title>
+     <head>
+         <style>	
+       * {
+           font-family: 'Noto Sans KR', sans-serif;
+         }
+	</style>
 
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/resources/image/moon.png" type="text/css">
+        <link rel="stylesheet" href="/resources/css/style_room.css" type="text/css">
+        <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+
+        <title>Standard room</title>
     </head>
     <body>
         <div class=header>
-            <a href="index.html"><img src="../img/moon.png" width="80" height="80"></a>
-            <div class=logo></div>
-            <span class=topmenu>
-              <a href="login.html">로그인</a>
-              <a>마이페이지</a>
-              <a href="res_confirm.html">예약 확인</a>
-            </span>
+            <a href="index."><img src="/resources/image/moon.png" width="80" height="80"></a>
             <nav>
-              <span><a href="intro.html">호텔 소개</a></span>
-              <span><a href="room.html">객실</a></span>
+              <span><a href="/intro.do">호텔 소개</a></span>
+              <span><a href="/room_main.do">객실</a></span>
               <span><a href="restaurant.html">레스토랑</a></span>
               <span><a href="res.html">예약</a></span>
               <span><a href="res_confirm.html">예약 확인</a></span>
               <span><a href="qna.html">고객문의</a></span>
               <span><a href="facility.html">편의시설</a></span>
-              <span><a href="login.html">로그인</a></span>
+              <span><a href="/login.do">로그인</a></span>
             </nav>
         </div>
         <div class=contain>
           <div class=left>
-              <h2 class=tit><a href="room.html">객실 소개</a></h2>
+            <div class=banner>
+              <h2 class=tit><a href="/room_main.do">객실 소개</a></h2>
                 <ul class=menu>
-                  <li class="m1">
-                    <a href="standard room.html">
-                      <span>Standard Room</span>
-                    </a>
-                  </li>
-                  <li class="m2">
-                    <a href="deluxe room.html">
-                      <span>Deluxe Room</span>
-                    </a>
-                  </li>
-                  <li class="m3">
-                    <a href="executive room.html">
-                      <span>Executive Room</span>
-                    </a>
-                  </li>
-                  <li class="m4">
-                    <a href="suite room.html">
-                      <span>Suite Room</span>
-                    </a>
-                  </li>
+                    <li class="m1">
+                        <a href="/room_standard.do">
+                            <span>Standard Room</span>
+                        </a>
+                    </li>
+                    <li class="m2">
+                        <a href="/room_deluxe.do">
+                            <span>Deluxe Room</span>
+                        </a>
+                    </li>
+                    <li class="m3">
+                        <a href="/room_executive.do">
+                            <span>Executive Room</span>
+                        </a>
+                    </li>
+                    <li class="m4">
+                        <a href="/room_suite.do">
+                            <span>Suite Room</span>
+                        </a>
+                    </li>
                 </ul>
+            </div>
           </div>
           <div class=contents>
-            <h2 id=gaeyo>Suite Room</h2>
-            <img src="../img/suite room.jpg" width="800" height="500">
-            <p> 스위트룸은 프라이빗한 휴식을 즐길 수 있는 객실입니다.<br/>
-                스위트룸과 함께 최고의 휴식을 경험해보십시오.<br/>
+            <h1>Standard Room</h1>
+            <img src="/resources/image/standardroom.jpg" width="800" height="500">
+            <p> 스탠다드룸은 혼자 또는 친구와 함께 할 수 있는 방입니다.<br/>
+                스탠다드룸의 세련된 인테리어와 디자인 소품이 조화를 즐기며 아늑한 휴식을 취하십시오.<br/>
                 문의전화 02-0000-0000<br/>
-                전망 : 시티 뷰 | 침대 : 더블(킹 사이즈) | 크기 : 159m<br/>
-                룸 구성 : 침실 1, 욕실 1, 화장실 2, 응접실 1, 집무실 1, 다이닝 룸 1<br/>
+                전망 : 시티 뷰 | 침대 : 더블(킹 사이즈) / 트윈 | 크기 : 30m<br/>
+                룸 구성 : 침실 1, 욕실 1, 화장실 1<br/>
             </p>
             <table class=roomtb>
               <thead>
                 <tr>
                   <th scope="row">객실이용</th>
-                  <td>65인치 스마트 TV<br/>
+                  <td>55인치 스마트 TV<br/>
                       50~100Mbps 초고속 유무선(wifi) 인터넷 무료<br/>
                       220V, 110V 전압 사용 가능<br/>
                       커피, 차 티백 무료 제공<br/>
@@ -89,12 +94,12 @@
                   </td>
                 </tr>
             </table>
-            <a href="res.html" class="myButton">예약하기</a>
+
           </div>
           <div class="finish">
               <p> 사업자 번호: 110-10-12345<br/>
                   사업장소재지: 경기도 이천시 마장면 장암리<br/>
-                  대표자: 홍길동<br/>
+                  대표자: 궈닌돌<br/>
                   Copyright ⓒ 2020 Hotel Group. All rights reserved.
               </p>
           </div>
