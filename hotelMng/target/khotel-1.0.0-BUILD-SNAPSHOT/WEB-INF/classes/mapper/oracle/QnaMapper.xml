@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="QNA">
+
+	<select id="listAll" resultType="com.khotel.Vo.QnaVo">
+		select QNACODE, QNATITLE, QNAREGISTERDATE, QNAVIEWCOUNT
+		from QNA
+		order by QNACODE desc
+	</select>
+
+	<insert id="insert">
+		insert into QNA (QNACODE, QNATITLE, QNACONTENT, QNAWRITER) values
+		(seq_qna.nextval, #{title}, #{content}, #{writer})
+	</insert>
+
+</mapper> 
