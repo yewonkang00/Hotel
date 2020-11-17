@@ -48,7 +48,17 @@ public class RoomDaoImpl implements RoomDao{
 		sqlSession.delete("room.deleteRoom", roomVo);
 		
 	}
-
+	
+	@Override
+	public List<RoomVo> listRoomReservation(String roomNo) throws Exception {
+		return sqlSession.selectList("room.listRoomReservation", roomNo);
+	}
+	
+	@Override
+	public int findRoomReservation(HashMap<String, Object> map) {
+		return sqlSession.selectOne("room.findRoomReservation", map);
+	}
+	
 	@Override
 	public List<RoomVo> listRoom() throws Exception {
 		return sqlSession.selectList("room.listRoom");
@@ -82,6 +92,11 @@ public class RoomDaoImpl implements RoomDao{
 	@Override
 	public int findDateTotal(HashMap<String, Object> map) {
 		return sqlSession.selectOne("room.findDateTotal", map);
+	}
+
+	@Override
+	public int findRoom(HashMap<String, Object> map) {
+		return sqlSession.selectOne("room.findRoom", map);
 	}
 	
 	

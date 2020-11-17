@@ -26,14 +26,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.khotel.Service.MemberService;
 import com.khotel.Util.BoardPaging;
 import com.khotel.Vo.MemberVo;
+import com.khotel.Vo.ReservationVo;
 import com.khotel.Vo.RoomVo;
 import com.khotel.Service.RoomService;
-
-import javax.servlet.http.HttpServletRequest;
+import com.khotel.Service.ReservationService;
 
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.khotel.Util.DateData;
 /**
@@ -46,6 +44,9 @@ public class HomeController {
 	
 	@Autowired
 	private MemberService memberService;
+	
+	@Autowired
+	private ReservationService reservationService;
 	
 	@Autowired
 	private RoomService roomService;
@@ -105,6 +106,7 @@ public class HomeController {
 		
 		HttpSession session = request.getSession();
 		System.out.println(loginMember.getUserId());
+		
 		//loginMember에 아이디, 비밀번호 정보가 있고 db에서 그 정보에 해당하는 member를 찾아 selectMemberVo에 대입
 		selectMemberVo = memberService.selectMember(loginMember);
 		if(selectMemberVo == null) {
@@ -131,7 +133,7 @@ public class HomeController {
 
 	//회원가입으로 넘겨주는 페이지
 	@RequestMapping(value = "/memeber/regist.do", method = RequestMethod.GET)
-	public String singup(Locale locale, Model model) {
+	public String signup(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
 		Date date = new Date();
@@ -195,11 +197,29 @@ public class HomeController {
 		return "/admin/admin";
 	}
 
+	//달력에 예약 현황 표시
 	@RequestMapping(value = "/admin/reservation.do", method = RequestMethod.GET)
 	public String reservation(Model model, HttpServletRequest request, DateData dateData){
 		
+		HttpSession session = request.getSession();
+		
+		Object member = new MemberVo();
+		member = session.getAttribute("member");
 		String roomNo = request.getParameter("rno");
+		String resdate = request.getParameter("resdate");
+		
 		System.out.println("roomNo :"+roomNo);
+		System.out.println("member :"+member);
+		System.out.println("resdate :" + resdate);
+		
+		List<RoomVo> reservationList = null;
+		try {
+			reservationList = roomService.listRoomReservation(roomNo);
+		} catch (Exception e) {
+			
+		}
+		System.out.println("reservationList: " + reservationList);
+		
 		
 		
 		Calendar cal = Calendar.getInstance();
@@ -245,9 +265,119 @@ public class HomeController {
 		//배열에 담음
 		model.addAttribute("dateList", dateList);		//날짜 데이터 배열
 		model.addAttribute("today_info", today_info);
-		model.addAttribute("reserList", today_info);
+		model.addAttribute("roomNo", roomNo);
+		model.addAttribute("reservationList", reservationList);
 		return "admin/reservation";
 	}
+	
+	//예약이 가능한 방인지 확인
+	@RequestMapping(value = "/admin/reservationCheck.do") 
+	public @ResponseBody Map reservation(@RequestParam HashMap<String, Object> map, HttpServletRequest request) throws Exception {
+		HashMap<String, Object> roomMap = new HashMap();
+		
+		MemberVo member = new MemberVo();
+		HttpSession session = request.getSession();
+		member = (MemberVo) session.getAttribute("member");
+		String UserId = member.getUserId();
+		String roomNo = map.get("roomNo").toString();
+		String resdate = map.get("resdate").toString();
+		roomMap.put("roomNo", roomNo);
+		roomMap.put("resdate", resdate);
+		roomMap.put("UserID", UserId);
+		
+		int resCnt = roomService.findRoomReservation(roomMap);
+		
+		System.out.println("resCnt :"+resCnt);
+		Map resultMap = new HashMap();
+		resultMap.put("resultMsg", resCnt);
+		
+		return resultMap;
+	}
+	
+	//예약이 가능한 방인지 확인
+		@RequestMapping(value = "/admin/datecheck.do") 
+		public @ResponseBody Map datecheck(@RequestParam HashMap<String, Object> map, HttpServletRequest request) throws Exception {
+			HashMap<String, Object> roomMap = new HashMap();
+			
+			ReservationVo reservation = new ReservationVo();
+			HttpSession session = request.getSession();
+			
+			String checkIn = map.get("ReservationCheckIn").toString();
+			String checkOut = map.get("ReservationCheckOut").toString();
+			String roomNo = map.get("roomNo").toString();
+			
+			roomMap.put("ReservationCheckIn", checkIn);
+			roomMap.put("ReservationCheckOut", checkOut);
+			roomMap.put("roomNo", roomNo);
+			
+			int resCnt = roomService.findRoom(roomMap);
+			
+			Map resultmap = new HashMap();
+			if(resCnt == 0) {
+				reservationService.insertReservation(reservation);
+				resultmap.put("resultMsg", "success");
+			} else {
+				resultmap.put("resultMsg", "fail");
+			}
+			
+			return resultmap;
+		}
+	
+	
+	
+	//예약페이지
+	@RequestMapping(value = "/admin/reservate.do", method = RequestMethod.GET)
+	public String reservate(Model model, HttpServletRequest request) {
+		MemberVo member = new MemberVo();
+		HttpSession session = request.getSession();
+		member = (MemberVo) session.getAttribute("member");
+		String UserId = member.getUserId();
+		String roomNo = request.getParameter("roomNo");
+		String resdate = request.getParameter("resdate");
+		System.out.println("roomNo:" + roomNo);
+		System.out.println("resdate:" + resdate);
+		model.addAttribute("roomNo", roomNo);
+		model.addAttribute("resdate", resdate);
+		model.addAttribute("UserId", UserId);
+		return "/reservation/reservation2";
+	}
+
+	//예약페이지
+	@RequestMapping(value = "/admin/reservateAction.do", method = RequestMethod.POST)
+	public @ResponseBody Map reservateAction(ReservationVo reservation, HttpServletRequest request) throws Exception {
+		HashMap<String, Object> roomMap = new HashMap();
+		
+		String checkIn = reservation.getReservationCheckIn();
+		String checkOut = reservation.getReservationCheckOut();
+		String roomNo = Integer.toString(reservation.getRoomCode());
+		
+		roomMap.put("ReservationCheckIn", checkIn);
+		roomMap.put("ReservationCheckOut", checkOut);
+		roomMap.put("roomNo", roomNo);
+		
+		int resCnt = roomService.findRoom(roomMap);
+		
+		Map resultmap = new HashMap();
+		if(resCnt == 0) {
+			reservationService.insertReservation(reservation);
+			resultmap.put("resultMsg", "success");
+		} else {
+			resultmap.put("resultMsg", "fail");
+		}
+		
+		return resultmap;
+	}
+	
+	/*
+	 * //예약 상세 페이지
+	 * 
+	 * @RequestMapping(value = "/admin/reservationDetail.do", method =
+	 * RequestMethod.GET) public String reservationDetail(Model model,
+	 * HttpServletRequest request, DateData dateData) { return
+	 * "/admin/reservationDetail"; }
+	 */
+	
+	
 		
 	//관리자 페이지에서 member에서 update버튼을 누르면 memberlevel을 바꿔줌
 	@RequestMapping(value = "/admin/levelAction.do")

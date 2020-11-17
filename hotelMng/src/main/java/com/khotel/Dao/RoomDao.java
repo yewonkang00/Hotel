@@ -11,6 +11,9 @@ public interface RoomDao {
 	public void insertRoom(RoomVo roomVo) throws Exception;
 	public void updateRoom(RoomVo roomVo) throws Exception;
 	public void deleteRoom(RoomVo roomVo) throws Exception;
+	public List<RoomVo> listRoomReservation(String roomNo) throws Exception;
+	public int findRoomReservation(HashMap<String, Object> map);
+	public int findRoom(HashMap<String, Object> map);
 	public List<RoomVo> listRoom() throws Exception;
 	public List<RoomVo> listBlockSelect(HashMap<String, Object> map);
 	public RoomVo boardView(String id);

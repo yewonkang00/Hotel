@@ -50,10 +50,20 @@ public class RoomServiceImpl implements RoomService {
 	}
 
 	@Override
+	public List<RoomVo> listRoomReservation(String roomNo) throws Exception {
+		return roomDao.listRoomReservation(roomNo);
+	}
+	
+	@Override
 	public List<RoomVo> listRoom() throws Exception {
 		return roomDao.listRoom();
 	}
 
+	@Override
+	public int findRoomReservation(HashMap<String, Object> map) {
+		return roomDao.findRoomReservation(map);
+	}
+	
 	@Override
 	public List<RoomVo> listBlockSelect(HashMap<String, Object> map) {
 		return roomDao.listBlockSelect(map);
@@ -83,6 +93,12 @@ public class RoomServiceImpl implements RoomService {
 	public int findDateTotal(HashMap<String, Object> map) {
 		return roomDao.findDateTotal(map);
 	}
+
+	@Override
+	public int findRoom(HashMap<String, Object> map) {
+		return roomDao.findRoom(map);
+	}
+	
 	
 	
 
