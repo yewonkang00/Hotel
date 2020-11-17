@@ -21,7 +21,7 @@
     </head>
     <body>
         <div class=header>
-          <a href="index.html"><img src="/resources/image/moon.png" width="80" height="80s"></a>
+            <a href="/main"><img src="/resources/image/moon.png" width="100" height="100"></a>
           <nav>
               <span><a href="/intro.do">호텔 소개</a></span>
               <span><a href="/room_main.do">객실</a></span>

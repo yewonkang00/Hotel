@@ -29,9 +29,7 @@
           border-spacing: 0;
           width: 100%;
       }
-      .tbData td {padding:14px 20px 14px 20px;}
-      .tbData tbody th:first-child { border-left:none; }
-      .tb-1 td.fm { padding-top:16px; padding-bottom:16px; }
+
 
     </style>
   </head>
@@ -53,7 +51,6 @@
 
   <div class=contain>
     <div class=left>
-      <div class=banner>
         <h2 class=tit>문의 사항</h2>
           <ul class=menu>
             <li class="m1">
@@ -67,10 +64,112 @@
               </a>
             </li>
           </ul>
-      </div>
     </div>
     <div class=contents>
       <h1>자주 하는 질문</h1>
+      <h2>게시판</h2>
+      <button type="button" id="btnWrite" onclick="location.href='/qna/write.do'">글쓰기</button>
+1000개의 문의사항이 있습니다.
+
+        <table border="1" width="600px">
+        	<tr>
+        		<th>번호</th>
+        		<th>제목</th>
+        		<th>이름</th>
+        		<th>날짜</th>
+        		<th>조회수</th>
+        	</tr>
+        	<tr>
+        		<td>1000</td>
+        		<td><a href = "/qna/view.do?QNACODE=1000&curPage=1">제목1000</a></td>
+        		<td>park</td>
+        		<td></td>
+        		<td>84</td>
+        	</tr>
+        	<tr>
+        		<td>999</td>
+        		<td><a href = "/qna/view.do?QNACODE=999&curPage=1">제목999</a></td>
+        		<td>park</td>
+        		<td></td>
+        		<td>14</td>
+        	</tr>
+        	<tr>
+        		<td>998</td>
+        		<td><a href = "/qna/view.do?QNACODE=998&curPage=1">제목998</a></td>
+        		<td>park</td>
+        		<td></td>
+        		<td>1</td>
+        	</tr>
+        	<tr>
+        		<td>997</td>
+        		<td><a href = "/qna/view.do?QNACODE=997&curPage=1">제목997</a></td>
+        		<td>park</td>
+        		<td></td>
+        		<td>0</td>
+        	</tr>
+        	<tr>
+        		<td>996</td>
+        		<td><a href = "/qna/view.do?QNACODE=996&curPage=1">제목996</a></td>
+        		<td>park</td>
+        		<td></td>
+        		<td>2</td>
+        	</tr>
+        	<tr>
+        		<td>995</td>
+        		<td><a href = "/qna/view.do?QNACODE=995&curPage=1">제목995</a></td>
+        		<td>park</td>
+        		<td></td>
+        		<td>0</td>
+        	</tr>
+        	<tr>
+        		<td>994</td>
+        		<td><a href = "/qna/view.do?QNACODE=994&curPage=1">제목994</a></td>
+        		<td>park</td>
+        		<td></td>
+        		<td>0</td>
+        	</tr>
+        	<tr>
+        		<td>993</td>
+        		<td><a href = "/qna/view.do?QNACODE=993&curPage=1">제목993</a></td>
+        		<td>park</td>
+        		<td></td>
+        		<td>0</td>
+        	</tr>
+        	<tr>
+        		<td>992</td>
+        		<td><a href = "/qna/view.do?QNACODE=992&curPage=1">제목992</a></td>
+        		<td>park</td>
+        		<td></td>
+        		<td>0</td>
+        	</tr>
+        	<tr>
+        		<td>991</td>
+        		<td><a href = "/qna/view.do?QNACODE=991&curPage=1">제목991</a></td>
+        		<td>park</td>
+        		<td></td>
+        		<td>0</td>
+        	</tr>
+        <!-- 페이지 네비게이션 -->
+        <tr>
+        	<td colspan="5" align="center">
+        					<span style="color:red;">1</span>&nbsp;
+        					<a href="javascript:list('2')">2</a>&nbsp;
+        					<a href="javascript:list('3')">3</a>&nbsp;
+        					<a href="javascript:list('4')">4</a>&nbsp;
+        					<a href="javascript:list('5')">5</a>&nbsp;
+        					<a href="javascript:list('6')">6</a>&nbsp;
+        					<a href="javascript:list('7')">7</a>&nbsp;
+        					<a href="javascript:list('8')">8</a>&nbsp;
+        					<a href="javascript:list('9')">9</a>&nbsp;
+        					<a href="javascript:list('10')">10</a>&nbsp;
+        			        <a href="javascript:list('11')">[다음]</a>
+                            <a href="javascript:list('100')">[끝]</a>
+
+        	</td>
+        </tr>
+
+        </table>
+
     </div>
     <div class="finish">
         <p> 사업자 번호: 110-10-12345<br/>
