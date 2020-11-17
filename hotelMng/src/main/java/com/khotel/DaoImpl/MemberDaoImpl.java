@@ -21,7 +21,7 @@ public class MemberDaoImpl implements MemberDao {
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@Inject
+	@Autowired
 	SqlSessionTemplate sqlSession;
 	
 	@Override

@@ -37,7 +37,6 @@ public class QnaServiceImpl implements QnaService{
 
 	@Override
 	public void updateAttach(String fullName, int QNACODE) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -49,19 +48,18 @@ public class QnaServiceImpl implements QnaService{
 
 	@Override
 	public QnaVo read(int QNACODE) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return qnaDao.read(QNACODE);
 	}
 
 	@Override
 	public void update(QnaVo vo) throws Exception {
-		// TODO Auto-generated method stub
+		qnaDao.update(vo);
 		
 	}
 
 	@Override
 	public void delete(int QNACODE) throws Exception {
-		// TODO Auto-generated method stub
+		qnaDao.delete(QNACODE);
 		
 	}
 
@@ -73,7 +71,7 @@ public class QnaServiceImpl implements QnaService{
 	
 	@Override
 	public void increaseViewcnt(int QNACODE) throws Exception {
-		// TODO Auto-generated method stub
+		qnaDao.increaseViewcnt(QNACODE);
 		
 	}
 

@@ -1,10 +1,11 @@
 <%@ page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
     <title> 문의사항 </title>
     <style>
         body {
@@ -124,7 +125,7 @@
 
 
           <div class="btn_area">
-              <button type="button" id="btnSave">
+              <button type="button" id="btnSave" onclick="location.href='/qna/insert.do'">
                   <!-- <input type="submit" name="" value="">  나중에 사용-->
                   <span>접수</span>
               </button>
