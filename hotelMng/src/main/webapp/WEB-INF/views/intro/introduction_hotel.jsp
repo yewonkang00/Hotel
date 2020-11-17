@@ -24,7 +24,7 @@
           <a href="index.html"><img src="/resources/image/moon.png" width="80" height="80s"></a>
           <nav>
               <span><a href="/intro.do">호텔 소개</a></span>
-              <span><a href="/room.do">객실</a></span>
+              <span><a href="/room_main.do">객실</a></span>
               <span><a href="restaurant.html">레스토랑</a></span>
               <span><a href="res.html">예약</a></span>
               <span><a href="res_confirm.html">예약 확인</a></span>
