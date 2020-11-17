@@ -1,11 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Minji
-  Date: 2020-11-16
-  Time: 오후 3:54
-  To change this template use File | Settings | File Templates.
---%>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
@@ -25,16 +17,21 @@
 </head>
 <body>
 <div class=header>
-    <a href="index."><img src="/resources/image/moon.png" width="80" height="80"></a>
+    <a href="/main"><img src="/resources/image/moon.png" width="100" height="100"></a>
     <nav>
         <span><a href="/intro.do">호텔 소개</a></span>
         <span><a href="/room_main.do">객실</a></span>
         <span><a href="restaurant.html">레스토랑</a></span>
         <span><a href="res.html">예약</a></span>
         <span><a href="res_confirm.html">예약 확인</a></span>
-        <span><a href="qna.html">고객문의</a></span>
+        <span><a href="/qna/list.do">고객문의</a></span>
         <span><a href="facility.html">편의시설</a></span>
-        <span><a href="/login.do">로그인</a></span>
+        <span>
+        	<c:choose>
+  				<c:when test="${member != null}"><a href="/logout.do">로그아웃</a></c:when>
+   				<c:otherwise><a href="/login.do">로그인</a></c:otherwise>
+   			</c:choose>
+        </span>
     </nav>
 </div>
 <div class=contain>
@@ -77,14 +74,14 @@
             </div>
             <div class=rbox>
                 <h3><b>Deluxe Room</b></h3>
-                <a href="/room_deluxe.do"><img src="${pageContext.request.contextPath}/resources/image/deluxeroom.jpg" width="300" height="220"></a>
+                <a href="/room_deluxe.do"><img src="/resources/image/deluxe room.jpg" width="300" height="220"></a>
                 <div class=topexp>
                     <p>여유로운 휴식을 취할 수 있습니다.<br></p>
                 </div>
             </div>
             <div class=lbox>
                 <h3><b>Executive Room</b></h3>
-                <a href="/room_executive.do"><img src="${pageContext.request.contextPath}/resources/image/executiveroom.jpg" width="300" height="220"></a>
+                <a href="/room_executive.do"><img src="/resources/image/executive room.jpg" width="300" height="220"></a>
                 <div class=topexp>
                     <p>이그제큐티브 라운지 이용으로 특별한 여유를 즐길 수 있습니다.<br></p>
                 </div>

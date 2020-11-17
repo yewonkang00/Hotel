@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="ko">
  <head>
@@ -19,44 +20,49 @@
     </head>
     <body>
         <div class=header>
-            <a href="index.html"><img src="/resources/image/moon.png" width="80" height="80"></a>
+            <a href="/main"><img src="/resources/image/moon.png" width="100" height="100"></a>
             <nav>
               <span><a href="/intro.do">호텔 소개</a></span>
-              <span><a href="/room_main.do">객실</a></span>
+              <span><a href="/room.do">객실</a></span>
               <span><a href="restaurant.html">레스토랑</a></span>
               <span><a href="res.html">예약</a></span>
               <span><a href="res_confirm.html">예약 확인</a></span>
-              <span><a href="qna.html">고객문의</a></span>
+              <span><a href="/qna/list.do">고객문의</a></span>
               <span><a href="facility.html">편의시설</a></span>
-              <span><a href="/login.do">로그인</a></span>
+              <span>
+	        	<c:choose>
+	  				<c:when test="${member != null}"><a href="/logout.do">로그아웃</a></c:when>
+	   				<c:otherwise><a href="/login.do">로그인</a></c:otherwise>
+	   			</c:choose>
+	        </span>
             </nav>
         </div>
         <div class=contain>
           <div class=left>
             <div class=banner>
-              <h2 class=tit><a href=/room_main.do">객실 소개</a></h2>
-                <ul class=menu>
-                    <li class="m1">
-                        <a href="/room_standard.do">
-                            <span>Standard Room</span>
-                        </a>
-                    </li>
-                    <li class="m2">
-                        <a href="/room_deluxe.do">
-                            <span>Deluxe Room</span>
-                        </a>
-                    </li>
-                    <li class="m3">
-                        <a href="/room_executive.do">
-                            <span>Executive Room</span>
-                        </a>
-                    </li>
-                    <li class="m4">
-                        <a href="/room_suite.do">
-                            <span>Suite Room</span>
-                        </a>
-                    </li>
-                </ul>
+              <h2 class=tit><a href="/room_main.do">객실 소개</a></h2>
+	            <ul class=menu>
+	                <li class="m1">
+	                    <a href="/room_standard.do">
+	                        <span>Standard Room</span>
+	                    </a>
+	                </li>
+	                <li class="m2">
+	                    <a href="/room_deluxe.do">
+	                        <span>Deluxe Room</span>
+	                    </a>
+	                </li>
+	                <li class="m3">
+	                    <a href="/room_executive.do">
+	                        <span>Executive Room</span>
+	                    </a>
+	                </li>
+	                <li class="m4">
+	                    <a href="/room_suite.do">
+	                        <span>Suite Room</span>
+	                    </a>
+	                </li>
+            	</ul>
             </div>
           </div>
           <div class=contents>
@@ -68,7 +74,7 @@
                 전망 : 시티 뷰 | 침대 : 더블(킹 사이즈) | 크기 : 159m<br/>
                 룸 구성 : 침실 1, 욕실 1, 화장실 2, 응접실 1, 집무실 1, 다이닝 룸 1<br/>
             </p>
-            <table class=suite>
+            <table class=roomtb>
               <thead>
                 <tr>
                   <th scope="row">객실이용</th>

@@ -504,7 +504,6 @@ public class HomeController {
 		return "/room/suite_room";
 	}
 
-
 	
 	
 }

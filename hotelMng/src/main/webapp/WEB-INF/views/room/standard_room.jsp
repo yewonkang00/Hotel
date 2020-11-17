@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="ko">
-     <head>
-         <style>	
+ <head>
+ 	<script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
+
+    <style>	
        * {
            font-family: 'Noto Sans KR', sans-serif;
          }
@@ -13,20 +16,26 @@
         <link rel="stylesheet" href="/resources/css/style_room.css" type="text/css">
         <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
 
-        <title>Standard room</title>
+        <title>Suite room</title>
+
     </head>
     <body>
         <div class=header>
-            <a href="index."><img src="/resources/image/moon.png" width="80" height="80"></a>
+            <a href="/main"><img src="/resources/image/moon.png" width="100" height="100"></a>
             <nav>
               <span><a href="/intro.do">호텔 소개</a></span>
               <span><a href="/room_main.do">객실</a></span>
               <span><a href="restaurant.html">레스토랑</a></span>
               <span><a href="res.html">예약</a></span>
               <span><a href="res_confirm.html">예약 확인</a></span>
-              <span><a href="qna.html">고객문의</a></span>
+              <span><a href="/qna/list.do">고객문의</a></span>
               <span><a href="facility.html">편의시설</a></span>
-              <span><a href="/login.do">로그인</a></span>
+              <span>
+	        	<c:choose>
+	  				<c:when test="${member != null}"><a href="/logout.do">로그아웃</a></c:when>
+	   				<c:otherwise><a href="/login.do">로그인</a></c:otherwise>
+	   			</c:choose>
+	        </span>
             </nav>
         </div>
         <div class=contain>
@@ -94,7 +103,7 @@
                   </td>
                 </tr>
             </table>
-
+            <a href="res.html" class="myButton">예약하기</a>
           </div>
           <div class="finish">
               <p> 사업자 번호: 110-10-12345<br/>
@@ -105,4 +114,4 @@
           </div>
         </div>
     </body>
-</html>
+</html> 

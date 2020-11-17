@@ -4,14 +4,48 @@
 <mapper namespace="QNA">
 
 	<select id="listAll" resultType="com.khotel.Vo.QnaVo">
-		select QNACODE, QNATITLE, QNAREGISTERDATE, QNAVIEWCOUNT
+		<!-- select QNACODE, QNATITLE, username, QNAWRITER, QNAREGISTERDATE, QNAVIEWCOUNT
+		from qna q, member m
+		where q.qnawriter = m.userid 
+		order by QNACODE desc -->
+		select *
+		from (
+			select rownum as rn, A.*
+			from (
+		select QNACODE, QNATITLE, QNAWRITER, QNAREGISTERDATE, QNAVIEWCOUNT
 		from QNA
 		order by QNACODE desc
+			) A
+		) 
+		where rn between ${start} and ${end}
 	</select>
 
 	<insert id="insert">
 		insert into QNA (QNACODE, QNATITLE, QNACONTENT, QNAWRITER) values
-		(seq_qna.nextval, #{title}, #{content}, #{writer})
+		(seq_qna.nextval, #{title}, #{content}, #{name})
 	</insert>
 
-</mapper> 
+
+	<update id="increaseViewcnt">
+		update QNA
+		set QNAVIEWCOUNT = QNAVIEWCOUNT+1
+		where QNACODE= #{QNACODE}
+	</update>
+
+	 <select id="view" resultType = "com.khotel.Vo.QnaVo">
+		select QNACODE, QNATITLE, QNACONTENT, QNAREGISTERDATE, QNAVIEWCOUNT, QNAWRITER
+		from QNA
+		where QNACODE = #{QNACODE}
+	</select>
+
+	<update id="updateArticle">
+		update QNA
+		set QNATITLE= #{QNATITLE}, QNACONTENT= #{QNACONTENT}
+		where QNACODE = #{QNACODE}
+	</update>
+
+	<delete id="deleteArticle">
+		delete from qna where QNACODE = #{QNACODE}
+	</delete>
+
+</mapper>

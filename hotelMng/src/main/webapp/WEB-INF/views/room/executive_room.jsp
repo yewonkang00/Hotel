@@ -1,11 +1,5 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Minji
-  Date: 2020-11-16
-  Time: 오후 3:55
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -24,16 +18,21 @@
 </head>
 <body>
 <div class=header>
-    <a href="index."><img src="/resources/image/moon.png" width="80" height="80"></a>
+    <a href="/main"><img src="/resources/image/moon.png" width="100" height="100"></a>
     <nav>
         <span><a href="/intro.do">호텔 소개</a></span>
         <span><a href="/room_main.do">객실</a></span>
         <span><a href="restaurant.html">레스토랑</a></span>
         <span><a href="res.html">예약</a></span>
         <span><a href="res_confirm.html">예약 확인</a></span>
-        <span><a href="qna.html">고객문의</a></span>
+        <span><a href="/qna/list.do">고객문의</a></span>
         <span><a href="facility.html">편의시설</a></span>
-        <span><a href="/login.do">로그인</a></span>
+        <span>
+        	<c:choose>
+  				<c:when test="${member != null}"><a href="/logout.do">로그아웃</a></c:when>
+   				<c:otherwise><a href="/login.do">로그인</a></c:otherwise>
+   			</c:choose>
+        </span>
     </nav>
 </div>
 <div class=contain>
@@ -66,7 +65,7 @@
     </div>
     <div class=contents>
         <h1>Executive Room</h1>
-        <img src="/resources/image/executiveroom.jpg" width="800" height="500">
+        <img src="/resources/image/executive room.jpg" width="800" height="500">
         <p> 이그제큐티브 객실은 야경이 돋보이는 객실입니다.<br/>
             이그제큐티브 라운지 서비스를 즐기며 편안한 휴식을 취하십시오.<br/>
             문의전화 02-0000-0000<br/>
