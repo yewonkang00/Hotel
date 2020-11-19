@@ -22,9 +22,8 @@ function list(page){
 
 <h2>게시판</h2>
 
-	<c:if test="{sessionScope.userid != null">
 	<button type="button" id="btnWrite" onclick="location.href='/qna/write.do'">글쓰기</button>	
-	</c:if>
+
 
 ${map.count}개의 문의사항이 있습니다.
 
