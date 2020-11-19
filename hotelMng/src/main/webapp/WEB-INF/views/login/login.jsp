@@ -67,25 +67,7 @@
 </head>
 
 <body>
-  <div class=header>
-      <a href="index.html"><img src="/resources/image/moon.png" width="80" height="80s"></a>
-      <nav>
-        <span><a href="/intro.do">호텔 소개</a></span>
-        <span><a href="/room_main.do">객실</a></span>
-        <span><a href="restaurant.html">레스토랑</a></span>
-        <span><a href="res.html">예약</a></span>
-        <span><a href="res_confirm.html">예약 확인</a></span>
-        <span><a href="/qna/list.do">고객문의</a></span>
-        <span><a href="facility.html">편의시설</a></span>
-        <span>
-        	<c:choose>
-  				<c:when test="${member != null}"><a href="/logout.do">로그아웃</a></c:when>
-   				<c:otherwise><a href="/login.do">로그인</a></c:otherwise>
-   			</c:choose>
-        </span>
-      </nav>
-  </div>
-
+  <%@include file = "/WEB-INF/views/layout/header.jsp" %>
 
   <div class="login-form">
     <form id="target" action="/memeber/join">

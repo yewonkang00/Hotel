@@ -1,6 +1,5 @@
 package com.khotel.Controller;
 
-
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -79,15 +78,14 @@ public class QnaController {
 		HttpSession session = request.getSession();
 		member = (MemberVo) session.getAttribute("member");
 		String writer = member.getUserId();
-		
+
 		QnaVo vo = new QnaVo();
 		vo.setQNATITLE(title);
 		vo.setQNACONTENT(content);
 		vo.setQNAWRITER(writer);
 		vo.setQNAREGISTERDATE(new Date().toGMTString());
-	
-		qnaService.create(vo);
 		
+		qnaService.create(vo);
 		return "redirect:/qna/list.do";
 	}
 	

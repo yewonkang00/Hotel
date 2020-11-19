@@ -97,7 +97,7 @@
     </head>
     <body>
         <div class=header>
-            <img src="/resources/image/moon.png" width="80" height="80s"></a>
+            <a href="/main"><img src="/resources/image/moon.png" width="80" height="80s"></a>
             <nav>
                 <span><a href="intro.html">호텔 소개</a></span>
                 <span><a href="room.html">객실</a></span>

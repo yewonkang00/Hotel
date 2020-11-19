@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
     <title> 문의사항 </title>
     <style>
+    	* {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
         body {
           background-color: #EEEFF1;
-        }
-        .contain {
-            background-color: #EEEFF1;
         }
         #content {
             position: absolute;
@@ -20,41 +20,32 @@
             transform: translate(-50%);
             width: 460px;
         }
-        #btnJoin {
-            width: 30%;
+        textarea {
+            overflow:auto;
+            vertical-align:top;
+            padding:8px;
+            box-sizing:border-box;
+            border:solid 1px #aaa;
         }
-        h3.tit_ {
-            font-size:15px
-        }
-        .finish {
-            background-color: #EEEFF1;
+        table {
+        	 border-collapse: collapse;
+        	 border-spacing: 0;
+        	 table-layout: fixed;
+        	 border-spacing: 0;
+             width: 100%;
         }
     </style>
     
     <script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src='/resources/js/jquery.form.js'></script>
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"></script>
-	<script charset="UTF-8" type="text/javascript" src="http://t1.daumcdn.net/postcode/api/core/190107/1546836247227/190107.js"></script>      
-    
-
+	<script charset="UTF-8" type="text/javascript" src="http://t1.daumcdn.net/postcode/api/core/190107/1546836247227/190107.js"></script>
   </head>
   
 
 
 <body>
-  <div class=header>
-      <a href="index.html"><img src="/resources/image/moon.png" width="80" height="80s"></a>
-      <nav>
-        <span><a href="intro.html">호텔 소개</a></span>
-        <span><a href="room.html">객실</a></span>
-        <span><a href="restaurant.html">레스토랑</a></span>
-        <span><a href="res.html">예약</a></span>
-        <span><a href="res_confirm.html">예약 확인</a></span>
-        <span><a href="qna.html">고객문의</a></span>
-        <span><a href="facility.html">편의시설</a></span>
-        <span><a href="login.html">로그인</a></span>
-      </nav>
-  </div>
+  <%@include file = "/WEB-INF/views/layout/header.jsp" %>
 
   <div class=contain>
     <div class=left>
@@ -62,12 +53,12 @@
         <h2 class=tit>문의 사항</h2>
           <ul class=menu>
             <li class="m1">
-              <a href="qna.html">
-                <span>자주 하는 질문</span>
+              <a href="/qna/list.do">
+                <span>게시판</span>
               </a>
             </li>
             <li class="m2">
-              <a href="write_qna.html">
+              <a href="/qna/write.do">
                 <span>문의하기</span>
               </a>
             </li>
@@ -76,11 +67,9 @@
     </div>
     <div class=contents>
       <h1>문의하기</h1>
-      <form  id="form1" name="form1" action="/qna/insert.do" method="post">
+       <form  id="form1" name="form1" action="/qna/insert.do" method="post">
           <!-- <div class="form-process"></div> -->
           <h3 class="tit_">● 고객 정보</h3>
-
-           
 
           <div class="clear"></div>
           <h3 class="tit_">● 문의사항</h3>
@@ -89,7 +78,7 @@
 
           <div class="col_two_third">
               <h3 class="join_title"><label for="subject">제목</label></h3>
-              <input name="qnatitle" id="qnatitle" size="80" placeholder="제목을 입력하세요">
+			  <input name="qnatitle" id="qnatitle" size="80" placeholder="제목을 입력하세요">
           </div>
 
 
@@ -124,9 +113,10 @@
 
 
           <div class="btn_area">
-              <input type="submit" id="btnSave" value = "접수" onclick="location.href='/qna/insert.do'">                  
+              <input type="submit" id="btnSave" value = "접수" onclick="location.href='/qna/insert.do'">
           </div>
       </form>
+      </div>
 
 
       <!-- 고객의 소리 // -->
@@ -163,14 +153,7 @@
       <!-- // 고객의 소리 -->
 
     </div>
-    <div class="finish">
-        <p> 사업자 번호: 110-10-12345<br/>
-            사업장소재지: 경기도 이천시 마장면 장암리<br/>
-            대표자: 홍길동<br/>
-            Copyright ⓒ 2020 Hotel Group. All rights reserved.
-        </p>
-    </div>
-  </div>
+    <%@include file = "/WEB-INF/views/layout/final.jsp" %>
 
 </body>
 </html>
