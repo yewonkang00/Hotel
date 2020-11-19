@@ -46,7 +46,13 @@ public class QnaDaoImpl implements QnaDao {
 
 	@Override
 	public void create(QnaVo vo) throws Exception {
-		sqlSession.insert("qna.insert", vo);
+		System.out.println(vo.getQNACODE());
+		System.out.println(vo.getQNACONTENT());
+		System.out.println(vo.getQNATITLE());
+		System.out.println(vo.getQNAWRITER());
+		System.out.println(vo.getQNAREGISTERDATE());
+		System.out.println(vo.getQNAVIEWCOUNT());
+		sqlSession.insert("QNA.create", vo);
 		
 	}
 
@@ -60,13 +66,13 @@ public class QnaDaoImpl implements QnaDao {
 		System.out.println(vo.getQNACODE());
 		System.out.println(vo.getQNACONTENT());
 		System.out.println(vo.getQNATITLE());
-		sqlSession.update("qna.updateArticle", vo);
+		sqlSession.update("QNA.updateArticle", vo);
 		
 	}
 
 	@Override
 	public void delete(int QNACODE) throws Exception {
-		sqlSession.delete("qna.deleteArticle", QNACODE);
+		sqlSession.delete("QNA.deleteArticle", QNACODE);
 		
 	}
 

@@ -3,117 +3,80 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
-	<head>
-		<style>
-			* {
-				font-family: 'Noto Sans KR', sans-serif;
-			}
-			body {
-				background-color: #EEEFF1;
-			}
-			textarea {
-				overflow:auto;
-				vertical-align:top;
-				padding:8px;
-				box-sizing:border-box;
-				border:solid 1px #aaa;
-			}
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/resources/css/style.css" type="text/css">
 
-			table {
-				border-collapse: collapse;
-				border-spacing: 0;
-				table-layout: fixed;
-				border-spacing: 0;
-				width: 100%;
-			}
-		</style>
-		<meta charset="UTF-8">
-		<title>Qna list</title>
-		<link rel="stylesheet" href="/resources/css/style.css" type="text/css">
 
-		<script type="text/javascript">
-		function list(page){
-			location.href="/qna/list.do?curPage="+page
-		}
-		</script>
-	</head>
+<script type="text/javascript">
+function list(page){
+	location.href="/qna/list.do?curPage="+page
+}
 
-	<body>
-	<%@include file ="../layout/header.jsp" %>
-	<div class=contain>
-		<div class=left>
-			<div class=banner>
-				<h2 class=tit>문의 사항</h2>
-				<ul class=menu>
-					<li class="m1">
-						<a href="/qna/list.do">
-							<span>게시판</span>
-						</a>
-					</li>
-					<li class="m2">
-						<a href="/qna/write.do">
-							<span>문의하기</span>
-						</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<div class=contents>
-			<h1>게시판</h1>
-			<button type="button" id="btnWrite" onclick="location.href='/qna/write.do'">글쓰기</button>
-			${map.count}개의 문의사항이 있습니다.
-			<table border="1" width="600px">
-				<tr>
-					<th>번호</th>
-					<th>제목</th>
-					<th>이름</th>
-					<th>날짜</th>
-					<th>조회수</th>
-				</tr>
-				<c:forEach var="row" items="${map.list}">
-					<tr>
-						<td>${row.QNACODE}</td>
+</script>
 
-						<td><a href = "/qna/view.do?QNACODE=${row.QNACODE}&curPage=${map.pager.curPage}">${row.QNATITLE}</a></td>
+</head>
+<body>
 
-						<td>${row.QNAWRITER}</td>
-						<td><fmt:formatDate value="${row.QNAREGISTERDATE}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-						<td>${row.QNAVIEWCOUNT}</td>
-					</tr>
-				</c:forEach>
-				<!-- 페이지 네비게이션 -->
-				<tr>
-					<td colspan="5" align="center">
-						<c:if test="${map.pager.curBlock > 1}">
-							<a href="javascript:list('1')">[처음]</a>
-						</c:if>
 
-						<c:if test = "${map.pager.curBlock > 1}">
-							<a href= "javascript:list('${map.pager.blockBegin}')">[이전]</a>
-						</c:if>
+<h2>게시판</h2>
 
-						<c:forEach var="num" begin="${map.pager.blockBegin}" end="${map.pager.blockEnd}">
-							<c:choose>
-								<c:when test="${num==map.pager.curPage}">
-									<span style="color:red;">${num}</span>&nbsp;
-								</c:when>
-								<c:otherwise>
-									<a href="javascript:list('${num}')">${num}</a>&nbsp;
-								</c:otherwise>
-							</c:choose>
-						</c:forEach>
-						<c:if test="${map.pager.curBlock <= map.pager.totBlock}">
-							<a href="javascript:list('${map.pager.nextPage}')">[다음]</a>
-						</c:if>
-						<c:if test="${map.pager.curPage <= map.pager.totPage}">
-							<a href="javascript:list('${map.pager.totPage}')">[끝]</a>
-						</c:if>
-					</td>
-				</tr>
+	<c:if test="{sessionScope.userid != null">
+	<button type="button" id="btnWrite" onclick="location.href='/qna/write.do'">글쓰기</button>	
+	</c:if>
 
-			</table>
-		</div>
-	</div>
-	<%@include file ="../layout/final.jsp" %>
-	</body>
+${map.count}개의 문의사항이 있습니다.
+
+<table border="1" width="600px">
+	<tr>
+		<th>번호</th>
+		<th>제목</th>
+		<th>이름</th>
+		<th>날짜</th>
+		<th>조회수</th>
+	</tr>
+<c:forEach var="row" items="${map.list}">
+	<tr>
+		<td>${row.QNACODE}</td>
+		
+		<td><a href = "/qna/view.do?QNACODE=${row.QNACODE}&curPage=${map.pager.curPage}">${row.QNATITLE}</a></td>
+		
+		<td>${row.QNAWRITER}</td>
+		<td>${row.QNAREGISTERDATE}</td>
+		<td>${row.QNAVIEWCOUNT}</td>
+	</tr>
+</c:forEach>
+<!-- 페이지 네비게이션 -->
+<tr>
+	<td colspan="5" align="center">
+		<c:if test="${map.pager.curBlock > 1}">
+			<a href="javascript:list('1')">[처음]</a>
+		</c:if>
+		
+		<c:if test = "${map.pager.curBlock > 1}">
+			<a href= "javascript:list('${map.pager.blockBegin}')">[이전]</a>
+		</c:if>
+		
+		<c:forEach var="num" begin="${map.pager.blockBegin}" end="${map.pager.blockEnd}">
+			<c:choose>
+				<c:when test="${num==map.pager.curPage}">
+					<span style="color:red;">${num}</span>&nbsp;
+				</c:when>
+				<c:otherwise>
+					<a href="javascript:list('${num}')">${num}</a>&nbsp;
+				</c:otherwise>
+			</c:choose>
+		</c:forEach>
+		<c:if test="${map.pager.curBlock <= map.pager.totBlock}">
+			<a href="javascript:list('${map.pager.nextPage}')">[다음]</a>
+		</c:if>
+		<c:if test="${map.pager.curPage <= map.pager.totPage}">
+			<a href="javascript:list('${map.pager.totPage}')">[끝]</a>
+		</c:if>
+	</td>
+</tr>
+
+</table>
+</body>
 </html>

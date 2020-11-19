@@ -20,9 +20,21 @@
 		where rn between ${start} and ${end}
 	</select>
 
-	<insert id="insert">
-		insert into QNA (QNACODE, QNATITLE, QNACONTENT, QNAWRITER) values
-		(seq_qna.nextval, #{title}, #{content}, #{name})
+	<insert id="create" parameterType="QnaVo">
+		INSERT INTO QNA ( 
+		QNACODE, 
+		QNATITLE, 
+		QNACONTENT, 
+		QNAWRITER,
+		QNAREGISTERDATE) 
+		
+		VALUES
+		(seq_board.nextval, 
+		#{QNATITLE}, 
+		#{QNACONTENT}, 
+		#{QNAWRITER},
+		#{QNAREGISTERDATE}
+		)
 	</insert>
 
 

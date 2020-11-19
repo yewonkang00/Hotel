@@ -1,10 +1,13 @@
 package com.khotel.Controller;
 
+
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -19,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.khotel.Service.QnaService;
 import com.khotel.ServiceImpl.Pager;
+import com.khotel.Vo.MemberVo;
 import com.khotel.Vo.QnaVo;
 
 @Controller
@@ -66,12 +70,24 @@ public class QnaController {
 	
 	}
 	
-	@RequestMapping("/qna/insert.do")
-	public String insert(@ModelAttribute QnaVo vo, HttpSession session) throws Exception {
-		String writer = (String)session.getAttribute("userid");
-		// if(writer == null) {} 로그인 하지 않았다면...
+	@RequestMapping(value="/qna/insert.do", method=RequestMethod.POST)
+	public String insert(@RequestParam("qnatitle") String title,
+			@RequestParam("qnacontent") String content,
+			HttpServletRequest request
+			) throws Exception {		
+		MemberVo member = new MemberVo();
+		HttpSession session = request.getSession();
+		member = (MemberVo) session.getAttribute("member");
+		String writer = member.getUserId();
+		
+		QnaVo vo = new QnaVo();
+		vo.setQNATITLE(title);
+		vo.setQNACONTENT(content);
 		vo.setQNAWRITER(writer);
+		vo.setQNAREGISTERDATE(new Date().toGMTString());
+	
 		qnaService.create(vo);
+		
 		return "redirect:/qna/list.do";
 	}
 	
