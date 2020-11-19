@@ -12,10 +12,8 @@
 </style>
 
 <meta charset="utf-8">
-<link rel="stylesheet" href="/resources/css/styleintro.css"
-	type="text/css">
-<link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css"
-	rel="stylesheet">
+<link rel="stylesheet" href="/resources/css/styleintro.css" type="text/css">
+<link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
 
 
 <title>Welcome Delluna!</title>
@@ -23,18 +21,7 @@
 </head>
 
 <body>
-	<div class=header>
-		<a href="/main"><img src="/resources/image/moon.png" width="100" height="100"></a>
-		<nav>
-			<span><a href="/intro.do">호텔 소개</a></span> <span><a
-				href="/room_main.do">객실</a></span> <span><a href="menu.html">레스토랑</a></span> <span><a
-				href="menu.html">예약</a></span> <span><a href="menu.html">예약 확인</a></span> <span><a
-				href="menu.html">고객문의</a></span> <span><a href="/login.do">편의시설</a></span>
-			<span><a href="/login.do">로그인</a></span>
-		</nav>
-
-	</div>
-
+	<%@include file ="../layout/header.jsp" %>
 	<div class=contain>
 		<div class=left>
 			<div class=banner>
@@ -81,11 +68,6 @@
 			</p>
 		</div>
 	</div>
-	<div class="finish">
-		<p>
-			사업자 번호: 110-10-12345<br /> 사업장소재지: 경기도 이천시 마장면 장암리<br /> 대표자: 홍길동<br />
-			Copyright ⓒ 2020 Hotel Group. All rights reserved.
-		</p>
-	</div>
+	<%@include file ="../layout/final.jsp" %>
 </body>
 </html>

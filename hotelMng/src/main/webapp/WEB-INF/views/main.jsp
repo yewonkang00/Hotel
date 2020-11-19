@@ -4,60 +4,51 @@
 <html lang="ko">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
         <style>
-
-            .banner{
-                background-image: url("/resources/image/oria-hotel-4636405_1280.jpg");
-                background-size: cover;
-                margin-top: auto;
-                margin-left: 0;
-                width: auto;
-                height: 700px;
+            * {
+                font-family: 'Noto Sans KR', sans-serif;
             }
-            
-            .contents{
-                width: 1200px;
+            body {
                 margin-left:auto;
                 margin-right: auto;
+                padding:0px;
+                background-color: white;
+                font-family:나눔고딕;
+            }
+            ::-webkit-scrollbar {
+                display: none;
+            }
+            a {
+                color:#111111;
+                text-decoration:none
+            }
+            .banner_main {
+                background-image: url(/resources/image/oria-hotel-4636405_1280.jpg);
+                background-size: cover;
+                margin-top: auto;
+                min-width: 700px;
+                height: 700px;
+                padding: 8px;
+            }
+            .contain{
+                width: 1200px;
+                margin-top:30px;
                 min-height: 500px;
-                padding: 50px;
                 background-color: white;
                 font-size: 18px;
                 color: #333333
             }
-
             .index_contents{
                 margin-left: 45px;
             }
 
         </style>
-        <title>Welcom Delluna!</title>
+        <title>Welcome Delluna!</title>
 
     </head>
     <body>
-        <div class=header>
-            <img src="/resources/image/moon.png" width="100" height="100">
-            <nav>
-                <span><a href="/intro.do">호텔 소개</a></span>
-                <span><a href="/room_main.do">객실</a></span>
-                <span><a href="menu.html">레스토랑</a></span>
-                <span><a href="menu.html">예약</a></span>
-                <span><a href="menu.html">예약 확인</a></span>
-                <span><a href="menu.html">고객문의</a></span>
-                <span><a href="/login.do">편의시설</a></span>
-                <span>
-                	<c:choose>
-   						<c:when test="${member != null}"><a href="/logout.do">로그아웃</a></c:when>
-   						<c:otherwise><a href="/login.do">로그인</a></c:otherwise>
-   					</c:choose>
-                </span>
-            </nav>
-            
-        </div>
-
-        <div class=banner>
-        </div>
+        <%@include file ="layout/header.jsp" %>
+        <div class=banner_main></div>
         <div class=contain>
             <div class=index_contents>
                 <p> 안녕하세요</p>
@@ -68,15 +59,9 @@
                 <p>
                     <img src="/resources/image/hotel2.jpg" width="300">
                 <p>
-
+                    <a href="reservationqa.html">호텔 예약 문의하기</a>
             </div>
         </div>
-        <div class="finish">
-            <p> 사업자 번호: 110-10-12345<br/>
-                사업장소재지: 경기도 이천시 마장면 장암리<br/>
-                대표자: 홍길동<br/>
-                Copyright ⓒ 2020 Hotel Group. All rights reserved.
-            </p>
-        </div>
+        <%@include file ="layout/final.jsp" %>
     </body>
 </html>
