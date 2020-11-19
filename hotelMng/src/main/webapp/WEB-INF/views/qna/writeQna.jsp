@@ -30,6 +30,13 @@
             background-color: #EEEFF1;
         }
     </style>
+    
+    <script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src='/resources/js/jquery.form.js'></script>
+	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"></script>
+	<script charset="UTF-8" type="text/javascript" src="http://t1.daumcdn.net/postcode/api/core/190107/1546836247227/190107.js"></script>      
+    
+
   </head>
   
 
@@ -69,19 +76,11 @@
     </div>
     <div class=contents>
       <h1>문의하기</h1>
-      <form class="nobottommargin" id="template-contactform" name="template-contactform" action="sendemail.jsp" method="post">
+      <form  id="form1" name="form1" action="/qna/insert.do" method="post">
           <!-- <div class="form-process"></div> -->
           <h3 class="tit_">● 고객 정보</h3>
 
-          <div class="col_one_third">
-              <h3 class="join_title"><label for="name">성함</label></h3>
-              <input type="text" id="name" class="d_form large">
-          </div>
-
-          <div class="col_one_third">
-              <h3 class="join_title"><label for="address">이메일</label></h3>
-              <input type="email" id="email" class="d_form large">
-          </div>
+           
 
           <div class="clear"></div>
           <h3 class="tit_">● 문의사항</h3>
@@ -90,7 +89,7 @@
 
           <div class="col_two_third">
               <h3 class="join_title"><label for="subject">제목</label></h3>
-              <input name="title" id="title" size="80" placeholder="제묵을 입력하세요">
+              <input name="qnatitle" id="qnatitle" size="80" placeholder="제목을 입력하세요">
           </div>
 
 
@@ -118,17 +117,14 @@
 
           <div class="col_full">
               <h3 class="join_title_write"><label for="message">작성</label></h3>
-              <textarea id="content" name="content" rows="3" cols="80"
+              <textarea id="qnacontent" name="qnacontent" rows="3" cols="80"
               placeholder="내용을 입력하세요."></textarea>
           </div>
 
 
 
           <div class="btn_area">
-              <button type="button" id="btnSave" onclick="location.href='/qna/insert.do'">
-                  <!-- <input type="submit" name="" value="">  나중에 사용-->
-                  <span>접수</span>
-              </button>
+              <input type="submit" id="btnSave" value = "접수" onclick="location.href='/qna/insert.do'">                  
           </div>
       </form>
 

@@ -22,10 +22,11 @@
 <div>
 	<input type="hidden" name = "QNACODE" value="${dto.QNACODE}">
 	<c:if test="{sessionScope.userid == dto.QNAWRITER}">
-	</c:if>
 	<button type ="button" id = "btnUpdate" onclick="location.href='/qna/rewrite.do?QNACODE=${dto.QNACODE}'">수정</button>
 	<button type ="button" id = "btnDelete">삭제</button>
-	<button type ="button" id = "btnList" onclick="location.href='/qna/list.do'">목록</button> 
+	<button type ="button" id = "btnList" onclick="location.href='/qna/list.do'">목록</button>
+	</c:if>
+ 
 </div>
 
 

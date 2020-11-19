@@ -18,8 +18,14 @@ function list(page){
 
 </head>
 <body>
+
+
 <h2>게시판</h2>
-<button type="button" id="btnWrite" onclick="location.href='/qna/write.do'">글쓰기</button>
+
+	<c:if test="{sessionScope.userid != null">
+	<button type="button" id="btnWrite" onclick="location.href='/qna/write.do'">글쓰기</button>	
+	</c:if>
+
 ${map.count}개의 문의사항이 있습니다.
 
 <table border="1" width="600px">
@@ -37,7 +43,7 @@ ${map.count}개의 문의사항이 있습니다.
 		<td><a href = "/qna/view.do?QNACODE=${row.QNACODE}&curPage=${map.pager.curPage}">${row.QNATITLE}</a></td>
 		
 		<td>${row.QNAWRITER}</td>
-		<td><fmt:formatDate value="${row.QNAREGISTERDATE}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+		<td>${row.QNAREGISTERDATE}</td>
 		<td>${row.QNAVIEWCOUNT}</td>
 	</tr>
 </c:forEach>
