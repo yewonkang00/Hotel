@@ -12,7 +12,6 @@ public class QnaVo {
 	private String QNAREGISTERDATE;
 	private int QNAVIEWCOUNT;
 
-	
 	public int getQNACODE() {
 		return QNACODE;
 	}
@@ -49,9 +48,5 @@ public class QnaVo {
 	public void setQNAVIEWCOUNT(int qNAVIEWCOUNT) {
 		QNAVIEWCOUNT = qNAVIEWCOUNT;
 	}
-
-	
-	
-	
 
 }

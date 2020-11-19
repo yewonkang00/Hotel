@@ -27,7 +27,7 @@
 		QNACONTENT, 
 		QNAWRITER,
 		QNAREGISTERDATE) 
-		
+
 		VALUES
 		(seq_board.nextval, 
 		#{QNATITLE}, 
@@ -35,7 +35,7 @@
 		#{QNAWRITER},
 		#{QNAREGISTERDATE}
 		)
-	</insert>
+		</insert>
 
 
 	<update id="increaseViewcnt">
