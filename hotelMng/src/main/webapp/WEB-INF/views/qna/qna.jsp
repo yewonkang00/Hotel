@@ -53,15 +53,19 @@ table {
 
 <body>
 	<div class=header>
-		<a href="index.html"><img src="../img/moon.png" width="80"
-			height="80"></a>
+		<a href="/main"><img src="/resources/image/moon.png" width="100" height="100"></a>
 		<nav>
 			<span><a href="intro.html">호텔 소개</a></span> <span><a
 				href="room.html">객실</a></span> <span><a href="restaurant.html">레스토랑</a></span>
 			<span><a href="res.html">예약</a></span> <span><a
 				href="res_confirm.html">예약 확인</a></span> <span><a href="qna.html">고객문의</a></span>
-			<span><a href="facility.html">편의시설</a></span> <span><a
-				href="login.html">로그인</a></span>
+			<span><a href="facility.html">편의시설</a></span>
+			<span>
+            	<c:choose>
+					<c:when test="${member != null}"><a href="/logout.do">로그아웃</a></c:when>
+					<c:otherwise><a href="/login.do">로그인</a></c:otherwise>
+				</c:choose>
+            </span>
 		</nav>
 	</div>
 

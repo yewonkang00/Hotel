@@ -8,30 +8,35 @@
 		from qna q, member m
 		where q.qnawriter = m.userid 
 		order by QNACODE desc -->
-		<include refid="paging_header" />
-		select QNACODE, QNATITLE, QNAWRITER, QNAREGISTERDATE, QNAVIEWCOUNT
-		from QNA
-		order by QNACODE desc
-		<include refid="paging-footer" />
-	</select>
-
-	<insert id="insert">
-		insert into QNA (QNACODE, QNATITLE, QNACONTENT, QNAWRITER) values
-		(seq_qna.nextval, #{title}, #{content}, #{name})
-	</insert>
-
-	<sql id="paging_header">
 		select *
 		from (
 			select rownum as rn, A.*
 			from (
-	</sql>
+		select QNACODE, QNATITLE, QNAWRITER, QNAREGISTERDATE, QNAVIEWCOUNT
+		from QNA
+		order by QNACODE desc
+			) A
+		) 
+		where rn between ${start} and ${end}
+	</select>
 
-	<sql id="paging-footer">
-		) A
-	) 
-	where rn between ${start} and ${end}
-	</sql>
+	<insert id="create" parameterType="QnaVo">
+		INSERT INTO QNA ( 
+		QNACODE, 
+		QNATITLE, 
+		QNACONTENT, 
+		QNAWRITER,
+		QNAREGISTERDATE) 
+
+		VALUES
+		(seq_board.nextval, 
+		#{QNATITLE}, 
+		#{QNACONTENT}, 
+		#{QNAWRITER},
+		#{QNAREGISTERDATE}
+		)
+		</insert>
+
 
 	<update id="increaseViewcnt">
 		update QNA
