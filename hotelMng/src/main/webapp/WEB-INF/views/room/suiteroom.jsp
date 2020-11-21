@@ -33,6 +33,7 @@
         </div>
         <div class=contain>
           <div class=left>
+<<<<<<< Updated upstream:hotelMng/src/main/webapp/WEB-INF/views/room/suiteroom.jsp
             <div class=banner>
               <h2 class=tit><a href=/room.do">객실 소개</a></h2>
                 <ul class=menu>
@@ -48,6 +49,31 @@
                   </li>
                 </ul>
             </div>
+=======
+              <h2 class=tit><a href="/room_main.do">객실 소개</a></h2>
+	            <ul class=menu>
+	                <li class="m1">
+	                    <a href="/room_standard.do">
+	                        <span>Standard Room</span>
+	                    </a>
+	                </li>
+	                <li class="m2">
+	                    <a href="/room_deluxe.do">
+	                        <span>Deluxe Room</span>
+	                    </a>
+	                </li>
+	                <li class="m3">
+	                    <a href="/room_executive.do">
+	                        <span>Executive Room</span>
+	                    </a>
+	                </li>
+	                <li class="m4">
+	                    <a href="/room_suite.do">
+	                        <span>Suite Room</span>
+	                    </a>
+	                </li>
+            	</ul>
+>>>>>>> Stashed changes:hotelMng/src/main/webapp/WEB-INF/views/room/suite_room.jsp
           </div>
           <div class=contents>
             <h1>Suite Room</h1>

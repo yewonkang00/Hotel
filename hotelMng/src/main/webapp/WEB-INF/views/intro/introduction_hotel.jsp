@@ -36,7 +36,6 @@
         </div>
         <div class=contain>
             <div class=left>
-              <div class=banner>
                 <h2 class=tit>호텔 소개</h2>
                 <ul class=menu>
                   <li class="m1">
@@ -50,7 +49,6 @@
                     </a>
                   </li>
                 </ul>
-              </div>
             </div>
             <div class=contents>
               <img src="/resources/image/room.jpg" width=650px height=400>

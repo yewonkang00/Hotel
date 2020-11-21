@@ -14,6 +14,10 @@
         <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
 
         <title>Standard room</title>
+<<<<<<< Updated upstream:hotelMng/src/main/webapp/WEB-INF/views/room/standardroom.jsp
+=======
+
+>>>>>>> Stashed changes:hotelMng/src/main/webapp/WEB-INF/views/room/standard_room.jsp
     </head>
     <body>
         <div class=header>
@@ -31,8 +35,12 @@
         </div>
         <div class=contain>
           <div class=left>
+<<<<<<< Updated upstream:hotelMng/src/main/webapp/WEB-INF/views/room/standardroom.jsp
             <div class=banner>
               <h2 class=tit><a href="/room.do">객실 소개</a></h2>
+=======
+              <h2 class=tit><a href="/room_main.do">객실 소개</a></h2>
+>>>>>>> Stashed changes:hotelMng/src/main/webapp/WEB-INF/views/room/standard_room.jsp
                 <ul class=menu>
                   <li class="m1">
                     <a href="/room.do">
@@ -45,7 +53,6 @@
                     </a>
                   </li>
                 </ul>
-            </div>
           </div>
           <div class=contents>
             <h1>Standard Room</h1>

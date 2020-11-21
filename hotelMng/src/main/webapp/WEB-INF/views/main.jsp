@@ -1,7 +1,9 @@
-<%@ page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="ko">
+<<<<<<< Updated upstream
     <head>
         <meta charset="UTF-8">
         <style>
@@ -77,9 +79,26 @@
 
         </style>
         <title>Welcom Delluna!</title>
+=======
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+    </style>
 
-    </head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styleintro.css" type="text/css">
+    <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+>>>>>>> Stashed changes
+
+
+    <title>Welcome Delluna!</title>
+
+</head>
     <body>
+<<<<<<< Updated upstream
         <div class=header>
             <img src="/resources/image/moon.png" width="100" height="100">
             <nav>
@@ -120,5 +139,21 @@
                 Copyright ⓒ 2020 Hotel Group. All rights reserved.
             </p>
         </div>
+=======
+        <%@include file = "/WEB-INF/views/layout/header.jsp" %>
+        <div class=banner></div>
+        	<div class=index_contents>
+        		<p> 안녕하세요</p>	
+	            <p> 가나다라</p>	
+	            <p> 마바사아</p>	
+	            <b><p> 브런치 타임: AM 11:30 ~ PM 1:30</p>	
+	            <p> 영업시간 : AM 10:00 ~ PM 9:00</p></b>	
+	            <p>
+	            	<img src="/resources/image/hotel2.jpg" width="300">
+	            <p>
+	            	<a href="reservationqa.html">호텔 예약 문의하기</a>
+	    	</div>
+        <%@include file = "/WEB-INF/views/layout/final.jsp" %>
+>>>>>>> Stashed changes
     </body>
 </html>
