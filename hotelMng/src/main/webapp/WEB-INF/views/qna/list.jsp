@@ -44,7 +44,6 @@
 	<%@include file = "/WEB-INF/views/layout/header.jsp" %>
 	<div class=contain>
 		<div class=left>
-			<div class=banner>
 				<h2 class=tit>문의 사항</h2>
 				<ul class=menu>
 					<li class="m1">
@@ -58,7 +57,6 @@
 						</a>
 					</li>
 				</ul>
-			</div>
 		</div>
 		<div class=contents>
 			<h1>게시판</h1>
