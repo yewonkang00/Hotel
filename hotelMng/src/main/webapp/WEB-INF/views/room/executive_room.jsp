@@ -19,7 +19,6 @@
 <%@include file = "/WEB-INF/views/layout/header.jsp" %>
 <div class=contain>
     <div class=left>
-        <div class=banner>
             <h2 class=tit><a href="/room_main.do">객실 소개</a></h2>
             <ul class=menu>
                 <li class="m1">
@@ -43,7 +42,6 @@
                     </a>
                 </li>
             </ul>
-        </div>
     </div>
     <div class=contents>
         <h1>Executive Room</h1>
