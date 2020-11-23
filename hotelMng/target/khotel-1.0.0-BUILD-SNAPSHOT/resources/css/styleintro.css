@@ -4,6 +4,7 @@ body {
 	/* margin-left:auto;
     margin-right: auto; */
 	margin: 0px;
+<<<<<<< Updated upstream
 	padding: 0px;
 	background-color: white;
 	font-family: 나눔고딕;
@@ -20,6 +21,21 @@ a {
 }
 
 .header {
+=======
+	padding:0px;
+	background-color: white;
+	font-family:나눔고딕;
+	-ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+	display: none;
+}
+a {
+	color:#111111;
+	text-decoration:none
+}
+.header{
+>>>>>>> Stashed changes
 	/* margin-left: auto; */
 	/* margin-right: auto; */
 	background-color: #D4C1A1;
@@ -28,7 +44,11 @@ a {
 	top: 0;
 	/* left: 0; */
 	/* right: 0; */
+<<<<<<< Updated upstream
 	height: 50px;
+=======
+	height: 65px;
+>>>>>>> Stashed changes
 	display: flex;
 	/* border-bottom-style: solid;
     border-bottom-color: #9B9B9B;
@@ -36,15 +56,57 @@ a {
 	text-align: center;
 	padding: 8px;
 	color: #111111;
+<<<<<<< Updated upstream
 	font-size: 5px;
 	justify-content: space-between;
 	align-items: center;
+=======
+	font-size: 12px;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+}
+
+.header .logo {
+	display: inline-block;
+	width:200px;
+	height: 50px;
+	margin-top: 20px;
+	float: middle;
+}
+.topmenu {
+	position: absolute;
+	top: 12px;
+	right: -3px;
+}
+
+.topmenu a{
+	position: relative;
+	display: inline-block;
+	margin-right: 15px;
+	padding-right: 15px;
+}
+
+.topmenu a:first-child::before{
+	content: '';
+}
+
+.topmenu a::before {
+	position: absolute;
+	top: 2px;
+	left: -15px;
+	content: '|';
+	display: inline-block;
+	width: 1px;
+	height: 10px;
+>>>>>>> Stashed changes
 }
 
 .header nav {
 	list-style-type: none;
 	text-align: right;
 	min-width: 800px;
+<<<<<<< Updated upstream
 	margin: 0;
 	padding: 0;
 }
@@ -68,10 +130,37 @@ a {
 }
 
 .tit {
+=======
+	margin-top: 15px;
+	padding: 0;
+}
+.header nav span {
+	/* justify-content: flex-end; */
+	display:inline-block;
+	font-size: 15px;
+	padding: 20px;
+}
+.left{
+	float: left;
+	background-color: #D4C1A1;
+	margin-left: 40px;
+	margin-top:15px;
+}
+.banner{
+	background-image: url("/resources/image/oria-hotel-4636405_1280.jpg");
+	background-size: cover;
+	margin-top: auto;
+	min-width: 1500px;
+	height: 700px;
+	padding: 8px;
+}
+.tit{
+>>>>>>> Stashed changes
 	padding: 22px;
 	text-align: center;
 	height: 50px;
 }
+<<<<<<< Updated upstream
 
 .mini_title {
 	padding: 10px 0;
@@ -86,26 +175,54 @@ a {
 	height: 50px;
 }
 
+=======
+.mini_title {
+	padding: 10px 0;
+}
+.m1{
+	height: 50px;
+	width:200px;
+}
+.m2{
+	height: 50px;
+}
+.m3{
+	height: 50px;
+}
+.m4{
+	height: 50px;
+}
+>>>>>>> Stashed changes
 h3 {
 	margin: 19px 0 8px;
 	font-size: 14px;
 	font-weight: 700;
 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 h4 {
 	position: relative;
 	font-weight: bold;
 	font-size: 20px;
 }
+<<<<<<< Updated upstream
 
 .contain {
 	width: 1200px;
 	margin-top: 30px;
+=======
+.contain{
+	width: 1200px;
+	margin-top:30px;
+>>>>>>> Stashed changes
 	min-height: 500px;
 	background-color: white;
 	font-size: 18px;
 	color: #333333
 }
+<<<<<<< Updated upstream
 
 .contents {
 	float: right;
@@ -118,13 +235,31 @@ h4 {
 	clear: both;
 	width: 1200px;
 	margin-left: auto;
+=======
+.index_contents{
+	margin-left: 45px;
+}
+.contents{
+	float:right;
+	margin-right:-120px;
+	width:1000px;
+	height:1200px;
+}
+.finish {
+	clear: both;
+	width: 1200px;
+	margin-left:auto;
+>>>>>>> Stashed changes
 	margin-right: auto;
 	padding: 50px;
 	background-color: white;
 	font-size: 18px;
 	color: #333333
 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 .clear {
 	clear: both;
 	display: block;
@@ -132,14 +267,21 @@ h4 {
 	height: 0px;
 	line-height: 0;
 	width: 100%;
+<<<<<<< Updated upstream
 	overflow: hidden;
 }
 
 .intro {
+=======
+	overflow:hidden;
+}
+.intro{
+>>>>>>> Stashed changes
 	padding: 20px;
 	width: 650px;
 	height: 300px;
 	margin-top: 20px;
+<<<<<<< Updated upstream
 	border: 3pt solid #D4C1A1;
 }
 
@@ -153,6 +295,18 @@ h4 {
 	font-size: 17px;
 }
 
+=======
+	border: 3pt solid  #D4C1A1;
+}
+.intro_left{
+	float: left;
+	font-size: 17px;
+}
+.intro_right{
+	float: right;
+	font-size: 17px;
+}
+>>>>>>> Stashed changes
 .login-form {
 	position: absolute;
 	background-color: #d2d2d4;
@@ -165,7 +319,10 @@ h4 {
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 .text-field {
 	border: none;
 	width: 90%;
@@ -177,7 +334,10 @@ h4 {
 	margin-right: auto;
 	display: block;
 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 .submit-btn {
 	border: none;
 	width: 90%;
@@ -192,24 +352,37 @@ h4 {
 	display: block;
 	color: white;
 }
+<<<<<<< Updated upstream
 
 .links {
 	text-align: center;
 }
 
+=======
+.links {
+	text-align: center;
+}
+>>>>>>> Stashed changes
 .links a {
 	justify-content: space-between;
 	font-size: 12px;
 	color: #515A5A;
 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 select {
 	width: 100%;
 	height: 29px;
 	font-size: 15px;
+<<<<<<< Updated upstream
 	background: #fff
 		url(https://static.nid.naver.com/images/join/pc/sel_arr_2x.gif) 100%
 		50% no-repeat;
+=======
+	background: #fff url(https://static.nid.naver.com/images/join/pc/sel_arr_2x.gif) 100% 50% no-repeat;
+>>>>>>> Stashed changes
 	background-size: 20px 8px;
 	-webkit-appearance: none;
 	display: inline-block;
@@ -229,7 +402,10 @@ select {
 	background: #fff;
 	position: relative;
 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 .int {
 	display: block;
 	position: relative;
@@ -239,16 +415,23 @@ select {
 	background: #fff;
 	font-size: 15px;
 }
+<<<<<<< Updated upstream
 
 .input {
 	font-family: 나눔고딕;;
 }
 
+=======
+.input {
+	font-family: 나눔고딕;;
+}
+>>>>>>> Stashed changes
 .box.int_id {
 	/* padding-right: 110px; */
 	/* padding: 5px 5px 5px; */
 	display: inline-flex;
 }
+<<<<<<< Updated upstream
 
 .box.int_pass {
 	padding-right: 40px;
@@ -258,6 +441,14 @@ select {
 	padding-right: 40px;
 }
 
+=======
+.box.int_pass {
+	padding-right: 40px;
+}
+.box.int_pass_check {
+	padding-right: 40px;
+}
+>>>>>>> Stashed changes
 .login-form {
 	position: absolute;
 	background-color: #d2d2d4;
@@ -270,7 +461,10 @@ select {
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 .text-field {
 	border: none;
 	width: 90%;
@@ -282,7 +476,10 @@ select {
 	margin-right: auto;
 	display: block;
 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 .submit-btn {
 	border: none;
 	width: 90%;
@@ -297,7 +494,10 @@ select {
 	display: block;
 	color: white;
 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 .btn_area {
 	margin: 30px 0 91px;
 }
@@ -313,20 +513,30 @@ select {
 	font-weight: 400;
 	font-family: 나눔고딕;
 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 .btn_zip {
 	width: 30%;
 	padding: 10px 14px 10px 14px;
 	margin-top: 4px;
 	float: right;
+<<<<<<< Updated upstream
 	border: 1px solid #ccc;
+=======
+	border:1px solid #ccc;
+>>>>>>> Stashed changes
 	/* cursor: pointer; */
 	color: #fff;
 	background-color: #333333;
 	font-size: 15px;
 	font-weight: 400;
 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 .btn_idcheck {
 	width: 20%;
 	/* padding: 10px 14px 10px 14px; */
@@ -342,23 +552,35 @@ select {
 .links {
 	text-align: center;
 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 #bir_wrap {
 	display: table;
 	width: 100%;
 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 #bir_yy {
 	display: table-cell;
 	width: 147px;
 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 #bir_mm {
 	display: table-cell;
 	width: 147px;
 	vertical-align: middle;
 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 #bir_dd {
 	display: table-cell;
 	width: 147px;
@@ -367,6 +589,7 @@ select {
 #bir_mm, #bir_dd {
 	padding-left: 10px;
 }
+<<<<<<< Updated upstream
 
 .col_one_third {
 	width: 30.63%;
@@ -376,11 +599,18 @@ select {
 	width: 65.33%;
 }
 
+=======
+.col_one_third { width: 30.63%; }
+.col_two_third { width: 65.33%; }
+>>>>>>> Stashed changes
 .col_last {
 	margin-right: 0 !important;
 	clear: right;
 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 .col_full {
 	display: block;
 	position: relative;
@@ -390,8 +620,13 @@ select {
 	float: none;
 	margin-right: 0;
 }
+<<<<<<< Updated upstream
 
 .col_one_third, .col_two_third {
+=======
+.col_one_third,
+.col_two_third{
+>>>>>>> Stashed changes
 	display: block;
 	position: relative;
 	margin-right: 4%;
@@ -399,6 +634,7 @@ select {
 	float: left;
 }
 
+<<<<<<< Updated upstream
 form .col_one_third, form .col_two_third {
 	margin-bottom: 25px;
 }
@@ -410,16 +646,32 @@ textarea {
 	border-color: #dbdbdb #d2d2d2 #d0d0d0 #d2d2d3;
 }
 
+=======
+form .col_one_third,
+form .col_two_third {
+	margin-bottom: 25px;
+}
+textarea {
+	resize: vertical;
+	width: 100%;
+	border:1px solid #ccc;
+	border-color:#dbdbdb #d2d2d2 #d0d0d0 #d2d2d3;
+}
+>>>>>>> Stashed changes
 .links a {
 	justify-content: space-between;
 	font-size: 12px;
 	color: #515A5A;
 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 .d_form {
 	margin: 5px 0;
 	font-size: 15px;
 	padding: 10px 14px 10px 14px;
+<<<<<<< Updated upstream
 	border: 1px solid #ccc;
 	border-color: #dbdbdb #d2d2d2 #d0d0d0 #d2d2d3;
 	box-sizing: border-box;
@@ -487,3 +739,142 @@ textarea {
 #res2_tit {
 	font-size: 20px;
 } 
+=======
+	border:1px solid #ccc;
+	border-color:#dbdbdb #d2d2d2 #d0d0d0 #d2d2d3;
+	box-sizing: border-box;
+	/* box-shadow:inset .1em .1em .15em rgba(0,0,0,.1); */
+	vertical-align:middle;
+	line-height:1.25em;
+	outline:0;
+}
+
+.d_form.std {
+	width:69%
+}
+
+.d_form.mini {
+	width:49.5%
+}
+
+.d_form.large {
+	width:100%
+}
+
+.d_btn {
+	display:inline-block;
+	padding:.5em 1em;
+	margin:.4em .15em;
+	border:1px solid #ccc;
+	border-color:#dbdbdb #d2d2d2 #b2b2b2 #d2d2d3;
+	cursor:pointer;
+	color:#464646;
+	border-radius:.2em;
+	vertical-align:middle;
+	font-size:1em;
+	line-height:1.25em;
+	background-image:-webkit-gradient(linear,left top,left bottom,from(#fff),to(#f2f2f2));
+	background-image:-moz-linear-gradient(top,#fff,#f2f2f2);
+	background-image:-o-gradient(top,#fff,#f2f2f2);
+	background-image:linear-gradient(top,#fff,#f2f2f2)
+}
+#gaeyo{
+	padding-top: 20px;
+	border-bottom: 3pt solid  #D4C1A1;
+}
+.res_content{
+	position:relative;
+}
+.res_banner{
+	position:absolute; top:50%; left: 50%; transform:translate(-50%, -50%);
+	background-color: #D4C1A1;
+}
+.res_search{
+	text-align: center;
+	padding: 20px;
+	margin-top: 50px;
+	border:2pt solid  #D4C1A1;
+}
+#res2_tit{
+	font-size: 20px;
+}
+
+.myButton {
+	background-color:#D4C1A1;
+	border-radius:3px;
+	border:1px solid #D4C1A1;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:8px 24px;
+	text-decoration:none;
+	text-align: center;
+	justify-content:center;
+	align-items:center;
+	margin-left: 350px;
+}
+.myButton:hover {
+	background-color:#dbb790;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+.roomtb {
+	width: 800px;
+	border-collapse: separate;
+	border-spacing: 1px;
+	text-align: middle;
+	line-height: 1.5;
+	border-top: 1px solid #D4C1A1;
+	margin : 20px 10px;
+}
+.roomtb th {
+	width: 150px;
+	padding: 10px;
+	font-weight: bold;
+	vertical-align: middle;
+	border-bottom: 1px solid #D4C1A1;
+}
+.roomtb td {
+	width: 350px;
+	padding: 10px;
+	vertical-align: top;
+	border-bottom: 1px solid #D4C1A1;
+}
+.intbox {
+	border-bottom: 1px solid #E8E4DE;
+	margin: 25px 0 50px 0;
+	overflow: hidden;
+	padding: 0;
+	color: #101010;
+	display: block;
+}
+.intbox .lbox {
+	float: left;
+	margin-right: 30px;
+	width: 400px;
+	height: 70px;
+	margin-bottom: 50px;
+	padding: 0;
+	color: #101010;
+}
+.intbox .rbox {
+	float: left;
+	width: 400px;
+	margin-bottom :50px;
+	padding: 0;
+
+}
+.intbox .lbox .topexp{
+	float: left;
+	width: 250px;
+}
+.intbox .rbox .topxep{
+	float: left;
+	width : 250px;
+}
+>>>>>>> Stashed changes

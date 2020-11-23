@@ -20,6 +20,7 @@
 
     </head>
     <body>
+<<<<<<< Updated upstream
         <div class=header>
           <a href="index.html"><img src="/resources/image/moon.png" width="80" height="80s"></a>
           <nav>
@@ -37,6 +38,11 @@
         <div class=contain>
             <div class=left>
               <div class=banner>
+=======
+        <%@include file = "/WEB-INF/views/layout/header.jsp" %>
+        <div class=contain>
+            <div class=left>
+>>>>>>> Stashed changes
                 <h2 class=tit>호텔 소개</h2>
                 <ul class=menu>
                   <li class="m1">
@@ -50,7 +56,10 @@
                     </a>
                   </li>
                 </ul>
+<<<<<<< Updated upstream
               </div>
+=======
+>>>>>>> Stashed changes
             </div>
             <div class=contents>
               <img src="/resources/image/room.jpg" width=650px height=400>
@@ -70,6 +79,7 @@
               </div>
             </div>
         </div>
+<<<<<<< Updated upstream
         <div class="finish">
             <p> 사업자 번호: 110-10-12345<br/>
                 사업장소재지: 경기도 이천시 마장면 장암리<br/>
@@ -77,5 +87,8 @@
                 Copyright ⓒ 2020 Hotel Group. All rights reserved.
             </p>
         </div>
+=======
+        <%@include file = "/WEB-INF/views/layout/final.jsp" %>
+>>>>>>> Stashed changes
     </body>
 </html>

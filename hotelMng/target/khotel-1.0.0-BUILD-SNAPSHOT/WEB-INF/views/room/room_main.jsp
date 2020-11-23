@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <%--
   Created by IntelliJ IDEA.
   User: Minji
@@ -6,6 +7,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 
+=======
+>>>>>>> Stashed changes
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
@@ -17,13 +20,17 @@
     </style>
 
     <meta charset="UTF-8">
+<<<<<<< Updated upstream
     <link rel="stylesheet" href="/resources/image/moon.png" type="text/css">
+=======
+>>>>>>> Stashed changes
     <link rel="stylesheet" href="/resources/css/style_room.css" type="text/css">
     <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
 
     <title>rooms</title>
 </head>
 <body>
+<<<<<<< Updated upstream
 <div class=header>
     <a href="index."><img src="/resources/image/moon.png" width="80" height="80"></a>
     <nav>
@@ -40,6 +47,11 @@
 <div class=contain>
     <div class=left>
         <div class=banner>
+=======
+<%@include file = "/WEB-INF/views/layout/header.jsp" %>
+<div class=contain>
+    <div class=left>
+>>>>>>> Stashed changes
             <h2 class=tit><a href="/room_main.do">객실 소개</a></h2>
             <ul class=menu>
                 <li class="m1">
@@ -63,7 +75,10 @@
                     </a>
                 </li>
             </ul>
+<<<<<<< Updated upstream
         </div>
+=======
+>>>>>>> Stashed changes
     </div>
     <div class=contents>
         <h3>감각적인 인테리어와 함께한 DB다이렉트 객실은 품격있는 라이프스타일 공간입니다.</h3>
@@ -77,14 +92,22 @@
             </div>
             <div class=rbox>
                 <h3><b>Deluxe Room</b></h3>
+<<<<<<< Updated upstream
                 <a href="/room_deluxe.do"><img src="${pageContext.request.contextPath}/resources/image/deluxeroom.jpg" width="300" height="220"></a>
+=======
+                <a href="/room_deluxe.do"><img src="/resources/image/deluxe room.jpg" width="300" height="220"></a>
+>>>>>>> Stashed changes
                 <div class=topexp>
                     <p>여유로운 휴식을 취할 수 있습니다.<br></p>
                 </div>
             </div>
             <div class=lbox>
                 <h3><b>Executive Room</b></h3>
+<<<<<<< Updated upstream
                 <a href="/room_executive.do"><img src="${pageContext.request.contextPath}/resources/image/executiveroom.jpg" width="300" height="220"></a>
+=======
+                <a href="/room_executive.do"><img src="/resources/image/executive room.jpg" width="300" height="220"></a>
+>>>>>>> Stashed changes
                 <div class=topexp>
                     <p>이그제큐티브 라운지 이용으로 특별한 여유를 즐길 수 있습니다.<br></p>
                 </div>
@@ -98,6 +121,7 @@
             </div>
         </div>
     </div>
+<<<<<<< Updated upstream
     <div class="finish">
         <p> 사업자 번호: 110-10-12345<br/>
             사업장소재지: 경기도 이천시 마장면 장암리<br/>
@@ -108,3 +132,9 @@
 </div>
 </body>
 </html>
+=======
+    <%@include file = "/WEB-INF/views/layout/final.jsp" %>
+</div>
+</body>
+</html>
+>>>>>>> Stashed changes

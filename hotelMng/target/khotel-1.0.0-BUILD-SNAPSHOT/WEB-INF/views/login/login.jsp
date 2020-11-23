@@ -67,6 +67,7 @@
 </head>
 
 <body>
+<<<<<<< Updated upstream
   <div class=header>
       <a href="index.html"><img src="/resources/image/moon.png" width="80" height="80s"></a>
       <nav>
@@ -86,6 +87,9 @@
       </nav>
   </div>
 
+=======
+  <%@include file = "/WEB-INF/views/layout/header.jsp" %>
+>>>>>>> Stashed changes
 
   <div class="login-form">
     <form id="target" action="/memeber/join">

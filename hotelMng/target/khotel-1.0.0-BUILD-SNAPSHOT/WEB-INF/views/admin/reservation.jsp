@@ -3,6 +3,10 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Calendar"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<<<<<<< Updated upstream
+=======
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+>>>>>>> Stashed changes
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <html lang="ko">
@@ -80,8 +84,12 @@
                 color: #333333
             }
 
+<<<<<<< Updated upstream
         </style>
         
+=======
+        </style>       
+>>>>>>> Stashed changes
 	<style TYPE="text/css">
 		body {
 		scrollbar-face-color: #F6F6F6;
@@ -205,10 +213,63 @@
 		.this_month{
 			margin: 10px;
 		}
+<<<<<<< Updated upstream
 	</style>        
         <title>Welcom Delluna!</title>
 
     </head>
+=======
+	</style>
+        
+        
+        <title>Welcom Delluna!</title>
+        
+  <script type="text/javascript">
+  var sessionUserId = '${member.userId}';
+  var sessionLevel = '${member.userLevel}';
+  if(sessionUserId == null || sessionUserId == 'null' || sessionUserId=="" || sessionUserId == "1"){
+		alert("로그인 후 이용해주세요.");
+		location.href="/login/login";
+  }
+  if(sessionLevel == null || sessionLevel == 'null' || sessionLevel=="" || sessionLevel == "1"){
+		alert("관리자 권한이 없습니다.");
+		location.href="/main";
+	}
+  
+function reservation(roomNo, resdate) {
+	var reservationRoom = roomNo;
+	var reservationDate = resdate;
+
+	var data = {"roomNo" : reservationRoom,
+				"resdate" : reservationDate
+	};
+
+	  $.ajax({
+			type : "POST",
+			url : "/admin/reservationCheck.do",
+			data : data,
+			datatype : 'json',
+			success : function(data) {
+				var result = data["resultMsg"];
+				if(result == 0){
+					var confirm_test = confirm("예약하시겠습니까?");
+
+					if(confirm_test == true) {
+						location.href="/admin/reservate.do?roomNo=${roomNo}&resdate="+reservationDate;
+					}
+				} else {
+					alert("이미 예약되어 있는 방입니다.");
+				}
+			}
+
+	})
+	  
+}
+
+  </script>
+
+</head>
+>>>>>>> Stashed changes
     <body>
         <div class=header>
  
@@ -220,11 +281,19 @@
 		
 			<!--날짜 네비게이션  -->
 			<div class="navigation">
+<<<<<<< Updated upstream
 				<a class="before_after_year" href="/admin/reservation.do?year=${today_info.search_year-1}&month=${today_info.search_month-1}">
 					&lt;&lt;
 				<!-- 이전해 -->
 				</a> 
 				<a class="before_after_month" href="/admin/reservation.do?year=${today_info.before_year}&month=${today_info.before_month}">
+=======
+				<a class="before_after_year" href="/admin/reservation.do?rno=${roomNo}&year=${today_info.search_year-1}&month=${today_info.search_month-1}">
+					&lt;&lt;
+				<!-- 이전해 -->
+				</a> 
+				<a class="before_after_month" href="/admin/reservation.do?rno=${roomNo}&year=${today_info.before_year}&month=${today_info.before_month}">
+>>>>>>> Stashed changes
 					&lt;
 				<!-- 이전달 -->
 				</a> 
@@ -232,11 +301,19 @@
 					&nbsp;${today_info.search_year}. 
 					<c:if test="${today_info.search_month<10}">0</c:if>${today_info.search_month}
 				</span>
+<<<<<<< Updated upstream
 				<a class="before_after_month" href="/admin/reservation.do?year=${today_info.after_year}&month=${today_info.after_month}">
 				<!-- 다음달 -->
 					&gt;
 				</a> 
 				<a class="before_after_year" href="/admin/reservation.do?year=${today_info.search_year+1}&month=${today_info.search_month-1}">
+=======
+				<a class="before_after_month" href="/admin/reservation.do?rno=${roomNo}&year=${today_info.after_year}&month=${today_info.after_month}">
+				<!-- 다음달 -->
+					&gt;
+				</a> 
+				<a class="before_after_year" href="/admin/reservation.do?rno=${roomNo}&year=${today_info.search_year+1}&month=${today_info.search_month-1}">
+>>>>>>> Stashed changes
 					<!-- 다음해 -->
 					&gt;&gt;
 				</a>
@@ -275,11 +352,50 @@
 		<tbody>
 			<tr>
 				<c:forEach var="dateList" items="${dateList}" varStatus="date_status"> 
+<<<<<<< Updated upstream
 					<c:choose>
 						<c:when test="${dateList.value=='today'}">
 							<td class="today">
 								<div class="date">
 									${dateList.date}
+=======
+				<fmt:formatNumber var="Listdate" minIntegerDigits="2" value="${dateList.date}"/>
+				<c:set var="curDate" value="${dateList.year}${dateList.month+1}${Listdate}" />
+				
+				<c:set var="chkDate" value="0"/>
+				<c:set var="chkblank" value="0"/>
+					<c:choose>
+						<c:when test="${dateList.value=='today'}">
+						<c:if  test="${date_status.index%7==0}">			
+			</tr>
+			<tr>
+						</c:if>
+							<td class="today">
+								<div class="date">
+									${dateList.date}<br><br><br>
+									<c:forEach var="item" items="${reservationList}" varStatus="idx">										
+										<c:choose>
+										<c:when test="${curDate ge item.reservationCheckIn}">
+											<c:if test="${curDate le item.reservationCheckOut}">
+												<c:out value="${item.userId}"/><br>
+												<c:set var="chkDate" value="1"/>
+											</c:if>
+										</c:when>
+										<c:when test="${curDate eq '1'}">
+											<c:set var="chkblank" value="1"/>
+										</c:when>									
+										</c:choose>
+									</c:forEach>
+									<c:choose>
+									<c:when test="${chkblank eq '1'}">										
+									</c:when>
+									<c:when test="${chkDate eq '1'}">
+										<p><a href="/main">예약완료</a></p> <br>
+									</c:when>									
+										<c:otherwise><input type="button" value="예약" class="submit-btn" onClick="javaScript:reservation('${roomNo}','${curDate}');">
+										</c:otherwise>
+									</c:choose>	
+>>>>>>> Stashed changes
 								</div>
 								<div>
 								</div>
@@ -288,7 +404,34 @@
 						<c:when test="${date_status.index%7==6}">
 							<td class="sat_day">
 								<div class="sat">
+<<<<<<< Updated upstream
 									${dateList.date}
+=======
+									${dateList.date}<br><br><br>
+									
+									<c:forEach var="item" items="${reservationList}" varStatus="idx">											
+										<c:choose>
+										<c:when test="${curDate ge item.reservationCheckIn}">
+											<c:if test="${curDate le item.reservationCheckOut}">
+												<c:out value="${item.userId}"/><br>
+												<c:set var="chkDate" value="1"/>
+											</c:if>
+										</c:when>
+										<c:when test="${curDate eq '1'}">
+											<c:set var="chkblank" value="1"/>
+										</c:when>									
+										</c:choose>
+									</c:forEach>
+									<c:choose>
+									<c:when test="${chkblank eq '1'}">										
+									</c:when>
+									<c:when test="${chkDate eq '1'}">
+										<p><a href="/main">예약완료</a></p> <br>
+									</c:when>									
+										<c:otherwise><input type="button" value="예약" class="submit-btn" onClick="javaScript:reservation('${roomNo}','${curDate}');">
+										</c:otherwise>
+									</c:choose>									
+>>>>>>> Stashed changes
 								</div>
 								<div>
 								</div>
@@ -299,7 +442,33 @@
 			<tr>	
 				<td class="sun_day">
 					<div class="sun">
+<<<<<<< Updated upstream
 						${dateList.date}
+=======
+						${dateList.date}<br><br><br>
+									<c:forEach var="item" items="${reservationList}" varStatus="idx">									
+										<c:choose>
+										<c:when test="${curDate ge item.reservationCheckIn}">
+											<c:if test="${curDate le item.reservationCheckOut}">
+												<c:out value="${item.userId}"/><br>
+												<c:set var="chkDate" value="1"/>
+											</c:if>
+										</c:when>
+										<c:when test="${curDate eq '1'}">
+											<c:set var="chkblank" value="1"/>
+										</c:when>									
+										</c:choose>
+									</c:forEach>
+									<c:choose>
+									<c:when test="${chkblank eq '1'}">										
+									</c:when>
+									<c:when test="${chkDate eq '1'}">
+										<p><a href="/main">예약완료</a></p> <br>
+									</c:when>									
+										<c:otherwise><input type="button" value="예약" class="submit-btn" onClick="javaScript:reservation('${roomNo}','${curDate}');">
+										</c:otherwise>
+									</c:choose>	
+>>>>>>> Stashed changes
 					</div>
 					<div>
 					</div>
@@ -308,7 +477,32 @@
 						<c:otherwise>
 				<td class="normal_day">
 					<div class="date">
+<<<<<<< Updated upstream
 						${dateList.date}
+=======
+						${dateList.date}<br><br><br>
+									<c:forEach var="item" items="${reservationList}" varStatus="idx">										
+										<c:choose>
+										<c:when test="${curDate ge item.reservationCheckIn}">
+											<c:if test="${curDate le item.reservationCheckOut}">
+												<c:out value="${item.userId}"/><br>
+												<c:set var="chkDate" value="1"/>
+											</c:if>
+										</c:when>
+										<c:when test="${curDate eq '1'}">
+											<c:set var="chkblank" value="1"/>
+										</c:when>									
+										</c:choose>
+									</c:forEach>
+									<c:choose>
+									<c:when test="${chkblank eq '1'}">										
+									</c:when>
+									<c:when test="${chkDate eq '1'}">
+										<p><a href="/main">예약완료</a></p> <br>
+									</c:when>									
+										<c:otherwise><input type="button" value="예약" class="submit-btn" onClick="javaScript:reservation('${roomNo}','${curDate}');"></c:otherwise>
+									</c:choose>	
+>>>>>>> Stashed changes
 					</div>
 					<div>
 					

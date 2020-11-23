@@ -1,19 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<<<<<<< Updated upstream
 <!DOCTYPE html>
 <html lang="ko">
      <head>
          <style>	
+=======
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ 	<script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
+
+    <style>	
+>>>>>>> Stashed changes
        * {
            font-family: 'Noto Sans KR', sans-serif;
          }
 	</style>
 
         <meta charset="UTF-8">
+<<<<<<< Updated upstream
         <link rel="stylesheet" href="/resources/image/moon.png" type="text/css">
+=======
+>>>>>>> Stashed changes
         <link rel="stylesheet" href="/resources/css/style_room.css" type="text/css">
         <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
 
         <title>Standard room</title>
+<<<<<<< Updated upstream
     </head>
     <body>
         <div class=header>
@@ -32,6 +46,14 @@
         <div class=contain>
           <div class=left>
             <div class=banner>
+=======
+
+    </head>
+    <body>
+        <%@include file = "/WEB-INF/views/layout/header.jsp" %>
+        <div class=contain>
+          <div class=left>
+>>>>>>> Stashed changes
               <h2 class=tit><a href="/room_main.do">객실 소개</a></h2>
                 <ul class=menu>
                     <li class="m1">
@@ -55,7 +77,10 @@
                         </a>
                     </li>
                 </ul>
+<<<<<<< Updated upstream
             </div>
+=======
+>>>>>>> Stashed changes
           </div>
           <div class=contents>
             <h1>Standard Room</h1>
@@ -94,6 +119,7 @@
                   </td>
                 </tr>
             </table>
+<<<<<<< Updated upstream
 
           </div>
           <div class="finish">
@@ -106,3 +132,11 @@
         </div>
     </body>
 </html>
+=======
+            <a href="res.html" class="myButton">예약하기</a>
+          </div>
+          <%@include file = "/WEB-INF/views/layout/final.jsp" %>
+        </div>
+    </body>
+</html> 
+>>>>>>> Stashed changes

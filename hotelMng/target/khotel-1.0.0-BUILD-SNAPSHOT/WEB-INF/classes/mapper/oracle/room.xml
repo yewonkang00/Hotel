@@ -12,8 +12,31 @@
 		FROM Room
 	</select>
 	
+<<<<<<< Updated upstream
 	<select id="reservation" parameterType="RoomVo" resultType="RoomVo">
 		SELECT 
 	</select>
 	
+=======
+	
+	<select id="listRoomReservation" parameterType="String" resultType="ReservationVo">
+		SELECT *
+		FROM reservation Where roomcode = #{roomNo}
+	</select>
+	
+	<select id="findRoomReservation" parameterType="java.util.Map" resultType="Integer">
+		SELECT COUNT(*)
+		FROM reservation Where roomcode = #{roomNo} and reservationcheckin = #{resdate}
+	</select>	
+	
+	<select id="findRoom" parameterType="java.util.Map" resultType="Integer">
+	<![CDATA[ 
+		SELECT COUNT(*)
+		FROM reservation Where roomcode = #{roomNo}
+		 and (( reservationcheckin between #{ReservationCheckIn}  and  #{ReservationCheckOut})
+		 or ( reservationcheckout between #{ReservationCheckIn}  and  #{ReservationCheckOut})
+		 or ( reservationcheckin < #{ReservationCheckOut} and reservationcheckout > #{ReservationCheckIn}))
+	]]>	 	 
+	</select>		
+>>>>>>> Stashed changes
 </mapper>

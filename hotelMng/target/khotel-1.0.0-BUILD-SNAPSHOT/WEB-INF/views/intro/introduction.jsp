@@ -12,10 +12,15 @@
 </style>
 
 <meta charset="utf-8">
+<<<<<<< Updated upstream
 <link rel="stylesheet" href="/resources/css/styleintro.css"
 	type="text/css">
 <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css"
 	rel="stylesheet">
+=======
+<link rel="stylesheet" href="/resources/css/styleintro.css" type="text/css">
+<link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+>>>>>>> Stashed changes
 
 
 <title>Welcome Delluna!</title>
@@ -23,6 +28,7 @@
 </head>
 
 <body>
+<<<<<<< Updated upstream
 	<div class=header>
 		<img src="/resources/image/moon.png" width="100" height="100">
 		<nav>
@@ -38,6 +44,12 @@
 	<div class=contain>
 		<div class=left>
 			<div class=banner>
+=======
+	<%@include file = "/WEB-INF/views/layout/header.jsp" %>
+
+	<div class=contain>
+		<div class=left>
+>>>>>>> Stashed changes
 				<h2 class=tit>호텔 소개</h2>
 				<ul class=menu>
 					<li class="m1"><a href="/intro.do"> <span>개요</span>
@@ -45,7 +57,10 @@
 					<li class="m2"><a href="/intro_hotel.do"> <span>호텔땡땡</span>
 					</a></li>
 				</ul>
+<<<<<<< Updated upstream
 			</div>
+=======
+>>>>>>> Stashed changes
 		</div>
 
 		<div class=contents>
@@ -81,11 +96,15 @@
 			</p>
 		</div>
 	</div>
+<<<<<<< Updated upstream
 	<div class="finish">
 		<p>
 			사업자 번호: 110-10-12345<br /> 사업장소재지: 경기도 이천시 마장면 장암리<br /> 대표자: 홍길동<br />
 			Copyright ⓒ 2020 Hotel Group. All rights reserved.
 		</p>
 	</div>
+=======
+	<%@include file = "/WEB-INF/views/layout/final.jsp" %>
+>>>>>>> Stashed changes
 </body>
 </html>
