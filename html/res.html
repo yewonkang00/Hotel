@@ -16,10 +16,11 @@
           table{
             border-collapse: collapse;
           }
-          .res_room tr{
+          .hang{
+            border-top: 2px solid #f1f1f1;
             border-bottom: 2px solid #f1f1f1;
           }
-          .res_room td{
+          .hang td{
             width:200px;
             padding-top:30px;
             padding-bottom:20px;
@@ -54,6 +55,9 @@
             cursor: pointer;
           }
           #hidden_hye{
+            display: none;
+          }
+          #hidden_ho{
             display: none;
           }
           #hidden_hye p{
@@ -105,10 +109,14 @@
           #res_btn{
             margin-left:70px;
             border-style:none;
-            height:35px;
-            width:60px;
-            border-radius:3px;
+            height:55px;
+            width:70px;
+            border-radius:5px;
             background-color: #D4C1A1;
+          }
+          #resroom_btn{
+            width:100px;
+            height:80px;
           }
         </style>
         <script type="text/javascript">
@@ -231,6 +239,18 @@
               click.innerHTML="혜택 및 이용 안내 +"
             }
           }
+          function room_select(){
+            var con = document.getElementById("hidden_ho");
+            var click = document.getElementById("resroom_btn");
+            if(con.style.display=='none'){
+              con.style.display = 'block';
+              click.innerHTML="접기 -"
+            }
+            else{
+              con.style.display = 'none';
+              click.innerHTML="접기 -"
+            }
+          }
         </script>
     </head>
     <body>
@@ -315,7 +335,19 @@
                     1박<br>
                     n개의 객실이 있습니다.
                   </td>
-                  <td><button type="button" id="res_btn" onclick="location.href='res2.html'">호실 선택</button></td>
+                  <td><a href="javaScript:room_select();" type="button" id="resroom_btn">호실 선택 +</a></td>
+                </tr>
+                <tr id="hidden_ho">
+                  <td>
+                    <p>201호</p>
+                    <p>202호</p>
+                    <p>203호</p>
+                  </td>
+                  <td>
+                    <button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
+                    <button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
+                    <button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
+                  </td>
                 </tr>
                 <tr class="hang">
                   <td><img src="../img/deluxe room.jpg" width="200" height="150"></td>
@@ -331,7 +363,7 @@
                     1박<br>
                     n개의 객실이 있습니다.
                   </td>
-                  <td><button type="button" id="res_btn" onclick="location.href='res2.html'">호실 선택</button></td>
+                  <td><button type="button" id="resroom_btn" onclick="location.href='res2.html'">호실 선택 +</button></td>
                 </tr>
                 <tr class="hang">
                   <td><img src="../img/executive room.jpg" width="200" height="150"></td>
@@ -348,7 +380,7 @@
                     1박<br>
                     n개의 객실이 있습니다.
                   </td>
-                  <td><button type="button" id="res_btn" onclick="location.href='res2.html'">호싵 선택</button></td>
+                  <td><button type="button" id="resroom_btn" onclick="location.href='res2.html'">호싵 선택 +</button></td>
                 </tr>
                 <tr class="hang">
                   <td><img src="../img/suite room.jpg" width="200" height="150"></td>
@@ -365,7 +397,7 @@
                     1박<br>
                     n개의 객실이 있습니다.
                   </td>
-                  <td><button type="button" id="res_btn" onclick="location.href='res2.html'">호실 선택</button></td>
+                  <td><button type="button" id="resroom_btn" onclick="location.href='res2.html'">호실 선택 +</button></td>
                 </tr>
               </tbody>
             </table>
