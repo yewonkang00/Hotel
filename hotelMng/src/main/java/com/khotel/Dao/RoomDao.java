@@ -3,6 +3,7 @@ package com.khotel.Dao;
 import java.util.HashMap;
 import java.util.List;
 
+import com.khotel.Vo.ReservationVo;
 import com.khotel.Vo.RoomVo;
 
 public interface RoomDao {
@@ -21,4 +22,5 @@ public interface RoomDao {
 	public int findRoomTotal(HashMap<String, Object> map);
 	public List<RoomVo> viewList(HashMap<String, Object> map);
 	public int findDateTotal(HashMap<String, Object> map);
+	public List<RoomVo> searchRoomList(ReservationVo reservation) throws Exception;
 }

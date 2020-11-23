@@ -97,6 +97,11 @@ public class MemberDaoImpl implements MemberDao {
 	public int findDateTotal(HashMap<String, Object> map) {
 		return sqlSession.selectOne("member.findDateTotal", map);
 	}
+
+	@Override
+	public void updateMile(MemberVo memberVo) throws Exception {
+		sqlSession.update("member.updateMile", memberVo);	
+	}
 	
 
 }

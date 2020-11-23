@@ -25,13 +25,13 @@
 
 	<div class=contain>
 		<div class=left>
-				<h2 class=tit>호텔 소개</h2>
-				<ul class=menu>
-					<li class="m1"><a href="/intro.do"> <span>개요</span>
-					</a></li>
-					<li class="m2"><a href="/intro_hotel.do"> <span>호텔땡땡</span>
-					</a></li>
-				</ul>
+			<h2 class=tit>호텔 소개</h2>
+			<ul class=menu>
+				<li class="m1"><a href="/intro.do"> <span>개요</span>
+				</a></li>
+				<li class="m2"><a href="/intro_hotel.do"> <span>호텔땡땡</span>
+				</a></li>
+			</ul>
 		</div>
 
 		<div class=contents>

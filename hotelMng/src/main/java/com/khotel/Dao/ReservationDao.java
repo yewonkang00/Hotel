@@ -1,6 +1,9 @@
 package com.khotel.Dao;
 
 import com.khotel.Vo.RoomVo;
+
+import java.util.List;
+
 import com.khotel.Vo.ReservationVo;
 
 public interface ReservationDao {
@@ -8,4 +11,5 @@ public interface ReservationDao {
 	public void insertReservation(ReservationVo reservationVo) throws Exception;
 	public void updateReservation(ReservationVo reservationVo) throws Exception;
 	public void deleteReservation(ReservationVo reservationVo) throws Exception;
+	public List<ReservationVo> selectReservationList(ReservationVo reservationVo) throws Exception;
 }
