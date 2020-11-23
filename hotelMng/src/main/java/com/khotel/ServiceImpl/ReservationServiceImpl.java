@@ -1,5 +1,7 @@
 package com.khotel.ServiceImpl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.slf4j.Logger;
@@ -40,6 +42,11 @@ public class ReservationServiceImpl implements ReservationService{
 		reservationDao.deleteReservation(reservationVo);
 		
 	}
-	
+
+	@Override
+	public List<ReservationVo> selectReservationList(ReservationVo reservationVo) throws Exception {
+		return reservationDao.selectReservationList(reservationVo);
+	}
+
 	
 }

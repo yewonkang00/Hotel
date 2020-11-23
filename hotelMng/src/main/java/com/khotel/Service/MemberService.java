@@ -12,6 +12,7 @@ public interface MemberService {
 	public void insertMember(MemberVo memberVo) throws Exception;
 	public void updateMember(MemberVo memberVo) throws Exception;
 	public void updateLevel(MemberVo memberVo) throws Exception;
+	public void updateMile(MemberVo memberVo) throws Exception;
 	public void deleteMember(MemberVo memberVo) throws Exception;
 	MemberVo checkId(String id) throws Exception;
 	public List<MemberVo> listMember() throws Exception;

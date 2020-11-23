@@ -215,12 +215,8 @@
   var sessionLevel = '${member.userLevel}';
   if(sessionUserId == null || sessionUserId == 'null' || sessionUserId=="" || sessionUserId == "1"){
 		alert("로그인 후 이용해주세요.");
-		location.href="/login/login";
+		location.href="/login.do";
   }
-  if(sessionLevel == null || sessionLevel == 'null' || sessionLevel=="" || sessionLevel == "1"){
-		alert("관리자 권한이 없습니다.");
-		location.href="/main";
-	}
   
 function reservation(roomNo, resdate) {
 	var reservationRoom = roomNo;

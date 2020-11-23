@@ -24,7 +24,7 @@ CKEDITOR.replace("content", {
 <div>작성일자 : ${dto.QNAREGISTERDATE}</div>
 <div>작성자 : ${dto.QNAWRITER}</div>
 <div>제목 : <input name="QNATITLE" id="QNATITLE" value = "${dto.QNATITLE}"></div>
-<div style ="width.80%">내용 : 
+<div style ="width:80%">내용 :
 <textarea rows="3" cols="80" name="QNACONTENT" 
 id="QNACONTENT">${dto.QNACONTENT}</textarea>
 </div>

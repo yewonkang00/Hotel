@@ -13,6 +13,9 @@
 								,UserId
 								,RoomCode
 								,ReservationDays
+								,Breakfast
+								,TotalPrice
+								,Mileage
 		)
 		
 		VALUES ((select nvl(max(reservationcode)+1,0) from reservation)
@@ -24,9 +27,27 @@
 				, #{UserId}
 				, #{RoomCode}
 				, #{ReservationDays}
+				, #{Breakfast}
+				, #{TotalPrice}
+				, #{Mileage}
 		)
 	
 	</insert>
+	
+	<select id="selectReservation" parameterType="String" resultType="ReservationVo">
+		SELECT * FROM Reservation
+		WHERE ReservationCode = #{ReservationCode}
+	</select>
+	
+	<select id="selectReservationList" parameterType="ReservationVo" resultType="ReservationVo">
+		SELECT * FROM Reservation
+		WHERE UserId = #{UserId}
+	</select>
+	
+	<delete id="deleteReservation" parameterType="ReservationVo">
+		DELETE FROM RESERVATION
+		WHERE ReservationCode = #{ReservationCode}
+	</delete>
 
 
 

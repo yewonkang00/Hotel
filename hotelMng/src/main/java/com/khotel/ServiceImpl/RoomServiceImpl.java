@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.khotel.Controller.HomeController;
 import com.khotel.Dao.RoomDao;
 import com.khotel.Service.RoomService;
+import com.khotel.Vo.ReservationVo;
 import com.khotel.Vo.RoomVo;
 
 @Service("roomService")
@@ -99,7 +100,10 @@ public class RoomServiceImpl implements RoomService {
 		return roomDao.findRoom(map);
 	}
 	
-	
+	@Override
+	public List<RoomVo> searchRoomList(ReservationVo reservation) throws Exception {
+		return roomDao.searchRoomList(reservation);
+	}	
 	
 
 }
