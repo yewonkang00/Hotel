@@ -16,6 +16,140 @@
           table{
             border-collapse: collapse;
           }
+          #res2_tit{
+            font-size: 20px;
+            text-align: center;
+          }
+          .hang{
+            border-top: 2px solid #f1f1f1;
+            border-bottom: 2px solid #f1f1f1;
+          }
+          .hang td{
+            width:200px;
+            padding-top:30px;
+            padding-bottom:20px;
+            padding-left: 40px;
+          }
+          .res_romm b{
+            font-size: 22px;
+          }
+          .res_search{
+            margin-top: 50px;
+            border-top:30pt solid  #D4C1A1;
+            width:90%;
+            border-radius:10px;
+            border-bottom:6pt solid #f1f1f1;
+            margin:0 auto;
+          }
+          .res_res{
+            display: inline-block;
+          }
+          .res_table td{
+            text-align:center;
+          }
+          #error {
+            margin-top: 9px;
+            font-size: 12px;
+            color: red;
+            display: none;
+          }
+          #hye_click{
+            font-size: 15px;
+            color:#D4C1A1;
+            cursor: pointer;
+          }
+          #hidden_hye{
+            display: none;
+          }
+          #hidden_ho1{
+            display:none;
+            padding-top:10px;
+          }
+          #hidden_ho2{
+            display:none;
+            padding-top:10px;
+          }
+          #hidden_ho3{
+            display:none;
+            padding-top:10px;
+          }
+          #hidden_ho4{
+            display:none;
+            padding-top:10px;
+          }
+          .hidden_ho p{
+            margin-left:10px;
+            text-align: center;
+          }
+          .hidden_ho button{
+            margin-bottom: 13px;
+            margin-left:10px;
+          }
+          #hidden_hye p{
+            font-size:9px;
+            color:#D4C1A1;
+          }
+          #count{
+            border-style:none;
+            padding-left: 9px;
+            width:20px;
+          }
+          #minus{
+            margin-left:50px;
+            margin-right:7px;
+            border-style:none;
+            border-radius:3px;
+            width:20px;
+            height:20px;
+            background-color: #D4C1A1;
+          }
+          #pl_m{
+            margin-left:7px;
+            margin-right:7px;
+            border-style:none;
+            border-radius:3px;
+            width:20px;
+            height:20px;
+            background-color: #D4C1A1;
+          }
+          #test{
+            background-color: #D4C1A1;
+          }
+          #reservationCheckIn{
+            margin-left:30px;
+            border-style:none;
+            width:80px;
+          }
+          #res_checkout{
+            margin-left:40px;
+            border-style:none;
+            width:80px;
+          }
+          #res_tit{
+            font-size:30px;
+            margin-top: 200px;
+            margin-bottom:70px;
+            font-weight: 10;
+          }
+          #res_btn{
+            margin-left:70px;
+            border-style:none;
+            height:55px;
+            width:70px;
+            border-radius:5px;
+            background-color: #D4C1A1;
+          }
+          .resroom_btn{
+            width:100px;
+            height:80px;
+            border-style:none;
+            border-radius:7px;
+            background-color: #D4C1A1;
+          }
+          #res_btn3{
+            border-style:none;
+            border-radius:5px;
+          }
         </style>
         <script type="text/javascript">
          var sessionUserId = '${member.userId}';
@@ -208,7 +342,6 @@
             </nav>
 
         </div>
-        <center>
           <div class=res_content>
             <b id="res_tit"><br><br>1. 객실, 날짜, 인원 선택<br><br></b>
             <div class=res_search>
@@ -249,8 +382,6 @@
                 </form>
               </div>
             </div>
-          </center>
-          <center>
           <!--빈 객실 보여주기-->
             <br><br><br>
             <table class="res_room">
@@ -391,7 +522,6 @@
                 </tr>
               </tbody>
             </table>
-          </center>
         </div>
         <div class="finish">
             <p> 사업자 번호: 110-10-12345<br/>
