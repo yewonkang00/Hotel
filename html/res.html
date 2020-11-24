@@ -16,108 +16,6 @@
           table{
             border-collapse: collapse;
           }
-          .hang{
-            border-top: 2px solid #f1f1f1;
-            border-bottom: 2px solid #f1f1f1;
-          }
-          .hang td{
-            width:200px;
-            padding-top:30px;
-            padding-bottom:20px;
-            padding-left: 40px;
-          }
-          .res_romm b{
-            font-size: 22px;
-          }
-          .res_search{
-            margin-top: 50px;
-            border-top:30pt solid  #D4C1A1;
-            width:90%;
-            border-radius:10px;
-            border-bottom:6pt solid #f1f1f1;
-            margin:0 auto;
-          }
-          .res_res{
-            display: inline-block;
-          }
-          .res_table td{
-            margin-right:20px;
-          }
-          #error {
-            margin-top: 9px;
-            font-size: 12px;
-            color: red;
-            display: none;
-          }
-          #hye_click{
-            font-size: 15px;
-            color:#D4C1A1;
-            cursor: pointer;
-          }
-          #hidden_hye{
-            display: none;
-          }
-          #hidden_ho{
-            display: none;
-          }
-          #hidden_hye p{
-            font-size:9px;
-            color:#D4C1A1;
-          }
-          #count{
-            border-style:none;
-            padding-left: 9px;
-            width:20px;
-          }
-          #minus{
-            margin-left:50px;
-            margin-right:7px;
-            border-style:none;
-            border-radius:3px;
-            width:20px;
-            height:20px;
-            background-color: #D4C1A1;
-          }
-          #pl_m{
-            margin-left:7px;
-            margin-right:7px;
-            border-style:none;
-            border-radius:3px;
-            width:20px;
-            height:20px;
-            background-color: #D4C1A1;
-          }
-          #test{
-            background-color: #D4C1A1;
-          }
-          #reservationCheckIn{
-            margin-left:30px;
-            border-style:none;
-            width:80px;
-          }
-          #res_checkout{
-            margin-left:40px;
-            border-style:none;
-            width:80px;
-          }
-          #res_tit{
-            font-size:30px;
-            margin-top: 200px;
-            margin-bottom:70px;
-            font-weight: 10;
-          }
-          #res_btn{
-            margin-left:70px;
-            border-style:none;
-            height:55px;
-            width:70px;
-            border-radius:5px;
-            background-color: #D4C1A1;
-          }
-          #resroom_btn{
-            width:100px;
-            height:80px;
-          }
         </style>
         <script type="text/javascript">
          var sessionUserId = '${member.userId}';
@@ -232,23 +130,59 @@
             var click = document.getElementById("hye_click");
             if(con.style.display=='none'){
               con.style.display = 'block';
-              click.innerHTML="혜택 및 이용 안내 -"
+              click.innerHTML="혜택 및 이용 안내 -";
             }
             else{
               con.style.display = 'none';
-              click.innerHTML="혜택 및 이용 안내 +"
+              click.innerHTML="혜택 및 이용 안내 +";
             }
           }
-          function room_select(){
-            var con = document.getElementById("hidden_ho");
-            var click = document.getElementById("resroom_btn");
+          function room_select1(){
+            var con = document.getElementById("hidden_ho1");
+            var click = document.getElementById("resroom_btn1");
             if(con.style.display=='none'){
-              con.style.display = 'block';
-              click.innerHTML="접기 -"
+              con.style.display = 'table-row';
+              click.innerHTML="접기 -";
             }
             else{
               con.style.display = 'none';
-              click.innerHTML="접기 -"
+              click.innerHTML="호실 선택 +";
+            }
+          }
+          function room_select2(){
+            var con = document.getElementById("hidden_ho2");
+            var click = document.getElementById("resroom_btn2");
+            if(con.style.display=='none'){
+              con.style.display = 'table-row';
+              click.innerHTML="접기 -";
+            }
+            else{
+              con.style.display = 'none';
+              click.innerHTML="호실 선택 +";
+            }
+          }
+          function room_select3(){
+            var con = document.getElementById("hidden_ho3");
+            var click = document.getElementById("resroom_btn3");
+            if(con.style.display=='none'){
+              con.style.display = 'table-row';
+              click.innerHTML="접기 -";
+            }
+            else{
+              con.style.display = 'none';
+              click.innerHTML="호실 선택 +";
+            }
+          }
+          function room_select4(){
+            var con = document.getElementById("hidden_ho4");
+            var click = document.getElementById("resroom_btn4");
+            if(con.style.display=='none'){
+              con.style.display = 'table-row';
+              click.innerHTML="접기 -";
+            }
+            else{
+              con.style.display = 'none';
+              click.innerHTML="호실 선택 +";
             }
           }
         </script>
@@ -335,13 +269,18 @@
                     1박<br>
                     n개의 객실이 있습니다.
                   </td>
-                  <td><a href="javaScript:room_select();" type="button" id="resroom_btn">호실 선택 +</a></td>
+                  <td><button onclick="room_select1();" type="button" class="resroom_btn" id="resroom_btn1">호실 선택 +</button></td>
                 </tr>
-                <tr id="hidden_ho">
+                <tr class="hidden_ho" id="hidden_ho1">
                   <td>
-                    <p>201호</p>
-                    <p>202호</p>
-                    <p>203호</p>
+                    <p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;201호</p>
+                    <p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;202호</p>
+                    <p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;203호</p>
+                  </td>
+                  <td>
+                    <p> single bed</p>
+                    <p> twin bed</p>
+                    <p> family twin</p>
                   </td>
                   <td>
                     <button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
@@ -363,7 +302,24 @@
                     1박<br>
                     n개의 객실이 있습니다.
                   </td>
-                  <td><button type="button" id="resroom_btn" onclick="location.href='res2.html'">호실 선택 +</button></td>
+                  <td><button onclick="room_select2();" type="button" class="resroom_btn" id="resroom_btn2">호실 선택 +</button></td>
+                </tr>
+                <tr class="hidden_ho" id="hidden_ho2">
+                  <td>
+                    <p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;501호</p>
+                    <p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;502호</p>
+                    <p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;503호</p>
+                  </td>
+                  <td>
+                    <p> single bed</p>
+                    <p> twin bed</p>
+                    <p> family twin</p>
+                  </td>
+                  <td>
+                    <button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
+                    <button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
+                    <button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
+                  </td>
                 </tr>
                 <tr class="hang">
                   <td><img src="../img/executive room.jpg" width="200" height="150"></td>
@@ -380,7 +336,24 @@
                     1박<br>
                     n개의 객실이 있습니다.
                   </td>
-                  <td><button type="button" id="resroom_btn" onclick="location.href='res2.html'">호싵 선택 +</button></td>
+                  <td><button onclick="room_select3();" type="button" class="resroom_btn" id="resroom_btn3">호실 선택 +</button></td>
+                </tr>
+                <tr class="hidden_ho" id="hidden_ho3">
+                  <td>
+                    <p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;801호</p>
+                    <p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;802호</p>
+                    <p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;803호</p>
+                  </td>
+                  <td>
+                    <p> single bed</p>
+                    <p> twin bed</p>
+                    <p> family twin</p>
+                  </td>
+                  <td>
+                    <button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
+                    <button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
+                    <button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
+                  </td>
                 </tr>
                 <tr class="hang">
                   <td><img src="../img/suite room.jpg" width="200" height="150"></td>
@@ -397,7 +370,24 @@
                     1박<br>
                     n개의 객실이 있습니다.
                   </td>
-                  <td><button type="button" id="resroom_btn" onclick="location.href='res2.html'">호실 선택 +</button></td>
+                  <td><button onclick="room_select4();" type="button" class="resroom_btn" id="resroom_btn4">호실 선택 +</button></td>
+                </tr>
+                <tr class="hidden_ho" id="hidden_ho4">
+                  <td>
+                    <p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;1101호</p>
+                    <p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;1102호</p>
+                    <p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;1103호</p>
+                  </td>
+                  <td>
+                    <p> single bed</p>
+                    <p> twin bed</p>
+                    <p> family twin</p>
+                  </td>
+                  <td>
+                    <button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
+                    <button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
+                    <button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
+                  </td>
                 </tr>
               </tbody>
             </table>
