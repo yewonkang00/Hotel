@@ -8,55 +8,34 @@
 			* {
 				font-family: 'Noto Sans KR', sans-serif;
 			}
-			body {
-				background-color: #EEEFF1;
-			}
-			textarea {
-				overflow:auto;
-				vertical-align:top;
-				padding:8px;
-				box-sizing:border-box;
-				border:solid 1px #aaa;
-			}
-			table {
-				border-collapse: collapse;
-				border-spacing: 0;
-				table-layout: fixed;
-				border-spacing: 0;
-				width: 100%;
-			}
 		</style>
 		<meta charset="UTF-8">
 		<title>QnA list</title>
-		<link rel="stylesheet" href="/resources/css/style.css" type="text/css">
-
-
+		<link rel="stylesheet" href="/resources/css/style_qna.css" type="text/css">
 		<script type="text/javascript">
 		function list(page){
 			location.href="/qna/list.do?curPage="+page
 		}
-
 		</script>
-
 	</head>
 
 	<body>
 	<%@include file = "/WEB-INF/views/layout/header.jsp" %>
 	<div class=contain>
 		<div class=left>
-				<h2 class=tit>문의 사항</h2>
-				<ul class=menu>
-					<li class="m1">
-						<a href="/qna/list.do">
-							<span>게시판</span>
-						</a>
-					</li>
-					<li class="m2">
-						<a href="/qna/write.do">
-							<span>문의하기</span>
-						</a>
-					</li>
-				</ul>
+			<h2 class=tit>문의 사항</h2>
+			<ul class=menu>
+				<li class="m1">
+					<a href="/qna/list.do">
+						<span>게시판</span>
+					</a>
+				</li>
+				<li class="m2">
+					<a href="/qna/write.do">
+						<span>문의하기</span>
+					</a>
+				</li>
+			</ul>
 		</div>
 		<div class=contents>
 			<h1>게시판</h1>
