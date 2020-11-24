@@ -46,28 +46,26 @@
            <!-- <div class="form-process"></div> -->
            <h3 class="tit_">● 고객 정보</h3>
            <div class="col_one_third">
-               <h3 class="join_title"><label for="name">성함</label></h3>
+               <h3 class="join_title">성함</h3>
                <input type="text" id="name" class="d_form large">
            </div>
 
            <div class="col_one_third">
-               <h3 class="join_title"><label for="address">이메일</label></h3>
+               <h3 class="join_title">이메일</h3>
                <input type="email" id="email" class="d_form large">
            </div>
 
            <div class="clear"></div>
+
            <h3 class="tit_">● 문의사항</h3>
 
            <div class="col_two_third">
-               <h3 class="join_title"><label for="subject">제목</label></h3>
+               <h3 class="join_title">제목</h3>
 			   <input name="qnatitle" id="qnatitle" size="80" class="d_form large" placeholder="제목을 입력하세요">
            </div>
 
            <div class="col_one_third col_last">
                <h3 class="join_title"><label for="question_type">질문유형</label></h3>
-<%--               <span class="box gender_code">--%>
-<%--                   --%>
-<%--               </span>--%>
                <select id="question_type" name="question_type" class="box">
                    <option value="">-- Select One --</option>
                    <option value="satisfy">만족</option>
@@ -82,7 +80,7 @@
           <div class="clear"></div>
 
           <div class="col_full">
-              <h3 class="join_title_write"><label for="message">작성</label></h3>
+              <h3 class="join_title_write">작성</h3>
               <textarea id="qnacontent" name="qnacontent" rows="10" cols="80"
               placeholder="내용을 입력하세요."></textarea>
           </div>
