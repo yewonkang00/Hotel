@@ -5,7 +5,7 @@ body {
     margin-right: auto; */
     margin: 0px;
     padding:0px;
-    background-color: white;
+    background-color: #fbfcf5;
     font-family:나눔고딕;
     -ms-overflow-style: none;
 }
@@ -55,7 +55,6 @@ h3.tit_ {
     width: 1200px;
     margin-top:30px;
     min-height: 500px;
-    background-color: white;
     font-size: 18px;
     color: #333333
 }
@@ -85,6 +84,7 @@ h3.tit_ {
     vertical-align:middle;
     line-height:1.25em;
     outline:0;
+    background-color: #fafaf7eb;
 }
 
 .d_form.std {
@@ -110,22 +110,49 @@ h3.tit_ {
     border: solid 1px #dadada;
     padding: 9px 14px 10px 14px;
     box-sizing: border-box;
-    background: #fff;
+    background-color: #fafaf7eb;
     position: relative;
 }
 textarea {
     resize: vertical;
     padding: 10px;
     width: 100%;
+    background-color: #fafaf7eb;
     border:1px solid #ccc;
     border-color:#dbdbdb #d2d2d2 #d0d0d0 #d2d2d3;
 }
-table {
+
+.table {
+    border-spacing: 0;
     border-collapse: collapse;
-    border-spacing: 0;
-    table-layout: fixed;
-    border-spacing: 0;
     width: 100%;
+}
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+    font-size: 16px;
+}
+th {
+    text-align: left;
+}
+
+.table-hover > tbody > tr:hover {
+    background-color: #f5f5f5;
+}
+.table-hover > tbody > tr > td.active:hover,
+.table-hover > tbody > tr > th.active:hover,
+.
+> tbody > tr.active:hover > td,
+.table-hover > tbody > tr:hover > .active,
+.table-hover > tbody > tr.active:hover > th {
+    background-color: #e8e8e8;
 }
 
 .col_one_third {

@@ -39,18 +39,18 @@
 		</div>
 		<div class=contents>
 			<h1>게시판</h1>
-			
-				<button type="button" id="btnWrite" onclick="location.href='/qna/write.do'">글쓰기</button>	
+<%--			${map.count}개의 문의사항이 있습니다.--%>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>번호</th>
+						<th>제목</th>
+						<th>이름</th>
+						<th>날짜</th>
+						<th>조회수</th>
+					</tr>
+				</thead>
 
-			${map.count}개의 문의사항이 있습니다.
-			<table border="1" width="600px">
-				<tr>
-					<th>번호</th>
-					<th>제목</th>
-					<th>이름</th>
-					<th>날짜</th>
-					<th>조회수</th>
-				</tr>
 				<c:forEach var="row" items="${map.list}">
 					<tr>
 						<td>${row.QNACODE}</td>
@@ -90,6 +90,7 @@
 				</tr>
 
 			</table>
+			<button type="button" id="btnWrite" onclick="location.href='/qna/write.do'">글쓰기</button>
 		</div>
 	</div>
 	<%@include file = "/WEB-INF/views/layout/final.jsp" %>
