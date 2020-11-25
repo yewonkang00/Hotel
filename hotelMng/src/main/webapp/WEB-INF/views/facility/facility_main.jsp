@@ -28,22 +28,22 @@
         <h2 class=tit><a href="/facility_main.do">시설 소개</a></h2>
         <ul class=menu>
             <li class="m1">
-                <a href="rounge.html">
+                <a href="/facility_rounge.do">
                     <span>The Executive Rounge</span>
                 </a>
             </li>
             <li class="m2">
-                <a href="pool.html">
+                <a href="/facility_pool.do">
                     <span>Outdoor Pool</span>
                 </a>
             </li>
             <li class="m3">
-                <a href="fitness.html">
+                <a href="/facility_fitness.do">
                     <span>Fitness</span>
                 </a>
             </li>
             <li class="m4">
-                <a href="banquet_hall.html">
+                <a href="/facility_hall.do">
                     <span>Banquet Hall</span>
                 </a>
             </li>
@@ -54,28 +54,28 @@
         <div class=intbox>
             <div class=lbox>
                 <h3><b>The Executive Rounge</b></h3>
-                <a href="rounge.html"><img src="/resources/image/rounge.jpg" width="300" height="220"></a>
+                <a href="/facility_rounge.do"><img src="${pageContext.request.contextPath}/resources/image/rounge.jpg" width="300" height="220"></a>
                 <div class=topexp>
                     <p>DB호텔만의 차별화된 품격이 돋보이는 이그제큐티브 라운지에서 특별한 다이닝 경험을 만들 수 있습니다. <br></p>
                 </div>
             </div>
             <div class=rbox>
                 <h3><b>Outdoor Pool</b></h3>
-                <a href="pool.html"><img src="/resources/image/pool.jpg" width="300" height="220"></a>
+                <a href="/facility_pool.do"><img src="${pageContext.request.contextPath}/resources/image/pool.jpg" width="300" height="220"></a>
                 <div class=topexp>
                     <p>탁 트인 전망을 즐기며 여유로운 휴식을 취할 수 있습니다.<br></p>
                 </div>
             </div>
             <div class=lbox>
                 <h3><b>Fitness</b></h3>
-                <a href="fitness.html"><img src="/resources/image/indoor pool.jpg" width="300" height="220"></a>
+                <a href="/facility_fitness.do"><img src="${pageContext.request.contextPath}/resources/image/indoor pool.jpg" width="300" height="220"></a>
                 <div class=topexp>
                     <p>실내 수영장, 실내 체육관, 실내 골프장, 사우나를 즐길 수 있습니다.<br></p>
                 </div>
             </div>
             <div class=rbox>
                 <h3><b>Banquet Hall</b></h3>
-                <a href="banquet_hall.html"><img src="/resources/image/banquet hall.jpg" width="300" height="220"></a>
+                <a href="/facility_hall.do"><img src="${pageContext.request.contextPath}/resources/image/banquet hall.jpg" width="300" height="220"></a>
                 <div class=topexp>
                     <p>웨딩뿐 아니라 기업연회, 가족연회까지 DB호텔만의 품격있는 연회장과 함께 하십시오.<br></p>
                 </div>
