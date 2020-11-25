@@ -5,7 +5,6 @@
   Time: 오후 7:10
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
@@ -67,21 +66,21 @@
             </div>
             <div class=rbox>
                 <h3><b>Indoor Gym</b></h3>
-                <img src="../img/gym.jpg" width="300" height="220">
+                <img src="${pageContext.request.contextPath}/resources/image/gym.jpg" width="300" height="220">
                 <div class=topexp>
                     <p>체력 관리를 위한 기능별 공간이 조성되어 운동과 휴식을 조화롭게 즐길 수 있습니다.<br/></p>
                 </div>
             </div>
             <div class=lbox>
                 <h3><b>Indoor Golf Course</b></h3>
-                <img src="../img/golf.jpg" width="300" height="220">
+                <img src="${pageContext.request.contextPath}/resources/image/golf.jpg" width="300" height="220">
                 <div class=topexp>
                     <p>다양한 디지털 장비와 함께 드라이빙, 퍼팅, 자세교정 등의 Solution을 제공합니다.<br/></p>
                 </div>
             </div>
             <div class=rbox>
                 <h3><b>Indoor Sauna</b></h3>
-                <img src="../img/sauna.jpg" width="300" height="220">
+                <img src="${pageContext.request.contextPath}/resources/image/sauna.jpg" width="300" height="220">
                 <div class=topexp>
                     <p>고급스러운 사우나 시설과 서비스로 여유로운 휴식을 즐길 수 있습니다.<br/>
                         개인 샤워 부스 및 세신실 등의 시설을 갖추고 있습니다.<br/>
