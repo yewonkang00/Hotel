@@ -61,16 +61,14 @@
 			</div>
 		</div>
 		<div class=contents>
-			<h1>게시판</h1>
-			
-				<button type="button" id="btnWrite" onclick="location.href='/qna/write.do'">글쓰기</button>	
-
+			<h1>게시판</h1>				
+			<button type="button" id="btnWrite" onclick="location.href='/qna/write.do'">글쓰기</button>
 			${map.count}개의 문의사항이 있습니다.
 			<table border="1" width="600px">
 				<tr>
 					<th>번호</th>
 					<th>제목</th>
-					<th>이름</th>
+					<th>아이디</th>
 					<th>날짜</th>
 					<th>조회수</th>
 				</tr>
@@ -83,6 +81,7 @@
 						<td>${row.QNAVIEWCOUNT}</td>
 					</tr>
 				</c:forEach>
+				
 				<!-- 페이지 네비게이션 -->
 				<tr>
 					<td colspan="5" align="center">
