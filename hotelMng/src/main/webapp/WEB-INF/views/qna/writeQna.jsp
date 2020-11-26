@@ -45,8 +45,13 @@
     <div class=contents>
       <h1>문의하기</h1>
        <form  id="form1" name="form1" action="/qna/insert.do" method="post">
-
+         
            <h3 class="tit_">● 문의사항</h3>
+           
+           <div class="col_one_third">
+		                    <h3 class="join_title">작성자</h3>
+		                    <div class="d_form large">${dto.getUserId()}</div>
+		                </div>
 
            <div class="col_one_third">
                <h3 class="join_title">작성자</h3>

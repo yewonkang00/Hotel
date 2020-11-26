@@ -9,16 +9,13 @@
         <link rel="stylesheet" href="/resources/css/style_admin.css" type="text/css">
         <script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
         <style>
+
             * {
                 font-family: 'Noto Sans KR', sans-serif;
             }
+
         </style>
         <title>Room List</title>
-       	<script type="text/javascript">
-       	function standard() {
-			
-        } 
-        </script>
 
     </head>
 
@@ -39,6 +36,7 @@
 
         <div class=contents>
             <p style="text-align:center;">Room LIST</p>
+
             <!-- <button type="button" id="standard" onClick="standard()">standard</button>
             <button type="button" id="deluxe" onClick="deluxe()">deluxe</button>
             <button type="button" id="executive" onClick="executive()">executive</button>
@@ -46,15 +44,15 @@
             <br><br> -->
             <table class="table table-hover">
                 <thead>
-                    <tr>
-                        <td>No</td>
-                        <td>RoomNO</td>
-                        <td>RoomType</td>
-                        <td>BedType</td>
-                        <td>RoomMaxPeople</td>
-                        <td>RoomFee</td>
-                        <td> </td>
-                    </tr>
+                  <tr>
+                      <td>No</td>
+                      <td>RoomNO</td>
+                      <td>RoomType</td>
+                      <td>BedType</td>
+                      <td>RoomMaxPeople</td>
+                      <td>RoomFee</td>
+                      <td> </td>
+                  </tr>
                 </thead>
 
                 <c:forEach items="${roomList}" var="item" varStatus="idx">
