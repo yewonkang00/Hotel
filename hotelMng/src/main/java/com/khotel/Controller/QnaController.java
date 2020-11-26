@@ -35,18 +35,22 @@ public class QnaController {
 	QnaService qnaService;
 	
 	@RequestMapping(value="/qna/write.do")
-	public String write(
+	public ModelAndView write(
 			HttpServletRequest request) {
 		MemberVo member = new MemberVo();
 		HttpSession session = request.getSession();
 		member = (MemberVo) session.getAttribute("member");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("qna/writeQna");
+		mav.addObject("dto", member);
 		if (member == null) {
+			mav.setViewName("redirect:/qna/list.do");
 
-
-			return "redirect:/qna/list.do";
+			return mav;
 		}
+		String name = member.getUserId();
 		
-		return "qna/writeQna";
+		return mav;
 	}
 	
 	@RequestMapping(value="/qna/rewrite.do", method=RequestMethod.GET)
