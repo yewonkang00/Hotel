@@ -12,11 +12,13 @@
 		<meta charset="UTF-8">
 		<title>QnA list</title>
 		<link rel="stylesheet" href="/resources/css/style_qna.css" type="text/css">
+
 		<script type="text/javascript">
 		function list(page){
 			location.href="/qna/list.do?curPage="+page
 		}
 		</script>
+
 	</head>
 
 	<body>

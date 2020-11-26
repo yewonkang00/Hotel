@@ -43,7 +43,7 @@
             </ul>
     </div>
     <div class=contents>
-        <h3>감각적인 인테리어와 함께한 DB다이렉트 객실은 품격있는 라이프스타일 공간입니다.</h3>
+        <h2 id=gaeyo>감각적인 인테리어와 함께한 DB다이렉트 객실은 품격있는 라이프스타일 공간입니다.</h2>
         <div class=intbox>
             <div class=lbox>
                 <h3><b>Standard Room</b></h3>
