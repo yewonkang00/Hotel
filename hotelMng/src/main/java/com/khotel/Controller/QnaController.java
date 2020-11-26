@@ -96,7 +96,7 @@ public class QnaController {
 	
 	}
 	
-	@RequestMapping(value="/qna/insert.do", method= RequestMethod.GET)
+	@RequestMapping(value="/qna/insert.do", method= RequestMethod.POST)
 	public String insert(
 			@RequestParam("qnatitle") String title,
 			@RequestParam("qnacontent") String content,
