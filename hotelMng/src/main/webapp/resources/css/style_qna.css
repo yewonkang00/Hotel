@@ -128,7 +128,7 @@ textarea {
 /*#btnWrite
 
  */
-button {
+#btnSave, button {
     width: 10%;
     padding: 10px 14px 10px 14px;
     margin-top: 4px;
@@ -166,8 +166,7 @@ th {
 }
 .table-hover > tbody > tr > td.active:hover,
 .table-hover > tbody > tr > th.active:hover,
-.
-> tbody > tr.active:hover > td,
+.table-hover > tbody > tr.active:hover > td,S
 .table-hover > tbody > tr:hover > .active,
 .table-hover > tbody > tr.active:hover > th {
     background-color: #e8e8e8;
