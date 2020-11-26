@@ -12,6 +12,7 @@
 
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/resources/css/style_room.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/styleintro_hotel.css" type="text/css">
     <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
 
     <title>Deluxe room</title>

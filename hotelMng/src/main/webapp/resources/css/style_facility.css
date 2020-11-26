@@ -10,7 +10,7 @@ body {
     -ms-overflow-style: none;
 }
 ::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 a {
     color:#111111;
@@ -29,19 +29,19 @@ a {
     background-color: #D4C1A1;
 }
 .tit{
-  padding: 22px;
-  text-align: center;
-  height: 50px;
+    padding: 22px;
+    text-align: center;
+    height: 50px;
 }
 .mini_title {
     padding: 10px 0;
 }
 .m1{
-  height: 50px;
-  width:200px;
+    height: 50px;
+    width:200px;
 }
 .m2{
-  height: 50px;
+    height: 50px;
 }
 .m3{
     height: 50px;
@@ -59,10 +59,11 @@ h4 {
     font-weight: bold;
     font-size: 20px;
 }
+
 #gaeyo{
-     padding-top: 20px;
-     border-bottom: 3pt solid  #D4C1A1;
- }
+    padding-top: 20px;
+    border-bottom: 3pt solid  #D4C1A1;
+}
 .roomtb {
     width: 800px;
     border-collapse: separate;
@@ -71,19 +72,6 @@ h4 {
     line-height: 1.5;
     border-top: 1px solid #D4C1A1;
     margin : 20px 10px;
-}
-.roomtb th {
-    width: 150px;
-    padding: 10px;
-    font-weight: bold;
-    vertical-align: middle;
-    border-bottom: 1px solid #D4C1A1;
-}
-.roomtb td {
-    width: 350px;
-    padding: 10px;
-    vertical-align: top;
-    border-bottom: 1px solid #D4C1A1;
 }
 .intbox {
     border-bottom: 1px solid #E8E4DE;
@@ -126,8 +114,8 @@ h4 {
     color: #333333
 }
 .contents{
-  float:right;
-  margin-right:-120px;
-  width:960px;
-  height:1200px;
+    float:right;
+    margin-right:-120px;
+    width:960px;
+    height:1200px;
 }
