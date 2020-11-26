@@ -96,8 +96,9 @@ public class QnaController {
 	
 	}
 	
-	@RequestMapping(value="/qna/insert.do", method= RequestMethod.POST)
-	public String insert(@RequestParam("qnatitle") String title,
+	@RequestMapping(value="/qna/insert.do", method= RequestMethod.GET)
+	public String insert(
+			@RequestParam("qnatitle") String title,
 			@RequestParam("qnacontent") String content,
 			HttpServletRequest request
 			) throws Exception {		
@@ -105,7 +106,8 @@ public class QnaController {
 		HttpSession session = request.getSession();
 		member = (MemberVo) session.getAttribute("member");
 		String writer = member.getUserId();
-
+		System.out.println(title);
+		System.out.println(content);
 		QnaVo vo = new QnaVo();
 		vo.setQNATITLE(title);
 		vo.setQNACONTENT(content);

@@ -44,7 +44,7 @@
 
     <div class=contents>
       <h1>문의하기</h1>
-       <form  id="form1" name="form1" action="/qna/insert.do" method="post">
+       <form  id="form1" name="form1" action="/qna/insert.do" method="get">
            <!-- <div class="form-process"></div> -->
            <h3 class="tit_">● 고객 정보</h3>
            <div class="col_one_third">
