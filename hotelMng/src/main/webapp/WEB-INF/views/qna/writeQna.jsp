@@ -4,11 +4,13 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
+      
       <style>
           * {
               font-family: 'Noto Sans KR', sans-serif;
           }
       </style>
+
       <meta charset="utf-8">
       <link rel="stylesheet" href="/resources/css/style_qna.css" type="text/css">
       <title> 문의사항 </title>

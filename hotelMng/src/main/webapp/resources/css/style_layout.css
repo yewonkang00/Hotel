@@ -8,7 +8,7 @@
     top: 0;
     /* left: 0; */
     /* right: 0; */
-    height: 60px;
+    height: 65px;
     display: flex;
     /* border-bottom-style: solid;
     border-bottom-color: #9B9B9B;
@@ -16,16 +16,24 @@
     text-align: center;
     padding: 8px;
     color: #111111;
-    font-size: 5px;
+    font-size: 12px;
     justify-content: space-between;
     align-items: center;
+}
+
+.header .logo {
+    display: inline-block;
+    width:200px;
+    height: 50px;
+    margin-top: 20px;
+    float: middle;
 }
 
 .header nav {
     list-style-type: none;
     text-align: right;
     min-width: 800px;
-    margin-top: 25px;
+    margin-top: 15px;
     padding: 0;
 }
 

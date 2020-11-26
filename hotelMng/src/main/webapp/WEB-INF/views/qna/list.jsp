@@ -28,22 +28,21 @@
 <%@include file = "/WEB-INF/views/layout/header.jsp" %>
 <div class=contain>
 	<div class=left>
-		<div class=banner>
-			<h2 class=tit>문의 사항</h2>
-			<ul class=menu>
-				<li class="m1">
-					<a href="/qna/list.do">
-						<span>게시판</span>
-					</a>
-				</li>
-				<li class="m2">
-					<a href="/qna/write.do">
-						<span>문의하기</span>
-					</a>
-				</li>
-			</ul>
-		</div>
+		<h2 class=tit>문의 사항</h2>
+		<ul class=menu>
+			<li class="m1">
+				<a href="/qna/list.do">
+					<span>게시판</span>
+				</a>
+			</li>
+			<li class="m2">
+				<a href="/qna/write.do">
+					<span>문의하기</span>
+				</a>
+			</li>
+		</ul>
 	</div>
+
 	<div class=contents>
 		<h1>게시판</h1>
 		<%-- ${map.count}개의 문의사항이 있습니다. --%>
