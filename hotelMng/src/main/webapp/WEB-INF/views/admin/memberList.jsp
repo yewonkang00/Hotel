@@ -14,7 +14,7 @@
             }
 
         </style>
-        <title>Welcom Delluna!</title>
+        <title>Member List</title>
         
         
   <script type="text/javascript">
@@ -106,29 +106,17 @@
 			<p style="text-align:center;">회원 LIST</p>
 			<!-- search{s} -->
 			<div class="form-group row justify-content-center">
-
 				<div class="w100" style="padding-right:10px">
-
 					<select class="form-control form-control-sm" name="searchType" id="searchType">
-
 						<option value="UserName">이름</option>
-
 						<option value="UserId">아이디</option>
-
 					</select>
-
 				</div>
-
 				<div class="w300" style="padding-right:10px">
-
 					<input type="text" class="form-control form-control-sm" name="keyword" id="keyword">
-
 				</div>
-
 				<div>
-
 					<button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch">검색</button>
-
 				</div>
 
 			</div>
@@ -143,6 +131,7 @@
 				<td>USER Email</td>
 				<td>UserAddressState</td>
 				<td>LEVEL</td>
+				<td></td>
 			</tr>
 			</thead>
 
@@ -159,21 +148,13 @@
 					<c:when test="${item.userLevel == '1'}">유저</c:when>
 					<c:otherwise>관리자</c:otherwise>
 				</c:choose>
-				 <br> 
-			<input type="button" value="Update" class="submit-btn" onClick="javaScript:updateLevel('${item.userId}','${item.userLevel}');">
-			</td>			
+				</td>
+				<td><input type="button" value="Update" class="submit-btn" onClick="javaScript:updateLevel('${item.userId}','${item.userLevel}');"></td>
 			</tr>
 			</c:forEach>
 		</table>
         </div>
     <!-- pagination{e} -->
-
-
-
-	</div>
-	
-
-
 
 </body>
 
