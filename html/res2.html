@@ -6,10 +6,17 @@
         <link rel="stylesheet" href="style.css" type="text/css">
         <style>
         .res_content{
-          clear: both;
-          margin-left:auto;
-          margin-right: auto;
-          width: 1200px;
+          display: inline-block;
+          margin-left:250px;
+        }
+        .res_content2{
+          margin:0 auto;
+        }
+        #res_tit{
+          font-size:30px;
+          margin-bottom:70px;
+          font-weight: 10;
+          text-align: center;
         }
         </style>
  		<script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
@@ -102,26 +109,27 @@
         </script>
     </head>
     <body>
-        <div class=header>
-            <a href="/main"><img src="/resources/image/moon.png" width="80" height="80s"></a>
-            <nav>
-                <span><a href="intro.html">호텔 소개</a></span>
-                <span><a href="room.html">객실</a></span>
-                <span><a href="restaurant.html">레스토랑</a></span>
-                <span><a href="res.html">예약</a></span>
-                <span><a href="res_confirm.html">예약 확인</a></span>
-                <span><a href="qna.html">고객문의</a></span>
-                <span><a href="facility.html">편의시설</a></span>
-                <span>
-		        	<c:choose>
-		  				<c:when test="${member != null}"><a href="/logout.do">로그아웃</a></c:when>
-		   				<c:otherwise><a href="/login.do">로그인</a></c:otherwise>
-		   			</c:choose>
-		        </span>
-            </nav>
-
-        </div>
+      <div class=header>
+          <a href="index.html"><img src="moon.png" width="80" height="80s"></a>
+          <div class=logo></div>
+          <span class=topmenu>
+            <a href="login.html">로그인</a>
+            <a>마이페이지</a>
+            <a href="res_confirm.html">예약 확인</a>
+          </span>
+          <nav>
+              <span><a href="intro.html">호텔 소개</a></span>
+              <span><a href="room.html">객실</a></span>
+              <span><a href="res.html">예약</a></span>
+              <span><a href="qna.html">고객문의</a></span>
+              <span><a href="facility.html">편의시설</a></span>
+          </nav>
+      </div>
+      <div class=contain>
         <div class=res_content>
+          <div class=res_content2>
+            <b id="res_tit"><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              2. 객실, 날짜, 인원 선택<br><br></b>
             <form method="get" action="write_action.php" enctype="multipart/form-data"> <!--예약 작성하는 폼-->
               <table class="res2_form" cellpadding=0 cellspacing=15 width=600>
                 <tbody>
@@ -179,7 +187,9 @@
               </button>
               </div>
             </form>
+          </div>
         </div>
+      </div>
         <div class="finish">
             <p> 사업자 번호: 110-10-12345<br/>
                 사업장소재지: 경기도 이천시 마장면 장암리<br/>
