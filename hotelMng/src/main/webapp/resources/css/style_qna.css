@@ -121,6 +121,24 @@ textarea {
     border:1px solid #ccc;
     border-color:#dbdbdb #d2d2d2 #d0d0d0 #d2d2d3;
 }
+/*#btnUpdate,*/
+/*#btnList,*/
+/*#btnDelete,*/
+/*#btnSave,*/
+/*#btnWrite
+
+ */
+button {
+    width: 10%;
+    padding: 10px 14px 10px 14px;
+    margin-top: 4px;
+    border:1px solid #ccc;
+    /* cursor: pointer; */
+    color: #fff;
+    background-color: #333333;
+    font-size: 15px;
+    font-weight: 400;
+}
 
 .table {
     border-spacing: 0;

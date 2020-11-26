@@ -64,8 +64,8 @@
 
 		            <div>
 		                <input type="hidden" name = "QNACODE" value="${dto.QNACODE}">
-		                    <button type ="button" id ="btnUpdate" onclick="location.href='/qna/rewrite.do?QNACODE=${dto.QNACODE}'">수정</button>
-		                    <button type ="button" id ="btnList" onclick="location.href='/qna/list.do'">목록</button>
+		                    <button type ="button"  id ="btnUpdate" onclick="location.href='/qna/rewrite.do?QNACODE=${dto.QNACODE}'">수정</button>
+		                    <button type ="button"  id ="btnList" onclick="location.href='/qna/list.do'">목록</button>
 		            </div>
 
 		        </div>
