@@ -12,6 +12,7 @@
 
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/resources/css/style_room.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/styleintro_hotel.css" type="text/css">
     <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
 
     <title>Deluxe room</title>
@@ -45,7 +46,7 @@
             </ul>
     </div>
     <div class=contents>
-        <h1>Deluxe Room</h1>
+        <h2 id=gaeyo>Deluxe Room</h2>
         <img src="/resources/image/deluxe room.jpg" width="800" height="500">
         <p> 디럭스룸은 다른 호텔의 동급 객실보다 여유로운 공간을 제공합니다.<br/>
             디럭스룸에서 비즈니스와 여행의 여유로움을 즐기십시오.<br/>

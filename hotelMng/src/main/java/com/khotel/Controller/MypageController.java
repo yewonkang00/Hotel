@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.khotel.Service.MemberService;
 import com.khotel.Service.ReservationService;
@@ -54,6 +55,7 @@ public class MypageController {
 		MemberVo member = new MemberVo();
 		HttpSession session = request.getSession();
 		member = (MemberVo) session.getAttribute("member");
+		if(member == null) return "/mypage/reservation";
 		String UserId = member.getUserId();
 		
 		ReservationVo reservation = new ReservationVo();

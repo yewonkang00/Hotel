@@ -5,76 +5,12 @@
 <html lang="ko">
     <head>
         <meta charset="UTF-8">
+		<link rel="stylesheet" href="/resources/css/style_admin.css" type="text/css">
         <script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
         <style>
+
             * {
                 font-family: 'Noto Sans KR', sans-serif;
-            }
-            body {
-                margin-left:auto;
-                margin-right: auto;
-                padding:0px;
-                background-color: white;
-                font-family:나눔고딕;
-            }
-            a {
-                color:#111111;
-            }
-            a { text-decoration:none } 
-            .header{
-                margin-left:auto;
-                margin-right: auto;
-                background-color: #D4C1A1;
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                height: 50px;
-                text-align: center;
-                padding: 8px;
-                color: #111111;
-                font-size: 5px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-            .header nav {
-                list-style-type: none;
-                text-align: center;
-                margin: 0;
-                padding: 0;
-            }
-            .header nav span {
-                display:inline-block;
-                font-size: 15px;
-                padding: 20px;
-            }
-            .banner{
-                background-image: url("/resources/image/oria-hotel-4636405_1280.jpg");
-                background-size: cover;
-                margin-top: auto;
-                width: auto;
-                height: 700px;
-            }
-            
-            .contents{
-                width: 1200px;
-                margin-left:auto;
-                margin-right: auto;
-                min-height: 500px;
-                padding: 50px;
-                background-color: white;
-                font-size: 18px;
-                color: #333333
-            }
-            .finish {
-                width: 1200px;
-                margin-left:auto;
-                margin-right: auto;
-                padding: 50px;
-                background-color: white;
-                font-size: 18px;
-                color: #333333
             }
 
         </style>
@@ -124,14 +60,29 @@
 					location.href="/admin/memberList";
 				}
 			}
-
 	})
-	  
   }
 
-	
-  
   </script>
+
+		<script>
+			$(document).on('click', '#btnSearch', function(e){
+
+				e.preventDefault();
+
+				var url = "${pageContext.request.contextPath}/board/getBoardList";
+
+				url = url + "?searchType=" + $('#searchType').val();
+
+				url = url + "&keyword=" + $('#keyword').val();
+
+				location.href = url;
+
+				console.log(url);
+
+			});
+
+		</script>
   
   
     </head>
@@ -150,13 +101,51 @@
             </nav>
             
         </div>
-        <p>
 
-		<p>
         <div class=contents>
-                <p style="text-align:center;">회원 LIST</p>
-        <table border="1">
-        <tr><td>No</td><td>USER ID</td><td>USER Name</td><td>USER Phone</td><td>USER Email</td><td>UserAddressState</td><td>LEVEL</td></tr>
+			<p style="text-align:center;">회원 LIST</p>
+			<!-- search{s} -->
+			<div class="form-group row justify-content-center">
+
+				<div class="w100" style="padding-right:10px">
+
+					<select class="form-control form-control-sm" name="searchType" id="searchType">
+
+						<option value="UserName">이름</option>
+
+						<option value="UserId">아이디</option>
+
+					</select>
+
+				</div>
+
+				<div class="w300" style="padding-right:10px">
+
+					<input type="text" class="form-control form-control-sm" name="keyword" id="keyword">
+
+				</div>
+
+				<div>
+
+					<button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch">검색</button>
+
+				</div>
+
+			</div>
+			<!-- search{e} -->
+        	<table class="table table-hover">
+			<thead>
+			<tr>
+				<td>No</td>
+				<td>USER ID</td>
+				<td>USER Name</td>
+				<td>USER Phone</td>
+				<td>USER Email</td>
+				<td>UserAddressState</td>
+				<td>LEVEL</td>
+			</tr>
+			</thead>
+
 			<c:forEach items="${memberList}" var="item" varStatus="idx">
 			<tr>
 				<td>${idx.index+1}</td>
@@ -179,58 +168,11 @@
         </div>
     <!-- pagination{e} -->
 
-		<!-- search{s} -->
 
-		<div class="form-group row justify-content-center">
-
-			<div class="w100" style="padding-right:10px">
-
-				<select class="form-control form-control-sm" name="searchType" id="searchType">
-
-					<option value="UserName">이름</option>
-
-					<option value="UserId">아이디</option>
-
-				</select>
-
-			</div>
-
-			<div class="w300" style="padding-right:10px">
-
-				<input type="text" class="form-control form-control-sm" name="keyword" id="keyword">
-
-			</div>
-
-			<div>
-
-				<button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch">검색</button>
-
-			</div>
-
-		</div>
-
-		<!-- search{e} -->
 
 	</div>
 	
-	<script>
-		$(document).on('click', '#btnSearch', function(e){
-	
-			e.preventDefault();
-	
-			var url = "${pageContext.request.contextPath}/board/getBoardList";
-	
-			url = url + "?searchType=" + $('#searchType').val();
-	
-			url = url + "&keyword=" + $('#keyword').val();
-	
-			location.href = url;
-	
-			console.log(url);
-	
-		});	
 
-	</script>
 
 
 </body>
