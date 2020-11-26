@@ -4,6 +4,14 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="style.css" type="text/css">
+        <style>
+        .res_content{
+          clear: both;
+          margin-left:auto;
+          margin-right: auto;
+          width: 1200px;
+        }
+        </style>
  		<script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
   		<link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
   		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -83,7 +91,8 @@
     				}
         		}
 
-            })
+            }
+          )
 
 
 
@@ -113,7 +122,6 @@
 
         </div>
         <div class=res_content>
-          <div class=res_search>
             <form method="get" action="write_action.php" enctype="multipart/form-data"> <!--예약 작성하는 폼-->
               <table class="res2_form" cellpadding=0 cellspacing=15 width=600>
                 <tbody>
@@ -129,54 +137,27 @@
                     <td id="UserId"><input type="text" readonly value='${UserId}' name="title" size="20"></td>
                   </tr>
                    <tr>
-                    <td id="res2_tit">숙박일</td>
+                    <td id="res2_tit">체크인 날짜</td>
                     <td id="ReservationCheckIn"><input type="text" readonly value='${resdate}' name="title" size="20"></td>
                   </tr>
                   <tr>
+                   <td id="res2_tit">체크아웃 날짜</td>
+                   <td id="res_checkout"><input type="text" readonly value='${resdate}' name="title" size="20"></td>
+                 </tr>
+                  <tr>
                     <td id="res2_tit">숙박일 수</td>
-                    <td class="box_reservationDays">
-                    	<select id ="ReservationDays" class="sel">
-                    		<option>-박</option>
-                    		<option value="1">1박</option>
-                    		<option value="2">2박</option>
-                    		<option value="3">3박</option>
-                    		<option value="4">4박</option>
-                    		<option value="5">5박</option>
-                    	</select>
-                    </td>
+                    <td id="res_date"><input type="text" readonly value='${resdate}' name="title" size="20"></td>
                   </tr>
                   <tr>
                     <td id="res2_tit">Room</td>
                     <td id="RoomCode"><input type="text" readonly value='${roomNo}' size="20"></td>
                   </tr>
                   <tr>
-                    <td id="res2_tit">인원</td>
-                    <td class="box_reservationDays">
-                    	<select id ="ReservationPeopleNumber" class="sel">
-                    		<option>-인</option>
-                    		<option value="1">1인</option>
-                    		<option value="2">2인</option>
-                    		<option value="3">3인</option>
-                    		<option value="4">4인</option>
-                    	</select>
-                  </tr>
-                  <!-- <tr>
-                    <td id="UserBirth">생년월일</td>
-                    <td><input type="text" name="title" size="20"></td>
-                    <td>연락처</td>
-                    <td><input type="text" name="title" size="20"></td>
-                  </tr>
-                  <tr>
-                    <td id="UserEmail">이메일</td>
-                    <td><input type="text" name="title" size="20"></td>
-                    <td><input type="text" name="title" size="20"></td>
-                  </tr> -->
-                  <tr>
                     <td id="res2_tit">결재금액</td>
                   </tr>
                   <tr>
                     <td>객실 가격</td>
-                    <td>240,000원</td>
+                    <td id="room_price"><input type="text" readonly value='240,000' size="20"></td>
                   </tr>
                   <tr>
                     <td>추가 금액</td>
@@ -184,11 +165,11 @@
                   </tr>
                   <tr>
                     <td>부과세</td>
-                    <td>24,000원</td>
+                    <td id="room_price2"><input type="text" readonly value='room_price/10' size="20"></td>
                   </tr>
                   <tr>
                     <td>최종 결재 금액</td>
-                    <td>264,000원</td>
+                    <td id="room_price"><input type="text" readonly value='room_price/10*11' size="20"></td>
                   </tr>
                 </tbody>
               </table>
@@ -198,7 +179,6 @@
               </button>
               </div>
             </form>
-          </div>
         </div>
         <div class="finish">
             <p> 사업자 번호: 110-10-12345<br/>

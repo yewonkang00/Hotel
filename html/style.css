@@ -459,13 +459,6 @@ textarea {
     padding-top: 20px;
     border-bottom: 3pt solid  #D4C1A1;
   }
-  .res_content{
-    position:relative;
-  }
-  .res_banner{
-    position:absolute; top:50%; left: 50%; transform:translate(-50%, -50%);
-    background-color: #D4C1A1;
-  }
   .myButton {
 	   background-color:#D4C1A1;
 	   border-radius:3px;
