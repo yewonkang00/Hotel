@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-      
+
       <style>
           * {
               font-family: 'Noto Sans KR', sans-serif;
@@ -95,38 +95,7 @@
       </div>
 
 
-      <!-- 고객의 소리 // -->
-      <!-- <table class="tb-1 tbData">
-          <tbody>
-              <tr>
-                  <th scope="row">제목</th>
-                  <td class="fm" colspan="3">
-                      <input type="text" class="ipt fw-32" id="sj" name="sj" title="제목" maxlength="200" />
-                  </td>
-              </tr>
-              <tr>
-                  <th scope="row">유형</th>
-                  <td class="fm">
-                      <select id="contactus_type" name="contactus_type" class="slt fw-23" title="유형 1" onchange="javascript:fn_contactus_type_change();">
-                          <option value="">선택하세요.</option>
-                          <option value="M0001">만족</option>
-                          <option value="M0002">칭찬</option>
-                          <option value="M0003">요구</option>
-                          <option value="M0004">개선요청</option>
-                          <option value="M0005">불만</option>
-                          <option value="M0009">기타</option>
-                      </select>
-                  </td>
-              </tr>
-              <tr>
-                  <th scope="row">내용</th>
-                  <td class="fm" colspan="3">
-                      <textarea class="fw-full fh-2" title="내용을 입력해 주세요." placeholder="내용을 입력해 주세요." id="cn" name="cn" maxlength="4000"></textarea>
-                  </td>
-              </tr>
-          </tbody>
-      </table> -->
-      <!-- // 고객의 소리 -->
+
 
     </div>
     <%@include file = "/WEB-INF/views/layout/final.jsp" %>
