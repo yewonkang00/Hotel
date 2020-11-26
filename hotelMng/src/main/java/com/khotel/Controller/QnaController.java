@@ -34,18 +34,44 @@ public class QnaController {
 	QnaService qnaService;
 	
 	@RequestMapping(value="/qna/write.do")
-	public String write() {
+	public String write(
+			HttpServletRequest request) {
+		MemberVo member = new MemberVo();
+		HttpSession session = request.getSession();
+		member = (MemberVo) session.getAttribute("member");
+		if (member == null) {
+
+
+			return "redirect:/qna/list.do";
+		}
+		
 		return "qna/writeQna";
 	}
 	
 	@RequestMapping(value="/qna/rewrite.do", method=RequestMethod.GET)
 	public ModelAndView rewrite(@RequestParam int QNACODE,
-			HttpSession session) throws Exception{
-		qnaService.increaseViewcnt(QNACODE);
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("qna/rewriteQna");
-		mav.addObject("dto", qnaService.read(QNACODE));
-		return mav;
+			HttpServletRequest request) throws Exception{
+		MemberVo member = new MemberVo();
+		HttpSession session = request.getSession();
+		member = (MemberVo) session.getAttribute("member");
+		if (member == null) {
+			ModelAndView mav = new ModelAndView();
+			mav.setViewName("redirect:/qna/list.do");
+			return mav;
+		}
+		
+		String id = member.getUserId();
+		QnaVo vo = qnaService.read(QNACODE);
+		if (id.equals(vo.getQNAWRITER())) {
+			ModelAndView mav = new ModelAndView();
+			mav.setViewName("qna/rewriteQna");
+			mav.addObject("dto", qnaService.read(QNACODE));
+			return mav;
+		}else {
+			ModelAndView mav = new ModelAndView();
+			mav.setViewName("redirect:/qna/list.do");
+			return mav;			
+		}
 	}
 	
 	
@@ -53,7 +79,7 @@ public class QnaController {
 	public ModelAndView list(
 			@RequestParam(defaultValue="1") int curPage
 			) throws Exception {
-		int count = 1000;
+		int count = 100;
 		Pager pager = new Pager(count, curPage);
 		int start = pager.getPageBegin();
 		int end = pager.getPageEnd();
@@ -84,7 +110,6 @@ public class QnaController {
 		vo.setQNACONTENT(content);
 		vo.setQNAWRITER(writer);
 		vo.setQNAREGISTERDATE(new Date().toGMTString());
-		
 		qnaService.create(vo);
 		return "redirect:/qna/list.do";
 	}
@@ -93,11 +118,9 @@ public class QnaController {
 	public ModelAndView view(@RequestParam int QNACODE,
 			@RequestParam int curPage,
 			HttpSession session) throws Exception{
-
 		qnaService.increaseViewcnt(QNACODE);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("qna/view");
-
 		mav.addObject("dto", qnaService.read(QNACODE));
 		mav.addObject("curpage", curPage);
 		return mav;
@@ -106,13 +129,19 @@ public class QnaController {
 	
 	
 	
-	@RequestMapping(value="/qna/update.do", method=RequestMethod.GET)
-	public String update(QnaVo vo)throws Exception {
-		int QNACODE = vo.getQNACODE();
-		vo = qnaService.read(QNACODE);
+	@RequestMapping(value="/qna/update.do", method= RequestMethod.GET)
+	public String update(
+			@RequestParam int QNACODE,
+			@RequestParam("QNATITLE") String title,
+			@RequestParam("QNACONTENT") String content) throws Exception {
+		QnaVo vo = qnaService.read(QNACODE);
+		vo.setQNATITLE(title);
+		vo.setQNACONTENT(content);
 		qnaService.update(vo);
 		return "redirect:/qna/list.do";
 	}
+	
+	
 	
 	@RequestMapping(value="/qna/delete.do", method=RequestMethod.GET)
 	public String updat(

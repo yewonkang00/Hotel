@@ -8,6 +8,23 @@
 			* {
 				font-family: 'Noto Sans KR', sans-serif;
 			}
+			body {
+				background-color: #EEEFF1;
+			}
+			textarea {
+				overflow:auto;
+				vertical-align:top;
+				padding:8px;
+				box-sizing:border-box;
+				border:solid 1px #aaa;
+			}
+			table {
+				border-collapse: collapse;
+				border-spacing: 0;
+				table-layout: fixed;
+				border-spacing: 0;
+				width: 100%;
+			}
 		</style>
 		<meta charset="UTF-8">
 		<title>QnA list</title>
@@ -17,6 +34,7 @@
 		function list(page){
 			location.href="/qna/list.do?curPage="+page
 		}
+
 		</script>
 
 	</head>
@@ -25,34 +43,34 @@
 	<%@include file = "/WEB-INF/views/layout/header.jsp" %>
 	<div class=contain>
 		<div class=left>
-			<h2 class=tit>문의 사항</h2>
-			<ul class=menu>
-				<li class="m1">
-					<a href="/qna/list.do">
-						<span>게시판</span>
-					</a>
-				</li>
-				<li class="m2">
-					<a href="/qna/write.do">
-						<span>문의하기</span>
-					</a>
-				</li>
-			</ul>
+			<div class=banner>
+				<h2 class=tit>문의 사항</h2>
+				<ul class=menu>
+					<li class="m1">
+						<a href="/qna/list.do">
+							<span>게시판</span>
+						</a>
+					</li>
+					<li class="m2">
+						<a href="/qna/write.do">
+							<span>문의하기</span>
+						</a>
+					</li>
+				</ul>
+			</div>
 		</div>
 		<div class=contents>
-			<h1>게시판</h1>
-<%--			${map.count}개의 문의사항이 있습니다.--%>
-			<table class="table table-hover">
-				<thead>
-					<tr>
-						<th>번호</th>
-						<th>제목</th>
-						<th>이름</th>
-						<th>날짜</th>
-						<th>조회수</th>
-					</tr>
-				</thead>
-
+			<h1>게시판</h1>				
+			<button type="button" id="btnWrite" onclick="location.href='/qna/write.do'">글쓰기</button>
+			${map.count}개의 문의사항이 있습니다.
+			<table border="1" width="600px">
+				<tr>
+					<th>번호</th>
+					<th>제목</th>
+					<th>아이디</th>
+					<th>날짜</th>
+					<th>조회수</th>
+				</tr>
 				<c:forEach var="row" items="${map.list}">
 					<tr>
 						<td>${row.QNACODE}</td>
@@ -62,6 +80,7 @@
 						<td>${row.QNAVIEWCOUNT}</td>
 					</tr>
 				</c:forEach>
+				
 				<!-- 페이지 네비게이션 -->
 				<tr>
 					<td colspan="5" align="center">
@@ -92,7 +111,6 @@
 				</tr>
 
 			</table>
-			<button type="button" id="btnWrite" onclick="location.href='/qna/write.do'">글쓰기</button>
 		</div>
 	</div>
 	<%@include file = "/WEB-INF/views/layout/final.jsp" %>
