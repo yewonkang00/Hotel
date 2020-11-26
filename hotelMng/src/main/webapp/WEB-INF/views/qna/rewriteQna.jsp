@@ -73,9 +73,9 @@
 
 				<div>
 					<input type="hidden" name = "QNACODE" value="${dto.QNACODE}">
-					<button type ="submit" id = "btnUpdate" onclick="location.href='/qna/update.do?QNACODE=${dto.QNACODE}'">수정</button>
-					<button type ="button" id = "btnDelete" onclick="location.href='/qna/delete.do?QNACODE=${dto.QNACODE}'">삭제</button>
-					<button type ="button" id = "btnList" onclick="location.href='/qna/list.do'">목록</button>
+					<button type ="submit" class="btn_sbm"m id = "btnUpdate" onclick="location.href='/qna/update.do?QNACODE=${dto.QNACODE}'">수정</button>
+					<button type ="button" class="btn_sbm" id = "btnDelete" onclick="location.href='/qna/delete.do?QNACODE=${dto.QNACODE}'">삭제</button>
+					<button type ="button" class="btn_sbm" id = "btnList" onclick="location.href='/qna/list.do'">목록</button>
 				</div>
 
 			</form>

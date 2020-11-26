@@ -121,6 +121,23 @@ textarea {
     border:1px solid #ccc;
     border-color:#dbdbdb #d2d2d2 #d0d0d0 #d2d2d3;
 }
+/*#btnUpdate,*/
+/*#btnList,*/
+/*#btnDelete,*/
+/*#btnSave,*/
+/*#btnWrite
+ */
+#btnSave, button {
+    width: 10%;
+    padding: 10px 14px 10px 14px;
+    margin-top: 4px;
+    border:1px solid #ccc;
+    /* cursor: pointer; */
+    color: #fff;
+    background-color: #333333;
+    font-size: 15px;
+    font-weight: 400;
+}
 
 .table {
     border-spacing: 0;
@@ -148,7 +165,7 @@ th {
 }
 .table-hover > tbody > tr > td.active:hover,
 .table-hover > tbody > tr > th.active:hover,
-.table-hover > tbody > tr.active:hover > td,
+.table-hover > tbody > tr.active:hover > td,S
 .table-hover > tbody > tr:hover > .active,
 .table-hover > tbody > tr.active:hover > th {
     background-color: #e8e8e8;
