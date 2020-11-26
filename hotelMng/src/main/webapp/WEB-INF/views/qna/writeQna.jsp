@@ -52,11 +52,6 @@
 		                    <h3 class="join_title">작성자</h3>
 		                    <div class="d_form large">${dto.getUserId()}</div>
 		                </div>
-
-           <div class="col_one_third">
-               <h3 class="join_title">작성자</h3>
-               <div class="d_form large">${dto.getUserId()}</div>
-           </div>
            
            <div class="col_two_third">
                <h3 class="join_title">제목</h3>
