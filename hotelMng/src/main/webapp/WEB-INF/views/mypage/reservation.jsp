@@ -41,6 +41,12 @@
     <title> 예약 확인/취소 </title>
     
     <script type="text/javascript">
+	    var sessionUserId = '${member.userId}';
+	    if(sessionUserId == null || sessionUserId == 'null' || sessionUserId=="" || sessionUserId == "1"){
+	      alert("로그인 후 이용해주세요.");
+	      location.href="/login.do";
+	    }
+    
     	function rescancel(reservationCode) {
     		var reservationCode = reservationCode;
 			var data = {"reservationCode" : reservationCode};
@@ -92,12 +98,12 @@
                 </a>
               </li>
               <li class="m2">
-                <a href="mypage_reservation.html">
+                <a href="/mypage/reservation">
                   <span>예약 확인/취소</span>
                 </a>
               </li>
               <li class="m3">
-                <a href="mypage_personal.html">
+                <a href="/mypage/memberinfo">
                   <span>개인 정보</span>
                 </a>
               </li>

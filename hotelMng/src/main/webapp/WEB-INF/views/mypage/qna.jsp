@@ -68,12 +68,12 @@
                   </a>
                 </li>
                 <li class="m2">
-                  <a href="mypage_reservation.html">
+                  <a href="/mypage/reservation">
                     <span>예약 확인/취소</span>
                   </a>
                 </li>
                 <li class="m3">
-                  <a href="mypage_personal.html">
+                  <a href="/mypage/memberinfo">
                     <span>개인 정보</span>
                   </a>
                 </li>
