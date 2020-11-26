@@ -5,12 +5,6 @@
  <head>
  	<script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
 
-    <style>	
-       * {
-           font-family: 'Noto Sans KR', sans-serif;
-         }
-	</style>
-
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/resources/css/style_room.css" type="text/css">
         <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">

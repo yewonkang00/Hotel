@@ -1,4 +1,9 @@
 /*헤더*/
+
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
 .header{
     /* margin-left: auto; */
     /* margin-right: auto; */

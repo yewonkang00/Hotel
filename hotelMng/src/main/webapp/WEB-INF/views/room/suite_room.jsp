@@ -4,12 +4,6 @@
 <html lang="ko">
  <head>
 
-    <style>	
-       * {
-           font-family: 'Noto Sans KR', sans-serif;
-         }
-	</style>
-
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/resources/css/style_room.css" type="text/css">
         <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">

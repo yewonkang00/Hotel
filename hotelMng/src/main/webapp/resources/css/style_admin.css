@@ -2,8 +2,7 @@ body {
     margin-left:auto;
     margin-right: auto;
     padding:0px;
-    background-color: white;
-    font-family:나눔고딕;
+    background-color: #fbfcf5;
 }
 a {
     color:#111111;
@@ -47,7 +46,7 @@ a {
     margin-right: auto;
     min-height: 500px;
     padding: 50px;
-    background-color: white;
+    background-color: #fbfcf5;
     font-size: 18px;
     color: #333333
 }
