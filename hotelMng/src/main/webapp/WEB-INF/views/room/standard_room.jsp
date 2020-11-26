@@ -47,7 +47,7 @@
                 </ul>
           </div>
           <div class=contents>
-            <h2 id=gaeyo>Standard Room</h2>
+              <h2 id=gaeyo>Standard Room</h2>
             <img src="/resources/image/standardroom.jpg" width="800" height="500">
             <p> 스탠다드룸은 혼자 또는 친구와 함께 할 수 있는 방입니다.<br/>
                 스탠다드룸의 세련된 인테리어와 디자인 소품이 조화를 즐기며 아늑한 휴식을 취하십시오.<br/>

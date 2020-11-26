@@ -46,7 +46,7 @@
             	</ul>
           </div>
           <div class=contents>
-            <h2 id=gaeyo>Suite Room</h2>
+              <h2 id=gaeyo>Suite Room</h2>
             <img src="/resources/image/suiteroom.jpg" width="800" height="500">
             <p> 스위트룸은 프라이빗한 휴식을 즐길 수 있는 객실입니다.<br/>
                 스위트룸과 함께 최고의 휴식을 경험해보십시오.<br/>
