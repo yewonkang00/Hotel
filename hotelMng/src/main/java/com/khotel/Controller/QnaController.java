@@ -1,5 +1,6 @@
 package com.khotel.Controller;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -95,8 +96,9 @@ public class QnaController {
 	
 	}
 	
-	@RequestMapping(value="/qna/insert.do", method=RequestMethod.POST)
-	public String insert(@RequestParam("qnatitle") String title,
+	@RequestMapping(value="/qna/insert.do", method= RequestMethod.POST)
+	public String insert(
+			@RequestParam("qnatitle") String title,
 			@RequestParam("qnacontent") String content,
 			HttpServletRequest request
 			) throws Exception {		
@@ -104,12 +106,16 @@ public class QnaController {
 		HttpSession session = request.getSession();
 		member = (MemberVo) session.getAttribute("member");
 		String writer = member.getUserId();
-
+		System.out.println(title);
+		System.out.println(content);
 		QnaVo vo = new QnaVo();
 		vo.setQNATITLE(title);
 		vo.setQNACONTENT(content);
 		vo.setQNAWRITER(writer);
-		vo.setQNAREGISTERDATE(new Date().toGMTString());
+		Date now = new Date();
+		SimpleDateFormat format = new SimpleDateFormat("yyyy년 MM월 dd일 HH시 mm분");
+		String time = format.format(now);
+		vo.setQNAREGISTERDATE(time);
 		qnaService.create(vo);
 		return "redirect:/qna/list.do";
 	}
