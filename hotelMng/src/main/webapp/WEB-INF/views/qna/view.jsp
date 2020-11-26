@@ -36,12 +36,12 @@
 		                <h3 class="tit_">● 작성자 정보</h3>
 		                <div class="col_one_third">
 		                    <h3 class="join_title">작성자</h3>
-		                    <div class="d_form large">${dto.QNAWRITER}</div>
+		                    <div class="view_d_form large">${dto.QNAWRITER}</div>
 		                </div>
 
 		                <div class="col_one_third">
 		                    <h3 class="join_title">작성일자</h3>
-		                    <div class="d_form large">${dto.QNAREGISTERDATE}</div>
+		                    <div class="view_d_form large">${dto.QNAREGISTERDATE}</div>
 		                </div>
 
 		                <div class="clear"></div>
@@ -50,14 +50,14 @@
 
 		                <div class="col_two_third">
 		                    <h3 class="join_title">제목</h3>
-		                    <div class="d_form large">${dto.QNATITLE}</div>
+		                    <div class="view_d_form large">${dto.QNATITLE}</div>
 		                </div>
 
 		                <div class="clear"></div>
 
 		                <div class="col_full">
 		                    <h3 class="join_title_write">내용</h3>
-		                    <div class="d_form large_write">${dto.QNACONTENT}</div>
+		                    <div class="view_d_form large_write">${dto.QNACONTENT}</div>
 		                </div>
 
 		            </form>

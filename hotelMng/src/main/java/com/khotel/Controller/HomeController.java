@@ -354,7 +354,7 @@ public class HomeController {
 	}
 
 	//예약페이지
-	@RequestMapping(value = "/admin/reservateAction.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/reservateAction.do")
 	public @ResponseBody Map reservateAction(ReservationVo reservation, HttpServletRequest request) throws Exception {
 		HashMap<String, Object> roomMap = new HashMap();
 		MemberVo member = new MemberVo();

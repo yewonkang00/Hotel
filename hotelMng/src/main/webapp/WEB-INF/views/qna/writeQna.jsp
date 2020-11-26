@@ -45,22 +45,14 @@
     <div class=contents>
       <h1>문의하기</h1>
        <form  id="form1" name="form1" action="/qna/insert.do" method="post">
-           <!-- <div class="form-process"></div> -->
-           <h3 class="tit_">● 고객 정보</h3>
-           <div class="col_one_third">
-               <h3 class="join_title">성함</h3>
-               <input type="text" id="name" class="d_form large">
-           </div>
-
-           <div class="col_one_third">
-               <h3 class="join_title">이메일</h3>
-               <input type="email" id="email" class="d_form large">
-           </div>
-
-           <div class="clear"></div>
 
            <h3 class="tit_">● 문의사항</h3>
 
+           <div class="col_one_third">
+               <h3 class="join_title">작성자</h3>
+               <div class="d_form large">${dto.getUserId()}</div>
+           </div>
+           
            <div class="col_two_third">
                <h3 class="join_title">제목</h3>
 			   <input name="qnatitle" id="qnatitle" size="80" class="d_form large" placeholder="제목을 입력하세요">

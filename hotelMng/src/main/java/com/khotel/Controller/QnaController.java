@@ -1,5 +1,6 @@
 package com.khotel.Controller;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -34,18 +35,22 @@ public class QnaController {
 	QnaService qnaService;
 	
 	@RequestMapping(value="/qna/write.do")
-	public String write(
+	public ModelAndView write(
 			HttpServletRequest request) {
 		MemberVo member = new MemberVo();
 		HttpSession session = request.getSession();
 		member = (MemberVo) session.getAttribute("member");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("qna/writeQna");
+		mav.addObject("dto", member);
 		if (member == null) {
+			mav.setViewName("redirect:/qna/list.do");
 
-
-			return "redirect:/qna/list.do";
+			return mav;
 		}
+		String name = member.getUserId();
 		
-		return "qna/writeQna";
+		return mav;
 	}
 	
 	@RequestMapping(value="/qna/rewrite.do", method=RequestMethod.GET)
@@ -95,8 +100,9 @@ public class QnaController {
 	
 	}
 	
-	@RequestMapping(value="/qna/insert.do", method=RequestMethod.POST)
-	public String insert(@RequestParam("qnatitle") String title,
+	@RequestMapping(value="/qna/insert.do", method= RequestMethod.POST)
+	public String insert(
+			@RequestParam("qnatitle") String title,
 			@RequestParam("qnacontent") String content,
 			HttpServletRequest request
 			) throws Exception {		
@@ -104,12 +110,16 @@ public class QnaController {
 		HttpSession session = request.getSession();
 		member = (MemberVo) session.getAttribute("member");
 		String writer = member.getUserId();
-
+		System.out.println(title);
+		System.out.println(content);
 		QnaVo vo = new QnaVo();
 		vo.setQNATITLE(title);
 		vo.setQNACONTENT(content);
 		vo.setQNAWRITER(writer);
-		vo.setQNAREGISTERDATE(new Date().toGMTString());
+		Date now = new Date();
+		SimpleDateFormat format = new SimpleDateFormat("yyyy³â MM¿ù ddÀÏ HH½Ã mmºÐ");
+		String time = format.format(now);
+		vo.setQNAREGISTERDATE(time);
 		qnaService.create(vo);
 		return "redirect:/qna/list.do";
 	}

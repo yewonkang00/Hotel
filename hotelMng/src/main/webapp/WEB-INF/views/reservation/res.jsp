@@ -341,7 +341,7 @@
         <center>
           <div class=res_content>
           	<div class=res_content2>
-            <b id="res_tit"><br><br><h4>STEP 1</h4></br><br>객실, 날짜, 인원 선택<br><br></b>
+            <b id="res_tit"><h4>STEP 1</br><br>객실, 날짜, 인원 선택</h4><br></b>
             <div class=res_search>
               <div class=res_res>
                 <form name="srchRoomFrm" id="res_form" method="post">
@@ -388,13 +388,13 @@
                   <td><img src="/resources/image/standardroom.jpg" width="200" height="150"></td>
                   <td>
                     <b>Standard room</b><br><br>
-                    리워즈 3,000p 혜택<br>
+                    마일리지 1,000p 혜택<br>
                     <a href="javaScript:hye();" id="hye_click">혜택 및 이용 안내 +</a><br>
                     <div id="hidden_hye">
                       <p>무료 WIFI / 피트니스 센터 무료 이용 / 어메니티</p>
                     </div>
                   </td>
-                  <td><b>78,000 원~</b><br> <!--1박 가격-->
+                  <td><b>100,000 원~</b><br> <!--1박 가격-->
                     1박<br>
                     n개의 객실이 있습니다.
                   </td>
@@ -421,13 +421,13 @@
                   <td><img src="/resources/image/deluxe room.jpg" width="200" height="150"></td>
                   <td>
                     <b>Deluxe room</b><br><br>
-                    리워즈 5,000p 혜택<br>
+                    마일리지 1,600p 혜택<br>
                     <a href="javaScript:hye();" id="hye_click">혜택 및 이용 안내 +</a><br>
                     <div id="hidden_hye">
                       <p>무료 WIFI / 피트니스 센터 무료 이용 / 어메니티</p>
                     </div>
                   </td>
-                  <td><b>98,000 원~</b><br> <!--1박 가격-->
+                  <td><b>160,000 원~</b><br> <!--1박 가격-->
                     1박<br>
                     n개의 객실이 있습니다.
                   </td>
@@ -454,14 +454,14 @@
                   <td><img src="/resources/image/executive room.jpg" width="200" height="150"></td>
                   <td>
                     <b>Executive room</b><br><br>
-                    리워즈 7,000p 혜택<br>
+                    마일리지 2,500p 혜택<br>
                     <a href="javaScript:hye();" id="hye_click">혜택 및 이용 안내 +</a><br>
                     <div id="hidden_hye">
                       <p>무료 WIFI / 피트니스 센터 무료 이용 / 어메니티</p>
                       <p>수영장 무료 이용 / 라운지바 이용 가능</p>
                     </div>
                   </td>
-                  <td><b>118,000 원~</b><br> <!--1박 가격-->
+                  <td><b>250,000 원~</b><br> <!--1박 가격-->
                     1박<br>
                     n개의 객실이 있습니다.
                   </td>
@@ -488,14 +488,14 @@
                   <td><img src="/resources/image/suiteroom.jpg" width="200" height="150"></td>
                   <td>
                     <b>Suite room</b><br><br>
-                    리워즈 9,000p 혜택<br>
+                    마일리지 3,500p 혜택<br>
                     <a href="javaScript:hye();" id="hye_click">혜택 및 이용 안내 +</a><br>
                     <div id="hidden_hye">
                       <p>무료 WIFI / 피트니스 센터 무료 이용 / 어메니티</p>
                       <p>수영장 무료 이용 / 라운지바 이용 가능</p>
                     </div>
                   </td>
-                  <td><b>138,000 원~</b><br> <!--1박 가격-->
+                  <td><b>350,000 원~</b><br> <!--1박 가격-->
                     1박<br>
                     n개의 객실이 있습니다.
                   </td>
