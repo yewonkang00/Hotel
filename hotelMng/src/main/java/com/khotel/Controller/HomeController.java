@@ -189,7 +189,7 @@ public class HomeController {
 			
 		}
 		model.addAttribute("roomList", roomList );
-		return "/admin/roomList";
+		return "admin/roomList";
 	}
 	
 	@RequestMapping(value = "/admin")
@@ -267,9 +267,10 @@ public class HomeController {
 		model.addAttribute("today_info", today_info);
 		model.addAttribute("roomNo", roomNo);
 		model.addAttribute("reservationList", reservationList);
-		return "admin/reservation";
+		return "/admin/reservation";
 	}
 	
+/*
 	//예약이 가능한 방인지 확인
 	@RequestMapping(value = "/admin/reservationCheck.do") 
 	public @ResponseBody Map reservation(@RequestParam HashMap<String, Object> map, HttpServletRequest request) throws Exception {
@@ -293,8 +294,9 @@ public class HomeController {
 		
 		return resultMap;
 	}
+
 	
-	//예약이 가능한 방인지 확인
+	//예약화면에서 예약이 가능한지 확인
 		@RequestMapping(value = "/admin/datecheck.do") 
 		public @ResponseBody Map datecheck(@RequestParam HashMap<String, Object> map, HttpServletRequest request) throws Exception {
 			HashMap<String, Object> roomMap = new HashMap();
@@ -322,23 +324,32 @@ public class HomeController {
 			
 			return resultmap;
 		}
-	
+*/	
 	
 	
 	//예약페이지
 	@RequestMapping(value = "/admin/reservate.do", method = RequestMethod.GET)
-	public String reservate(Model model, HttpServletRequest request) {
+	public String reservate(Model model, HttpServletRequest request) throws Exception {
 		MemberVo member = new MemberVo();
+		RoomVo room = new RoomVo();
+		RoomVo roomVo = new RoomVo();
 		HttpSession session = request.getSession();
 		member = (MemberVo) session.getAttribute("member");
+		
+		String UserName = member.getUserName();
 		String UserId = member.getUserId();
-		String roomNo = request.getParameter("roomNo");
+		int roomNo = Integer.parseInt(request.getParameter("roomNo"));
 		String resdate = request.getParameter("resdate");
+		room.setRoomNo(roomNo);
+		roomVo = roomService.selectRoom(room);
 		System.out.println("roomNo:" + roomNo);
 		System.out.println("resdate:" + resdate);
+		System.out.println("room" + roomVo);
 		model.addAttribute("roomNo", roomNo);
 		model.addAttribute("resdate", resdate);
 		model.addAttribute("UserId", UserId);
+		model.addAttribute("UserName", UserName);
+		model.addAttribute("room", roomVo);
 		return "/reservation/reservation2";
 	}
 
@@ -346,10 +357,18 @@ public class HomeController {
 	@RequestMapping(value = "/admin/reservateAction.do", method = RequestMethod.POST)
 	public @ResponseBody Map reservateAction(ReservationVo reservation, HttpServletRequest request) throws Exception {
 		HashMap<String, Object> roomMap = new HashMap();
+		MemberVo member = new MemberVo();
+		HttpSession session = request.getSession();
+		member = (MemberVo) session.getAttribute("member");
 		
 		String checkIn = reservation.getReservationCheckIn();
 		String checkOut = reservation.getReservationCheckOut();
 		String roomNo = Integer.toString(reservation.getRoomCode());
+		
+		String mile = reservation.getMileage();
+		String originmile = member.getUserMile();
+		int totalmile = Integer.parseInt(mile) + Integer.parseInt(originmile);
+		System.out.println("mile: " + Integer.toString(totalmile));
 		
 		roomMap.put("ReservationCheckIn", checkIn);
 		roomMap.put("ReservationCheckOut", checkOut);
@@ -359,6 +378,8 @@ public class HomeController {
 		
 		Map resultmap = new HashMap();
 		if(resCnt == 0) {
+			member.setUserMile(Integer.toString(totalmile));
+			memberService.updateMile(member);
 			reservationService.insertReservation(reservation);
 			resultmap.put("resultMsg", "success");
 		} else {
@@ -368,15 +389,50 @@ public class HomeController {
 		return resultmap;
 	}
 	
-	/*
-	 * //예약 상세 페이지
-	 * 
-	 * @RequestMapping(value = "/admin/reservationDetail.do", method =
-	 * RequestMethod.GET) public String reservationDetail(Model model,
-	 * HttpServletRequest request, DateData dateData) { return
-	 * "/admin/reservationDetail"; }
-	 */
+	//예약 상세 페이지
+	@RequestMapping(value = "/admin/reservationDetailAction.do", method = RequestMethod.GET) 
+	public String reservationDetailAction(Model model, HttpServletRequest request) throws Exception { 
+		ReservationVo reservation = new ReservationVo();
+		ReservationVo resultVo = new ReservationVo();
+		
+		String ReservationCode = request.getParameter("reservationCode");
+		
+		reservation.setReservationCode(ReservationCode);
+		resultVo = reservationService.selectReservation(reservation);
+		
+		System.out.println("result: " + resultVo);
+		
+		model.addAttribute("reservationVo", resultVo);
+		
+		return "/admin/reservationDetail"; 
+	}
 	
+	@RequestMapping(value = "/admin/reservationDelete.do")
+	public @ResponseBody Map resDelete(Model model, HttpServletRequest request) throws Exception {
+		Map map = new HashMap();
+		ReservationVo reservation = new ReservationVo();
+		ReservationVo resultVo = new ReservationVo();
+		
+		String ReservationCode = request.getParameter("rcode");
+		reservation.setReservationCode(ReservationCode);
+		resultVo = reservationService.selectReservation(reservation);
+		
+		MemberVo member = new MemberVo();
+		HttpSession session = request.getSession();
+		member = (MemberVo) session.getAttribute("member");
+		
+		String mile = resultVo.getMileage();
+		String originmile = member.getUserMile();
+		int totalmile = Integer.parseInt(originmile) -  Integer.parseInt(mile); 
+
+		System.out.println("mile: " + Integer.toString(totalmile));
+		
+		member.setUserMile(Integer.toString(totalmile));
+		memberService.updateMile(member);
+		reservationService.deleteReservation(reservation);
+		map.put("resultMsg", "Success");
+		return map;
+	}
 	
 		
 	//관리자 페이지에서 member에서 update버튼을 누르면 memberlevel을 바꿔줌
@@ -434,76 +490,6 @@ public class HomeController {
 	      return "/intro/introduction_hotel";
 	   }
 	
-	@RequestMapping(value = "/room_main.do", method = RequestMethod.GET)
-	   public String room_main(Locale locale, Model model) {
-	      logger.info("Welcome home! The client locale is {}.", locale);
-	
-	      Date date = new Date();
-	      DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-	
-	      String formattedDate = dateFormat.format(date);
-	
-	      model.addAttribute("serverTime", formattedDate );
-	
-	      return "/room/room_main";
-	   }
-	
-	@RequestMapping(value = "/room_standard.do", method = RequestMethod.GET)
-	   public String room_standard(Locale locale, Model model) {
-	      logger.info("Welcome home! The client locale is {}.", locale);
-	
-	      Date date = new Date();
-	      DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-	
-	      String formattedDate = dateFormat.format(date);
-	
-	      model.addAttribute("serverTime", formattedDate );
-	
-	      return "/room/standard_room";
-	   }
 
-	@RequestMapping(value = "/room_deluxe.do", method = RequestMethod.GET)
-	public String room_deluxe(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-
-		String formattedDate = dateFormat.format(date);
-
-		model.addAttribute("serverTime", formattedDate );
-
-		return "/room/deluxe_room";
-	}
-
-	@RequestMapping(value = "/room_executive.do", method = RequestMethod.GET)
-	public String room_executive(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-
-		String formattedDate = dateFormat.format(date);
-
-		model.addAttribute("serverTime", formattedDate );
-
-		return "/room/executive_room";
-	}
-
-	@RequestMapping(value = "/room_suite.do", method = RequestMethod.GET)
-	public String room_suite(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-
-		String formattedDate = dateFormat.format(date);
-
-		model.addAttribute("serverTime", formattedDate );
-
-		return "/room/suite_room";
-	}
-
-	
 	
 }

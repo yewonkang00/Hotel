@@ -36,9 +36,62 @@
     	 
     	    var today = year+""+month+""+day;
 			return today;
-        }       
+        }      
 
-        
+		$(document).ready(function() {
+			$('#ReservationDays').on('mouseup', function(e) {
+				var price = ('${room.roomFee}' * $('#ReservationDays').val());
+				$('#RoomPrice').val(price);
+				var total = parseInt($('#RoomPrice').val()) + parseInt($('#AddPrice').val());
+				var tax = Math.floor(parseInt(total) * 0.1);
+				var finish = parseInt(tax) + parseInt(total);
+				var Mileage = Math.floor(parseInt(finish) * 0.01);
+				var checkout = dateAdd('${resdate}',parseInt($('#ReservationDays').val())+1);
+				$('#AdditionalTax').val(tax);
+				$('#TotalPrice').val(finish);
+				$('#Mileage').val(Mileage);
+				$('#CheckOut').val(checkout);
+			});
+
+	 		$("#Breakfast").click(function() {
+				if($("#Breakfast").is(":checked")) {
+					var price = ($('#ReservationPeopleNumber').val() * 20000);
+					$('#AddPrice').val(price);
+				} else {
+					var price = 0;
+					$('#AddPrice').val(price);
+				}
+				var total = parseInt($('#RoomPrice').val()) + parseInt($('#AddPrice').val());
+				var tax = Math.floor(parseInt(total) * 0.1);
+				var finish = parseInt(tax) + parseInt(total);
+				var Mileage = Math.floor(parseInt(finish) * 0.01);
+				$('#AdditionalTax').val(tax);
+				$('#TotalPrice').val(finish);
+				$('#Mileage').val(Mileage);
+			});
+
+			$('#ReservationPeopleNumber').on('mouseup', function(e) {
+				if($("#Breakfast").is(":checked")) {
+					var price = ($('#ReservationPeopleNumber').val() * 20000);
+					$('#AddPrice').val(price);
+				} else {
+					var price = 0;
+					$('#AddPrice').val(price);
+				}
+				var total = parseInt($('#RoomPrice').val()) + parseInt($('#AddPrice').val());
+				var tax = Math.floor(parseInt(total) * 0.1);
+				var finish = parseInt(tax) + parseInt(total);
+				var Mileage = Math.floor(parseInt(finish) * 0.01);
+				$('#AdditionalTax').val(tax);
+				$('#TotalPrice').val(finish);
+				$('#Mileage').val(Mileage);
+			});
+			
+			
+		});
+
+		
+         
         function reservation() {
         	var Id = '${UserId}';
         	var ReservationDate = $('#ReservationDate').val();
@@ -48,6 +101,12 @@
         	var RoomCode = '${roomNo}';
         	var ReservationMemo = $('#ReservationMemo').val();
 			var ReservationCheckOut = dateAdd(ReservationCheckIn, ReservationDays);
+			var Breakfast;
+			var TotalPrice = $('#TotalPrice').val();
+			var Mileage = $('#Mileage').val();
+			if($("#Breakfast").is(":checked")) {
+				Breakfast = "Y";
+			}
 			
         	var data = {"UserId" : Id,
                 	"ReservationDate" : ReservationDate,
@@ -56,7 +115,10 @@
                 	"ReservationCheckIn" : ReservationCheckIn,
                 	"ReservationCheckOut" : ReservationCheckOut,
                 	"RoomCode" : RoomCode,
-                	"ReservationMemo" : ReservationMemo
+                	"ReservationMemo" : ReservationMemo,
+                	"Breakfast" : Breakfast,
+                    "TotalPrice" : TotalPrice,
+                    "Mileage" : Mileage
         	};
 
         	if(ReservationDays == "") {
@@ -78,7 +140,6 @@
     			success : function(data) {
     				var result = data["resultMsg"];
     				if(result == "success"){
-        				
     					alert("예약되었습니다!");
     					location.href="/admin/reservation.do?rno=${roomNo}";
     				}else {
@@ -128,29 +189,47 @@
                     <td id="res2_tit">예약자 정보</td>
                   </tr>
                   <tr>
-                    <td id="res2_tit">아이디</td>
-                    <td id="UserId"><input type="text" readonly value='${UserId}' name="title" size="20"></td>
-                  </tr>
-                   <tr>
-                    <td id="res2_tit">숙박일</td>
-                    <td id="ReservationCheckIn"><input type="text" readonly value='${resdate}' name="title" size="20"></td>
+                  	<td id="res2_tit">이름</td>
+                  	<td id="UserName"><input type="text" readonly value='${UserName}' name="title" size="20"></td>
                   </tr>
                   <tr>
-                    <td id="res2_tit">숙박일 수</td>
-                    <td class="box_reservationDays">
-                    	<select id ="ReservationDays" class="sel">
-                    		<option>-박</option>
-                    		<option value="1">1박</option>
-                    		<option value="2">2박</option>
-                    		<option value="3">3박</option>
-                    		<option value="4">4박</option>
-                    		<option value="5">5박</option>
-                    	</select>
-                    </td>
+                    <td id="res2_tit">아이디</td>
+                    <td id="UserId"><input type="text" readonly value='${UserId}' name="title" size="20"></td>
                   </tr>
                   <tr>
                     <td id="res2_tit">Room</td>
                     <td id="RoomCode"><input type="text" readonly value='${roomNo}' size="20"></td>
+                  </tr>
+                  <tr>
+                  	<td id="res2_tit">Room Type</td>
+                  	<td id="RoomType"><input type="text" readonly value='${room.roomSize}', size="20"></td>
+                  <tr>
+                   <tr>
+                    <td id="res2_tit">체크인</td>
+                    <td id="ReservationCheckIn"><input type="text" readonly value='${resdate}' name="title" size="20"></td>
+                  </tr>
+                  <tr>
+                  <td id="res2_tit">숙박일 수</td>
+                  <td class="box_reservationDays">
+                  	<select id ="ReservationDays" class="sel">
+                  		<option>-박</option>
+                  		<option value="1">1박</option>
+                  		<option value="2">2박</option>
+                  		<option value="3">3박</option>
+                  		<option value="4">4박</option>
+                  		<option value="5">5박</option>
+                  	</select>
+                  </td>
+                  <tr>
+                    <td id="res2_tit">체크아웃</td>
+                    <td><input id="CheckOut" type="text" readonly value='${resdate}' name="CheckOut" size="20"></td>
+                  </tr>
+                  </tr>
+                  <tr>
+                  <td id="res2_tit">조식</td>
+                  <td class="box_reservationDays">
+                  	<input type="checkbox" id="Breakfast">
+                  </td>
                   </tr>
                   <tr>
                     <td id="res2_tit">인원</td>
@@ -163,37 +242,30 @@
                     		<option value="4">4인</option>
                     	</select>
                   </tr>
-                  <!-- <tr>
-                    <td id="UserBirth">생년월일</td>
-                    <td><input type="text" name="title" size="20"></td>
-                    <td>연락처</td>
-                    <td><input type="text" name="title" size="20"></td>
-                  </tr>
-                  <tr>
-                    <td id="UserEmail">이메일</td>
-                    <td><input type="text" name="title" size="20"></td>
-                    <td><input type="text" name="title" size="20"></td>
-                  </tr> -->
-                  <tr>
-                    <td id="res2_tit">결재금액</td>
-                  </tr>
-                  <tr>
-                    <td>객실 가격</td>
-                    <td>240,000원</td>
-                  </tr>
-                  <tr>
-                    <td>추가 금액</td>
-                    <td>0원</td>
-                  </tr>
-                  <tr>
-                    <td>부과세</td>
-                    <td>24,000원</td>
-                  </tr>
-                  <tr>
-                    <td>최종 결재 금액</td>
-                    <td>264,000원</td>
-                  </tr>
-                </tbody>
+	                  <tr>
+	                    <td id="res2_tit">결재금액</td>
+	                  </tr>
+	                  <tr>
+	                    <td>객실 가격</td>
+	                    <td><input id="RoomPrice" type="text" readonly value='${room.roomFee}' name="RoomPrice" size="20"></td>
+	                  </tr>
+	                  <tr>
+	                    <td>추가 금액</td>
+	                    <td><input id="AddPrice" type="text" readonly value='0' name="AddPrice" size="20"></td>
+	                  </tr>
+	                  <tr>
+	                    <td>부과세</td>
+	                    <td><input id="AdditionalTax" type="text" readonly value='0' name="AdditionalTax" size="20"></td>
+	                  </tr>
+	                  <tr>
+	                    <td>최종 결재 금액</td>
+	                    <td><input id="TotalPrice" type="text" readonly value='0' name="TotalPrice" size="20"></td>
+	                  </tr>
+	                  <tr>
+	                    <td>적립 예정 마일리지</td>
+	                    <td><input id="Mileage" type="text" readonly value='0' name="Mileage" size="20"></td>
+	                  </tr>  
+			</tbody>
               </table>
               <div class="btn_area">
               	<button type="button" id="res_btn" onClick="reservation();">

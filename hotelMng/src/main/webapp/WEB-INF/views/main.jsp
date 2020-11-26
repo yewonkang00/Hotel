@@ -23,11 +23,11 @@
                 text-decoration:none
             }
             .banner_main{
-               background-image: url(/resources/image/oria-hotel-4636405_1280.jpg);
-               background-size: cover;
+                background-image: url(/resources/image/outdoor.jpg);
+                background-size: 1920px 850px;
                 margin-top: auto;
                 min-width: 700px;
-                height: 700px;
+                height: 770px;
                 padding: 8px;
             }
             

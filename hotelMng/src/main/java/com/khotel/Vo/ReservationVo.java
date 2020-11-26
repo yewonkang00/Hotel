@@ -10,6 +10,9 @@ public class ReservationVo {
 	private String UserId = null;
 	private int RoomCode = 0;
 	private int ReservationDays = 0;
+	private String Breakfast = null;
+	private String TotalPrice = null;
+	private String Mileage = null;
 	
 	public String getReservationCode() {
 		return ReservationCode;
@@ -64,6 +67,24 @@ public class ReservationVo {
 	}
 	public void setReservationDays(int reservationDays) {
 		ReservationDays = reservationDays;
+	}
+	public String getBreakfast() {
+		return Breakfast;
+	}
+	public void setBreakfast(String breakfast) {
+		Breakfast = breakfast;
+	}
+	public String getTotalPrice() {
+		return TotalPrice;
+	}
+	public void setTotalPrice(String totalPrice) {
+		TotalPrice = totalPrice;
+	}
+	public String getMileage() {
+		return Mileage;
+	}
+	public void setMileage(String mileage) {
+		Mileage = mileage;
 	}
 	
 	

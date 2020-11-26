@@ -11,15 +11,31 @@
 			body {
 				background-color: #EEEFF1;
 			}
+			textarea {
+				overflow:auto;
+				vertical-align:top;
+				padding:8px;
+				box-sizing:border-box;
+				border:solid 1px #aaa;
+			}
+			table {
+				border-collapse: collapse;
+				border-spacing: 0;
+				table-layout: fixed;
+				border-spacing: 0;
+				width: 100%;
+			}
 		</style>
 		<meta charset="UTF-8">
 		<title>QnA list</title>
-		<link rel="stylesheet" href="/resources/css/style_qna.css" type="text/css">
+		<link rel="stylesheet" href="/resources/css/style.css" type="text/css">
+
 
 		<script type="text/javascript">
 		function list(page){
 			location.href="/qna/list.do?curPage="+page
 		}
+
 		</script>
 
 	</head>
@@ -45,20 +61,17 @@
 			</div>
 		</div>
 		<div class=contents>
-			<h1>게시판</h1>
+			<h1>게시판</h1>				
 			<button type="button" id="btnWrite" onclick="location.href='/qna/write.do'">글쓰기</button>
-			<%-- ${map.count}개의 문의사항이 있습니다. --%>
-			<table class="table table-hover">
-				<thead>
-					<tr>
-						<th>번호</th>
-						<th>제목</th>
-						<th>이름</th>
-						<th>날짜</th>
-						<th>조회수</th>
-					</tr>
-				</thead>
-
+			${map.count}개의 문의사항이 있습니다.
+			<table border="1" width="600px">
+				<tr>
+					<th>번호</th>
+					<th>제목</th>
+					<th>아이디</th>
+					<th>날짜</th>
+					<th>조회수</th>
+				</tr>
 				<c:forEach var="row" items="${map.list}">
 					<tr>
 						<td>${row.QNACODE}</td>
@@ -68,7 +81,7 @@
 						<td>${row.QNAVIEWCOUNT}</td>
 					</tr>
 				</c:forEach>
-
+				
 				<!-- 페이지 네비게이션 -->
 				<tr>
 					<td colspan="5" align="center">
@@ -99,7 +112,6 @@
 				</tr>
 
 			</table>
-			<button type="button" id="btnWrite" onclick="location.href='/qna/write.do'">글쓰기</button>
 		</div>
 	</div>
 	<%@include file = "/WEB-INF/views/layout/final.jsp" %>

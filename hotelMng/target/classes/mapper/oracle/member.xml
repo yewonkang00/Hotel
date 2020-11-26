@@ -101,7 +101,16 @@
 		WHERE id=#{id}
 	</update>
 	
+	<delete id="deleteMember" parameterType="MemberVo">
+		DELETE FROM MEMBER
+		WHERE UserId = #{UserId}
+	</delete>
 	
+	<update id="updateMile" parameterType="MemberVo">
+		UPDATE MEMBER
+		SET UserMile = #{UserMile}
+		WHERE UserId = #{UserId}
+	</update>
 	
 	<select id="checkId" parameterType="String" resultType="MemberVo">
 		SELECT id from Member WHERE id=#{id}

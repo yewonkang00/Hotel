@@ -120,7 +120,7 @@
 			success : function(data) {
 				var result = data["resultMsg"];
 				if(result == "Success"){
-					alert("변경되었습니다!")
+					alert("변경되었습니다!");
 					location.href="/admin/memberList";
 				}
 			}

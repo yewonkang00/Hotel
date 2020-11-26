@@ -466,16 +466,6 @@ textarea {
     position:absolute; top:50%; left: 50%; transform:translate(-50%, -50%);
     background-color: #D4C1A1;
   }
-  .res_search{
-    text-align: center;
-    padding: 20px;
-    margin-top: 50px;
-    border:2pt solid  #D4C1A1;
-  }
-  #res2_tit{
-    font-size: 20px;
-  }
-
   .myButton {
 	   background-color:#D4C1A1;
 	   border-radius:3px;
