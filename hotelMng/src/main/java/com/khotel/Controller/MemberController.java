@@ -237,7 +237,7 @@ public class MemberController {
 		}
 		model.addAttribute("roomList", roomList );
 		System.out.println("roomLIst :"+roomList);
-		return "/reservation/searchRoom";
+		return "/reservation/res";
 	}	
 
 
