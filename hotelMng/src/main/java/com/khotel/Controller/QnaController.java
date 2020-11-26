@@ -117,7 +117,7 @@ public class QnaController {
 		vo.setQNACONTENT(content);
 		vo.setQNAWRITER(writer);
 		Date now = new Date();
-		SimpleDateFormat format = new SimpleDateFormat("yyyy³â MM¿ù ddÀÏ HH½Ã mmºĞ");
+		SimpleDateFormat format = new SimpleDateFormat("yyyyÂ³Ã¢ MMÂ¿Ã¹ ddÃ€Ã HHÂ½Ãƒ mmÂºÃ");
 		String time = format.format(now);
 		vo.setQNAREGISTERDATE(time);
 		qnaService.create(vo);

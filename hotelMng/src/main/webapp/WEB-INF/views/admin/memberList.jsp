@@ -12,7 +12,6 @@
             * {
                 font-family: 'Noto Sans KR', sans-serif;
             }
-
         </style>
         <title>Member List</title>
         
@@ -31,23 +30,19 @@
 	  var UserId = id;
 	  if(level == '1') {
 		  var confirm_test = confirm("관리자로 변경하시겠습니까?");
-
 		  if(confirm_test == true) {
 			  UserLevel ='2';	
 		  }
 	  }
 	  else if(level == '2') {
 		  var confirm_test = confirm("고객으로 변경하시겠습니까?");
-
 		  if(confirm_test == true) {
 			  UserLevel ='1';	
 		  }
 	  }
-
 	  var data = {"UserId" : UserId,
 				"UserLevel" : UserLevel
 		};
-
 	  $.ajax({
 			type : "POST",
 			url : "/admin/levelAction.do",
@@ -62,7 +57,6 @@
 			}
 	})
   }
-
   </script>
 
 		<script>

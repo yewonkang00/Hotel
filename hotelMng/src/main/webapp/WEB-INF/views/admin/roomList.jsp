@@ -36,16 +36,23 @@
 
         <div class=contents>
             <p style="text-align:center;">Room LIST</p>
+
+            <!-- <button type="button" id="standard" onClick="standard()">standard</button>
+            <button type="button" id="deluxe" onClick="deluxe()">deluxe</button>
+            <button type="button" id="executive" onClick="executive()">executive</button>
+            <button type="button" id="suite" onClick="suite()">suite</button>
+            <br><br> -->
             <table class="table table-hover">
                 <thead>
-                    <tr>
-                        <td>No</td>
-                        <td>RoomNO</td>
-                        <td>RoomType</td>
-                        <td>RoomMaxPeople</td>
-                        <td>RoomFee</td>
-                        <td> </td>
-                    </tr>
+                  <tr>
+                      <td>No</td>
+                      <td>RoomNO</td>
+                      <td>RoomType</td>
+                      <td>BedType</td>
+                      <td>RoomMaxPeople</td>
+                      <td>RoomFee</td>
+                      <td> </td>
+                  </tr>
                 </thead>
 
                 <c:forEach items="${roomList}" var="item" varStatus="idx">
@@ -54,19 +61,15 @@
                     <td>${idx.index+1}</td>
                     <td>${item.roomNo}</td>
                     <td>${item.roomType}</td>
+                    <td>${item.bedType}</td>
                     <td>${item.roomMaxPeople}</td>
-                    <td>${item.roomFee}</td>
+                    <td>${item.fee}</td>
                     <td><input type="button" value="예약" class="submit-btn" onClick="javaScript:location.href='/admin/reservation.do?rno=${item.roomNo}';">	</td>
                 </tr>
 
                 </c:forEach>
             </table>
         </div>
- 
-
-	</div>
-	
-
 
 
 </body>

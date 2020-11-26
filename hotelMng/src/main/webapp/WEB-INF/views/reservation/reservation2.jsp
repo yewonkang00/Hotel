@@ -40,7 +40,7 @@
 
 		$(document).ready(function() {
 			$('#ReservationDays').on('mouseup', function(e) {
-				var price = ('${room.roomFee}' * $('#ReservationDays').val());
+				var price = ('${room.fee}' * $('#ReservationDays').val());
 				$('#RoomPrice').val(price);
 				var total = parseInt($('#RoomPrice').val()) + parseInt($('#AddPrice').val());
 				var tax = Math.floor(parseInt(total) * 0.1);
@@ -202,7 +202,7 @@
                   </tr>
                   <tr>
                   	<td id="res2_tit">Room Type</td>
-                  	<td id="RoomType"><input type="text" readonly value='${room.roomSize}', size="20"></td>
+                  	<td id="RoomType"><input type="text" readonly value='${room.roomType}', size="20"></td>
                   <tr>
                    <tr>
                     <td id="res2_tit">체크인</td>
@@ -247,7 +247,7 @@
 	                  </tr>
 	                  <tr>
 	                    <td>객실 가격</td>
-	                    <td><input id="RoomPrice" type="text" readonly value='${room.roomFee}' name="RoomPrice" size="20"></td>
+	                    <td><input id="RoomPrice" type="text" readonly value='${room.fee}' name="RoomPrice" size="20"></td>
 	                  </tr>
 	                  <tr>
 	                    <td>추가 금액</td>
