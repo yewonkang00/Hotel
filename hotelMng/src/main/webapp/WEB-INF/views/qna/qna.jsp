@@ -71,7 +71,6 @@ table {
 
 	<div class=contain>
 		<div class=left>
-			<div class=banner>
 				<h2 class=tit>문의 사항</h2>
 				<ul class=menu>
 					<li class="m1"><a href="qna.html"> <span>자주 하는 질문</span>
@@ -79,7 +78,6 @@ table {
 					<li class="m2"><a href="write_qna.html"> <span>문의하기</span>
 					</a></li>
 				</ul>
-			</div>
 		</div>
 		<div class=contents>
 			<h1>자주 하는 질문</h1>

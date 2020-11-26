@@ -4,14 +4,9 @@
 <html lang="ko">
 <head>
 	<script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
-    <style>
-        * {
-            font-family: 'Noto Sans KR', sans-serif;
-        }
-    </style>
-
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/resources/css/style_room.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/styleintro_hotel.css" type="text/css">
     <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
 
     <title>Deluxe room</title>
@@ -20,7 +15,6 @@
 <%@include file = "/WEB-INF/views/layout/header.jsp" %>
 <div class=contain>
     <div class=left>
-        <div class=banner>
             <h2 class=tit><a href="/room_main.do">객실 소개</a></h2>
             <ul class=menu>
                 <li class="m1">
@@ -44,10 +38,9 @@
                     </a>
                 </li>
             </ul>
-        </div>
     </div>
     <div class=contents>
-        <h1>Deluxe Room</h1>
+        <h2 id=gaeyo>Deluxe Room</h2>
         <img src="/resources/image/deluxe room.jpg" width="800" height="500">
         <p> 디럭스룸은 다른 호텔의 동급 객실보다 여유로운 공간을 제공합니다.<br/>
             디럭스룸에서 비즈니스와 여행의 여유로움을 즐기십시오.<br/>

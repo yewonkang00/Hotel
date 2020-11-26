@@ -24,13 +24,12 @@
 	
 	<context:component-scan base-package="com.khotel" />
 	
-	<!-- Tiles 뷰 리졸버 -->
+	<!-- Tiles 설정
 	<beans:bean id="tielsViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView" />
 		<beans:property name="order" value="1" />
 	</beans:bean>
 	
-	<!-- Tiles 설정 파일 -->
 	<beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
 		<beans:property name="definitions">
 			<beans:list>
@@ -38,6 +37,6 @@
 			</beans:list>
 		</beans:property>
 	</beans:bean>
-	
+	-->
 	
 </beans:beans>

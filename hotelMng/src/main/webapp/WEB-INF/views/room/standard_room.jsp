@@ -5,24 +5,17 @@
  <head>
  	<script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
 
-    <style>	
-       * {
-           font-family: 'Noto Sans KR', sans-serif;
-         }
-	</style>
-
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/resources/css/style_room.css" type="text/css">
         <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
 
-        <title>Suite room</title>
+        <title>Standard room</title>
 
     </head>
     <body>
         <%@include file = "/WEB-INF/views/layout/header.jsp" %>
         <div class=contain>
           <div class=left>
-            <div class=banner>
               <h2 class=tit><a href="/room_main.do">객실 소개</a></h2>
                 <ul class=menu>
                     <li class="m1">
@@ -46,10 +39,9 @@
                         </a>
                     </li>
                 </ul>
-            </div>
           </div>
           <div class=contents>
-            <h1>Standard Room</h1>
+              <h2 id=gaeyo>Standard Room</h2>
             <img src="/resources/image/standardroom.jpg" width="800" height="500">
             <p> 스탠다드룸은 혼자 또는 친구와 함께 할 수 있는 방입니다.<br/>
                 스탠다드룸의 세련된 인테리어와 디자인 소품이 조화를 즐기며 아늑한 휴식을 취하십시오.<br/>

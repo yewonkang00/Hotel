@@ -11,6 +11,7 @@ public interface MemberDao {
 	public MemberVo selectMember(MemberVo memberVo) throws Exception;
 	public void insertMember(MemberVo memberVo) throws Exception;
 	public void updateMember(MemberVo memberVo) throws Exception;
+	public void updateMile(MemberVo memberVo) throws Exception;
 	public void updateLevel(MemberVo memberVo) throws Exception;
 	public void deleteMember(MemberVo memberVo) throws Exception;
 	public MemberVo checkId(String id)throws Exception;

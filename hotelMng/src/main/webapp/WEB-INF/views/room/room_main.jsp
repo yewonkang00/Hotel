@@ -2,11 +2,6 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <style>
-        * {
-            font-family: 'Noto Sans KR', sans-serif;
-        }
-    </style>
 
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/resources/css/style_room.css" type="text/css">
@@ -18,7 +13,6 @@
 <%@include file = "/WEB-INF/views/layout/header.jsp" %>
 <div class=contain>
     <div class=left>
-        <div class=banner>
             <h2 class=tit><a href="/room_main.do">객실 소개</a></h2>
             <ul class=menu>
                 <li class="m1">
@@ -42,10 +36,9 @@
                     </a>
                 </li>
             </ul>
-        </div>
     </div>
     <div class=contents>
-        <h3>감각적인 인테리어와 함께한 DB다이렉트 객실은 품격있는 라이프스타일 공간입니다.</h3>
+        <h2 id=gaeyo>감각적인 인테리어와 함께한 DB다이렉트 객실은 품격있는 라이프스타일 공간입니다.</h2>
         <div class=intbox>
             <div class=lbox>
                 <h3><b>Standard Room</b></h3>

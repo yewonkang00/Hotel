@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.khotel.Controller.HomeController;
 import com.khotel.Dao.RoomDao;
+import com.khotel.Vo.ReservationVo;
 import com.khotel.Vo.RoomVo;
 
 @Repository("roomDao")
@@ -99,5 +100,8 @@ public class RoomDaoImpl implements RoomDao{
 		return sqlSession.selectOne("room.findRoom", map);
 	}
 	
-	
+	@Override
+	public List<RoomVo> searchRoomList(ReservationVo roomVo) throws Exception {
+		return sqlSession.selectList("room.findEmptyRoomList", roomVo);
+	}	
 }

@@ -208,7 +208,7 @@
 	</style>
         
         
-        <title>Welcom Delluna!</title>
+        <title>Welcome Delluna!</title>
         
   <script type="text/javascript">
   var sessionUserId = '${member.userId}';
@@ -221,7 +221,7 @@
 		alert("관리자 권한이 없습니다.");
 		location.href="/main";
 	}
-  
+
 function reservation(roomNo, resdate) {
 	var reservationRoom = roomNo;
 	var reservationDate = resdate;
@@ -230,26 +230,36 @@ function reservation(roomNo, resdate) {
 				"resdate" : reservationDate
 	};
 
-	  $.ajax({
-			type : "POST",
-			url : "/admin/reservationCheck.do",
-			data : data,
-			datatype : 'json',
-			success : function(data) {
-				var result = data["resultMsg"];
-				if(result == 0){
-					var confirm_test = confirm("예약하시겠습니까?");
-
-					if(confirm_test == true) {
-						location.href="/admin/reservate.do?roomNo=${roomNo}&resdate="+reservationDate;
-					}
-				} else {
-					alert("이미 예약되어 있는 방입니다.");
+	var confirm_test = confirm("예약하시겠습니까?");
+	
+	if(confirm_test == true) {
+		location.href="/admin/reservate.do?roomNo=${roomNo}&resdate="+reservationDate;
+	}
+/* 
+	$.ajax({
+		type : "POST",
+		url : "/admin/reservationCheck.do",
+		data : data,
+		datatype : 'json',
+		success : function(data) {
+			var result = data["resultMsg"];
+			if(result == 0){
+				var confirm_test = confirm("예약하시겠습니까?");
+		
+				if(confirm_test == true) {
+					location.href="/admin/reservate.do?roomNo=${roomNo}&resdate="+reservationDate;
 				}
+			} else {
+				alert("이미 예약되어 있는 방입니다.");
 			}
+		}
 
 	})
-	  
+ */	  
+}
+
+function detail(reservationCode) {
+	location.href="/admin/reservationDetailAction.do?reservationCode=" + reservationCode;
 }
 
   </script>
@@ -341,6 +351,7 @@ function reservation(roomNo, resdate) {
 											<c:if test="${curDate le item.reservationCheckOut}">
 												<c:out value="${item.userId}"/><br>
 												<c:set var="chkDate" value="1"/>
+												<c:set var="reservationCode" value="${item.reservationCode}"/>
 											</c:if>
 										</c:when>
 										<c:when test="${curDate eq '1'}">
@@ -352,7 +363,7 @@ function reservation(roomNo, resdate) {
 									<c:when test="${chkblank eq '1'}">										
 									</c:when>
 									<c:when test="${chkDate eq '1'}">
-										<p><a href="/main">예약완료</a></p> <br>
+										<p><a href="javaScript:detail('${reservationCode}');">예약완료</a></p> <br>
 									</c:when>									
 										<c:otherwise><input type="button" value="예약" class="submit-btn" onClick="javaScript:reservation('${roomNo}','${curDate}');">
 										</c:otherwise>
@@ -373,6 +384,7 @@ function reservation(roomNo, resdate) {
 											<c:if test="${curDate le item.reservationCheckOut}">
 												<c:out value="${item.userId}"/><br>
 												<c:set var="chkDate" value="1"/>
+												<c:set var="reservationCode" value="${item.reservationCode}"/>
 											</c:if>
 										</c:when>
 										<c:when test="${curDate eq '1'}">
@@ -384,7 +396,7 @@ function reservation(roomNo, resdate) {
 									<c:when test="${chkblank eq '1'}">										
 									</c:when>
 									<c:when test="${chkDate eq '1'}">
-										<p><a href="/main">예약완료</a></p> <br>
+										<p><a href="javaScript:detail('${reservationCode}');">예약완료</a></p> <br>
 									</c:when>									
 										<c:otherwise><input type="button" value="예약" class="submit-btn" onClick="javaScript:reservation('${roomNo}','${curDate}');">
 										</c:otherwise>
@@ -406,6 +418,7 @@ function reservation(roomNo, resdate) {
 											<c:if test="${curDate le item.reservationCheckOut}">
 												<c:out value="${item.userId}"/><br>
 												<c:set var="chkDate" value="1"/>
+												<c:set var="reservationCode" value="${item.reservationCode}"/>
 											</c:if>
 										</c:when>
 										<c:when test="${curDate eq '1'}">
@@ -417,7 +430,7 @@ function reservation(roomNo, resdate) {
 									<c:when test="${chkblank eq '1'}">										
 									</c:when>
 									<c:when test="${chkDate eq '1'}">
-										<p><a href="/main">예약완료</a></p> <br>
+										<p><a href="javaScript:detail('${reservationCode}');">예약완료</a></p> <br>
 									</c:when>									
 										<c:otherwise><input type="button" value="예약" class="submit-btn" onClick="javaScript:reservation('${roomNo}','${curDate}');">
 										</c:otherwise>
@@ -437,6 +450,7 @@ function reservation(roomNo, resdate) {
 											<c:if test="${curDate le item.reservationCheckOut}">
 												<c:out value="${item.userId}"/><br>
 												<c:set var="chkDate" value="1"/>
+												<c:set var="reservationCode" value="${item.reservationCode}"/>
 											</c:if>
 										</c:when>
 										<c:when test="${curDate eq '1'}">
@@ -448,7 +462,7 @@ function reservation(roomNo, resdate) {
 									<c:when test="${chkblank eq '1'}">										
 									</c:when>
 									<c:when test="${chkDate eq '1'}">
-										<p><a href="/main">예약완료</a></p> <br>
+										<p><a href="javaScript:detail('${reservationCode}');">예약완료</a></p> <br>
 									</c:when>									
 										<c:otherwise><input type="button" value="예약" class="submit-btn" onClick="javaScript:reservation('${roomNo}','${curDate}');"></c:otherwise>
 									</c:choose>	

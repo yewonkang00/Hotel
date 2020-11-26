@@ -63,9 +63,6 @@ public class QnaDaoImpl implements QnaDao {
 
 	@Override
 	public void update(QnaVo vo) throws Exception {
-		System.out.println(vo.getQNACODE());
-		System.out.println(vo.getQNACONTENT());
-		System.out.println(vo.getQNATITLE());
 		sqlSession.update("QNA.updateArticle", vo);
 		
 	}

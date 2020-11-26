@@ -1,5 +1,7 @@
 package com.khotel.DaoImpl;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,19 +29,24 @@ public class ReservationDaoImpl implements ReservationDao{
 
 	@Override
 	public void updateReservation(ReservationVo reservationVo) throws Exception {
-		sqlSession.update("room.updateRoom", reservationVo);
+		sqlSession.update("reservation.updateReservation", reservationVo);
 		
 	}
 
 	@Override
 	public void deleteReservation(ReservationVo reservationVo) throws Exception {
-		sqlSession.delete("room.deleteRoom", reservationVo);
+		sqlSession.delete("reservation.deleteReservation", reservationVo);
 		
 	}
 
 	@Override
 	public ReservationVo selectReservation(ReservationVo reservationVo) throws Exception {
 		return sqlSession.selectOne("reservation.selectReservation", reservationVo);
+	}
+
+	@Override
+	public List<ReservationVo> selectReservationList(ReservationVo reservationVo) throws Exception {
+		return sqlSession.selectList("reservation.selectReservationList", reservationVo);
 	}
 	
 	
