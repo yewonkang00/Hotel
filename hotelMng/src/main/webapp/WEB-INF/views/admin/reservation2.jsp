@@ -125,35 +125,123 @@
 			return today;
         }
 
+    	$(document).ready(function() {
+			$('#ReservationDays').on('mouseup', function(e) {
+				var price = ('${room.fee}' * $('#ReservationDays').val());
+				$('#RoomPrice').html("<span id='RoomPrice'>" + price + " 원</span>")
+				var total = parseInt($('#RoomPrice').text()) + parseInt($('#AddPrice').text());
+				var tax = Math.floor(parseInt(total) * 0.1);
+				var finish = parseInt(tax) + parseInt(total);
+				var Mileage = Math.floor(parseInt(finish) * 0.01);
+				var checkout = dateAdd('${resdate}',parseInt($('#ReservationDays').val())+1);
+				$('#AdditionalTax').html("<span id='AdditionalTax'>" + tax + " 원</span>");
+				$('#TotalPrice').html("<span id='TotalPrice'>" + finish + " 원</span>");
+				$('#Mileage').html("<span id='Mileage'>" + Mileage + " p</span>");
+				$('#CheckOut').html("<span id='CheckOut'>"+checkout+"</span>");
+			});
+
+	 		$("#Breakfast").click(function() {
+				if($("#Breakfast").is(":checked")) {
+					var price = ($('#ReservationPeopleNumber').val() * 20000);
+					$('#AddPrice').html("<span id='AddPrice'>" + price + " 원</span>");
+				} else {
+					var price = 0;
+					$('#AddPrice').html("<span id='AddPrice'>" + price + " 원</span>");
+				}
+				var total = parseInt($('#RoomPrice').text()) + parseInt($('#AddPrice').text());
+				var tax = Math.floor(parseInt(total) * 0.1);
+				var finish = parseInt(tax) + parseInt(total);
+				var Mileage = Math.floor(parseInt(finish) * 0.01);
+				$('#AdditionalTax').html("<span id='AdditionalTax'>" + tax + " 원</span>");
+				$('#TotalPrice').html("<span id='TotalPrice'>" + finish + " 원</span>");
+				$('#Mileage').html("<span id='Mileage'>" + Mileage + " p</span>");
+			});
+
+			$('#ReservationPeopleNumber').on('mouseup', function(e) {
+				if($("#Breakfast").is(":checked")) {
+					var price = ($('#ReservationPeopleNumber').val() * 20000);
+					$('#AddPrice').html("<span id='AddPrice'>" + price + " 원</span>");
+				} else {
+					var price = 0;
+					$('#AddPrice').html("<span id='AddPrice'>" + price + " 원</span>");
+				}
+				var total = parseInt($('#RoomPrice').text()) + parseInt($('#AddPrice').text());
+				var tax = Math.floor(parseInt(total) * 0.1);
+				var finish = parseInt(tax) + parseInt(total);
+				var Mileage = Math.floor(parseInt(finish) * 0.01);
+				$('#AdditionalTax').html("<span id='AdditionalTax'>" + tax + " 원</span>");
+				$('#TotalPrice').html("<span id='TotalPrice'>" + finish + " 원</span>");
+				$('#Mileage').html("<span id='Mileage'>" + Mileage + " p</span>");
+			});
+			
+			
+		});
+
 
         function reservation() {
-        	var Id = '${UserId}';
-        	var ReservationDate = $('#ReservationDate').val();
+        	var Id = '${member.userId}';
         	var ReservationDays = $('#ReservationDays').val();
         	var ReservationPeopleNumber = $('#ReservationPeopleNumber').val();
         	var ReservationCheckIn = '${resdate}';
         	var RoomCode = '${roomNo}';
         	var ReservationMemo = $('#ReservationMemo').val();
 			var ReservationCheckOut = dateAdd(ReservationCheckIn, ReservationDays);
-
+			var Card = $('#Card').val();
+			var CardNum = $('#card_no1').val() + $('#card_no2').val() + $('#card_no3').val() + $('#card_no4').val();
+			var CardValid = $('#CardYY').val() + $('#CardMM').val();
+			var Breakfast = "N";
+			var TotalPrice = parseInt($('#TotalPrice').text());
+			var Mileage = parseInt($('#Mileage').text());
+			if($("#Breakfast").is(":checked")) {
+				Breakfast = "Y";
+			}
+			var agree1 = $('#agree1').val();
+			var agree2 = $('#agree2').val();
+			
+			alert(Id);
+			alert(ReservationDays);
+			alert(ReservationPeopleNumber);
+			alert(ReservationCheckIn);
+			alert(RoomCode);
+			alert(ReservationMemo);
+			alert(ReservationCheckOut);
+			alert(Breakfast);
+			alert(TotalPrice);
+			alert(Mileage);
+			alert(Card);
+			alert(CardNum);
+			alert(CardValid);
+			
+			
         	var data = {"UserId" : Id,
-                	"ReservationDate" : ReservationDate,
                 	"ReservationDays" : ReservationDays,
                 	"ReservationPeopleNumber" : ReservationPeopleNumber,
                 	"ReservationCheckIn" : ReservationCheckIn,
                 	"ReservationCheckOut" : ReservationCheckOut,
                 	"RoomCode" : RoomCode,
-                	"ReservationMemo" : ReservationMemo
+                	"ReservationMemo" : ReservationMemo,
+                	"Breakfast" : Breakfast,
+                    "TotalPrice" : TotalPrice,
+                    "Mileage" : Mileage,
+                    "Card" : Card,
+                    "CardNum" : CardNum,
+                    "CardValid" : CardValid
         	};
 
-        	if(ReservationDays == "") {
+        	if(ReservationDays == "-박") {
         		alert("숙박일 수를 입력해주세요.");
     			$('#ReservationDays').focus();
     			return false;
-            } else if (ReservationPeopleNumber == "") {
+            } else if (ReservationPeopleNumber == "-인") {
             	alert("숙박 인원을 입력해주세요.");
     			$('#ReservationPeopleNumber').focus();
     			return false;
+            } else if (!$("#agree1").is(":checked")) {
+            	alert("개인정보 수집에 동의해주세요.");   
+            	return false;
+            } else if (!$("#agree2").is(":checked")) {
+            	alert("결제 취소 규정에 동의해주세요.");   
+            	return false;
             }
 
             $.ajax({
@@ -195,7 +283,7 @@
 						     <tr>
 						      <th scope="row">기타 남기실 말씀</th>
 						      <td class="fm">
-						      	<textarea title="기타 남기실 말씀" placeholder="내용을 입력해 주세요." name="msg" id="msg" maxlength="200"></textarea>
+						      	<textarea title="기타 남기실 말씀" placeholder="내용을 입력해 주세요." name="msg" id="ReservationMemo" maxlength="200"></textarea>
 					      	</td>
 					       </tr>
 			       	  </tbody>
@@ -229,27 +317,59 @@
 							<td class="fm" colspan="3">
 								<span id="RoomNo">${roomNo}</span>
 							</td>
-						<tr>
+						</tr>
 						<tr>
 							<th scope="row">객실 Type</th>
 							<td class="fm" colspan="3">
 								<span id="RoomType">${room.roomType}</span>
 							</td>
-						<tr>
+						</tr>
 						<tr>
 							<th scope="row">체크인</th>
 							<td class="fm" colspan="3">
 								<span id="ReservationCheckIn">${resdate}</span>
 							</td>
+						</tr>
 						<tr>
-		                   <%-- <td id="res2_tit">Room</td>
-		                   <td id="RoomCode"><input type="text" readonly value='${roomNo}' size="20"></td>
-		                   <td id="res2_tit">Room Type</td>
-		                   <td id="RoomType"><input type="text" readonly value='${room.roomType}', size="20"></td>
-		                   <td id="res2_tit">체크인</td>
-		                   <td id="ReservationCheckIn"><input type="text" readonly value='${resdate}' name="title" size="20"></td>
-		                --%> <tr>
-	                 
+							<th scope="row">숙박일 수</th>
+							<td class="fm" colspan="3">
+								<select id ="ReservationDays" class="sel">
+			                		<option>-박</option>
+			                		<option value="1">1박</option>
+			                		<option value="2">2박</option>
+			                		<option value="3">3박</option>
+			                		<option value="4">4박</option>
+			                		<option value="5">5박</option>
+		                		</select>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">체크아웃</th>
+							<td class="fm" colspan="3">
+								<span id="CheckOut"></span>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">조식</th>
+							<td class="fm" colspan="3">
+								<span>
+									<input type="checkbox" id="Breakfast">
+									*인당 2만원
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">인원</th>
+							<td class="fm" colspan="3">
+								<select id ="ReservationPeopleNumber" class="sel">
+			                		<option>-인</option>
+		                    		<option value="1">1인</option>
+		                    		<option value="2">2인</option>
+		                    		<option value="3">3인</option>
+		                    		<option value="4">4인</option>
+		                		</select>
+							</td>
+						</tr>
 					</tbody>
 				</table>
 
@@ -263,31 +383,31 @@
 							<td colspan="3" class="fm">
 								<select class="card_com" title="카드회사" id="Card" name="card_com">
 									<option value="">카드사 선택</option>
-									<option value="M0957">광주카드</option>
-									<option value="M0964">기타</option>
-									<option value="M0950">농협NH카드</option>
-									<option value="M0944">롯데카드</option>
-									<option value="M0946">비씨카드</option>
-									<option value="M0953">산업은행카드</option>
-									<option value="M0955">삼성카드</option>
-									<option value="M0959">수협카드</option>
-									<option value="M0942">신한카드</option>
-									<option value="M0952">씨티카드</option>
-									<option value="M0945">외환카드</option>
-									<option value="M0949">우리카드</option>
-									<option value="M0956">저축은행(체크카드)</option>
-									<option value="M0958">전북은행카드</option>
-									<option value="M0960">제주은행카드</option>
-									<option value="M0948">하나(BC)카드</option>
-									<option value="M0947">하나SK카드</option>
-									<option value="M0954">한미카드</option>
-									<option value="M0941">현대카드</option>
-									<option value="M1384">American Express</option>
-									<option value="M0963">JCB</option>
-									<option value="M0943">KB카드</option>
-									<option value="M0962">MASTER</option>
-									<option value="M0951">NH비씨카드</option>
-									<option value="M0961">VISA</option>
+									<option value="광주카드">광주카드</option>
+									<option value="기타">기타</option>
+									<option value="농협NH카드">농협NH카드</option>
+									<option value="롯데카드">롯데카드</option>
+									<option value="비씨카드">비씨카드</option>
+									<option value="산업은행카드">산업은행카드</option>
+									<option value="삼성카드">삼성카드</option>
+									<option value="수협카드">수협카드</option>
+									<option value="신한카드">신한카드</option>
+									<option value="씨티카드">씨티카드</option>
+									<option value="외환카드">외환카드</option>
+									<option value="우리카드">우리카드</option>
+									<option value="저축은행(체크카드)">저축은행(체크카드)</option>
+									<option value="전북은행카드">전북은행카드</option>
+									<option value="제주은행카드">제주은행카드</option>
+									<option value="하나(BC)카드">하나(BC)카드</option>
+									<option value="하나SK카드">하나SK카드</option>
+									<option value="한미카드">한미카드</option>
+									<option value="현대카드">현대카드</option>
+									<option value="American Express">American Express</option>
+									<option value="JCB">JCB</option>
+									<option value="KB카드">KB카드</option>
+									<option value="MASTER">MASTER</option>
+									<option value="NH비씨카드">NH비씨카드</option>
+									<option value="VISA">VISA</option>
 								</select>
 							</td>
 						</tr>
@@ -322,33 +442,36 @@
 					<colgroup><col width="175px"><col width="200px"><col width="175px"><col width="225px"><col width="200px"></colgroup>
 					<tbody>
 						<tr>
-								<th scope="row">객실 가격</th><!-- 객실가격 -->
-								<td colspan="3">310,000 원</td>
-							<td rowspan="4" class="totalPricefield">
+								<th scope="row">객실 가격</th>
+								<td colspan="3">
+									<span id="RoomPrice">0 원</span>
+								</td>
+								<td rowspan="4" class="totalPricefield">
 								<dl class="totalPrice">
 									<dt class="total">&nbsp;&nbsp;&nbsp;&nbsp;최종 결제 금액</dt>
 									<dd class="total">
-										<em id="midTotal">341,000</em> 원
+										<br><span id="TotalPrice">0 원</span>
 									</dd>
 								</dl>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">추가 금액</th><!-- 옵션 -->
-							<td>
-								<span id="midOptpc">0 원</span>
-							</td>
-							<td colspan="2">
-								<div id="optionInfos"></div>
+							<th scope="row">추가 금액</th>
+							<td class="fm" colspan="3">
+								<span id="AddPrice">0 원</span>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">부가세</th><!-- 부가세 -->
-							<td colspan="3" id="midVatpc">31,000 원</td>
+							<th scope="row">부가세</th>
+							<td class="fm" colspan="3">
+								<span id="AdditionalTax">0 원</span>
+							</td>
 						</tr>
 						<tr>
-							<th scope="row">최종 결제 금액</th><!-- 최종결제금액 -->
-							<td colspan="3" id="lastTotal">341,000 원</td>
+							<th scope="row">적립 예정 마일리지</th>
+							<td class="fm" colspan="3">
+								<span id="Mileage">0 p</span>
+							</td>
 						</tr>
 					</tbody>
 				</table>
@@ -363,7 +486,7 @@
 				<div class="cHead chw-5">
 					<h3 class="title-5 chwTit">개인정보 수집 항목 및 이용 동의</h3>
 					<span class="fR chwChk">
-						<span class="chkFm ty-3"><input type="checkbox" class="chk" id="chkAgree1" name="chkAgree1" value="Y"><span class="act"></span><label for="chkAgree1">동의(필수)</label></span>
+						<span class="chkFm ty-3"><input type="checkbox" class="chk" id="agree1" name="chkAgree1" value="Y"><span class="act"></span><label for="chkAgree1">동의(필수)</label></span>
 					</span>
 				</div>
 				<div class="scroll">
@@ -392,7 +515,7 @@
 				<div class="cHead chw-5">
 					<h3 class="title-5 chwTit">결제 취소 규정 동의</h3>
 					<span class="fR chwChk">
-						<span class="chkFm ty-3"><input type="checkbox" class="chk" id="chkAgree2" name="chkAgree2" value="Y"><span class="act"></span><label for="chkAgree2">동의(필수)</label></span>
+						<span class="chkFm ty-3"><input type="checkbox" class="chk" id="agree2" name="chkAgree2" value="Y"><span class="act"></span><label for="chkAgree2">동의(필수)</label></span>
 					</span>
 				</div>
 				<div class="scroll">

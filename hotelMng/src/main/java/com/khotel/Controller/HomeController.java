@@ -378,10 +378,9 @@ public class HomeController {
 		System.out.println("room" + roomVo);
 		model.addAttribute("roomNo", roomNo);
 		model.addAttribute("resdate", resdate);
-		model.addAttribute("UserId", UserId);
-		model.addAttribute("UserName", UserName);
+		model.addAttribute("member", member);
 		model.addAttribute("room", roomVo);
-		return "/reservation/reservation2";
+		return "/admin/reservation2";
 	}
 
 	//예약페이지

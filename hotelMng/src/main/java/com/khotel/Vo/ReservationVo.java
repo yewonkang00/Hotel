@@ -13,6 +13,9 @@ public class ReservationVo {
 	private String Breakfast = null;
 	private String TotalPrice = null;
 	private String Mileage = null;
+	private String Card = null;
+	private String CardNum = null;
+	private String CardValid = null;
 	
 	public String getReservationCode() {
 		return ReservationCode;
@@ -85,6 +88,24 @@ public class ReservationVo {
 	}
 	public void setMileage(String mileage) {
 		Mileage = mileage;
+	}
+	public String getCard() {
+		return Card;
+	}
+	public void setCard(String card) {
+		Card = card;
+	}
+	public String getCardNum() {
+		return CardNum;
+	}
+	public void setCardNum(String cardNum) {
+		CardNum = cardNum;
+	}
+	public String getCardValid() {
+		return CardValid;
+	}
+	public void setCardValid(String cardValid) {
+		CardValid = cardValid;
 	}
 	
 	
