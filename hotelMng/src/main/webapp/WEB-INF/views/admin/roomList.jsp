@@ -48,7 +48,7 @@
                 <thead>
                     <tr>
                         <td>No</td>
-                        <td>RoomNO</td>
+                        <td>RoomNo</td>
                         <td>RoomType</td>
                         <td>BedType</td>
                         <td>RoomMaxPeople</td>

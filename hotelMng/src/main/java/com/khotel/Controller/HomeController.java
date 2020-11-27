@@ -177,7 +177,7 @@ public class HomeController {
 		return map;
 	}
 	
-	//관리자 페이지
+	//관리자 페이지 회원 리스트
 	@RequestMapping(value = "/admin/memberList")
 	public String memberList(Locale locale, Model model, HttpServletRequest request) throws Exception {
 		List<MemberVo> memberList = null;
@@ -191,6 +191,22 @@ public class HomeController {
 		model.addAttribute("memberList", memberList );
 		return "/admin/memberList";
 	}
+	
+	//관리자 페이지 객실 예약
+		@RequestMapping(value = "/admin/reservationList")
+		public String reservationList(Locale locale, Model model, HttpServletRequest request) throws Exception {
+			List<ReservationVo> reservationList = null;
+			
+			//예약 리스트 가져오기
+			try {
+				reservationList = reservationService.listReservation();
+			} catch (Exception e) {
+				
+			}
+			model.addAttribute("reservationList", reservationList );
+			System.out.println(reservationList);
+			return "/admin/reservationList";
+		}
 	
 	//관리자 페이지
 	@RequestMapping(value = "/admin/roomList")

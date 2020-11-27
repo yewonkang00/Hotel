@@ -48,10 +48,11 @@
 		DELETE FROM RESERVATION
 		WHERE ReservationCode = #{ReservationCode}
 	</delete>
-
-
-
-
-
+	
+	<select id="listReservation" resultType="ReservationVo">	
+	SELECT *
+	FROM Reservation
+	order by ReservationCode desc
+	</select>
 
 </mapper>

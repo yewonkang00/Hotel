@@ -120,7 +120,6 @@
 				<td>USER GRADE</td>
 				<td>USER Phone</td>
 				<td>USER Email</td>
-				<td>UserAddressState</td>
 				<td>LEVEL</td>
 				<td></td>
 			</tr>
@@ -134,7 +133,6 @@
 				<td>${item.userGrade}</td>
 				<td>${fn:substring(item.userPhone,0,3)} - ${fn:substring(item.userPhone,3, 7)} - ${fn:substring(item.userPhone,7,11)}</td>
 				<td>${item.userEmail}</td>
-				<td>${item.userAddressState}</td>
 				<td>
 				<c:choose>
 					<c:when test="${item.userLevel == '1'}">유저</c:when>
