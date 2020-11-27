@@ -162,6 +162,21 @@ public class HomeController {
 		return map;
 	}
 	
+	//아이디 중복 체크
+	@RequestMapping(value = "/memeber/idcheck.do") 
+	public @ResponseBody Map check(MemberVo registMember, HttpServletRequest request) throws Exception {
+		Map map = new HashMap();
+		MemberVo selectMemberVo = new MemberVo();
+		
+		selectMemberVo = memberService.selectMember(registMember);
+		if(selectMemberVo != null) {
+			map.put("resultMsg", "fail");
+		} else {
+			map.put("resultMsg", "success");
+		}
+		return map;
+	}
+	
 	//관리자 페이지
 	@RequestMapping(value = "/admin/memberList")
 	public String memberList(Locale locale, Model model, HttpServletRequest request) throws Exception {
@@ -368,6 +383,23 @@ public class HomeController {
 		String mile = reservation.getMileage();
 		String originmile = member.getUserMile();
 		int totalmile = Integer.parseInt(mile) + Integer.parseInt(originmile);
+		
+		String grade = "";
+		if(totalmile == 0) {
+			grade = "NEW";
+		} else if(totalmile < 10000) {
+			grade = "SILVER";
+		} else if(totalmile < 30000) {
+			grade = "GOLD";
+		} else if(totalmile < 60000) {
+			grade = "PLATINUM";
+		} else if(totalmile < 100000) {
+			grade = "DIAMOND";
+		} else if(totalmile < 150000) {
+			grade = "VIP";
+		} else if(totalmile < 300000) {
+			grade = "VVIP";
+		}
 		System.out.println("mile: " + Integer.toString(totalmile));
 		
 		roomMap.put("ReservationCheckIn", checkIn);
@@ -379,7 +411,9 @@ public class HomeController {
 		Map resultmap = new HashMap();
 		if(resCnt == 0) {
 			member.setUserMile(Integer.toString(totalmile));
+			member.setUserGrade(grade);
 			memberService.updateMile(member);
+			memberService.updateGrade(member);
 			reservationService.insertReservation(reservation);
 			resultmap.put("resultMsg", "success");
 		} else {

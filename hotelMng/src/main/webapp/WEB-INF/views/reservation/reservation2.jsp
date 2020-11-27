@@ -101,7 +101,7 @@
         	var RoomCode = '${roomNo}';
         	var ReservationMemo = $('#ReservationMemo').val();
 			var ReservationCheckOut = dateAdd(ReservationCheckIn, ReservationDays);
-			var Breakfast;
+			var Breakfast = "N";
 			var TotalPrice = $('#TotalPrice').val();
 			var Mileage = $('#Mileage').val();
 			if($("#Breakfast").is(":checked")) {

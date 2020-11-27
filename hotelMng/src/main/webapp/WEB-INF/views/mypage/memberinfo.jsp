@@ -84,21 +84,21 @@
       <tr>
       	<td>이름</td>
       	<td>아이디</td>
+      	<td>등급</td>
+      	<td>전화번호</td>
       	<td>이메일</td>
       	<td>마일리지</td>
-      	<td>등급</td>
       	<td>생년월일</td>
-      	<td>전화번호</td>
       	<td>주소</td>
       </tr>
       <tr>
       	<td>${member.userName}</td>
       	<td>${member.userId}</td>
+      	<td>${member.userGrade}</td>
+      	<td>${member.userPhone}</td>
       	<td>${member.userEmail}</td>
       	<td>${member.userMile}</td>
-      	<td>${member.userGrade}</td>
       	<td>${member.userBirth}</td>
-      	<td>${member.userPhone}</td>
       	<td>${member.userAddressState}${member.userAddressCity}${member.userAddressStreet}${member.userAddressDetail}</td>
     </table>
     <div class="btn_area">
