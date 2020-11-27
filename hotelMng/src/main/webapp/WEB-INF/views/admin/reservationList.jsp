@@ -23,10 +23,12 @@
     </head>
     <body>
         <div class=header>
-            <img src="/resources/image/moon.png" width="100" height="100">
+            <a href="/admin"><img src="/resources/image/moon.png" width="100" height="100">
             <nav>
-                <span><a href="/admin/memberList">회원리스트</a></span>
-                <span><a href="/admin/roomList">객실List</a></span>
+                <span><a></a></span>
+                <span><a href="/admin/memberList">회원 List</a></span>
+                <span><a href="/admin/roomList">객실 List</a></span>
+                <span><a href="/admin/reservationList">예약 List</a></span>
                 <span>
 		        	<c:choose>
 		  				<c:when test="${member != null}"><a href="/logout.do">로그아웃</a></c:when>

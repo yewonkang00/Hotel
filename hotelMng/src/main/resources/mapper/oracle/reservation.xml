@@ -16,6 +16,9 @@
 								,Breakfast
 								,TotalPrice
 								,Mileage
+								,Card
+								,CardNum
+								,CardValid
 		)
 		
 		VALUES ((select nvl(max(reservationcode)+1,0) from reservation)
@@ -30,6 +33,9 @@
 				, #{Breakfast}
 				, #{TotalPrice}
 				, #{Mileage}
+				, #{Card}
+				, #{CardNum}
+				, #{CardValid}
 		)
 	
 	</insert>
