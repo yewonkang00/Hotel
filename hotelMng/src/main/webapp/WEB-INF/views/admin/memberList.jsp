@@ -121,6 +121,7 @@
 				<td>No</td>
 				<td>USER ID</td>
 				<td>USER Name</td>
+				<td>USER GRADE</td>
 				<td>USER Phone</td>
 				<td>USER Email</td>
 				<td>UserAddressState</td>
@@ -134,6 +135,7 @@
 				<td>${idx.index+1}</td>
 				<td>${item.userId}</td>
 				<td>${item.userName}</td>
+				<td>${item.userGrade}</td>
 				<td>${fn:substring(item.userPhone,0,3)} - ${fn:substring(item.userPhone,3, 7)} - ${fn:substring(item.userPhone,7,11)}</td>
 				<td>${item.userEmail}</td>
 				<td>${item.userAddressState}</td>
