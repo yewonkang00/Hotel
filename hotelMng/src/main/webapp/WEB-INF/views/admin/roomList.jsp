@@ -44,15 +44,15 @@
             <br><br> -->
             <table class="table table-hover">
                 <thead>
-                  <tr>
-                      <td>No</td>
-                      <td>RoomNO</td>
-                      <td>RoomType</td>
-                      <td>BedType</td>
-                      <td>RoomMaxPeople</td>
-                      <td>RoomFee</td>
-                      <td> </td>
-                  </tr>
+                    <tr>
+                        <td>No</td>
+                        <td>RoomNo</td>
+                        <td>RoomType</td>
+                        <td>BedType</td>
+                        <td>RoomMaxPeople</td>
+                        <td>RoomFee</td>
+                        <td> </td>
+                    </tr>
                 </thead>
 
                 <c:forEach items="${roomList}" var="item" varStatus="idx">

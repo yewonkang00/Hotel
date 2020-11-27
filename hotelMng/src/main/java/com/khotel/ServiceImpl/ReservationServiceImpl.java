@@ -48,5 +48,10 @@ public class ReservationServiceImpl implements ReservationService{
 		return reservationDao.selectReservationList(reservationVo);
 	}
 
+	@Override
+	public List<ReservationVo> listReservation() throws Exception {
+		return reservationDao.listReservation();
+	}
+
 	
 }
