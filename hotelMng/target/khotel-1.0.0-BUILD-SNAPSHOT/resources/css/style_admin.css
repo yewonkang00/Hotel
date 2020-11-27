@@ -1,18 +1,13 @@
-@charset "UTF-8";
-
 body {
     margin-left:auto;
     margin-right: auto;
     padding:0px;
-    background-color: #fbfcf5;
+    background-color: white;
+    font-family:나눔고딕;
 }
 a {
     color:#111111;
     text-decoration:none }
-
-::-webkit-scrollbar {
-    display: none;
-}
 
 .header{
     margin-left:auto;
@@ -48,7 +43,7 @@ a {
     margin-right: auto;
     min-height: 500px;
     padding: 50px;
-    background-color: #fbfcf5;
+    background-color: white;
     font-size: 18px;
     color: #333333
 }

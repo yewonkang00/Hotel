@@ -20,7 +20,7 @@ a {
     /* margin-left: auto; */
     /* margin-right: auto; */
     background-color: #D4C1A1;
-    min-width: 1500px;
+    min-width: 1200px;
     /* position: relative; */
     top: 0;
     /* left: 0; */
@@ -96,7 +96,7 @@ a {
     background-image: url("../img/oria-hotel-4636405_1280.jpg");
     background-size: cover;
     margin-top: auto;
-    min-width: 1500px;
+    min-width: 1200px;
     height: 700px;
     padding: 8px;
 }
@@ -459,23 +459,6 @@ textarea {
     padding-top: 20px;
     border-bottom: 3pt solid  #D4C1A1;
   }
-  .res_content{
-    position:relative;
-  }
-  .res_banner{
-    position:absolute; top:50%; left: 50%; transform:translate(-50%, -50%);
-    background-color: #D4C1A1;
-  }
-  .res_search{
-    text-align: center;
-    padding: 20px;
-    margin-top: 50px;
-    border:2pt solid  #D4C1A1;
-  }
-  #res2_tit{
-    font-size: 20px;
-  }
-
   .myButton {
 	   background-color:#D4C1A1;
 	   border-radius:3px;

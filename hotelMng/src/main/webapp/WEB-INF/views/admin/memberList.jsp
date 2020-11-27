@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="/resources/css/style_admin.css" type="text/css">
         <script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
         <style>
+
             * {
                 font-family: 'Noto Sans KR', sans-serif;
             }
@@ -60,6 +61,7 @@
 
 		<script>
 			$(document).on('click', '#btnSearch', function(e){
+
 				e.preventDefault();
 
 				var url = "${pageContext.request.contextPath}/board/getBoardList";
@@ -71,7 +73,9 @@
 				location.href = url;
 
 				console.log(url);
+
 			});
+
 		</script>
   
   
