@@ -247,20 +247,30 @@ public class MemberController {
 		ReservationVo reservation = new ReservationVo();
 		String searchFrom  =  request.getParameter("searchFrom");
 		String searchTo = request.getParameter("searchTo");
+		String searchRoom = request.getParameter("searchRoom");
+		System.out.println(searchFrom);
+		System.out.println(searchTo);
+		System.out.println(searchRoom);
 		reservation.setReservationCheckIn(searchFrom);
 		reservation.setReservationCheckOut(searchTo);
 		
-		
-		//회원 가져오기 - check
 		try {
-			roomList = roomService.searchRoomList(reservation);
+			if(searchRoom.equals("all")) {
+				roomList = roomService.searchRoomList(reservation);
+			}
+			else {
+				reservation.setRoomType(searchRoom);
+				roomList = roomService.searchSelectRoomList(reservation);
+			}
 		} catch (Exception e) {
 			
 		}
+		System.out.println(roomList);
 		model.addAttribute("searchFrom",searchFrom);
 		model.addAttribute("searchTo",searchTo);
 		model.addAttribute("roomList", roomList );
-		return "/reservation/searchRoom";
+		//model.addAttribute("searchRoom", searchRoom);
+		return "/reservation/res";
 	}
 	
 	//달력에 예약 현황 표시

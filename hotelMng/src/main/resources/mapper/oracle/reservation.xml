@@ -19,6 +19,7 @@
 								,Card
 								,CardNum
 								,CardValid
+								,RoomType
 		)
 		
 		VALUES ((select nvl(max(reservationcode)+1,0) from reservation)
@@ -36,6 +37,7 @@
 				, #{Card}
 				, #{CardNum}
 				, #{CardValid}
+				, #{RoomType}
 		)
 	
 	</insert>

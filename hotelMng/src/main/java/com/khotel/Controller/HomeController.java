@@ -482,7 +482,15 @@ public class HomeController {
 		map.put("resultMsg", "Success");
 		return map;
 	}
-	
+
+	@RequestMapping(value = "/admin/memberDelete")
+	public String memberDelete(Model model, HttpServletRequest request) throws Exception {
+		MemberVo member = new MemberVo();
+		String userId = request.getParameter("userId");
+		member.setUserId(userId);
+		memberService.deleteMember(member);
+		return "/admin/memberList";
+	}
 		
 	//관리자 페이지에서 member에서 update버튼을 누르면 memberlevel을 바꿔줌
 	@RequestMapping(value = "/admin/levelAction.do")
@@ -492,6 +500,39 @@ public class HomeController {
 		map.put("resultMsg", "Success");
 		return map;
 	}
+	
+	//관리자 페이지에서 member에서 해당 회원 정보와 예약 정보 가져옴
+	@RequestMapping(value = "/admin/memberDetail.do")
+	public String memberDetail(Model model, HttpServletRequest request) throws Exception {
+		MemberVo member = new MemberVo();
+		MemberVo memberDetail = new MemberVo();
+		ReservationVo reservation = new ReservationVo();
+		List <ReservationVo> resDetail = null;
+		String UserId = request.getParameter("userId");
+		member.setUserId(UserId);
+		reservation.setUserId(UserId);
+		
+		memberDetail = memberService.selectMember(member);
+		resDetail = reservationService.selectReservationList(reservation);
+		model.addAttribute("memberDetail", memberDetail);
+		model.addAttribute("resDetail", resDetail);
+		System.out.println(memberDetail);
+		
+		return "/admin/memberDetail";
+	}
+	
+	//관리자 페이지에서 객실 정보 가져옴
+		@RequestMapping(value = "/admin/roomDetail.do")
+		public String roomDetail(Model model, HttpServletRequest request) throws Exception {
+			RoomVo room = new RoomVo();
+			int roomNo = Integer.parseInt(request.getParameter("rno"));
+			room.setRoomNo(roomNo);
+			RoomVo roomdetail = new RoomVo();
+			roomdetail = roomService.selectRoom(room);
+			model.addAttribute("roomDetail", roomdetail);
+			
+			return "/admin/roomDetail";
+		}
 	
 	//메인화면(홈화면)
 	@RequestMapping(value = "/main", method = RequestMethod.GET)

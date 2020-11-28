@@ -17,8 +17,13 @@
         
   <script type="text/javascript">
 			
-
-  </script>
+		var sessionLevel = '${member.userLevel}';
+		
+		if(sessionLevel == null || sessionLevel == 'null' || sessionLevel=="" || sessionLevel == "1"){
+			alert("관리자 권한이 없습니다.");
+			location.href="/main";
+		}
+	</script>
 
     </head>
     <body>
@@ -60,15 +65,15 @@
 			<!-- search{e} -->
         	<table class="table table-hover">
 			<thead>
-			<tr>
-				<td>No</td>
-				<td>Room Code</td>
-				<td>USER ID</td>
-				<td>Reservation Check IN</td>
-				<td>Reservation Check OUT</td>
-				<td>People Num</td>
-				<td>Reservation Date</td>
-			</tr>
+				<tr>
+					<td>No</td>
+					<td>Room Code</td>
+					<td>USER ID</td>
+					<td>Reservation Check IN</td>
+					<td>Reservation Check OUT</td>
+					<td>People Num</td>
+					<td>Reservation Date</td>
+				</tr>
 			</thead>
 
 			<c:forEach items="${reservationList}" var="item" varStatus="idx">
@@ -80,6 +85,7 @@
 				<td>${item.reservationCheckOut}</td>
 				<td>${item.reservationPeopleNumber}</td>
 				<td>${item.reservationDate}</td>
+			</tr>
 			</c:forEach>
 		</table>
         </div>

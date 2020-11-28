@@ -99,7 +99,7 @@
       	<td>${member.userEmail}</td>
       	<td>${member.userMile}</td>
       	<td>${member.userBirth}</td>
-      	<td>${member.userAddressState}${member.userAddressCity}${member.userAddressStreet}${member.userAddressDetail}</td>
+      	<td>${member.userPostCode} ${member.userAddress} ${member.userDetailAddress} ${member.userExtraAddress}</td>
     </table>
     <div class="btn_area">
               	<button type="button" id="res_btn" onClick="memberdelete();">

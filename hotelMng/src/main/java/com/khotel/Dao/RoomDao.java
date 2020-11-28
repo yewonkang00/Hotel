@@ -23,4 +23,5 @@ public interface RoomDao {
 	public List<RoomVo> viewList(HashMap<String, Object> map);
 	public int findDateTotal(HashMap<String, Object> map);
 	public List<RoomVo> searchRoomList(ReservationVo reservation) throws Exception;
+	public List<RoomVo> searchSelectRoomList(ReservationVo reservation) throws Exception;
 }

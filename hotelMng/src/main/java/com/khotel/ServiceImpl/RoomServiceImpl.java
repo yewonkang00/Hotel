@@ -103,6 +103,11 @@ public class RoomServiceImpl implements RoomService {
 	@Override
 	public List<RoomVo> searchRoomList(ReservationVo reservation) throws Exception {
 		return roomDao.searchRoomList(reservation);
+	}
+
+	@Override
+	public List<RoomVo> searchSelectRoomList(ReservationVo reservation) throws Exception {
+		return roomDao.searchSelectRoomList(reservation);
 	}	
 	
 

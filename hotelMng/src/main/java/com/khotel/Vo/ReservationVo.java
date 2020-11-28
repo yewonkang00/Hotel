@@ -16,6 +16,7 @@ public class ReservationVo {
 	private String Card = null;
 	private String CardNum = null;
 	private String CardValid = null;
+	private String RoomType = null;
 	
 	public String getReservationCode() {
 		return ReservationCode;
@@ -106,6 +107,12 @@ public class ReservationVo {
 	}
 	public void setCardValid(String cardValid) {
 		CardValid = cardValid;
+	}
+	public String getRoomType() {
+		return RoomType;
+	}
+	public void setRoomType(String roomType) {
+		RoomType = roomType;
 	}
 	
 	
