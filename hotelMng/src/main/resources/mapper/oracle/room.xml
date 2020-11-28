@@ -48,6 +48,20 @@
 	]]>	 	 
 	</select>	
 	
+	<select id="findEmptyRoomListCnt" parameterType="ReservationVo" resultType="RoomVo">
+	<![CDATA[ 
+		SELECT RoomType ,count(*) as RoomTypeCnt
+		FROM RoomType natural join RoomNo WHERE RoomNo not in 
+		(
+		SELECT roomcode
+		FROM reservation Where 
+		 (( reservationcheckin between #{ReservationCheckIn}  and  #{ReservationCheckOut})
+		 or ( reservationcheckout between #{ReservationCheckIn}  and  #{ReservationCheckOut})
+		 or ( reservationcheckin < #{ReservationCheckOut} and reservationcheckout > #{ReservationCheckIn}))
+		) group by RoomType
+	]]>	 	 
+	</select>		
+	
 	<select id="findEmptySelectRoomList" parameterType="ReservationVo" resultType="RoomVo">
 	<![CDATA[ 
 		SELECT *
@@ -62,4 +76,17 @@
         order by RoomNo asc
 	]]>	 	 
 	</select>	
+	<select id="findEmptySelectRoomListCnt" parameterType="ReservationVo" resultType="RoomVo">
+	<![CDATA[ 
+		SELECT  RoomType ,count(*) as RoomTypeCnt
+		FROM RoomType natural join RoomNo WHERE RoomType = #{RoomType} and RoomNo not in 
+		(
+		SELECT roomcode
+		FROM reservation Where 
+		 (( reservationcheckin between #{ReservationCheckIn}  and  #{ReservationCheckOut})
+		 or ( reservationcheckout between #{ReservationCheckIn}  and  #{ReservationCheckOut})
+		 or ( reservationcheckin < #{ReservationCheckOut} and reservationcheckout > #{ReservationCheckIn}))
+		) group by RoomType
+	]]>	 	 
+	</select>		
 </mapper>

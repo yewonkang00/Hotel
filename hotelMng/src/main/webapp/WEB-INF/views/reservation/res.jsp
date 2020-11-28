@@ -86,23 +86,19 @@
           }
           #hidden_ho1{
             display:none;
-            padding-top:10px;
           }
           #hidden_ho2{
             display:none;
-            padding-top:10px;
           }
           #hidden_ho3{
             display:none;
-            padding-top:10px;
           }
           #hidden_ho4{
             display:none;
-            padding-top:10px;
           }
           .hidden_ho p{
             margin-left:10px;
-            text-align: center;
+            text-align: left;
           }
           .hidden_ho button{
             margin-bottom: 13px;
@@ -371,12 +367,45 @@
                     <tr>
                       <td>
                     	   <select name="room_name" style="cursor:pointer;" id="selectRoom">
-                  		      <option value="all">모든 객실</option>
-                  		      <option value="standard">Standard Room</option>
+                    	   <c:choose>
+                    	   <c:when test="${param.searchRoom eq 'all' || param.searchRoom eq null}">
+                  		      	<option value="all">모든 객실</option>
+                  		      	<option value="standard">Standard Room</option>
                     	       <option value="deluxe">Deluxe Room</option>
                     	       <option value="executive">Executive Room</option>
                   		       <option value="suite">Suite Room</option>
-                    	     </select>
+                  		   </c:when>
+                    	   <c:when test="${param.searchRoom eq 'standard'}">
+                  		      	<option value="all">모든 객실</option>
+                  		      	<option value="standard" selected>Standard Room</option>
+                    	       <option value="deluxe">Deluxe Room</option>
+                    	       <option value="executive">Executive Room</option>
+                  		       <option value="suite">Suite Room</option>
+                  		   </c:when>
+                  		   <c:when test="${param.searchRoom eq 'deluxe'}">
+                  		      	<option value="all">모든 객실</option>
+                  		      	<option value="standard">Standard Room</option>
+                    	       <option value="deluxe" selected>Deluxe Room</option>
+                    	       <option value="executive">Executive Room</option>
+                  		       <option value="suite">Suite Room</option>
+                  		   </c:when>
+                  		   <c:when test="${param.searchRoom eq 'executive'}">
+                  		      	<option value="all">모든 객실</option>
+                  		      	<option value="standard">Standard Room</option>
+                    	       <option value="deluxe">Deluxe Room</option>
+                    	       <option value="executive" selected>Executive Room</option>
+                  		       <option value="suite">Suite Room</option>
+                  		   </c:when>
+                  		   <c:when test="${param.searchRoom eq 'suite'}">
+                  		      	<option value="all">모든 객실</option>
+                  		      	<option value="standard">Standard Room</option>
+                    	       <option value="deluxe">Deluxe Room</option>
+                    	       <option value="executive">Executive Room</option>
+                  		       <option value="suite" selected>Suite Room</option>
+                  		   </c:when>
+                  		   
+                  		   </c:choose>
+                    	   </select>
                       </td>
                       <td>
                         <input type="text" id="reservationCheckIn" value="">
@@ -419,33 +448,37 @@
 	                    	</div>
                   		</td>
                   		<td><b>100,000 원~</b><br> <!--1박 가격-->
-	                    	1박<br>
-	                    	n개의 객실이 있습니다.
+	                    	<c:forEach items="${roomListCnt}" var="itemCnt">
+	                    	<c:if test="${itemCnt.roomType eq 'standard'}">
+	                    		${itemCnt.roomTypeCnt}
+	                    	</c:if>
+	                    	</c:forEach>
+	                    	개의 객실이 있습니다.
 	                  	</td>
                   		<td><button onclick="room_select1();" type="button" class="resroom_btn" id="resroom_btn1">호실 선택 +</button></td>
                 		</tr>
-                		<c:forEach items="${roomList}" var="item">
                 		<tr class="hidden_ho" id="hidden_ho1">
-	                  		<td>
-	                  			<p>${item.roomNo}</p>
-	                  		</td>
-	                  		<td>
-	                  			<p>${item.bedType} bed</p>
-	                  		</td>
-	                  	</tr>
+                		<td><img src="/resources/image/standardroom.jpg" width="200" height="150"><br><b>Standard room</b></td>
+                		<td></td>
+                		<td colspan="2" style="text-align: left">
+                		<c:forEach items="${roomList}" var="item" varStatus="status">	
+                			<c:if test="${item.roomType eq 'standard'}">
+	                  			<br>&emsp;&emsp;⦁&emsp;${item.roomNo} 호
+	                  			&emsp;&emsp;&emsp;&nbsp;${item.bedType} bed
+	                  			<c:if test="${item.bedType eq 'single'}">
+	                  			&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
+	                  			</c:if>
+	                  			<c:if test="${item.bedType eq 'twin'}">
+	                  			&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" onClick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
+	          					</c:if>
+                  				<hr style="border: solid 1px #f3f3f3;" width=420px align="left">
+	                  		</c:if>
 	                  	</c:forEach>
-<!--                   		<td>
-		                    <p> single bed</p>
-		                    <p> twin bed</p>
-		                    <p> family twin</p>
-                  		</td>
-                  		<td>
-	                    	<button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
-	                    	<button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
-	                    	<button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
-	                  	</td> -->
+	                  	</td>
+	                  	</tr>
 		         	</c:when>
-		         	
+		         </c:choose>
+		         <c:choose>
 		         	<c:when test="${param.searchRoom eq 'all' || param.searchRoom eq 'deluxe'}">
 			         	<tr class="hang">
 	                  	    <td><img src="/resources/image/deluxe room.jpg" width="200" height="150"></td>
@@ -458,30 +491,37 @@
 	                    	</div>
 	                  		</td>
 		                  	<td><b>160,000 원~</b><br> <!--1박 가격-->
-			                    1박<br>
-			                    n개의 객실이 있습니다.
+		                    	<c:forEach items="${roomListCnt}" var="itemCnt">
+		                    	<c:if test="${itemCnt.roomType eq 'deluxe'}">
+		                    		${itemCnt.roomTypeCnt}
+		                    	</c:if>
+		                    	</c:forEach>
+			                    개의 객실이 있습니다.
 		                  	</td>
 	                  		<td><button onclick="room_select2();" type="button" class="resroom_btn" id="resroom_btn2">호실 선택 +</button></td>
 	                	</tr>
                 	  	<tr class="hidden_ho" id="hidden_ho2">
-		                  	<td>
-		                    	<p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;501호</p>
-		                    	<p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;502호</p>
-		                    	<p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;503호</p>
-		                  	</td>
-		                  	<td>
-		                    	<p> single bed</p>
-		                    	<p> twin bed</p>
-		                    	<p> family twin</p>
-		                  	</td>
-		                  	<td>
-		                    	<button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
-		                    	<button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
-		                    	<button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
-		                  	</td>
-	                	</tr>
+                		<td><img src="/resources/image/deluxe room.jpg" width="200" height="150"><br><b>Deluxe room</b></td>
+                		<td></td>
+                		<td colspan="2" style="text-align: left">
+                		<c:forEach items="${roomList}" var="item">	
+                			<c:if test="${item.roomType eq 'deluxe'}">
+	                  			<br>&emsp;&emsp;⦁&emsp;${item.roomNo} 호
+	                  			&emsp;&emsp;&emsp;&nbsp;${item.bedType} bed
+	                  			<c:if test="${item.bedType eq 'single'}">
+	                  			&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
+	                  			</c:if>
+	                  			<c:if test="${item.bedType eq 'twin'}">
+	                  			&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
+	          					</c:if>
+	                  			<hr style="border: solid 1px #f3f3f3;" width=420px align="left">
+	                  		</c:if>
+	                  	</c:forEach>
+	                  	</td>
+	                  	</tr>
                 	</c:when>
-                	
+		         </c:choose>
+		         <c:choose>	                	
                 	<c:when test="${param.searchRoom eq 'all' || param.searchRoom eq 'executive'}">
 		        		<tr class="hang">
 	                  		<td><img src="/resources/image/executive room.jpg" width="200" height="150"></td>
@@ -495,30 +535,37 @@
 	                    	</div>
 	                  		</td>
 	                  		<td><b>250,000 원~</b><br> <!--1박 가격-->
-	                    		1박<br>
-	                    		n개의 객실이 있습니다.
+		                    	<c:forEach items="${roomListCnt}" var="itemCnt">
+		                    	<c:if test="${itemCnt.roomType eq 'executive'}">
+		                    		${itemCnt.roomTypeCnt}
+		                    	</c:if>
+		                    	</c:forEach>
+	                    		개의 객실이 있습니다.
 	                  		</td>
 	                  		<td><button onclick="room_select3();" type="button" class="resroom_btn" id="resroom_btn3">호실 선택 +</button></td>
 	                	</tr>
 	                	<tr class="hidden_ho" id="hidden_ho3">
-		                  	<td>
-		                    	<p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;801호</p>
-		                    	<p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;802호</p>
-		                    	<p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;803호</p>
-		                  	</td>
-		                  	<td>
-		                    	<p> single bed</p>
-		                    	<p> twin bed</p>
-		                    	<p> family twin</p>
-		                  	</td>
-		                  	<td>
-		                    	<button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
-		                    	<button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
-		                    	<button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
-		                  	</td>
-	                	</tr>
+                		<td><img src="/resources/image/executive room.jpg" width="200" height="150"><br><b>Executive room</b></td>
+                		<td></td>
+                		<td colspan="2" style="text-align: left">
+                		<c:forEach items="${roomList}" var="item">	
+                			<c:if test="${item.roomType eq 'executive'}">
+	                  			<br>&emsp;&emsp;⦁&emsp;${item.roomNo} 호
+	                  			&emsp;&emsp;&emsp;&nbsp;${item.bedType} bed
+	                  			<c:if test="${item.bedType eq 'single'}">
+	                  			&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
+	                  			</c:if>
+	                  			<c:if test="${item.bedType eq 'twin'}">
+	                  			&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
+	          					</c:if>
+	                  			<hr style="border: solid 1px #f3f3f3;" width=420px align="left">
+	                  		</c:if>
+	                  	</c:forEach>
+	                  	</td>
+	                  	</tr>
 	                </c:when>
-	                
+		         </c:choose>
+		         <c:choose>		                
 	                <c:when test="${param.searchRoom eq 'all' || param.searchRoom eq 'suite'}">
 		        		<tr class="hang">
                   			<td><img src="/resources/image/suiteroom.jpg" width="200" height="150"></td>
@@ -532,36 +579,42 @@
                     		</div>
                  			</td>
                   			<td><b>350,000 원~</b><br> <!--1박 가격-->
-                    			1박<br>
-                    			n개의 객실이 있습니다.
+		                    	<c:forEach items="${roomListCnt}" var="itemCnt">
+		                    	<c:if test="${itemCnt.roomType eq 'suite'}">
+		                    		${itemCnt.roomTypeCnt}
+		                    	</c:if>
+		                    	</c:forEach>
+                    			개의 객실이 있습니다.
                   			</td>
                   			<td><button onclick="room_select4();" type="button" class="resroom_btn" id="resroom_btn4">호실 선택 +</button></td>
                 		</tr>
                 		<tr class="hidden_ho" id="hidden_ho4">
-	                  		<td>
-	                    		<p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;1101호</p>
-	                    		<p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;1102호</p>
-	                    		<p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;1103호</p>
-	                  		</td>
-                  			<td>
-                    			<p> single bed</p>
-                    			<p> twin bed</p>
-                    			<p> family twin</p>
-                  			</td>
-                  			<td>
-                    			<button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
-                    			<button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
-                    			<button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
-                  			</td>
-                		</tr>
+                		<td><img src="/resources/image/suiteroom.jpg" width="200" height="150"><br><b>Suite room</b></td>
+                		<td></td>
+                		<td colspan="2" style="text-align: left">
+                		<c:forEach items="${roomList}" var="item">	
+                			<c:if test="${item.roomType eq 'suite'}">
+	                  			<br>&emsp;&emsp;⦁&emsp;${item.roomNo} 호
+	                  			&emsp;&emsp;&emsp;&nbsp;${item.bedType} bed
+	                  			<c:if test="${item.bedType eq 'single'}">
+	                  			&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
+	                  			</c:if>
+	                  			<c:if test="${item.bedType eq 'twin'}">
+	                  			&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
+	          					</c:if>
+	                  			<hr style="border: solid 1px #f3f3f3;" width=420px align="left">
+	                  		</c:if>
+	                  	</c:forEach>
+	                  	</td>
+	                  	</tr>
                 	</c:when>
-                	<c:otherwise>
+                	<c:when test="${param.searchRoom eq null}">
 		        		<tr class="empty">
                   			<td align="center">
 								예약을 원하시는 객실, 날짜를 선택해주세요.
                   			</td>
                 		</tr>
-                	</c:otherwise>
+                	</c:when>
 		        </c:choose>
 
               </tbody>

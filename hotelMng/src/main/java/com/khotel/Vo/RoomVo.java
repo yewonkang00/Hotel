@@ -12,6 +12,7 @@ public class RoomVo {
 	private String RoomView = null;
 	private String Composition = null;
 	private String BedType = null;
+	private int RoomTypeCnt = 0;
 	
 	public int getRoomNo() {
 		return RoomNo;
@@ -78,6 +79,12 @@ public class RoomVo {
 	}
 	public void setComposition(String composition) {
 		Composition = composition;
+	}
+	public int getRoomTypeCnt() {
+		return RoomTypeCnt;
+	}
+	public void setRoomTypeCnt(int roomTypeCnt) {
+		RoomTypeCnt = roomTypeCnt;
 	}
 
 	

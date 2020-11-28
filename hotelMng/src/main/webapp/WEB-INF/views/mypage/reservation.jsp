@@ -2,7 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page import="java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -142,14 +141,14 @@
       		<td>${item.roomCode}</td>
       		<td>${item.breakfast}</td>
       		<td>${item.totalPrice}</td>
-      		<jsp:useBean id="today" class="java.util.Date" />
-			<fmt:formatDate var="today" value="${today}" pattern="yyyyMMdd"/>
+			<c:set var="now" value="<%=new java.util.Date()%>" />
+			<c:set var="today"><fmt:formatDate value="${now}" pattern="yyyyMMdd" /></c:set> 
       		<c:set var="CheckIn" value="${item.reservationCheckIn}"/>
       		<c:if test="${CheckIn > today}">
       			<td><input type="button" value="예약취소" class="submit-btn" onClick="javascript:rescancel('${item.reservationCode}')"></td>
 			</c:if>
 			<c:if test="${CheckIn <= today}">
-      			<td><input type="button" value="취소불가" class="submit-btn"></td>
+      			<td><input type="button" value="취소불가" class="submit-btn" onClick="javascript:alert('당일 취소는 불가합니다!')"></td>
 			</c:if>
       	</tr>
       	</c:forEach>

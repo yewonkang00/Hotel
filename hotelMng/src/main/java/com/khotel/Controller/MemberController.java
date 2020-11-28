@@ -244,6 +244,7 @@ public class MemberController {
 	@RequestMapping(value = "/searchRoomAction.do", method = RequestMethod.GET)
 	public String searchRoomAction(Model model, HttpServletRequest request) throws Exception {
 		List<RoomVo> roomList = null;
+		List<RoomVo> roomListCnt = null;
 		ReservationVo reservation = new ReservationVo();
 		String searchFrom  =  request.getParameter("searchFrom");
 		String searchTo = request.getParameter("searchTo");
@@ -257,21 +258,48 @@ public class MemberController {
 		try {
 			if(searchRoom.equals("all")) {
 				roomList = roomService.searchRoomList(reservation);
+				roomListCnt = roomService.searchRoomListCnt(reservation);
 			}
 			else {
 				reservation.setRoomType(searchRoom);
 				roomList = roomService.searchSelectRoomList(reservation);
+				roomListCnt = roomService.searchSelectRoomListCnt(reservation);
 			}
 		} catch (Exception e) {
 			
 		}
 		System.out.println(roomList);
+		System.out.println(roomListCnt);
 		model.addAttribute("searchFrom",searchFrom);
 		model.addAttribute("searchTo",searchTo);
 		model.addAttribute("roomList", roomList );
+		model.addAttribute("roomListCnt", roomListCnt );
 		//model.addAttribute("searchRoom", searchRoom);
 		return "/reservation/res";
 	}
+	
+	//예약페이지
+		@RequestMapping(value = "/reservate.do", method = RequestMethod.GET)
+		public String reservate(Model model, HttpServletRequest request) throws Exception {
+			MemberVo member = new MemberVo();
+			RoomVo room = new RoomVo();
+			RoomVo roomVo = new RoomVo();
+			HttpSession session = request.getSession();
+			member = (MemberVo) session.getAttribute("member");
+
+			int roomNo = Integer.parseInt(request.getParameter("rno"));
+			String checkIn = request.getParameter("checkIn");
+			String checkOut = request.getParameter("checkOut");
+			
+			room.setRoomNo(roomNo);
+			roomVo = roomService.selectRoom(room);
+			
+			model.addAttribute("checkOut", checkOut);
+			model.addAttribute("checkIn", checkIn);
+			model.addAttribute("member", member);
+			model.addAttribute("room", roomVo);
+			return "/reservation/res2";
+		}
 	
 	//달력에 예약 현황 표시
 	@RequestMapping(value = "/reservation.do", method = RequestMethod.GET)
