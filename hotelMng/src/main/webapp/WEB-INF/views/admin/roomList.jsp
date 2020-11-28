@@ -18,7 +18,15 @@
         <title>Room List</title>
 
     </head>
-
+	<script type="text/javascript">
+			
+		var sessionLevel = '${member.userLevel}';
+		
+		if(sessionLevel == null || sessionLevel == 'null' || sessionLevel=="" || sessionLevel == "1"){
+			alert("관리자 권한이 없습니다.");
+			location.href="/main";
+		}
+	</script>
     <body>
         <div class=header>
             <a href="/admin"><img src="/resources/image/moon.png" width="100" height="100">
@@ -76,7 +84,7 @@
 
                 <tr>
                     <td>${idx.index+1}</td>
-                    <td>${item.roomNo}</td>
+                    <td><a href="/admin/roomDetail.do?rno=${item.roomNo}">${item.roomNo}</a></td>
                     <td>${item.roomType}</td>
                     <td>${item.bedType}</td>
                     <td>${item.roomMaxPeople}</td>

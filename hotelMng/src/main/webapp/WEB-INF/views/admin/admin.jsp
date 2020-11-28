@@ -75,6 +75,14 @@
                 font-size: 18px;
                 color: #333333
             }
+            .banner_main{
+                background-image: url(/resources/image/outdoor.jpg);
+                background-size: 1920px 850px;
+                margin-top: auto;
+                min-width: 700px;
+                height: 770px;
+                padding: 8px;
+            }
 
         </style>
         <title>Welcom Delluna!</title>
@@ -92,6 +100,7 @@
     <body>
         <div class=header>
             <a href="/admin"><img src="/resources/image/moon.png" width="100" height="100">
+            
             <nav>
                 <span><a></a></span>
                 <span><a href="/admin/memberList">회원 List</a></span>
@@ -107,9 +116,7 @@
             </a>
             
         </div>
-
-        <div class=banner>
-        </div>
+        <div class=banner_main></div>
         <div class=contents>
             <p> 안녕하세요</p>
             <p> 가나다라</p>

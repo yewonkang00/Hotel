@@ -269,7 +269,6 @@ function detail(reservationCode) {
         <div class=header>
             <a href="/admin"><img src="/resources/image/moon.png" width="100" height="100">
             <nav>
-                <span><a></a></span>
                 <span><a href="/admin/memberList">회원 List</a></span>
                 <span><a href="/admin/roomList">객실 List</a></span>
                 <span><a href="/admin/reservationList">예약 List</a></span>
@@ -282,10 +281,8 @@ function detail(reservationCode) {
             </nav>
             
         </div>
- 
-        </div>
         <!-- 달력 -->
-		  <form name="calendarFrm" id="calendarFrm" action="" method="GET">
+		<form name="calendarFrm" id="calendarFrm" action="" method="GET">
 		
 		<div class="calendar" >
 		

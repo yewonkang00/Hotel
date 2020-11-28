@@ -153,63 +153,33 @@
     <p>
     <p>
     <div class=contents>
-    	<p style="text-align:center;">예약 상세</p>
+    	<p style="text-align:center;">객실 상세</p>
     	<table border="1">
         <tr>
-	        <td>Code</td>
-	        <td>User ID</td>
 	        <td>Room No</td>
-	        <td>People Num</td>
-	        <td>Check In</td>
-	        <td>Check Out</td>
-	        <td>Days</td>
-	        <td>Breakfast</td>
-	        <td>Reservation Date</td>
+	        <td>Room Type</td>
+	        <td>Bed Type</td>
+	        <td>Max People</td>
+	        <td>Room View</td>
+	        <td>Composition</td>
+	        <td>Things</td>
+	        <td>Fee</td>
+	        <td>Manager</td>
         </tr>
 		<tr>
-		<td>${reservationVo.reservationCode}</td>
-		<td>${reservationVo.userId}</td>
-		<td>${reservationVo.roomCode}</td>
-		<td>${reservationVo.reservationPeopleNumber}</td>
-		<td>${reservationVo.reservationCheckIn}</td>
-		<td>
-		<script type="text/javascript">
-		document.write(dateAdd('${reservationVo.reservationCheckOut}',1));
-		</script>
-		</td>
-		<td>${reservationVo.reservationDays}</td>
-		<td>${reservationVo.breakfast}</td>
-		<td>${reservationVo.reservationDate}</td>
+		<td>${roomDetail.roomNo}</td>
+		<td>${roomDetail.roomType}</td>
+		<td>${roomDetail.bedType}</td>
+		<td>${roomDetail.roomMaxPeople}</td>
+		<td>${roomDetail.roomView}</td>
+		<td>${roomDetail.composition}</td>
+		<td>${roomDetail.things}</td>
+		<td>${roomDetail.fee}</td>
+		<td>${roomDetail.managerCode}</td>
+		</tr>
+		</table>
 		
-		</tr>
-		</table>
-		<br><br>
-		<p style="text-align:center;">요구사항</p>
-		<table border="1">
-		<tr>
-			<td>${reservationVo.reservationMemo}</td>
-		</tr>
-		</table>
-		<br><br><br>
-		<p style="text-align:center;">결제 상세</p>
-		<table border="1">
-        <tr>
-        	<td>Total Price</td>
-	        <td>Card</td>
-	        <td>Card Num</td>
-	        <td>Card Valid</td>
-	        <td>Mileage</td>
-        </tr>
-		<tr>
-		<td>${reservationVo.totalPrice}</td>
-		<td>${reservationVo.card}</td>
-		<td>${reservationVo.cardNum}</td>
-		<td>${reservationVo.cardValid}</td>
-		<td>${reservationVo.mileage}</td>
-		</tr>
-		</table>
-		<br>
-		<input type="button" value="예약취소" class="submit-btn" onClick="javascript:rescancel('${reservationVo.reservationCode}')">
+		
     </div>
 
 </body>

@@ -25,38 +25,43 @@
 		location.href="/main";
 	}
 	
-  function updateLevel(id, level) {
-	  var UserLevel = level;
-	  var UserId = id;
-	  if(level == '1') {
-		  var confirm_test = confirm("관리자로 변경하시겠습니까?");
-		  if(confirm_test == true) {
-			  UserLevel ='2';	
+	  function updateLevel(id, level) {
+		  var UserLevel = level;
+		  var UserId = id;
+		  if(level == '1') {
+			  var confirm_test = confirm("관리자로 변경하시겠습니까?");
+			  if(confirm_test == true) {
+				  UserLevel ='2';	
+			  }
 		  }
-	  }
-	  else if(level == '2') {
-		  var confirm_test = confirm("고객으로 변경하시겠습니까?");
-		  if(confirm_test == true) {
-			  UserLevel ='1';	
+		  else if(level == '2') {
+			  var confirm_test = confirm("고객으로 변경하시겠습니까?");
+			  if(confirm_test == true) {
+				  UserLevel ='1';	
+			  }
 		  }
-	  }
-	  var data = {"UserId" : UserId,
-				"UserLevel" : UserLevel
-		};
-	  $.ajax({
-			type : "POST",
-			url : "/admin/levelAction.do",
-			data : data,
-			datatype : 'json',
-			success : function(data) {
-				var result = data["resultMsg"];
-				if(result == "Success"){
-					alert("변경되었습니다!");
-					location.href="/admin/memberList";
+		  var data = {"UserId" : UserId,
+					"UserLevel" : UserLevel
+			};
+		  $.ajax({
+				type : "POST",
+				url : "/admin/levelAction.do",
+				data : data,
+				datatype : 'json',
+				success : function(data) {
+					var result = data["resultMsg"];
+					if(result == "Success"){
+						alert("변경되었습니다!");
+						location.href="/admin/memberList";
+					}
 				}
-			}
-	})
-  }
+		})
+	  }
+
+	  function memberDetail(id) {
+		var UserId = id;
+		location.href="/admin/memberDetail.do?userId=" + id;
+	  }
   </script>
 
 		<script>
@@ -134,7 +139,7 @@
 			<c:forEach items="${memberList}" var="item" varStatus="idx">
 			<tr>
 				<td>${idx.index+1}</td>
-				<td>${item.userId}</td>
+				<td><a href="javaScript:memberDetail('${item.userId}');">${item.userId}</a></td>
 				<td>${item.userName}</td>
 				<td>${item.userGrade}</td>
 				<td>${fn:substring(item.userPhone,0,3)} - ${fn:substring(item.userPhone,3, 7)} - ${fn:substring(item.userPhone,7,11)}</td>

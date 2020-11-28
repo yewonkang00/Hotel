@@ -99,7 +99,15 @@
   		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
         <title>Welcom Delluna!</title>
-
+		<script type="text/javascript">
+			
+			var sessionLevel = '${member.userLevel}';
+			
+			if(sessionLevel == null || sessionLevel == 'null' || sessionLevel=="" || sessionLevel == "1"){
+				alert("관리자 권한이 없습니다.");
+				location.href="/main";
+			}
+		</script>
         <script type="text/javascript">
 
     	function dateAdd(sDate, nNum) {
@@ -197,20 +205,7 @@
 			}
 			var agree1 = $('#agree1').val();
 			var agree2 = $('#agree2').val();
-			
-			alert(Id);
-			alert(ReservationDays);
-			alert(ReservationPeopleNumber);
-			alert(ReservationCheckIn);
-			alert(RoomCode);
-			alert(ReservationMemo);
-			alert(ReservationCheckOut);
-			alert(Breakfast);
-			alert(TotalPrice);
-			alert(Mileage);
-			alert(Card);
-			alert(CardNum);
-			alert(CardValid);
+			var RoomType = '${room.roomType}';
 			
 			
         	var data = {"UserId" : Id,
@@ -225,7 +220,8 @@
                     "Mileage" : Mileage,
                     "Card" : Card,
                     "CardNum" : CardNum,
-                    "CardValid" : CardValid
+                    "CardValid" : CardValid,
+                    "RoomType" : RoomType
         	};
 
         	if(ReservationDays == "-박") {
@@ -266,7 +262,22 @@
         </script>
     </head>
     <body>
-      <%@include file = "/WEB-INF/views/layout/header.jsp" %>
+      <div class=header>
+            <a href="/admin"><img src="/resources/image/moon.png" width="100" height="100">
+            <nav>
+                <span><a></a></span>
+                <span><a href="/admin/memberList">회원 List</a></span>
+                <span><a href="/admin/roomList">객실 List</a></span>
+                <span><a href="/admin/reservationList">예약 List</a></span>
+                <span>
+		        	<c:choose>
+		  				<c:when test="${member != null}"><a href="/logout.do">로그아웃</a></c:when>
+		   				<c:otherwise><a href="/login.do">로그인</a></c:otherwise>
+		   			</c:choose>
+       			</span>
+            </nav>
+            
+        </div>
       <table align=center><tr><td>
       <div class=contain>
         <div class=res_content>

@@ -6,10 +6,11 @@ public class RoomVo {
 	private String RoomType = null;
 	private int RoomMaxPeople = 0;
 	private String Fee = null;
-	private String RoomThings = null;
+	private String Things = null;
 	private String RoomSize = null;
 	private int ManagerCode = 0;
 	private String RoomView = null;
+	private String Composition = null;
 	private String BedType = null;
 	
 	public int getRoomNo() {
@@ -36,11 +37,11 @@ public class RoomVo {
 	public void setRoomMaxPeople(int roomMaxPeople) {
 		RoomMaxPeople = roomMaxPeople;
 	}
-	public String getRoomThings() {
-		return RoomThings;
+	public String getThings() {
+		return Things;
 	}
-	public void setRoomThings(String roomThings) {
-		RoomThings = roomThings;
+	public void setThings(String things) {
+		Things = things;
 	}
 	public String getRoomSize() {
 		return RoomSize;
@@ -71,6 +72,12 @@ public class RoomVo {
 	}
 	public void setFee(String fee) {
 		Fee = fee;
+	}
+	public String getComposition() {
+		return Composition;
+	}
+	public void setComposition(String composition) {
+		Composition = composition;
 	}
 
 	

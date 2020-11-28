@@ -114,20 +114,18 @@
 				return today;
 	        } 
 
-			function rescancel(reservationCode) {
-				var reservationCode = reservationCode;
-				var data = {"reservationCode" : reservationCode};
-				var confirm_test = confirm("예약을 취소하시겠습니까?");
+	        function memberDelete(userId) {
+				var UserId = userId;
+				var confirm_test = confirm("회원을 삭제하시겠습니까?");
 				if(confirm_test == true) {
-					location.href="/reservationCancel?rcode="+reservationCode;
-					alert("취소되었습니다.");
-					location.href="/admin/reservation.do?rno="+${reservationVo.roomCode};
+					location.href="/admin/memberDelete?userId=${memberDetail.userId}";
+					alert("삭제되었습니다.");
+					location.href="/admin/memberList";
 				}
 				else{
-				location.href="/admin/reservationDetailAction.do?reservationCode=" + reservationCode;
+				location.href="/admin/memberDetail.do?userId=${memberDetail.userId}";
 				}
-				
-	        }
+		    }
 	        
 		</script>
 
@@ -153,64 +151,65 @@
     <p>
     <p>
     <div class=contents>
-    	<p style="text-align:center;">예약 상세</p>
+    	<p style="text-align:center;">회원 정보</p>
     	<table border="1">
         <tr>
-	        <td>Code</td>
 	        <td>User ID</td>
-	        <td>Room No</td>
-	        <td>People Num</td>
-	        <td>Check In</td>
-	        <td>Check Out</td>
-	        <td>Days</td>
-	        <td>Breakfast</td>
-	        <td>Reservation Date</td>
+	        <td>User Name</td>
+	        <td>Grade</td>
+	        <td>Phone Num</td>
+	        <td>Email</td>
+	        <td>Mileage</td>
+	        <td>Birth</td>
         </tr>
 		<tr>
-		<td>${reservationVo.reservationCode}</td>
-		<td>${reservationVo.userId}</td>
-		<td>${reservationVo.roomCode}</td>
+		<td>${memberDetail.userId}</td>
+		<td>${memberDetail.userName}</td>
+		<td>${memberDetail.userGrade}</td>
+		<td>${memberDetail.userPhone}</td>
+		<td>${memberDetail.userEmail}</td>
+		<td>${memberDetail.userMile}</td>
+		<td>${memberDetail.userBirth}</td>
+		<%-- <td>${reservationVo.userId}</td>
 		<td>${reservationVo.reservationPeopleNumber}</td>
 		<td>${reservationVo.reservationCheckIn}</td>
-		<td>
-		<script type="text/javascript">
-		document.write(dateAdd('${reservationVo.reservationCheckOut}',1));
-		</script>
-		</td>
-		<td>${reservationVo.reservationDays}</td>
-		<td>${reservationVo.breakfast}</td>
 		<td>${reservationVo.reservationDate}</td>
-		
-		</tr>
-		</table>
-		<br><br>
-		<p style="text-align:center;">요구사항</p>
-		<table border="1">
-		<tr>
-			<td>${reservationVo.reservationMemo}</td>
-		</tr>
-		</table>
-		<br><br><br>
-		<p style="text-align:center;">결제 상세</p>
-		<table border="1">
-        <tr>
-        	<td>Total Price</td>
-	        <td>Card</td>
-	        <td>Card Num</td>
-	        <td>Card Valid</td>
-	        <td>Mileage</td>
-        </tr>
-		<tr>
-		<td>${reservationVo.totalPrice}</td>
-		<td>${reservationVo.card}</td>
-		<td>${reservationVo.cardNum}</td>
-		<td>${reservationVo.cardValid}</td>
-		<td>${reservationVo.mileage}</td>
+		<td>${reservationVo.reservationDays}</td>
+		<td>${reservationVo.reservationMemo}</td>
+		<td>${reservationVo.breakfast}</td>
+		<td>${reservationVo.totalPrice}</td> --%>
 		</tr>
 		</table>
 		<br>
-		<input type="button" value="예약취소" class="submit-btn" onClick="javascript:rescancel('${reservationVo.reservationCode}')">
-    </div>
-
+		<input type="button" value="회원삭제" class="submit-btn" onClick="javaScript:memberDelete('${memberDetail.userId}')">
+		<br><br>
+		<p style="text-align:center;">예약 정보</p>
+		<table border="1">
+		<thead>
+        <tr>
+        	<td>Reservation Code</td>
+	        <td>CheckIn</td>
+	        <td>CheckOut</td>
+	        <td>PeopleNum</td>
+	        <td>Days</td>
+	        <td>Breakfast</td>
+	        <td>Total Price</td>
+	        <td>Memo</td>
+        </tr>
+        </thead>
+		<c:forEach items="${resDetail}" var="item" varStatus="idx">
+		<tr>
+		<td><a href="/admin/reservationDetailAction.do?reservationCode=${item.reservationCode}";>${item.reservationCode}</td>
+		<td>${item.reservationCheckIn}</td>
+		<td>${item.reservationCheckOut}</td>
+		<td>${item.reservationPeopleNumber}</td>
+		<td>${item.reservationDays}</td>
+		<td>${item.breakfast}</td>
+		<td>${item.totalPrice}</td>
+		<td>${item.reservationMemo}</td>
+		</tr>
+		</c:forEach>
+		</table>
+	</div>
 </body>
 </html>
