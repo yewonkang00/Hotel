@@ -149,6 +149,14 @@
 
    		$(document).ready(function() {
    	   		
+			var total = parseInt(roomprice());
+			var tax = Math.floor(parseInt(total) * 0.1);
+			var finish = parseInt(tax) + parseInt(total);
+			var Mileage = Math.floor(parseInt(finish) * 0.01);
+			$('#AdditionalTax').html("<span id='AdditionalTax'>" + tax + " 원</span>");
+			$('#TotalPrice').html("<span id='TotalPrice'>" + finish + " 원</span>");
+			$('#Mileage').html("<span id='Mileage'>" + Mileage + " p</span>");
+			  	   		
 	 		$("#Breakfast").click(function() {
 				if($("#Breakfast").is(":checked")) {
 					var price = ($('#ReservationPeopleNumber').val() * 20000);
@@ -443,10 +451,10 @@
 							<th scope="row">유효기간</th>
 							<td class="fm">
 								<select class="card_term" title="년" name="card_termYY" id="CardYY">
-								<option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option><option value="2025">2025</option><option value="2026">2026</option><option value="2027">2027</option><option value="2028">2028</option><option value="2029">2029</option><option value="2030">2030</option></select>
+								<option value="">--<option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option><option value="2025">2025</option><option value="2026">2026</option><option value="2027">2027</option><option value="2028">2028</option><option value="2029">2029</option><option value="2030">2030</option></select>
 								<span class="fmTxt-1">년</span>
 								<select class="card_term" title="월" name="card_termMM" id="CardMM">
-								<option value="01">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option><option value="05">05</option><option value="06">06</option><option value="07">07</option><option value="08">08</option><option value="09">09</option><option value="10">10</option><option value="11" selected="">11</option><option value="12">12</option></select>
+								<option value="">--<option value="01">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option><option value="05">05</option><option value="06">06</option><option value="07">07</option><option value="08">08</option><option value="09">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select>
 								<span class="fmTxt-1">월</span>
 							</td>
 						</tr>

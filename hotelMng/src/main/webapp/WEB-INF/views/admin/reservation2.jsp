@@ -187,7 +187,7 @@
 
 
         function reservation() {
-        	var Id = '${member.userId}';
+        	var Id = $('#UserId').val();
         	var ReservationDays = $('#ReservationDays').val();
         	var ReservationPeopleNumber = $('#ReservationPeopleNumber').val();
         	var ReservationCheckIn = '${resdate}';
@@ -308,19 +308,19 @@
 						<tr>
 							<th scope="row">이름</th>
 							<td class="fm" colspan="3">
-								<span id="UserName">${member.userName} (${member.userId})</span>
+								<span><input type="text" id="UserId" size="20"></span>
 							</td>
 						</tr>
 						<tr>
 							<th scope="row">연락처</th>
 							<td class="fm" colspan="3">
-								<span id="UserPhone">${member.userPhone}</span>
+								<span><input type="text" id="UserPhone" size="20"></span>
 							</td>
 						</tr>
 						<tr>
 							<th scope="row">이메일</th>
 							<td class="fm" colspan="3">
-								<span id="UserEmail">${member.userEmail}</span>
+								<span><input type="text" id="UserEmail" size="20"></span>
 							</td>
 						</tr>
 						<tr>
