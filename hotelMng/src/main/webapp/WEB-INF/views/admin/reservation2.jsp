@@ -136,7 +136,7 @@
     	$(document).ready(function() {
 			$('#ReservationDays').on('mouseup', function(e) {
 				var price = ('${room.fee}' * $('#ReservationDays').val());
-				$('#RoomPrice').html("<span id='RoomPrice'>" + price + " 원</span>")
+				$('#RoomPrice').html("<span id='RoomPrice'>" + price + " 원</span>");
 				var total = parseInt($('#RoomPrice').text()) + parseInt($('#AddPrice').text());
 				var tax = Math.floor(parseInt(total) * 0.1);
 				var finish = parseInt(tax) + parseInt(total);
