@@ -8,7 +8,34 @@
     <link rel="stylesheet" href="/resources/css/style_room.css" type="text/css">
     <link rel="stylesheet" href="/resources/css/styleintro_hotel.css" type="text/css">
     <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
-
+    <style>
+        .room_button {
+    		background-color: #D4C1A1;
+   			border-radius: 3px;
+    		border: 1px solid #D4C1A1;
+    		display: inline-block;
+    		cursor: pointer;
+    		color: #ffffff;
+    		font-size: 15px;
+    		font-weight: bold;
+    		padding: 8px 24px;
+    		text-decoration: none;
+    		text-align: center;
+   		 	justify-content: center;
+    		align-items: center;
+    		margin-left: 350px;
+    		position: absolute;
+    		top: 830px;
+    		right: 550px;
+		}
+		.room_button:hover {
+     		background-color:#dbb790;
+ 		}
+		.room_button:active {
+     		position:relative;
+	 		top:1px;
+  		}
+    </style>
     <title>Deluxe room</title>
 </head>
 <body>
@@ -45,9 +72,10 @@
         <p> 디럭스룸은 다른 호텔의 동급 객실보다 여유로운 공간을 제공합니다.<br/>
             디럭스룸에서 비즈니스와 여행의 여유로움을 즐기십시오.<br/>
             문의전화 02-0000-0000<br/>
-            전망 : 시티 뷰 | 침대 : 더블 / 트윈 / 트리플 | 크기 : 45m<br/>
+            전망 : 시티 뷰 | 침대 : 더블 / 트윈 / 트리플 | 크기 : 45m^2<br/>
             룸 구성 : 침실 1, 욕실 1, 화장실 1<br/>
         </p>
+        <a href="/searchRoom.do" class="room_button">예약하기</a>
         <table class=roomtb>
             <thead>
             <tr>
