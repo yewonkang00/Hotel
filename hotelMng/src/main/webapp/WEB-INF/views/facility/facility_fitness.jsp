@@ -40,6 +40,11 @@
                     <span>Banquet Hall</span>
                 </a>
             </li>
+            <li class="m5">
+            	<a href="/facility_restaurant.do">
+            		<span>Restaurant</span>
+            	</a>
+            </li>
         </ul>
     </div>
     <div class=contents>

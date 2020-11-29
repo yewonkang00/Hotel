@@ -89,4 +89,18 @@ public class FacilityController {
 
         return "/facility/facility_hall";
     }
+    
+    @RequestMapping(value = "/facility_restaurant.do", method = RequestMethod.GET)
+    public String facility_restaurant(Locale locale, Model model) {
+        logger.info("Welcome home! The client locale is {}.", locale);
+
+        Date date = new Date();
+        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+
+        String formattedDate = dateFormat.format(date);
+
+        model.addAttribute("serverTime", formattedDate );
+
+        return "/facility/facility_restaurant";
+    }
 }
