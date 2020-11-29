@@ -6,37 +6,8 @@
 <html lang="ko">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
-    <style>
-        body {
-          background-color: #EEEFF1;
-        }
-        .contain {
-            background-color: #EEEFF1;
-        }
-        .finish {
-            background-color: #EEEFF1;
-        }
-      textarea {
-          overflow:auto;
-          vertical-align:top;
-          padding:8px;
-          box-sizing:border-box;
-          border:solid 1px #aaa;
-      }
+    <link rel="stylesheet" href="/resources/css/style_mypage.css" type="text/css">
 
-      table {
-          border-collapse: collapse;
-          border-spacing: 0;
-          table-layout: fixed;
-          border-spacing: 0;
-          width: 100%;
-      }
-      .tbData td {padding:14px 20px 14px 20px;}
-      .tbData tbody th:first-child { border-left:none; }
-      .tb-1 td.fm { padding-top:16px; padding-bottom:16px; }
-
-    </style>
     <title> 예약 확인/취소 </title>
     
     <script type="text/javascript">
@@ -88,47 +59,45 @@
   <%@include file = "/WEB-INF/views/layout/header.jsp" %>
 
   <div class=contain>
-    <div class=left>
+      <div class=left>
           <h2 class=tit>마이 페이지</h2>
-            <ul class=menu>
+          <ul class=menu>
               <li class="m1">
-                <a href="mypage_dbreward.html">
-                  <span>DB 리워즈</span>
-                </a>
+                  <a href="/mypage/reservation">
+                      <span>예약 확인/취소</span>
+                  </a>
               </li>
               <li class="m2">
-                <a href="/mypage/reservation">
-                  <span>예약 확인/취소</span>
-                </a>
+                  <a href="/mypage/memberinfo">
+                      <span>개인 정보</span>
+                  </a>
               </li>
               <li class="m3">
-                <a href="/mypage/memberinfo">
-                  <span>개인 정보</span>
-                </a>
+                  <a href="mypage_qna.html">
+                      <span>문의 내역</span>
+                  </a>
               </li>
-              <li class="m4">
-                <a href="mypage_qna.html">
-                  <span>문의 내역</span>
-                </a>
-              </li>
-            </ul>
-    </div>
+          </ul>
+      </div>
     <div class=contents>
       <h1>예약 확인/취소</h1>
       <h5>*당일 취소 불가</h5>
-      <table border="1">
-      	<tr>
-      	<td>No</td>
-      	<td>체크인</td>
-      	<td>체크아웃</td>
-      	<td>숙박일 수</td>
-      	<td>예약 날짜</td>
-      	<td>예약 호실</td>
-      	<td>조식 여부</td>
-      	<td>결제 금액</td>
-      	<td></td>
-      	<c:forEach items="${reservation}" var="item" varStatus="idx"> 
-      	<tr>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <td>No</td>
+                <td>체크인</td>
+                <td>체크아웃</td>
+                <td>숙박일 수</td>
+                <td>예약 날짜</td>
+                <td>예약 호실</td>
+                <td>조식 여부</td>
+                <td>결제 금액</td>
+                <td></td>
+                <c:forEach items="${reservation}" var="item" varStatus="idx">
+            <tr>
+            </thead>
+
       		<td>${idx.index+1}</td>
       		<td>${item.reservationCheckIn}</td>
       		<td>
