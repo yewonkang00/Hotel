@@ -68,80 +68,72 @@
 
     </head>
 <body>
-	<div class=header>
-            <a href="/admin"><img src="/resources/image/moon.png" width="100" height="100">
-            <nav>
-                <span><a></a></span>
-                <span><a href="/admin/memberList">회원 List</a></span>
-                <span><a href="/admin/roomList">객실 List</a></span>
-                <span><a href="/admin/reservationList">예약 List</a></span>
-                <span>
-		        	<c:choose>
-		  				<c:when test="${member != null}"><a href="/logout.do">로그아웃</a></c:when>
-		   				<c:otherwise><a href="/login.do">로그인</a></c:otherwise>
-		   			</c:choose>
-       			</span>
-            </nav>
+	<%@include file = "/WEB-INF/views/admin/admin_header.jsp" %>
 
-        </div>
-
-    <p>
-    <p>
     <div class=contents>
     	<p style="text-align:center;">예약 상세</p>
-    	<table border="1">
-        <tr>
-	        <td>Code</td>
-	        <td>User ID</td>
-	        <td>Room No</td>
-	        <td>People Num</td>
-	        <td>Check In</td>
-	        <td>Check Out</td>
-	        <td>Days</td>
-	        <td>Breakfast</td>
-	        <td>Reservation Date</td>
-        </tr>
-		<tr>
-		<td>${reservationVo.reservationCode}</td>
-		<td><a href="/admin/memberDetail.do?userId=${reservationVo.userId}">${reservationVo.userId}</td>
-		<td>${reservationVo.roomCode}</td>
-		<td>${reservationVo.reservationPeopleNumber}</td>
-		<td>${reservationVo.reservationCheckIn}</td>
-		<td>
-		<script type="text/javascript">
-		document.write(dateAdd('${reservationVo.reservationCheckOut}',1));
-		</script>
-		</td>
-		<td>${reservationVo.reservationDays}</td>
-		<td>${reservationVo.breakfast}</td>
-		<td>${reservationVo.reservationDate}</td>
+    	<table class="table table-hover">
+			<thead>
+				<tr>
+					<td>Code</td>
+					<td>User ID</td>
+					<td>Room No</td>
+					<td>People Num</td>
+					<td>Check In</td>
+					<td>Check Out</td>
+					<td>Days</td>
+					<td>Breakfast</td>
+					<td>Reservation Date</td>
+				</tr>
+			</thead>
 
-		</tr>
+			<tr>
+			<td>${reservationVo.reservationCode}</td>
+			<td><a href="/admin/memberDetail.do?userId=${reservationVo.userId}">${reservationVo.userId}</td>
+			<td>${reservationVo.roomCode}</td>
+			<td>${reservationVo.reservationPeopleNumber}</td>
+			<td>${reservationVo.reservationCheckIn}</td>
+			<td>
+			<script type="text/javascript">
+			document.write(dateAdd('${reservationVo.reservationCheckOut}',1));
+			</script>
+			</td>
+			<td>${reservationVo.reservationDays}</td>
+			<td>${reservationVo.breakfast}</td>
+			<td>${reservationVo.reservationDate}</td>
+			</tr>
+
 		</table>
 		<br><br>
 		<p style="text-align:center;">요구사항</p>
-		<table border="1">
-		<tr>
-			<td>${reservationVo.reservationMemo}</td>
-		</tr>
+		<table class="table table-hover">
+			<tr>
+				<td>${reservationVo.reservationMemo}</td>
+			</tr>
 		</table>
+
 		<br><br><br>
+
 		<p style="text-align:center;">결제 상세</p>
-		<table border="1">
-        <tr>
-        	<td>Total Price</td>
-	        <td>Card</td>
-	        <td>Card Num</td>
-	        <td>Card Valid</td>
-	        <td>Mileage</td>
-        </tr>
-		<tr>
-		<td>${reservationVo.totalPrice}</td>
-		<td>${reservationVo.card}</td>
-		<td>${reservationVo.cardNum}</td>
-		<td>${reservationVo.cardValid}</td>
-		<td>${reservationVo.mileage}</td>
-		</tr>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<td>Total Price</td>
+					<td>Card</td>
+					<td>Card Num</td>
+					<td>Card Valid</td>
+					<td>Mileage</td>
+				</tr>
+			</thead>
+
+			<tr>
+			<td>${reservationVo.totalPrice}</td>
+			<td>${reservationVo.card}</td>
+			<td>${reservationVo.cardNum}</td>
+			<td>${reservationVo.cardValid}</td>
+			<td>${reservationVo.mileage}</td>
+			</tr>
+			
 		</table>
 		<br>
 		<input type="button" value="예약취소" class="submit-btn" onClick="javascript:rescancel('${reservationVo.reservationCode}')">
