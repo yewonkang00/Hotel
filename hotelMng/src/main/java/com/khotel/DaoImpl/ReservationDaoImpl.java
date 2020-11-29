@@ -48,6 +48,11 @@ public class ReservationDaoImpl implements ReservationDao{
 	public List<ReservationVo> selectReservationList(ReservationVo reservationVo) throws Exception {
 		return sqlSession.selectList("reservation.selectReservationList", reservationVo);
 	}
+
+	@Override
+	public List<ReservationVo> listReservation() throws Exception {
+		return sqlSession.selectList("reservation.listReservation");
+	}
 	
 	
 }

@@ -16,6 +16,10 @@
 								,Breakfast
 								,TotalPrice
 								,Mileage
+								,Card
+								,CardNum
+								,CardValid
+								,RoomType
 		)
 		
 		VALUES ((select nvl(max(reservationcode)+1,0) from reservation)
@@ -30,6 +34,10 @@
 				, #{Breakfast}
 				, #{TotalPrice}
 				, #{Mileage}
+				, #{Card}
+				, #{CardNum}
+				, #{CardValid}
+				, #{RoomType}
 		)
 	
 	</insert>
@@ -48,10 +56,11 @@
 		DELETE FROM RESERVATION
 		WHERE ReservationCode = #{ReservationCode}
 	</delete>
-
-
-
-
-
+	
+	<select id="listReservation" resultType="ReservationVo">	
+	SELECT *
+	FROM Reservation
+	order by ReservationCode desc
+	</select>
 
 </mapper>

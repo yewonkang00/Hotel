@@ -102,4 +102,10 @@ public class MemberServiceImpl implements MemberService {
 		
 	}
 
+	@Override
+	public void updateGrade(MemberVo memberVo) throws Exception {
+		memberDao.updateGrade(memberVo);
+		
+	}
+
 }

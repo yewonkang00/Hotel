@@ -3,12 +3,6 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <style>
-        * {
-            font-family: 'Noto Sans KR', sans-serif;
-        }
-    </style>
-
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/resources/css/style_room.css" type="text/css">
     <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
@@ -44,7 +38,7 @@
             </ul>
     </div>
     <div class=contents>
-        <h1>Executive Room</h1>
+        <h2 id=gaeyo>Executive Room</h2>
         <img src="/resources/image/executive room.jpg" width="800" height="500">
         <p> 이그제큐티브 객실은 야경이 돋보이는 객실입니다.<br/>
             이그제큐티브 라운지 서비스를 즐기며 편안한 휴식을 취하십시오.<br/>

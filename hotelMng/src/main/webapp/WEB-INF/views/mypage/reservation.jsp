@@ -2,7 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page import="java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -41,6 +40,12 @@
     <title> 예약 확인/취소 </title>
     
     <script type="text/javascript">
+	    var sessionUserId = '${member.userId}';
+	    if(sessionUserId == null || sessionUserId == 'null' || sessionUserId=="" || sessionUserId == "1"){
+	      alert("로그인 후 이용해주세요.");
+	      location.href="/login.do";
+	    }
+    
     	function rescancel(reservationCode) {
     		var reservationCode = reservationCode;
 			var data = {"reservationCode" : reservationCode};
@@ -92,12 +97,12 @@
                 </a>
               </li>
               <li class="m2">
-                <a href="mypage_reservation.html">
+                <a href="/mypage/reservation">
                   <span>예약 확인/취소</span>
                 </a>
               </li>
               <li class="m3">
-                <a href="mypage_personal.html">
+                <a href="/mypage/memberinfo">
                   <span>개인 정보</span>
                 </a>
               </li>
@@ -136,14 +141,14 @@
       		<td>${item.roomCode}</td>
       		<td>${item.breakfast}</td>
       		<td>${item.totalPrice}</td>
-      		<jsp:useBean id="today" class="java.util.Date" />
-			<fmt:formatDate var="today" value="${today}" pattern="yyyyMMdd"/>
+			<c:set var="now" value="<%=new java.util.Date()%>" />
+			<c:set var="today"><fmt:formatDate value="${now}" pattern="yyyyMMdd" /></c:set> 
       		<c:set var="CheckIn" value="${item.reservationCheckIn}"/>
       		<c:if test="${CheckIn > today}">
       			<td><input type="button" value="예약취소" class="submit-btn" onClick="javascript:rescancel('${item.reservationCode}')"></td>
 			</c:if>
 			<c:if test="${CheckIn <= today}">
-      			<td><input type="button" value="취소불가" class="submit-btn"></td>
+      			<td><input type="button" value="취소불가" class="submit-btn" onClick="javascript:alert('당일 취소는 불가합니다!')"></td>
 			</c:if>
       	</tr>
       	</c:forEach>
