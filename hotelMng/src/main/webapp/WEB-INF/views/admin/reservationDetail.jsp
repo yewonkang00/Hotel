@@ -133,7 +133,7 @@
 			<td>${reservationVo.cardValid}</td>
 			<td>${reservationVo.mileage}</td>
 			</tr>
-			
+
 		</table>
 		<br>
 		<input type="button" value="예약취소" class="submit-btn" onClick="javascript:rescancel('${reservationVo.reservationCode}')">

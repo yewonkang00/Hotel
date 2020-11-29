@@ -6,93 +6,103 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
+
         <style>
-        .res_content{
-          display: inline-block;
-          margin-left:100px;
-        }
-        .res_content2{
-          margin:0 auto;
-        }
-        #res_tit{
-          font-size:30px;
-          margin-bottom:30px;
-          font-weight: bolder;
-          text-align: center;
-        }
-        .res2_tit{
-          font-size:20px;
-          margin-top:20px;
-        }
-        #res2_tit{
-          padding-bottom:7px;
-          border-bottom:7px solid  #D4C1A1;
-        }
-        .msgBox{
-          font-size:15px;
-          border:3px solid #ECE6CC;
-          border-radius:8px;
-          background-color:#ECE6CC;
-          margin-bottom:10px;
-          text-align:center;
-          width:975px;
-        }
-        #msg{
-          height:50px;
-        }
-        table{
-          border-collapse: collapse;
-        }
-        .table{
-            border-top:7px solid  #D4C1A1;
-            border-radius:5px;
-        }
-        .table tr{
-          border-bottom: 2px solid #f1f1f1;
-        }
-        .table th{
-          padding-top:20px;
-          padding-bottom:20px;
-          background-color:#f1f1f1;
-        }
-        .table td{
-          padding-left:10px;
-          padding-top:20px;
-          padding-bottom:20px;
-        }
-        .card_com{
-          width:200px;
-        }
-        .card_num{
-          width:35px;
-        }
-        .card_term{
-          width:70px;
-        }
-        .scroll {
-          overflow-x: hidden;
-          overflow-y: scroll;
-          border: solid 1px #aaa;
-          padding-left: 8px;
-          font-size: 14px;
-          box-sizing: border-box;
-          height:145px;
-          width:975px;
-        }
+			body {
+				margin-left:auto;
+				margin-right: auto;
+				padding:0px;
+				background-color: #fbfcf5;
+			}
+			.contain{
+				background-color: #fbfcf5;
+			}
+			.res_content{
+			  display: inline-block;
+			  margin-left:100px;
+			}
+			.res_content2{
+			  margin:0 auto;
+			}
+			#res_tit{
+			  font-size:30px;
+			  margin-bottom:30px;
+			  font-weight: bolder;
+			  text-align: center;
+			}
+			.res2_tit{
+			  font-size:20px;
+			  margin-top:20px;
+			}
+			#res2_tit{
+			  padding-bottom:7px;
+			  border-bottom:7px solid  #D4C1A1;
+			}
+			.msgBox{
+			  font-size:15px;
+			  border:3px solid #ECE6CC;
+			  border-radius:8px;
+			  background-color:#ECE6CC;
+			  margin-bottom:10px;
+			  text-align:center;
+			  width:975px;
+			}
+			#msg{
+			  height:50px;
+			}
+			table{
+			  border-collapse: collapse;
+			}
+			.table{
+				border-top:7px solid  #D4C1A1;
+				border-radius:5px;
+			}
+			.table tr{
+			  border-bottom: 2px solid #f1f1f1;
+			}
+			.table th{
+			  padding-top:20px;
+			  padding-bottom:20px;
+			  background-color:#f1f1f1;
+			}
+			.table td{
+			  padding-left:10px;
+			  padding-top:20px;
+			  padding-bottom:20px;
+			}
+			.card_com{
+			  width:200px;
+			}
+			.card_num{
+			  width:35px;
+			}
+			.card_term{
+			  width:70px;
+			}
+			.scroll {
+			  overflow-x: hidden;
+			  overflow-y: scroll;
+			  border: solid 1px #aaa;
+			  padding-left: 8px;
+			  font-size: 14px;
+			  box-sizing: border-box;
+			  height:145px;
+			  width:975px;
+			}
 
-        #res2_btn{
-          width:100px;
-          height:55px;
-          margin-left:450px;
-          margin-top: 30px;
-          background-color:#D4C1A1;
-          border:none;
-          border-radius:7px;
-        }
-        .totalPricefield{
-          background-color:#ECE6CC;
+			#res2_btn{
+			  width:100px;
+			  height:55px;
+			  margin-left:450px;
+			  margin-top: 30px;
+			  background-color:#D4C1A1;
+			  border:none;
+			  border-radius:7px;
+			}
+			.totalPricefield{
+			  background-color:#ECE6CC;
 
-        }
+			}
         </style>
  		<script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
   		<link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
