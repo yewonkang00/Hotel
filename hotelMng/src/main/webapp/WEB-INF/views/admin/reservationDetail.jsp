@@ -168,7 +168,7 @@
         </tr>
 		<tr>
 		<td>${reservationVo.reservationCode}</td>
-		<td>${reservationVo.userId}</td>
+		<td><a href="/admin/memberDetail.do?userId=${reservationVo.userId}">${reservationVo.userId}</td>
 		<td>${reservationVo.roomCode}</td>
 		<td>${reservationVo.reservationPeopleNumber}</td>
 		<td>${reservationVo.reservationCheckIn}</td>
