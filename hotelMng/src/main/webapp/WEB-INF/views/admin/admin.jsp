@@ -19,7 +19,7 @@
             a {
                 color:#111111;
             }
-            a { text-decoration:none } 
+            a { text-decoration:none }
             .header{
                 margin-left:auto;
                 margin-right: auto;
@@ -55,7 +55,7 @@
                 width: auto;
                 height: 700px;
             }
-            
+
             .contents{
                 width: 1200px;
                 margin-left:auto;
@@ -85,11 +85,11 @@
             }
 
         </style>
-        <title>Welcom Delluna!</title>
-        
+        <title>Admin Page</title>
+
          <script type="text/javascript">
         	var sessionLevel = '${member.userLevel}';
-	
+
 			if(sessionLevel == null || sessionLevel == 'null' || sessionLevel=="" || sessionLevel == "1"){
 				alert("관리자 권한이 없습니다.");
 				location.href="/main";
@@ -100,7 +100,7 @@
     <body>
         <div class=header>
             <a href="/admin"><img src="/resources/image/moon.png" width="100" height="100">
-            
+
             <nav>
                 <span><a></a></span>
                 <span><a href="/admin/memberList">회원 List</a></span>
@@ -114,7 +114,7 @@
        			</span>
             </nav>
             </a>
-            
+
         </div>
         <div class=banner_main></div>
         <div class=contents>
@@ -125,7 +125,7 @@
             <p> 영업시간 : AM 10:00 ~ PM 9:00</p></b>
             <p>
                 <img src="/resources/image/hotel2.jpg" width="300">
-        
+
         <p>
             <a href="reservationqa.html">호텔 예약 문의하기</a></div>
         <div class="finish">

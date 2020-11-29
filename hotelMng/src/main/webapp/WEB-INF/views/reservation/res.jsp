@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"  %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-    
+
 <!DOCTYPE html>
 <html lang="ko">
     <head>
@@ -12,7 +12,7 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
-        <title>Welcom Delluna!</title>
+        <title>Reservation : STEP1</title>
         <style>
           .res_content{
           display: inline-block;
@@ -403,7 +403,7 @@
                     	       <option value="executive">Executive Room</option>
                   		       <option value="suite" selected>Suite Room</option>
                   		   </c:when>
-                  		   
+
                   		   </c:choose>
                     	   </select>
                       </td>
@@ -461,7 +461,7 @@
                 		<td></td>
                 		<td></td>
                 		<td colspan="2" style="text-align: left">
-                		<c:forEach items="${roomList}" var="item" varStatus="status">	
+                		<c:forEach items="${roomList}" var="item" varStatus="status">
                 			<c:if test="${item.roomType eq 'standard'}">
 	                  			<br>&emsp;&emsp;⦁&emsp;${item.roomNo} 호
 	                  			&emsp;&emsp;&emsp;&nbsp;${item.bedType} bed
@@ -504,7 +504,7 @@
                 		<td></td>
                 		<td></td>
                 		<td colspan="2" style="text-align: left">
-                		<c:forEach items="${roomList}" var="item">	
+                		<c:forEach items="${roomList}" var="item">
                 			<c:if test="${item.roomType eq 'deluxe'}">
 	                  			<br>&emsp;&emsp;⦁&emsp;${item.roomNo} 호
 	                  			&emsp;&emsp;&emsp;&nbsp;${item.bedType} bed
@@ -521,7 +521,7 @@
 	                  	</tr>
                 	</c:when>
 		         </c:choose>
-		         <c:choose>	                	
+		         <c:choose>
                 	<c:when test="${param.searchRoom eq 'all' || param.searchRoom eq 'executive'}">
 		        		<tr class="hang">
 	                  		<td><img src="/resources/image/executive room.jpg" width="200" height="150"></td>
@@ -548,7 +548,7 @@
                 		<td></td>
                 		<td></td>
                 		<td colspan="2" style="text-align: left">
-                		<c:forEach items="${roomList}" var="item">	
+                		<c:forEach items="${roomList}" var="item">
                 			<c:if test="${item.roomType eq 'executive'}">
 	                  			<br>&emsp;&emsp;⦁&emsp;${item.roomNo} 호
 	                  			&emsp;&emsp;&emsp;&nbsp;${item.bedType} bed
@@ -565,7 +565,7 @@
 	                  	</tr>
 	                </c:when>
 		         </c:choose>
-		         <c:choose>		                
+		         <c:choose>
 	                <c:when test="${param.searchRoom eq 'all' || param.searchRoom eq 'suite'}">
 		        		<tr class="hang">
                   			<td><img src="/resources/image/suiteroom.jpg" width="200" height="150"></td>
@@ -592,7 +592,7 @@
                 		<td></td>
                 		<td></td>
                 		<td colspan="2" style="text-align: left">
-                		<c:forEach items="${roomList}" var="item">	
+                		<c:forEach items="${roomList}" var="item">
                 			<c:if test="${item.roomType eq 'suite'}">
 	                  			<br>&emsp;&emsp;⦁&emsp;${item.roomNo} 호
 	                  			&emsp;&emsp;&emsp;&nbsp;${item.bedType} bed

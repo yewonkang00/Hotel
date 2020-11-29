@@ -7,7 +7,7 @@
 	            * {font-family: 'Noto Sans KR', sans-serif;}
 	        </style>
 	        <meta charset="UTF-8">
-	        <title>게시물 보기</title>
+	        <title>QnA View</title>
 	        <link rel="stylesheet" href="/resources/css/style_qna.css" type="text/css">
 	    </head>
 		<body>

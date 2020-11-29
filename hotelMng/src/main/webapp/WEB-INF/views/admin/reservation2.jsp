@@ -98,11 +98,11 @@
   		<link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
   		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <title>Welcom Delluna!</title>
+        <title>Reservation: STEP2</title>
 		<script type="text/javascript">
-			
+
 			var sessionLevel = '${member.userLevel}';
-			
+
 			if(sessionLevel == null || sessionLevel == 'null' || sessionLevel=="" || sessionLevel == "1"){
 				alert("관리자 권한이 없습니다.");
 				location.href="/main";
@@ -181,8 +181,8 @@
 				$('#TotalPrice').html("<span id='TotalPrice'>" + finish + " 원</span>");
 				$('#Mileage').html("<span id='Mileage'>" + Mileage + " p</span>");
 			});
-			
-			
+
+
 		});
 
 
@@ -206,8 +206,8 @@
 			var agree1 = $('#agree1').val();
 			var agree2 = $('#agree2').val();
 			var RoomType = '${room.roomType}';
-			
-			
+
+
         	var data = {"UserId" : Id,
                 	"ReservationDays" : ReservationDays,
                 	"ReservationPeopleNumber" : ReservationPeopleNumber,
@@ -233,10 +233,10 @@
     			$('#ReservationPeopleNumber').focus();
     			return false;
             } else if (!$("#agree1").is(":checked")) {
-            	alert("개인정보 수집에 동의해주세요.");   
+            	alert("개인정보 수집에 동의해주세요.");
             	return false;
             } else if (!$("#agree2").is(":checked")) {
-            	alert("결제 취소 규정에 동의해주세요.");   
+            	alert("결제 취소 규정에 동의해주세요.");
             	return false;
             }
 
@@ -276,7 +276,7 @@
 		   			</c:choose>
        			</span>
             </nav>
-            
+
         </div>
       <table align=center><tr><td>
       <div class=contain>

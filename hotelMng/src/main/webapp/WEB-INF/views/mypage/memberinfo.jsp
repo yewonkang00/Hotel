@@ -4,9 +4,9 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/resources/css/style_mypage.css" type="text/css">
-    <title> 개인 정보 </title>
-    
-    
+    <title>My Information</title>
+
+
     <script type="text/javascript">
 	function memberdelete() {
 		var confirm_test = confirm("회원 탈퇴하시겠습니까?");
@@ -16,7 +16,7 @@
 		}
 		location.href="/main";
 	}
-    
+
     </script>
   </head>
 

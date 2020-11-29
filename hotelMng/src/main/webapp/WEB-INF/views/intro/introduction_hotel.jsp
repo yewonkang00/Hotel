@@ -5,7 +5,7 @@
 <html lang="ko">
     <head>
 
-    <style>	
+    <style>
        * {
            font-family: 'Noto Sans KR', sans-serif;
          }
@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="/resources/css/styleintro.css" type="text/css">
         <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
 
-        <title>Welcome Delluna!</title>
+        <title>Hotel Lucid</title>
 
     </head>
     <body>
@@ -26,7 +26,7 @@
                 <ul class=menu>
                     <li class="m1"><a href="/intro.do"> <span>개요</span>
                     </a></li>
-                    <li class="m2"><a href="/intro_hotel.do"> <span>호텔땡땡</span>
+                    <li class="m2"><a href="/intro_hotel.do"> <span>호텔 루시드</span>
                     </a></li>
                 </ul>
             </div>

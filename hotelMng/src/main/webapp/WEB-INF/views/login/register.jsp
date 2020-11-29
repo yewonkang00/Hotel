@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
-        <title>회원가입</title>
+        <title>Member Join</title>
         <style>
           body {
               background-color: #EEEFF1;
@@ -21,12 +21,12 @@
               width: 460px;
           }
         </style>
-        
+
     <script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src='/resources/js/jquery.form.js'></script>
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"></script>
 	<script charset="UTF-8" type="text/javascript" src="http://t1.daumcdn.net/postcode/api/core/190107/1546836247227/190107.js"></script>
-	
+
     <script type="text/javascript">
 	function idcheck() {
 		var UserId = $('#UserId').val();
@@ -47,7 +47,7 @@
 			}
 		})
 	}
-    
+
 	function register() {
 		var UserId = $('#UserId').val();
 		var UserPassword = $('#UserPassword').val();
@@ -62,7 +62,7 @@
 		var UserGender = $('#UserGender').val();
 		var UserEmail = $('#UserEmail').val();
 
-		var data = {"UserId" : UserId, 
+		var data = {"UserId" : UserId,
 				"UserPassword" : UserPassword,
 				"UserName" : UserName,
 				"UserBirth" : UserBirth,
@@ -101,7 +101,7 @@
 		} else if (UserBirth == "") {
 			alert("생일을 입력해주세요.");
 			$('#UserBirth').focus();
-			return false; 
+			return false;
 		} else if (UserPhone == "") {
 			alert("핸드폰 번호를 입력해주세요.");
 			$('#UserPhone').focus();
@@ -132,9 +132,9 @@
 			}
 		})
 	}
-		
+
 	</script>
-	  
+
 	</head>
 
 
