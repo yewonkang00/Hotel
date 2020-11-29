@@ -135,3 +135,29 @@ h4 {
   width:960px;
   height:1200px;
 }
+.room_button {
+	 background-color:#D4C1A1;
+	 border-radius:3px;
+	 border:1px solid #D4C1A1;
+	 display:inline-block;
+	 cursor:pointer;
+	 color:#ffffff;
+	 font-size:15px;
+     font-weight:bold;
+     padding:8px 24px;
+     text-decoration:none;
+     text-align: center;
+     justify-content:center;
+     align-items:center;
+     margin-left: 350px;
+     position: absolute;
+     top: 830px;
+     right: 550px;
+   }
+.room_button:hover {
+     background-color:#dbb790;
+  }
+.room_button:active {
+     position:relative;
+	 top:1px;
+  }
