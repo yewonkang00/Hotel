@@ -5,80 +5,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-        <meta charset="UTF-8">
-        <script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
-        <style>
-            * {
-                font-family: 'Noto Sans KR', sans-serif;
-            }
-            body {
-                margin-left:auto;
-                margin-right: auto;
-                padding:0px;
-                background-color: white;
-                font-family:나눔고딕;
-            }
-            a {
-                color:#111111;
-            }
-            a { text-decoration:none } 
-            .header{
-                margin-left:auto;
-                margin-right: auto;
-                background-color: #D4C1A1;
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                height: 50px;
-                text-align: center;
-                padding: 8px;
-                color: #111111;
-                font-size: 5px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-            .header nav {
-                list-style-type: none;
-                text-align: center;
-                margin: 0;
-                padding: 0;
-            }
-            .header nav span {
-                display:inline-block;
-                font-size: 15px;
-                padding: 20px;
-            }
-            .banner{
-                background-image: url("/resources/image/oria-hotel-4636405_1280.jpg");
-                background-size: cover;
-                margin-top: auto;
-                width: auto;
-                height: 700px;
-            }
-            
-            .contents{
-                width: 1200px;
-                margin-left:auto;
-                margin-right: auto;
-                min-height: 500px;
-                padding: 50px;
-                background-color: white;
-                font-size: 18px;
-                color: #333333
-            }
-            .finish {
-                width: 1200px;
-                margin-left:auto;
-                margin-right: auto;
-                padding: 50px;
-                background-color: white;
-                font-size: 18px;
-                color: #333333
-            }
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
+	<link rel="stylesheet" href="/resources/css/style_admin.css" type="text/css">
 
-        </style>
+	<style>
+		* {
+			font-family: 'Noto Sans KR', sans-serif;
+		}
+	</style>
         <title>Welcom Delluna!</title>
         
          <script type="text/javascript">
