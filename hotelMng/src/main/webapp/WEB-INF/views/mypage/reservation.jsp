@@ -8,15 +8,15 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="/resources/css/style_mypage.css" type="text/css">
 
-    <title> 예약 확인/취소 </title>
-    
+    <title>My Reservation</title>
+
     <script type="text/javascript">
 	    var sessionUserId = '${member.userId}';
 	    if(sessionUserId == null || sessionUserId == 'null' || sessionUserId=="" || sessionUserId == "1"){
 	      alert("로그인 후 이용해주세요.");
 	      location.href="/login.do";
 	    }
-    
+
     	function rescancel(reservationCode) {
     		var reservationCode = reservationCode;
 			var data = {"reservationCode" : reservationCode};
@@ -26,9 +26,9 @@
 				alert("취소되었습니다.");
 			}
 			location.href="/mypage/reservation";
-			
+
         }
-        
+
     	function dateAdd(sDate, nNum) {
     		var yyyy = parseInt(sDate.substr(0, 4), 10);
     		var mm = parseInt(sDate.substr(4, 2), 10) - 1;
@@ -47,10 +47,10 @@
     	    if(day < 10){
     	        day = "0"+day;
     	    }
-    	 
+
     	    var today = year+""+month+""+day;
 			return today;
-        }  
+        }
     </script>
 
   </head>
@@ -111,7 +111,7 @@
       		<td>${item.breakfast}</td>
       		<td>${item.totalPrice}</td>
 			<c:set var="now" value="<%=new java.util.Date()%>" />
-			<c:set var="today"><fmt:formatDate value="${now}" pattern="yyyyMMdd" /></c:set> 
+			<c:set var="today"><fmt:formatDate value="${now}" pattern="yyyyMMdd" /></c:set>
       		<c:set var="CheckIn" value="${item.reservationCheckIn}"/>
       		<c:if test="${CheckIn > today}">
       			<td><input type="button" value="예약취소" class="submit-btn" onClick="javascript:rescancel('${item.reservationCode}')"></td>

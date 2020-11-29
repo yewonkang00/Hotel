@@ -100,7 +100,7 @@
   		<link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
   		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <title>Welcom Delluna!</title>
+        <title>Reservation : STEP2</title>
 		<script type="text/javascript">
 			var sessionUserId = '${member.userId}';
 	        var sessionLevel = '${member.userLevel}';
@@ -148,7 +148,7 @@
         }
 
    		$(document).ready(function() {
-   	   		
+
 			var total = parseInt(roomprice());
 			var tax = Math.floor(parseInt(total) * 0.1);
 			var finish = parseInt(tax) + parseInt(total);
@@ -156,7 +156,7 @@
 			$('#AdditionalTax').html("<span id='AdditionalTax'>" + tax + " 원</span>");
 			$('#TotalPrice').html("<span id='TotalPrice'>" + finish + " 원</span>");
 			$('#Mileage').html("<span id='Mileage'>" + Mileage + " p</span>");
-			  	   		
+
 	 		$("#Breakfast").click(function() {
 				if($("#Breakfast").is(":checked")) {
 					var price = ($('#ReservationPeopleNumber').val() * 20000);
@@ -192,15 +192,15 @@
 				$('#TotalPrice').html("<span id='TotalPrice'>" + finish + " 원</span>");
 				$('#Mileage').html("<span id='Mileage'>" + Mileage + " p</span>");
 			});
-			
-			
+
+
 		});
 
 
         function reservation() {
-        	
+
         	var Id = '${member.userId}';
-        	
+
         	var ReservationPeopleNumber = $('#ReservationPeopleNumber').val();
         	var ReservationCheckIn = '${checkIn}';
         	var days = dateAdd('${checkOut}',2);
@@ -221,8 +221,8 @@
 			var agree1 = $('#agree1').val();
 			var agree2 = $('#agree2').val();
 			var RoomType = '${room.roomType}';
-			
-			
+
+
         	var data = {"UserId" : Id,
                 	"ReservationDays" : ReservationDays,
                 	"ReservationPeopleNumber" : ReservationPeopleNumber,
@@ -256,10 +256,10 @@
 				$('#CardYY').focus();
 				return false;
             } else if (!$("#agree1").is(":checked")) {
-            	alert("개인정보 수집에 동의해주세요.");   
+            	alert("개인정보 수집에 동의해주세요.");
             	return false;
             } else if (!$("#agree2").is(":checked")) {
-            	alert("결제 취소 규정에 동의해주세요.");   
+            	alert("결제 취소 규정에 동의해주세요.");
             	return false;
             }
 
@@ -351,7 +351,7 @@
 						</tr>
 						<tr>
 							<th scope="row">체크아웃</th>
-							
+
 							<td class="fm" colspan="3">
 								<span id="ReservationCheckOut">
 								<script type="text/javascript">
@@ -359,7 +359,7 @@
 								</script>
 								</span>
 								</td>
-							
+
 						</tr>
 						<tr>
 							<th scope="row">인원</th>
@@ -373,7 +373,7 @@
 		                		</select>
 		                		*3인 이상 인당 3만원 추가
 							</td>
-						</tr>						
+						</tr>
 						<tr>
 							<th scope="row">조식</th>
 							<td class="fm" colspan="3">

@@ -1,7 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,12 +16,12 @@
 	</style>
 
         <title>Welcom Delluna!</title>
-        
+
          <script type="text/javascript">
-			
-         	
+
+
 	       	var sessionLevel = '${member.userLevel}';
-	
+
 			if(sessionLevel == null || sessionLevel == 'null' || sessionLevel=="" || sessionLevel == "1"){
 				alert("관리자 권한이 없습니다.");
 				location.href="/main";
@@ -45,10 +45,10 @@
 	    	    if(day < 10){
 	    	        day = "0"+day;
 	    	    }
-	    	 
+
 	    	    var today = year+""+month+""+day;
 				return today;
-	        } 
+	        }
 
 			function rescancel(reservationCode) {
 				var reservationCode = reservationCode;
@@ -62,9 +62,9 @@
 				else{
 				location.href="/admin/reservationDetailAction.do?reservationCode=" + reservationCode;
 				}
-				
+
 	        }
-	        
+
 		</script>
 
     </head>
