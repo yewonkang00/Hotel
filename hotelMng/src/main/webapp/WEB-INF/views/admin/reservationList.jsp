@@ -80,7 +80,7 @@
 			<tr>
 				<td>${item.reservationCode}</td>
 				<td>${item.roomCode}</td>
-				<td>${item.userId}</td>
+				<td><a href="/admin/memberDetail.do?userId=${item.userId}">${item.userId}</td>
 				<td>${item.reservationCheckIn}</td>
 				<td>${item.reservationCheckOut}</td>
 				<td>${item.reservationPeopleNumber}</td>

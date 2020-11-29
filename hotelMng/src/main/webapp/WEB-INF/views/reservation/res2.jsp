@@ -176,10 +176,12 @@
 
 			$('#ReservationPeopleNumber').on('mouseup', function(e) {
 				if($("#Breakfast").is(":checked")) {
-					var price = ($('#ReservationPeopleNumber').val() * 20000);
+					var addroom = ($('#ReservationPeopleNumber').val() - 2) * 30000;
+					var price = ($('#ReservationPeopleNumber').val() * 20000) + addroom;
 					$('#AddPrice').html("<span id='AddPrice'>" + price + " 원</span>");
 				} else {
-					var price = 0;
+					var addroom = ($('#ReservationPeopleNumber').val() - 2) * 30000;
+					var price = addroom;
 					$('#AddPrice').html("<span id='AddPrice'>" + price + " 원</span>");
 				}
 				var total = parseInt(roomprice()) + parseInt($('#AddPrice').text());
@@ -283,22 +285,7 @@
         </script>
     </head>
     <body>
-      <div class=header>
-            <a href="/admin"><img src="/resources/image/moon.png" width="100" height="100">
-            <nav>
-                <span><a></a></span>
-                <span><a href="/admin/memberList">회원 List</a></span>
-                <span><a href="/admin/roomList">객실 List</a></span>
-                <span><a href="/admin/reservationList">예약 List</a></span>
-                <span>
-		        	<c:choose>
-		  				<c:when test="${member != null}"><a href="/logout.do">로그아웃</a></c:when>
-		   				<c:otherwise><a href="/login.do">로그인</a></c:otherwise>
-		   			</c:choose>
-       			</span>
-            </nav>
-            
-        </div>
+      <%@include file = "/WEB-INF/views/layout/header.jsp" %>
       <table align=center><tr><td>
       <div class=contain>
         <div class=res_content>
@@ -377,13 +364,14 @@
 						<tr>
 							<th scope="row">인원</th>
 							<td class="fm" colspan="3">
-								<select id ="ReservationPeopleNumber" class="sel">
+								<select id ="ReservationPeopleNumber" class="sel" style="width:80px;">
 			                		<option>-인</option>
 		                    		<option value="1">1인</option>
 		                    		<option value="2">2인</option>
 		                    		<option value="3">3인</option>
 		                    		<option value="4">4인</option>
 		                		</select>
+		                		*3인 이상 인당 3만원 추가
 							</td>
 						</tr>						
 						<tr>
@@ -450,10 +438,11 @@
 							</td>
 							<th scope="row">유효기간</th>
 							<td class="fm">
-								<select class="card_term" title="년" name="card_termYY" id="CardYY">
+								<select class="card_term" title="년" name="card_termYY" id="CardYY" style="width:70px;">
 								<option value="">--<option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option><option value="2025">2025</option><option value="2026">2026</option><option value="2027">2027</option><option value="2028">2028</option><option value="2029">2029</option><option value="2030">2030</option></select>
 								<span class="fmTxt-1">년</span>
-								<select class="card_term" title="월" name="card_termMM" id="CardMM">
+								&ensp;&ensp;
+								<select class="card_term" title="월" name="card_termMM" id="CardMM" style="width:50px;">
 								<option value="">--<option value="01">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option><option value="05">05</option><option value="06">06</option><option value="07">07</option><option value="08">08</option><option value="09">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select>
 								<span class="fmTxt-1">월</span>
 							</td>

@@ -458,7 +458,7 @@
                   		<td><button onclick="room_select1();" type="button" class="resroom_btn" id="resroom_btn1">호실 선택 +</button></td>
                 		</tr>
                 		<tr class="hidden_ho" id="hidden_ho1">
-                		<td><img src="/resources/image/standardroom.jpg" width="200" height="150"><br><b>Standard room</b></td>
+                		<td></td>
                 		<td></td>
                 		<td colspan="2" style="text-align: left">
                 		<c:forEach items="${roomList}" var="item" varStatus="status">	
@@ -501,7 +501,7 @@
 	                  		<td><button onclick="room_select2();" type="button" class="resroom_btn" id="resroom_btn2">호실 선택 +</button></td>
 	                	</tr>
                 	  	<tr class="hidden_ho" id="hidden_ho2">
-                		<td><img src="/resources/image/deluxe room.jpg" width="200" height="150"><br><b>Deluxe room</b></td>
+                		<td></td>
                 		<td></td>
                 		<td colspan="2" style="text-align: left">
                 		<c:forEach items="${roomList}" var="item">	
@@ -545,7 +545,7 @@
 	                  		<td><button onclick="room_select3();" type="button" class="resroom_btn" id="resroom_btn3">호실 선택 +</button></td>
 	                	</tr>
 	                	<tr class="hidden_ho" id="hidden_ho3">
-                		<td><img src="/resources/image/executive room.jpg" width="200" height="150"><br><b>Executive room</b></td>
+                		<td></td>
                 		<td></td>
                 		<td colspan="2" style="text-align: left">
                 		<c:forEach items="${roomList}" var="item">	
@@ -589,7 +589,7 @@
                   			<td><button onclick="room_select4();" type="button" class="resroom_btn" id="resroom_btn4">호실 선택 +</button></td>
                 		</tr>
                 		<tr class="hidden_ho" id="hidden_ho4">
-                		<td><img src="/resources/image/suiteroom.jpg" width="200" height="150"><br><b>Suite room</b></td>
+                		<td></td>
                 		<td></td>
                 		<td colspan="2" style="text-align: left">
                 		<c:forEach items="${roomList}" var="item">	
