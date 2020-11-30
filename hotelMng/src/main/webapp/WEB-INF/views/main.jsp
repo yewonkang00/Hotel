@@ -49,8 +49,7 @@
                 font-family: 'Noto Sans KR', sans-serif;
             }
             body {
-                margin-left:auto;
-                margin-right: auto;
+                margin : auto;
                 padding:0px;
                 background-color: white;
                 font-family:나눔고딕;
@@ -164,11 +163,11 @@
         </style>
         <script type="text/javascript">
          var sessionUserId = '${member.userId}';
-         var sessionLevel = '${member.userLevel}';
-         if(sessionUserId == null || sessionUserId == 'null' || sessionUserId=="" || sessionUserId == "1"){
-           alert("로그인 후 이용해주세요.");
-           location.href="/login.do";
-         }
+		 var sessionLevel = '${member.userLevel}';
+		 if(sessionUserId == null || sessionUserId == 'null' || sessionUserId=="" || sessionUserId == "1"){
+			 alert("로그인 후 이용해주세요.");
+			 location.href="/login.do";
+		 }
 
          function dateAdd(sDate, nNum) {
            var yyyy = parseInt(sDate.substr(0, 4), 10);
