@@ -35,7 +35,7 @@
                 height: 770px;
                 padding: 8px;
             }
-
+            
             .contain{
                 width: 1200px;
 				margin-top:30px;
@@ -49,7 +49,7 @@
             }
 
         </style>
-        <style>
+		<style>
             * {
                 font-family: 'Noto Sans KR', sans-serif;
             }
@@ -185,7 +185,6 @@
              if(day < 10){
                  day = "0"+day;
              }
-
              var today = year+""+month+""+day;
            return today;
          }
@@ -200,10 +199,8 @@
          	SearchFrom = SearchFrom.substr(0,4) + SearchFrom.substr(5,2) + SearchFrom.substr(8,2);
          	SearchTo = SearchTo.substr(0,4) + SearchTo.substr(5,2) + SearchTo.substr(8,2);
          	SearchTo = dateAdd(SearchTo, 0);
-
          	location.href="/searchRoomAction.do?searchFrom="+SearchFrom+"&searchTo="+SearchTo+"&searchRoom="+SearchRoom;
        	}
-
         $(function() {
             //모든 datepicker에 대한 공통 옵션 설정
             $.datepicker.setDefaults({
@@ -222,16 +219,13 @@
                 ,dayNamesMin: ['일','월','화','수','목','금','토'] //달력의 요일 부분 텍스트
                 ,dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'] //달력의 요일 부분 Tooltip 텍스트
                 ,minDate: "-1M" //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
-                ,maxDate: "+1M" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
+                ,maxDate: "+1Y" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
             });
-
             //input을 datepicker로 선언
             $("#reservationCheckIn").datepicker();
             $("#res_checkout").datepicker();
-
             var checkIn = '${searchFrom}';
             var checkOut = dateAdd('${searchTo}',2);
-
             if(checkIn == null || checkIn == 'null' || checkIn == ""){
                 //From의 초기값을 오늘 날짜로 설정
                 $('#reservationCheckIn').datepicker('setDate', 'today'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
@@ -243,7 +237,6 @@
               $('#reservationCheckIn').datepicker('setDate', checkIn);
               $('#res_checkout').datepicker('setDate', checkOut);
             }
-
         });
         </script>
         <script type="text/javascript">
@@ -280,6 +273,7 @@
         <div class=res_search>
         	<div class=res_res>
                 <form name="srchRoomFrm" id="res_form" method="post">
+                  
                   <table class="res_table">
                     <tr>
                       <td><b>객실</b></td>
@@ -357,12 +351,12 @@
             </div>
         <div class=contain>
         	<div class=index_contents>
-
-        		<p> 안녕하세요</p>
-	            <p> 가나다라</p>
-	            <p> 마바사아</p>
-	            <b><p> 브런치 타임: AM 11:30 ~ PM 1:30</p>
-	            <p> 영업시간 : AM 10:00 ~ PM 9:00</p></b>
+        	
+        		<p> 안녕하세요</p>	
+	            <p> 가나다라</p>	
+	            <p> 마바사아</p>	
+	            <b><p> 브런치 타임: AM 11:30 ~ PM 1:30</p>	
+	            <p> 영업시간 : AM 10:00 ~ PM 9:00</p></b>	
 	            <p>
 	            	<img src="/resources/image/hotel2.jpg" width="300">
 	            <p>

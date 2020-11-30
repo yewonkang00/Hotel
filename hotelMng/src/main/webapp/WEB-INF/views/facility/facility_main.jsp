@@ -85,13 +85,6 @@
             	</div>
             </div>
             </div>
-            <div class=lbox>
-            	<h3><b>Restaurant</b></h3>
-            	<a href="/facility_restaurant.do"><img src="${pageContext.request.contextPath}/resources/image/restaurant.jpg" width="300" height="220"></a>
-            	<div class=topexp>
-            		<p>셰프들의 손에서 탄생한 맛과 풍미의 향연을 즐길 수 있습니다.<br/></p>
-            	</div>
-            </div>
         </div>
     </div>
     <%@include file = "/WEB-INF/views/layout/final.jsp" %>

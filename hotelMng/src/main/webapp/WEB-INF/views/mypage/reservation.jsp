@@ -8,13 +8,14 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="/resources/css/style_mypage.css" type="text/css">
     <title>My Reservation</title>
+    
     <script type="text/javascript">
 	    var sessionUserId = '${member.userId}';
 	    if(sessionUserId == null || sessionUserId == 'null' || sessionUserId=="" || sessionUserId == "1"){
 	      alert("로그인 후 이용해주세요.");
 	      location.href="/login.do";
 	    }
-
+    
     	function rescancel(reservationCode) {
     		var reservationCode = reservationCode;
 			var data = {"reservationCode" : reservationCode};
@@ -24,9 +25,9 @@
 				alert("취소되었습니다.");
 			}
 			location.href="/mypage/reservation";
-
+			
         }
-
+        
     	function dateAdd(sDate, nNum) {
     		var yyyy = parseInt(sDate.substr(0, 4), 10);
     		var mm = parseInt(sDate.substr(4, 2), 10) - 1;
@@ -45,10 +46,10 @@
     	    if(day < 10){
     	        day = "0"+day;
     	    }
-
+    	 
     	    var today = year+""+month+""+day;
 			return today;
-        }
+        }  
     </script>
 
   </head>
@@ -57,7 +58,7 @@
   <%@include file = "/WEB-INF/views/layout/header.jsp" %>
 
   <div class=contain>
-      <div class=left>
+    <div class=left>
           <h2 class=tit>마이 페이지</h2>
             <ul class=menu>
           	  <li class="m1">
@@ -66,36 +67,36 @@
                 </a>
               </li>
               <li class="m2">
-                  <a href="/mypage/reservation">
-                      <span>예약 확인/취소</span>
-                  </a>
+                <a href="/mypage/reservation">
+                  <span>예약 확인/취소</span>
+                </a>
               </li>
               <li class="m3">
-                  <a href="mypage_qna.html">
-                      <span>문의 내역</span>
-                  </a>
-              </li>
+                <a href="mypage_qna.html">
+                  <span>문의 내역</span>
+              </a>
+            </li>
           </ul>
-      </div>
+    </div>
     <div class=contents>
       <h1>예약 확인/취소</h1>
       <h5>*당일 취소 불가</h5>
-        <table class="table table-hover">
-            <thead>
-            <tr>
-                <td>No</td>
-                <td>체크인</td>
-                <td>체크아웃</td>
-                <td>숙박일 수</td>
-                <td>예약 날짜</td>
-                <td>예약 호실</td>
-                <td>조식 여부</td>
-                <td>결제 금액</td>
-                <td></td>
-                <c:forEach items="${reservation}" var="item" varStatus="idx">
-            <tr>
-            </thead>
-
+      <table class="table table-hover">
+       	<thead>
+      	<tr>
+      	<td>No</td>
+      	<td>체크인</td>
+      	<td>체크아웃</td>
+      	<td>숙박일 수</td>
+      	<td>예약 날짜</td>
+      	<td>예약 호실</td>
+      	<td>조식 여부</td>
+      	<td>결제 금액</td>
+      	<td></td>
+      	</tr>
+      	</thead>
+      	<c:forEach items="${reservation}" var="item" varStatus="idx"> 
+      	<tr>
       		<td>${idx.index+1}</td>
       		<td>${item.reservationCheckIn}</td>
       		<td>
@@ -109,7 +110,7 @@
       		<td>${item.breakfast}</td>
       		<td>${item.totalPrice}</td>
 			<c:set var="now" value="<%=new java.util.Date()%>" />
-			<c:set var="today"><fmt:formatDate value="${now}" pattern="yyyyMMdd" /></c:set>
+			<c:set var="today"><fmt:formatDate value="${now}" pattern="yyyyMMdd" /></c:set> 
       		<c:set var="CheckIn" value="${item.reservationCheckIn}"/>
       		<c:if test="${CheckIn > today}">
       			<td><input type="button" value="예약취소" class="submit-btn" onClick="javascript:rescancel('${item.reservationCode}')"></td>

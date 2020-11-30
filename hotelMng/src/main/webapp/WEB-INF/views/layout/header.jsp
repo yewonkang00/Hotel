@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+    
 <html>
 <head>
-    <title>Header</title>
+    <title>header</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/resources/css/style_layout.css" type="text/css">
     <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">

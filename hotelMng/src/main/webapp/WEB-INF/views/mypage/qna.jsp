@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css" type="text/css">
-    <title>My QnA</title>
+    <title> 문의 내역 </title>
     <style>
         body {
           background-color: #EEEFF1;
@@ -62,7 +62,7 @@
           </ul>
     </div>
     <div class=contents>
-      <h1>문의 내역</h1>
+      <h1>My QnA</h1>
     </div>
     <div class="finish">
         <p> 사업자 번호: 110-10-12345<br/>

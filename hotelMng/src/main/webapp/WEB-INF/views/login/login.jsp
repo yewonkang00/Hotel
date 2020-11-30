@@ -10,7 +10,7 @@
         font-family: 나눔고딕;
       }
     </style>
-
+  
   <meta charset="utf-8">
   <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
   <script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
@@ -18,12 +18,13 @@
   
   <title>SIGN IN</title>
   
+  
   <script type="text/javascript">
-
+  
   function goRegist() {
 	  document.location.href = '/memeber/regist.do';
   }
-
+  
   function login() {
 	  var id = $('#UserId').val();
 	  var password = $('#UserPassword').val();
@@ -49,20 +50,20 @@
 					alert(id + "님, 안녕하세요!")
 					location.href="/main";
 				}else if(result == "Manager"){
-					location.href="/admin";
+					location.href="/admin";		
 				}else if(result == "IDfail"){
 					alert("아이디가 존재하지 않습니다.");
 				}else if(result == "Passwordfail"){
 					alert("비밀번호가 일치하지 않습니다.");
 				}
 			}
-
+	
 	  })
   }
   </script>
-
-
-
+  
+  
+  
 </head>
 
 <body>
@@ -75,10 +76,6 @@
      </form>
       <input type="submit" value="SIGN IN" class="submit-btn" onClick="login();">
       <input type="submit" value="SIGN UP" class="submit-btn" onClick="goRegist();">
-
-    <div class="links">
-      <a href="find_password.html">비밀번호 찾기</a>
-    </div>
   </div>
 </body>
 </html>

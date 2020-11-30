@@ -7,7 +7,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/resources/css/style_room.css" type="text/css">
         <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
-        <style>
+		<style>
         .room_button {
     		background-color: #D4C1A1;
    			border-radius: 3px;
@@ -117,7 +117,6 @@
                 전망 : 시티 뷰 | 침대 : 더블(킹 사이즈) / 트윈 | 크기 : 30m^2<br/>
                 룸 구성 : 침실 1, 욕실 1, 화장실 1<br/>
             </p>
-            <a href="/searchRoom.do" class="room_button">예약하기</a>
             <table class=roomtb>
               <thead>
                 <tr>

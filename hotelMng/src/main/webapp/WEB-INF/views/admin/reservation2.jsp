@@ -6,7 +6,6 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
-<<<<<<< HEAD
 
         <style>
 			body {
@@ -107,7 +106,7 @@
   		<link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
   		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <title>Reservation STEP2</title>
+        <title>Reservation</title>
 		<script type="text/javascript">
 			var sessionLevel = '${member.userLevel}';
 			if(sessionLevel == null || sessionLevel == 'null' || sessionLevel=="" || sessionLevel == "1"){

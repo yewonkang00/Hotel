@@ -45,10 +45,11 @@
 					<select class="form-control form-control-sm" name="searchType" id="searchType">
 						<option value="RoomNo">호수</option>
 					</select>
-                    <input type="text" class="form-control form-control-sm" name="keyword" id="keyword">
+					<input type="text" class="form-control form-control-sm" name="keyword" id="keyword">
                     <button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch">검색</button>
 				</div>
-                <br>
+				<br>
+
 			</div>
             <table class="table table-hover">
                 <thead>
