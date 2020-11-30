@@ -9,16 +9,16 @@
 <html lang="ko">
     <head>
         <meta charset="UTF-8">
-		<script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
-		<link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
-		<link rel="stylesheet" href="/resources/css/style_admin.css" type="text/css">
-
-		<style>
-			* {
-				font-family: 'Noto Sans KR', sans-serif;
-			}
-		</style>
-
+        <script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
+        <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+        <link rel="stylesheet" href="/resources/css/style_admin.css" type="text/css">
+        
+        <style>
+            * {
+                font-family: 'Noto Sans KR', sans-serif;
+            }
+        </style>    
+           
 	<style TYPE="text/css">
 		body {
 		scrollbar-face-color: #F6F6F6;
@@ -143,10 +143,7 @@
 			margin: 10px;
 		}
 	</style>
-
-
         <title>Reservation</title>
-
   <script type="text/javascript">
   var sessionUserId = '${member.userId}';
   var sessionLevel = '${member.userLevel}';
@@ -203,7 +200,8 @@ function detail(reservationCode) {
 
 </head>
     <body>
-		<%@include file = "/WEB-INF/views/admin/admin_header.jsp" %>
+
+        <%@include file = "/WEB-INF/views/admin/admin_header.jsp" %>
         <!-- 달력 -->
 		<form name="calendarFrm" id="calendarFrm" action="" method="GET">
 

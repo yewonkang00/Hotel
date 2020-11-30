@@ -207,9 +207,7 @@
 		}
 	</style>
 
-
         <title>Reservation View</title>
-
   <script type="text/javascript">
   var sessionUserId = '${member.userId}';
   var sessionLevel = '${member.userLevel}';

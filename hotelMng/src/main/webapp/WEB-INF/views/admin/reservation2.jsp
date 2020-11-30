@@ -6,6 +6,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
+<<<<<<< HEAD
 
         <style>
 			body {
@@ -89,7 +90,6 @@
 			  height:145px;
 			  width:975px;
 			}
-
 			#res2_btn{
 			  width:100px;
 			  height:55px;
@@ -101,30 +101,25 @@
 			}
 			.totalPricefield{
 			  background-color:#ECE6CC;
-
 			}
         </style>
  		<script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
   		<link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
   		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <title>Reservation: STEP2</title>
+        <title>Reservation STEP2</title>
 		<script type="text/javascript">
-
 			var sessionLevel = '${member.userLevel}';
-
 			if(sessionLevel == null || sessionLevel == 'null' || sessionLevel=="" || sessionLevel == "1"){
 				alert("관리자 권한이 없습니다.");
 				location.href="/main";
 			}
 		</script>
         <script type="text/javascript">
-
     	function dateAdd(sDate, nNum) {
     		var yyyy = parseInt(sDate.substr(0, 4), 10);
     		var mm = parseInt(sDate.substr(4, 2), 10) - 1;
     		var dd = parseInt(sDate.substr(6, 2), 10);
-
     		nNum *= 1;
     		nNum = nNum -1;
     		var newDt = new Date(yyyy,mm,dd);
@@ -138,11 +133,9 @@
     	    if(day < 10){
     	        day = "0"+day;
     	    }
-
     	    var today = year+""+month+""+day;
 			return today;
         }
-
     	$(document).ready(function() {
 			$('#ReservationDays').on('mouseup', function(e) {
 				var price = ('${room.fee}' * $('#ReservationDays').val());
@@ -157,7 +150,6 @@
 				$('#Mileage').html("<span id='Mileage'>" + Mileage + " p</span>");
 				$('#CheckOut').html("<span id='CheckOut'>"+checkout+"</span>");
 			});
-
 	 		$("#Breakfast").click(function() {
 				if($("#Breakfast").is(":checked")) {
 					var price = ($('#ReservationPeopleNumber').val() * 20000);
@@ -174,7 +166,6 @@
 				$('#TotalPrice').html("<span id='TotalPrice'>" + finish + " 원</span>");
 				$('#Mileage').html("<span id='Mileage'>" + Mileage + " p</span>");
 			});
-
 			$('#ReservationPeopleNumber').on('mouseup', function(e) {
 				if($("#Breakfast").is(":checked")) {
 					var price = ($('#ReservationPeopleNumber').val() * 20000);
@@ -191,11 +182,7 @@
 				$('#TotalPrice').html("<span id='TotalPrice'>" + finish + " 원</span>");
 				$('#Mileage').html("<span id='Mileage'>" + Mileage + " p</span>");
 			});
-
-
 		});
-
-
         function reservation() {
         	var Id = $('#UserId').val();
         	var ReservationDays = $('#ReservationDays').val();
@@ -216,8 +203,6 @@
 			var agree1 = $('#agree1').val();
 			var agree2 = $('#agree2').val();
 			var RoomType = '${room.roomType}';
-
-
         	var data = {"UserId" : Id,
                 	"ReservationDays" : ReservationDays,
                 	"ReservationPeopleNumber" : ReservationPeopleNumber,
@@ -233,7 +218,6 @@
                     "CardValid" : CardValid,
                     "RoomType" : RoomType
         	};
-
         	if(ReservationDays == "-박") {
         		alert("숙박일 수를 입력해주세요.");
     			$('#ReservationDays').focus();
@@ -249,7 +233,6 @@
             	alert("결제 취소 규정에 동의해주세요.");
             	return false;
             }
-
             $.ajax({
             	type : "POST",
     			url : "/admin/reservateAction.do",
@@ -258,14 +241,12 @@
     			success : function(data) {
     				var result = data["resultMsg"];
     				if(result == "success"){
-
     					alert("예약되었습니다!");
     					location.href="/admin/reservation.do?rno=${roomNo}";
     				}else {
     					alert("이미 예약된 날짜입니다.");
     				}
         		}
-
             }
           )
         }

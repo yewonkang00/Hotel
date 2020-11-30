@@ -87,7 +87,6 @@
 
         </style>
         <title>Admin Page</title>
-
          <script type="text/javascript">
         	var sessionLevel = '${member.userLevel}';
 

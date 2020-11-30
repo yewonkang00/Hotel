@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
-        <title>Member Join</title>
+        <title>SIGN UP</title>
         <style>
           body {
               background-color: #EEEFF1;

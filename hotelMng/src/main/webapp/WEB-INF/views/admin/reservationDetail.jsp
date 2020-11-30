@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
 	<meta charset="UTF-8">
 	<script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
 	<link rel="stylesheet" href="/resources/css/style_admin.css" type="text/css">
@@ -102,7 +103,6 @@
 			<td>${reservationVo.breakfast}</td>
 			<td>${reservationVo.reservationDate}</td>
 			</tr>
-
 		</table>
 		<br><br>
 		<p style="text-align:center;">요구사항</p>
@@ -133,7 +133,6 @@
 			<td>${reservationVo.cardValid}</td>
 			<td>${reservationVo.mileage}</td>
 			</tr>
-
 		</table>
 		<br>
 		<input type="button" value="예약취소" class="submit-btn" onClick="javascript:rescancel('${reservationVo.reservationCode}')">

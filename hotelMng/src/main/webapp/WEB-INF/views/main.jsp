@@ -4,52 +4,12 @@
 <html lang="ko">
     <head>
         <meta charset="UTF-8">
-          <script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
-          <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-          <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-          <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-          <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-          <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
-        <style>
-            * {
-                font-family: 'Noto Sans KR', sans-serif;
-            }
-            body {
-                margin-left:auto;
-                margin-right: auto;
-                padding:0px;
-                background-color: white;
-                font-family:나눔고딕;
-            }
-            ::-webkit-scrollbar {
-                display: none;
-            }
-            a {
-                color:#111111;
-                text-decoration:none
-            }
-            .banner_main{
-                background-image: url(/resources/image/outdoor.jpg);
-                background-size: 1920px 850px;
-                margin-top: auto;
-                min-width: 700px;
-                height: 770px;
-                padding: 8px;
-            }
-
-            .contain{
-                width: 1200px;
-				margin-top:30px;
-                min-height: 500px;
-                background-color: white;
-                font-size: 18px;
-                color: #333333
-            }
-            .index_contents {
-                margin-left: 45px;
-            }
-
-        </style>
+        <script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
         <style>
             * {
                 font-family: 'Noto Sans KR', sans-serif;
@@ -90,6 +50,44 @@
 
         </style>
         <style>
+            * {
+                font-family: 'Noto Sans KR', sans-serif;
+            }
+            body {
+                margin-left:auto;
+                margin-right: auto;
+                padding:0px;
+                background-color: white;
+                font-family:나눔고딕;
+            }
+            ::-webkit-scrollbar {
+                display: none;
+            }
+            a {
+                color:#111111;
+                text-decoration:none
+            }
+            .banner_main{
+                background-image: url(/resources/image/outdoor.jpg);
+                background-size: 1920px 850px;
+                margin-top: auto;
+                min-width: 700px;
+                height: 770px;
+                padding: 8px;
+            }
+            .contain{
+                width: 1200px;
+				margin-top:30px;
+                min-height: 500px;
+                background-color: white;
+                font-size: 18px;
+                color: #333333
+            }
+            .index_contents {
+                margin-left: 45px;
+            }
+        </style>
+        <style>
           button{
             cursor: pointer;
           }
@@ -103,14 +101,15 @@
             margin-top: 50px;
             border-top:6pt solid #f1f1f1;
             width:90%;
+            align:center;
             border-radius:10px;
             border-bottom:6pt solid #f1f1f1;
             margin:0 auto;
-            padding-left:30%;
+            padding-left:35%;
           }
           .res_res{
             display: inline-block;
-            text-align: center;
+            text-align:center;
           }
           .res_table td{
             text-align:center;
@@ -168,18 +167,11 @@
           }
         </style>
         <script type="text/javascript">
-         var sessionUserId = '${member.userId}';
-		 var sessionLevel = '${member.userLevel}';
-		 if(sessionUserId == null || sessionUserId == 'null' || sessionUserId=="" || sessionUserId == "1"){
-			 alert("로그인 후 이용해주세요.");
-			 location.href="/login.do";
-		 }
 
          function dateAdd(sDate, nNum) {
            var yyyy = parseInt(sDate.substr(0, 4), 10);
            var mm = parseInt(sDate.substr(4, 2), 10) - 1;
            var dd = parseInt(sDate.substr(6, 2), 10);
-
            nNum *= 1;
            nNum = nNum -1;
            var newDt = new Date(yyyy,mm,dd);
@@ -197,7 +189,6 @@
              var today = year+""+month+""+day;
            return today;
          }
-
          function searchRoom(room) {
            var SearchRoom = room;
            var SearchFrom = $('#reservationCheckIn').val();
@@ -246,7 +237,6 @@
                 $('#reservationCheckIn').datepicker('setDate', 'today'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
                 //To의 초기값을 내일로 설정
                 $('#res_checkout').datepicker('setDate', '+1D'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
-
             } else {
                 checkIn = checkIn.substr(0,4) + "-" + checkIn.substr(4,2) + "-" + checkIn.substr(6,2);
                 checkOut = checkOut.substr(0,4) + "-" + checkOut.substr(4,2) + "-" + checkOut.substr(6,2);
@@ -255,7 +245,6 @@
             }
 
         });
-
         </script>
         <script type="text/javascript">
           var err = document.getElementById("error");

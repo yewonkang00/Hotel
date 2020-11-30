@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/resources/css/style_room.css" type="text/css">
     <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
-    <style>
+	<style>
         .room_button {
     		background-color: #D4C1A1;
    			border-radius: 3px;
@@ -34,6 +34,43 @@
 	 		top:1px;
   		}
     </style>
+    <script type="text/javascript">
+    function dateAdd(sDate, nNum) {
+        var yyyy = parseInt(sDate.substr(0, 4), 10);
+        var mm = parseInt(sDate.substr(4, 2), 10) - 1;
+        var dd = parseInt(sDate.substr(6, 2), 10);
+
+        nNum *= 1;
+        nNum = nNum -1;
+        var newDt = new Date(yyyy,mm,dd);
+        newDt.setDate( newDt.getDate() + nNum );
+          var year = newDt.getFullYear();
+          var month = newDt.getMonth()+1;
+          var day = newDt.getDate();
+          if(month < 10){
+              month = "0"+month;
+          }
+          if(day < 10){
+              day = "0"+day;
+          }
+
+          var today = year+""+month+""+day;
+        return today;
+    }
+	function today() {
+		var today = new Date();
+		var year = today.getFullYear();
+		var month = today.getMonth() + 1;
+		var date = today.getDate();
+
+		var day = String(year) + String(month) + String(date);
+		return day;
+		
+	}
+	function search() {
+		location.href="/searchRoomAction.do?searchFrom=" + today() + "&searchTo=" + dateAdd(today(),1) + "&searchRoom=executive";
+	}
+    </script>
     <title>Executive room</title>
 </head>
 <body>
@@ -67,7 +104,12 @@
     <div class=contents>
         <h2 id=gaeyo>Executive Room</h2>
         <img src="/resources/image/executive room.jpg" width="800" height="500">
-        <p> 이그제큐티브 객실은 야경이 돋보이는 객실입니다.<br/>
+        <p> 이그제큐티브 객실은 야경이 돋보이는 객실입니다.
+        	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+        	<td>
+        	<button type="button" id="res_btn" onclick="javaScript:search()">예약하기</button>
+        	</td>
+        	<br/>
             이그제큐티브 라운지 서비스를 즐기며 편안한 휴식을 취하십시오.<br/>
             문의전화 02-0000-0000<br/>
             전망 : 시티 뷰 | 침대 : 더블 / 트윈 / 트리플 | 크기 : 45m^2<br/>

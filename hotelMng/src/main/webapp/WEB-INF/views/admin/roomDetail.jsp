@@ -5,18 +5,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
-	<link rel="stylesheet" href="/resources/css/style_admin.css" type="text/css">
-
-	<style>
-		* {
-			font-family: 'Noto Sans KR', sans-serif;
-		}
-	</style>
-
-        <title>Welcom Delluna!</title>
-
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
+        <link rel="stylesheet" href="/resources/css/style_admin.css" type="text/css">
+        
+        <style>
+            * {
+                font-family: 'Noto Sans KR', sans-serif;
+            }
+        </style>
+        <title>Room Detail</title>
          <script type="text/javascript">
 
 
@@ -99,7 +97,6 @@
 			<td>${roomDetail.fee}</td>
 			<td>${roomDetail.managerCode}</td>
 			</tr>
-
 		</table>
 
     </div>

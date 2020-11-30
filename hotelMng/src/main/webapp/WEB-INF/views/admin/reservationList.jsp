@@ -13,8 +13,6 @@
             }
         </style>
         <title>Reservation List</title>
-
-
   <script type="text/javascript">
 
 		var sessionLevel = '${member.userLevel}';
@@ -27,10 +25,10 @@
 
     </head>
     <body>
-		<%@include file = "/WEB-INF/views/admin/admin_header.jsp" %>
+        <%@include file = "/WEB-INF/views/admin/admin_header.jsp" %>
 
         <div class=contents>
-			<p style="text-align:center;">예약 LIST</p>
+			<p style="text-align:center;">RESERVATION LIST</p>
 			<!-- search{s} -->
 			<div class="form-group row justify-content-center">
 				<div class="w100" style="text-align: center">

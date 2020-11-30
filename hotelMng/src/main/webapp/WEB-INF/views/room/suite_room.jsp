@@ -34,6 +34,43 @@
 	 		top:1px;
   		}
         </style>
+		<script type="text/javascript">
+	    function dateAdd(sDate, nNum) {
+	        var yyyy = parseInt(sDate.substr(0, 4), 10);
+	        var mm = parseInt(sDate.substr(4, 2), 10) - 1;
+	        var dd = parseInt(sDate.substr(6, 2), 10);
+	
+	        nNum *= 1;
+	        nNum = nNum -1;
+	        var newDt = new Date(yyyy,mm,dd);
+	        newDt.setDate( newDt.getDate() + nNum );
+	          var year = newDt.getFullYear();
+	          var month = newDt.getMonth()+1;
+	          var day = newDt.getDate();
+	          if(month < 10){
+	              month = "0"+month;
+	          }
+	          if(day < 10){
+	              day = "0"+day;
+	          }
+	
+	          var today = year+""+month+""+day;
+	        return today;
+	    }
+		function today() {
+			var today = new Date();
+			var year = today.getFullYear();
+			var month = today.getMonth() + 1;
+			var date = today.getDate();
+	
+			var day = String(year) + String(month) + String(date);
+			return day;
+			
+		}
+		function search() {
+			location.href="/searchRoomAction.do?searchFrom=" + today() + "&searchTo=" + dateAdd(today(),1) + "&searchRoom=suite";
+		}
+	    </script>        
         <title>Suite room</title>
 
     </head>
@@ -68,7 +105,12 @@
           <div class=contents>
             <h2 id=gaeyo>Suite Room</h2>
             <img src="/resources/image/suiteroom.jpg" width="800" height="500">
-            <p> 스위트룸은 프라이빗한 휴식을 즐길 수 있는 객실입니다.<br/>
+            <p> 스위트룸은 프라이빗한 휴식을 즐길 수 있는 객실입니다.
+            	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	        	<td>
+	        	<button type="button" id="res_btn" onclick="javaScript:search()">예약하기</button>
+	        	</td>
+            	<br/>
                 스위트룸과 함께 최고의 휴식을 경험해보십시오.<br/>
                 문의전화 02-0000-0000<br/>
                 전망 : 시티 뷰 | 침대 : 더블(킹 사이즈) | 크기 : 159m^2<br/>

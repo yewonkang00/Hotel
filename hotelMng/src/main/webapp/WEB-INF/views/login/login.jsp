@@ -15,10 +15,9 @@
   <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
   <script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
   <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
-
-  <title>Member Login</title>
-
-
+  
+  <title>SIGN IN</title>
+  
   <script type="text/javascript">
 
   function goRegist() {

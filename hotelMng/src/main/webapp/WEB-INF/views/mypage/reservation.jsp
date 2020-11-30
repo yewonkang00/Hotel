@@ -7,9 +7,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/resources/css/style_mypage.css" type="text/css">
-
     <title>My Reservation</title>
-
     <script type="text/javascript">
 	    var sessionUserId = '${member.userId}';
 	    if(sessionUserId == null || sessionUserId == 'null' || sessionUserId=="" || sessionUserId == "1"){
@@ -61,15 +59,15 @@
   <div class=contain>
       <div class=left>
           <h2 class=tit>마이 페이지</h2>
-          <ul class=menu>
-              <li class="m1">
-                  <a href="/mypage/reservation">
-                      <span>예약 확인/취소</span>
-                  </a>
+            <ul class=menu>
+          	  <li class="m1">
+                <a href="/mypage/memberinfo">
+                  <span>개인 정보</span>
+                </a>
               </li>
               <li class="m2">
-                  <a href="/mypage/memberinfo">
-                      <span>개인 정보</span>
+                  <a href="/mypage/reservation">
+                      <span>예약 확인/취소</span>
                   </a>
               </li>
               <li class="m3">
@@ -121,7 +119,6 @@
 			</c:if>
       	</tr>
       	</c:forEach>
-      	</tr>
       </table>
     </div>
     <%@include file = "/WEB-INF/views/layout/final.jsp" %>

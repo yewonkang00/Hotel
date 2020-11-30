@@ -38,51 +38,28 @@
   </head>
 
 <body>
-  <div class=header>
-      <a href="index.html"><img src="../img/moon.png" width="80" height="80"></a>
-      <div class=logo></div>
-      <span class=topmenu>
-        <a href="login.html">로그인</a>
-        <a>마이페이지</a>
-        <a href="res_confirm.html">예약 확인</a>
-      </span>
-      <nav>
-        <span><a href="intro.html">호텔 소개</a></span>
-        <span><a href="room.html">객실</a></span>
-        <span><a href="restaurant.html">레스토랑</a></span>
-        <span><a href="res.html">예약</a></span>
-        <span><a href="res_confirm.html">예약 확인</a></span>
-        <span><a href="qna.html">고객문의</a></span>
-        <span><a href="facility.html">편의시설</a></span>
-        <span><a href="login.html">로그인</a></span>
-      </nav>
-  </div>
+  <%@include file = "/WEB-INF/views/layout/header.jsp" %>
 
   <div class=contain>
     <div class=left>
-          <h2 class=tit>마이 페이지</h2>
+          <h2 class=tit>My QnA</h2>
             <ul class=menu>
-<%--              <li class="m1">--%>
-<%--                  <a href="mypage_dbreward.html">--%>
-<%--                    <span>DB 리워즈</span>--%>
-<%--                  </a>--%>
-<%--                </li>--%>
-                <li class="m2">
-                  <a href="/mypage/reservation">
-                    <span>예약 확인/취소</span>
-                  </a>
-                </li>
-                <li class="m3">
-                  <a href="/mypage/memberinfo">
-                    <span>개인 정보</span>
-                  </a>
-                </li>
-                <li class="m4">
-                  <a href="mypage_qna.html">
-                    <span>문의 내역</span>
+          	  <li class="m1">
+                <a href="/mypage/memberinfo">
+                  <span>개인 정보</span>
                 </a>
               </li>
-            </ul>
+              <li class="m2">
+                <a href="/mypage/reservation">
+                  <span>예약 확인/취소</span>
+                </a>
+              </li>
+              <li class="m3">
+                <a href="mypage_qna.html">
+                  <span>문의 내역</span>
+              </a>
+            </li>
+          </ul>
     </div>
     <div class=contents>
       <h1>문의 내역</h1>

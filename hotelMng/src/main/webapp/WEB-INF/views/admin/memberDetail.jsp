@@ -68,6 +68,7 @@
     </head>
 <body>
 	<%@include file = "/WEB-INF/views/admin/admin_header.jsp" %>
+<<<<<<< HEAD
 
     <div class=contents>
     	<p style="text-align:center;">회원 정보</p>
@@ -84,6 +85,22 @@
 				</tr>
 			</thead>
 
+=======
+    <div class=contents>
+    	<p style="text-align:center;">회원 정보</p>
+    	<table class="table table-hover">
+	    	<thead>
+		        <tr>
+			        <td>User ID</td>
+			        <td>User Name</td>
+			        <td>Grade</td>
+			        <td>Phone Num</td>
+			        <td>Email</td>
+			        <td>Mileage</td>
+			        <td>Birth</td>
+		        </tr>
+	        </thead>
+>>>>>>> kkk
 			<tr>
 			<td>${memberDetail.userId}</td>
 			<td>${memberDetail.userName}</td>
@@ -92,6 +109,7 @@
 			<td>${memberDetail.userEmail}</td>
 			<td>${memberDetail.userMile}</td>
 			<td>${memberDetail.userBirth}</td>
+<<<<<<< HEAD
 			<%-- <td>${reservationVo.userId}</td>
 			<td>${reservationVo.reservationPeopleNumber}</td>
 			<td>${reservationVo.reservationCheckIn}</td>
@@ -102,6 +120,9 @@
 			<td>${reservationVo.totalPrice}</td> --%>
 			</tr>
 
+=======
+			</tr>
+>>>>>>> kkk
 		</table>
 		<br>
 		<input type="button" value="회원삭제" class="submit-btn" onClick="javaScript:memberDelete('${memberDetail.userId}')">
@@ -109,6 +130,7 @@
 		<p style="text-align:center;">예약 정보</p>
 		<table class="table table-hover">
 			<thead>
+<<<<<<< HEAD
 				<tr>
 					<td>Reservation Code</td>
 					<td>CheckIn</td>
@@ -121,6 +143,20 @@
 				</tr>
 			</thead>
 
+=======
+		        <tr>
+		        	<td>Reservation Code</td>
+			        <td>CheckIn</td>
+			        <td>CheckOut</td>
+			        <td>PeopleNum</td>
+			        <td>Days</td>
+			        <td>Breakfast</td>
+			        <td>Total Price</td>
+			        <td>Memo</td>
+		        </tr>
+	        </thead>
+	        
+>>>>>>> kkk
 			<c:forEach items="${resDetail}" var="item" varStatus="idx">
 			<tr>
 			<td><a href="/admin/reservationDetailAction.do?reservationCode=${item.reservationCode}";>${item.reservationCode}</td>

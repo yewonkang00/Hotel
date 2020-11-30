@@ -82,10 +82,10 @@
   
     </head>
     <body>
-		<%@include file = "/WEB-INF/views/admin/admin_header.jsp" %>
+	<%@include file = "/WEB-INF/views/admin/admin_header.jsp" %>
 
         <div class=contents>
-			<p style="text-align:center;">회원 LIST</p>
+			<p style="text-align:center;">MEMBER LIST</p>
 			<!-- search{s} -->
 			<div class="form-group row justify-content-center">
 				<div class="w100" style="text-align: center">

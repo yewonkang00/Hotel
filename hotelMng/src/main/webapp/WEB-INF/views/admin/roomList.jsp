@@ -34,7 +34,7 @@
         <%@include file = "/WEB-INF/views/admin/admin_header.jsp" %>
 
         <div class=contents>
-            <p style="text-align:center;">객실 LIST</p>
+            <p style="text-align:center;">ROOM LIST</p>
             <!-- <button type="button" id="standard" onClick="standard()">standard</button>
             <button type="button" id="deluxe" onClick="deluxe()">deluxe</button>
             <button type="button" id="executive" onClick="executive()">executive</button>
