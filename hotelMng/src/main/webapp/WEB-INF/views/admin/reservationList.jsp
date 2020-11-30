@@ -12,7 +12,7 @@
                 font-family: 'Noto Sans KR', sans-serif;
             }
         </style>
-        <title>Member List</title>
+        <title>Reservation List</title>
         
         
   <script type="text/javascript">
@@ -27,40 +27,21 @@
 
     </head>
     <body>
-        <div class=header>
-            <a href="/admin"><img src="/resources/image/moon.png" width="100" height="100">
-            <nav>
-                <span><a></a></span>
-                <span><a href="/admin/memberList">회원 List</a></span>
-                <span><a href="/admin/roomList">객실 List</a></span>
-                <span><a href="/admin/reservationList">예약 List</a></span>
-                <span>
-		        	<c:choose>
-		  				<c:when test="${member != null}"><a href="/logout.do">로그아웃</a></c:when>
-		   				<c:otherwise><a href="/login.do">로그인</a></c:otherwise>
-		   			</c:choose>
-       			</span>
-            </nav>
-            
-        </div>
+        <%@include file = "/WEB-INF/views/admin/admin_header.jsp" %>
 
         <div class=contents>
-			<p style="text-align:center;">예약 LIST</p>
+			<p style="text-align:center;">RESERVATION LIST</p>
 			<!-- search{s} -->
 			<div class="form-group row justify-content-center">
-				<div class="w100" style="padding-right:10px">
+				<div class="w100" style="text-align: center">
 					<select class="form-control form-control-sm" name="searchType" id="searchType">
 						<option value="RoomNo">호실</option>
 						<option value="Resdate">날짜</option>
 					</select>
-				</div>
-				<div class="w300" style="padding-right:10px">
 					<input type="text" class="form-control form-control-sm" name="keyword" id="keyword">
-				</div>
-				<div>
 					<button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch">검색</button>
 				</div>
-
+				<br>
 			</div>
 			<!-- search{e} -->
         	<table class="table table-hover">

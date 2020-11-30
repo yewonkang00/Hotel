@@ -12,7 +12,7 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
-        <title>Welcom Delluna!</title>
+        <title>Reservation STEP1</title>
         <style>
           .res_content{
           display: inline-block;
@@ -172,12 +172,6 @@
           }
         </style>
         <script type="text/javascript">
-         var sessionUserId = '${member.userId}';
-         var sessionLevel = '${member.userLevel}';
-         if(sessionUserId == null || sessionUserId == 'null' || sessionUserId=="" || sessionUserId == "1"){
-           alert("로그인 후 이용해주세요.");
-           location.href="/login.do";
-         }
 
          function dateAdd(sDate, nNum) {
            var yyyy = parseInt(sDate.substr(0, 4), 10);
@@ -188,17 +182,17 @@
            nNum = nNum -1;
            var newDt = new Date(yyyy,mm,dd);
            newDt.setDate( newDt.getDate() + nNum );
-             var year = newDt.getFullYear();
-             var month = newDt.getMonth()+1;
-             var day = newDt.getDate();
-             if(month < 10){
-                 month = "0"+month;
-             }
-             if(day < 10){
-                 day = "0"+day;
-             }
+           var year = newDt.getFullYear();
+           var month = newDt.getMonth()+1;
+           var day = newDt.getDate();
+           if(month < 10){
+               month = "0"+month;
+           }
+           if(day < 10){
+               day = "0"+day;
+           }
 
-             var today = year+""+month+""+day;
+           var today = year+""+month+""+day;
            return today;
          }
 
@@ -235,7 +229,7 @@
                 ,dayNamesMin: ['일','월','화','수','목','금','토'] //달력의 요일 부분 텍스트
                 ,dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'] //달력의 요일 부분 Tooltip 텍스트
                 ,minDate: "-1M" //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
-                ,maxDate: "+1M" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
+                ,maxDate: "+1Y" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
             });
 
             //input을 datepicker로 선언
@@ -281,7 +275,19 @@
             }
           }
           function datediff(input, output) {
-		  	var diff = output - input;
+       	    var yyyyMMdd = String(input);
+       	    var sYear = yyyyMMdd.substring(0,4);
+       	    var sMonth = yyyyMMdd.substring(4,6);
+       	    var sDate = yyyyMMdd.substring(6,8);
+       	    var date1 = new Date(Number(sYear), Number(sMonth)-1, Number(sDate));
+       	        
+       	    var yyyyMMdd2 = String(output);
+       	    var sYear2 = yyyyMMdd2.substring(0,4);
+       	    var sMonth2 = yyyyMMdd2.substring(4,6);
+       	    var sDate2 = yyyyMMdd2.substring(6,8);
+       	    var date2 = new Date(Number(sYear2), Number(sMonth2)-1, Number(sDate2));
+     	   
+		  	var diff = date2.getTime() - date1.getTime();
 		  	var currDay = 24 * 60 * 60 * 1000;
 		  	return parseInt(diff/currDay);
           }

@@ -52,6 +52,9 @@ a {
 .m4{
     height: 50px;
 }
+.m5{
+	height: 50px;
+}
 h3 {
     margin: 19px 0 8px;
     font-size: 14px;
@@ -77,16 +80,16 @@ h4 {
     margin : 20px 10px;
 }
 .intbox {
-    border-bottom: 1px solid #E8E4DE;
     margin: 25px 0 50px 0;
     overflow: hidden;
     padding: 0;
     color: #101010;
     display: block;
+    min-height : 1200px;
 }
 .intbox .lbox {
     float: left;
-    margin-right: 30px;
+    margin-right: 85px;
     width: 400px;
     height: 70px;
     margin-bottom: 50px;
@@ -95,14 +98,14 @@ h4 {
 }
 .intbox .rbox {
     float: left;
-    width: 400px;
+    width: 450px;
     margin-bottom :50px;
     padding: 0;
 
 }
 .intbox .lbox .topexp{
     float: left;
-    width: 250px;
+    width: 450px;
 }
 .intbox .rbox .topxep{
     float: left;
@@ -120,5 +123,5 @@ h4 {
     float:right;
     margin-right:-120px;
     width:960px;
-    height:1200px;
+    min-height:1200px;
 }

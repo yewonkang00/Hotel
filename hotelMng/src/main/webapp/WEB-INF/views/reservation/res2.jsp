@@ -100,7 +100,7 @@
   		<link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
   		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <title>Welcom Delluna!</title>
+        <title>Reservation STEP2</title>
 		<script type="text/javascript">
 			var sessionUserId = '${member.userId}';
 	        var sessionLevel = '${member.userLevel}';
@@ -290,7 +290,7 @@
       <div class=contain>
         <div class=res_content>
           <div class=res_content2>
-            <h3 id="res_tit">2. 정보 입력 및 결제하기</h3>
+          	<b id="res_tit"><h4>STEP 2<br>정보 입력 및 결제하기</h4></b>
             <form method="get" action="write_action.php" enctype="multipart/form-data"> <!--예약 작성하는 폼-->
    			      <h3 class="res2_tit">요청사항</h3>
 					    <div class="msgBox">

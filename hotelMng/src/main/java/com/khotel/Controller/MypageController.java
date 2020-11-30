@@ -47,6 +47,7 @@ public class MypageController {
 		HttpSession session = request.getSession();
 		member = (MemberVo) session.getAttribute("member");
 		memberService.deleteMember(member);
+		session.invalidate();
 		return "/mypage/memberinfo";
 	}
 	

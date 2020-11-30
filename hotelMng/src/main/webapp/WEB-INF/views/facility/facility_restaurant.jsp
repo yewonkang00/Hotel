@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/resources/css/style_facility.css" type="text/css">
     <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
 
-    <title>Executive Rounge</title>
+    <title>Restaurant</title>
 </head>
 <body>
 <%@include file = "/WEB-INF/views/layout/header.jsp" %>
@@ -47,14 +47,15 @@
             </li>
         </ul>
     </div>
-    <div class=contents>
-        <h2 id=gaeyo>Executive Rounge</h2>
-        <img src="${pageContext.request.contextPath}/resources/image/rounge.jpg" width="800" height="500">
-        <p> 세계 최고 수준의 이그제큐티브 라운지입니다.<br/>
-            호텔의 최상층에 위한 이그제큐티브 라운지에서의 전경과 함께 특별한 다이닝 경험을 체험할 수 있습니다.<br/>
-            문의전화 02-0000-0000<br/>
-        </p>
-    </div>
+          <div class=contents>
+            <h2 id=gaeyo>Restaurant</h2>
+            <img src="${pageContext.request.contextPath}/resources/image/restaurant.jpg" width="800" height="500">
+            <p> 루시드 호텔 뷔페에서 특별한 미각의 즐거움을 만날 수 있습니다.<br/>
+                가족, 친구, 연인, 동료 등 함께하는 사람과의 즐거움이 두 배가 되는 경험을 만들 수 있습니다.<br/>
+                운영시간 [조식] 06:00 - 10:00 | [중식] 11:30 - 14:00 | [석식] 17:30 - 21:00<br/>
+                문의전화 02-0000-0000<br/>
+            </p>
+          </div>
     <%@include file = "/WEB-INF/views/layout/final.jsp" %>
 </div>
 </body>

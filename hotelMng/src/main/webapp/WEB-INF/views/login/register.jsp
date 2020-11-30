@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
-        <title>회원가입</title>
+        <title>SIGN UP</title>
         <style>
           body {
               background-color: #EEEFF1;
@@ -99,7 +99,7 @@
 			$('#UserEmail').focus();
 			return false;
 		} else if (UserBirth == "") {
-			alert("생일을 입력해주세요.");
+			alert("생년월일을 입력해주세요.");
 			$('#UserBirth').focus();
 			return false; 
 		} else if (UserPhone == "") {

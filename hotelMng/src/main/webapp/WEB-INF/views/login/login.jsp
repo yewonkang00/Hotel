@@ -16,7 +16,7 @@
   <script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
   <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
   
-  <title>로그인</title>
+  <title>SIGN IN</title>
   
   
   <script type="text/javascript">
@@ -76,10 +76,6 @@
      </form>
       <input type="submit" value="SIGN IN" class="submit-btn" onClick="login();">
       <input type="submit" value="SIGN UP" class="submit-btn" onClick="goRegist();">
-
-    <div class="links">
-      <a href="find_password.html">비밀번호 찾기</a>
-    </div>
   </div>
 </body>
 </html>

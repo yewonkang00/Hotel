@@ -10,78 +10,15 @@
     <head>
         <meta charset="UTF-8">
         <script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
+        <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+        <link rel="stylesheet" href="/resources/css/style_admin.css" type="text/css">
+        
         <style>
             * {
                 font-family: 'Noto Sans KR', sans-serif;
             }
-            body {
-                margin-left:auto;
-                margin-right: auto;
-                padding:0px;
-                background-color: white;
-                font-family:나눔고딕;
-            }
-            a {
-                color:#111111;
-            }
-            a { text-decoration:none } 
-            .header{
-                margin-left:auto;
-                margin-right: auto;
-                background-color: #D4C1A1;
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                height: 50px;
-                text-align: center;
-                padding: 8px;
-                color: #111111;
-                font-size: 5px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-            .header nav {
-                list-style-type: none;
-                text-align: center;
-                margin: 0;
-                padding: 0;
-            }
-            .header nav span {
-                display:inline-block;
-                font-size: 15px;
-                padding: 20px;
-            }
-            .banner{
-                background-image: url("/resources/image/oria-hotel-4636405_1280.jpg");
-                background-size: cover;
-                margin-top: auto;
-                width: auto;
-                height: 700px;
-            }
-            
-            .contents{
-                width: 1200px;
-                margin-left:auto;
-                margin-right: auto;
-                min-height: 500px;
-                padding: 50px;
-                background-color: white;
-                font-size: 18px;
-                color: #333333
-            }
-            .finish {
-                width: 1200px;
-                margin-left:auto;
-                margin-right: auto;
-                padding: 50px;
-                background-color: white;
-                font-size: 18px;
-                color: #333333
-            }
-
-        </style>       
+        </style>    
+           
 	<style TYPE="text/css">
 		body {
 		scrollbar-face-color: #F6F6F6;
@@ -208,7 +145,7 @@
 	</style>
         
         
-        <title>Welcome Delluna!</title>
+        <title>Reservation</title>
         
   <script type="text/javascript">
   var sessionUserId = '${member.userId}';
@@ -266,21 +203,7 @@ function detail(reservationCode) {
 
 </head>
     <body>
-        <div class=header>
-            <a href="/admin"><img src="/resources/image/moon.png" width="100" height="100">
-            <nav>
-                <span><a href="/admin/memberList">회원 List</a></span>
-                <span><a href="/admin/roomList">객실 List</a></span>
-                <span><a href="/admin/reservationList">예약 List</a></span>
-                <span>
-		        	<c:choose>
-		  				<c:when test="${member != null}"><a href="/logout.do">로그아웃</a></c:when>
-		   				<c:otherwise><a href="/login.do">로그인</a></c:otherwise>
-		   			</c:choose>
-       			</span>
-            </nav>
-            
-        </div>
+        <%@include file = "/WEB-INF/views/admin/admin_header.jsp" %>
         <!-- 달력 -->
 		<form name="calendarFrm" id="calendarFrm" action="" method="GET">
 		

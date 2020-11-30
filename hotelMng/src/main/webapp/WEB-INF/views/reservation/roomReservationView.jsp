@@ -208,7 +208,7 @@
 	</style>
         
         
-        <title>Welcome Delluna!</title>
+        <title>Reservation View</title>
         
   <script type="text/javascript">
   var sessionUserId = '${member.userId}';
