@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
-        <title>회원가입</title>
+        <title>SIGN UP</title>
         <style>
           body {
               background-color: #EEEFF1;

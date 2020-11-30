@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
-<title>문의사항</title>
+<title>QnA</title>
 <style>
 body {
 	background-color: #EEEFF1;

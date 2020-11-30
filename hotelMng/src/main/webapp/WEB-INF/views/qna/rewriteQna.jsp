@@ -12,7 +12,7 @@
 
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="/resources/css/style_qna.css" type="text/css">
-		<title>문의사항 수정</title>
+		<title>QnA Rewrite</title>
 
 		<script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
 		<script type="text/javascript" src='/resources/js/jquery.form.js'></script>

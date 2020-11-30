@@ -94,3 +94,14 @@ th {
     font-size: 10px;
     font-weight: 400;
 }
+
+.finish {
+    clear: both;
+    width: 1200px;
+    margin-left:auto;
+    margin-right: auto;
+    padding: 50px;
+    font-size: 18px;
+    color: #333333;
+    background-color: #fbfcf5;
+}

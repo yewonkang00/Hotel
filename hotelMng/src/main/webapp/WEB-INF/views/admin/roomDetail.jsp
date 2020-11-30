@@ -7,79 +7,14 @@
 <head>
         <meta charset="UTF-8">
         <script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
+        <link rel="stylesheet" href="/resources/css/style_admin.css" type="text/css">
+        
         <style>
             * {
                 font-family: 'Noto Sans KR', sans-serif;
             }
-            body {
-                margin-left:auto;
-                margin-right: auto;
-                padding:0px;
-                background-color: white;
-                font-family:나눔고딕;
-            }
-            a {
-                color:#111111;
-            }
-            a { text-decoration:none } 
-            .header{
-                margin-left:auto;
-                margin-right: auto;
-                background-color: #D4C1A1;
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                height: 50px;
-                text-align: center;
-                padding: 8px;
-                color: #111111;
-                font-size: 5px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-            .header nav {
-                list-style-type: none;
-                text-align: center;
-                margin: 0;
-                padding: 0;
-            }
-            .header nav span {
-                display:inline-block;
-                font-size: 15px;
-                padding: 20px;
-            }
-            .banner{
-                background-image: url("/resources/image/oria-hotel-4636405_1280.jpg");
-                background-size: cover;
-                margin-top: auto;
-                width: auto;
-                height: 700px;
-            }
-            
-            .contents{
-                width: 1200px;
-                margin-left:auto;
-                margin-right: auto;
-                min-height: 500px;
-                padding: 50px;
-                background-color: white;
-                font-size: 18px;
-                color: #333333
-            }
-            .finish {
-                width: 1200px;
-                margin-left:auto;
-                margin-right: auto;
-                padding: 50px;
-                background-color: white;
-                font-size: 18px;
-                color: #333333
-            }
-
         </style>
-        <title>Welcom Delluna!</title>
+        <title>Room Detail</title>
         
          <script type="text/javascript">
 			
@@ -133,50 +68,36 @@
 
     </head>
 <body>
-	<div class=header>
-            <a href="/admin"><img src="/resources/image/moon.png" width="100" height="100">
-            <nav>
-                <span><a></a></span>
-                <span><a href="/admin/memberList">회원 List</a></span>
-                <span><a href="/admin/roomList">객실 List</a></span>
-                <span><a href="/admin/reservationList">예약 List</a></span>
-                <span>
-		        	<c:choose>
-		  				<c:when test="${member != null}"><a href="/logout.do">로그아웃</a></c:when>
-		   				<c:otherwise><a href="/login.do">로그인</a></c:otherwise>
-		   			</c:choose>
-       			</span>
-            </nav>
-            
-        </div>
-    
-    <p>
-    <p>
+	<%@include file = "/WEB-INF/views/admin/admin_header.jsp" %>
+
     <div class=contents>
     	<p style="text-align:center;">객실 상세</p>
-    	<table border="1">
-        <tr>
-	        <td>Room No</td>
-	        <td>Room Type</td>
-	        <td>Bed Type</td>
-	        <td>Max People</td>
-	        <td>Room View</td>
-	        <td>Composition</td>
-	        <td>Things</td>
-	        <td>Fee</td>
-	        <td>Manager</td>
-        </tr>
-		<tr>
-		<td>${roomDetail.roomNo}</td>
-		<td>${roomDetail.roomType}</td>
-		<td>${roomDetail.bedType}</td>
-		<td>${roomDetail.roomMaxPeople}</td>
-		<td>${roomDetail.roomView}</td>
-		<td>${roomDetail.composition}</td>
-		<td>${roomDetail.things}</td>
-		<td>${roomDetail.fee}</td>
-		<td>${roomDetail.managerCode}</td>
-		</tr>
+    	<table class="table table-hover">
+    		<thead>
+		        <tr>
+			        <td>Room No</td>
+			        <td>Room Type</td>
+			        <td>Bed Type</td>
+			        <td>Max People</td>
+			        <td>Room View</td>
+			        <td>Composition</td>
+			        <td>Things</td>
+			        <td>Fee</td>
+			        <td>Manager</td>
+		        </tr>
+			</thead>
+			<tr>
+			<td>${roomDetail.roomNo}</td>
+			<td>${roomDetail.roomType}</td>
+			<td>${roomDetail.bedType}</td>
+			<td>${roomDetail.roomMaxPeople}</td>
+			<td>${roomDetail.roomView}</td>
+			<td>${roomDetail.composition}</td>
+			<td>${roomDetail.things}</td>
+			<td>${roomDetail.fee}</td>
+			<td>${roomDetail.managerCode}</td>
+			</tr>
+			
 		</table>
 		
 		

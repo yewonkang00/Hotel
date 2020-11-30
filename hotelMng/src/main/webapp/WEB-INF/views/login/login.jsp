@@ -16,7 +16,7 @@
   <script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
   <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
   
-  <title>로그인</title>
+  <title>SIGN IN</title>
   
   
   <script type="text/javascript">

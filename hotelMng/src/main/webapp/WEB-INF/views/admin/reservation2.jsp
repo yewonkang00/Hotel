@@ -6,115 +6,119 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
+
         <style>
-        .res_content{
-          display: inline-block;
-          margin-left:100px;
-        }
-        .res_content2{
-          margin:0 auto;
-        }
-        #res_tit{
-          font-size:30px;
-          margin-bottom:30px;
-          font-weight: bolder;
-          text-align: center;
-        }
-        .res2_tit{
-          font-size:20px;
-          margin-top:20px;
-        }
-        #res2_tit{
-          padding-bottom:7px;
-          border-bottom:7px solid  #D4C1A1;
-        }
-        .msgBox{
-          font-size:15px;
-          border:3px solid #ECE6CC;
-          border-radius:8px;
-          background-color:#ECE6CC;
-          margin-bottom:10px;
-          text-align:center;
-          width:975px;
-        }
-        #msg{
-          height:50px;
-        }
-        table{
-          border-collapse: collapse;
-        }
-        .table{
-            border-top:7px solid  #D4C1A1;
-            border-radius:5px;
-        }
-        .table tr{
-          border-bottom: 2px solid #f1f1f1;
-        }
-        .table th{
-          padding-top:20px;
-          padding-bottom:20px;
-          background-color:#f1f1f1;
-        }
-        .table td{
-          padding-left:10px;
-          padding-top:20px;
-          padding-bottom:20px;
-        }
-        .card_com{
-          width:200px;
-        }
-        .card_num{
-          width:35px;
-        }
-        .card_term{
-          width:70px;
-        }
-        .scroll {
-          overflow-x: hidden;
-          overflow-y: scroll;
-          border: solid 1px #aaa;
-          padding-left: 8px;
-          font-size: 14px;
-          box-sizing: border-box;
-          height:145px;
-          width:975px;
-        }
-
-        #res2_btn{
-          width:100px;
-          height:55px;
-          margin-left:450px;
-          margin-top: 30px;
-          background-color:#D4C1A1;
-          border:none;
-          border-radius:7px;
-        }
-        .totalPricefield{
-          background-color:#ECE6CC;
-
-        }
+			body {
+				margin-left:auto;
+				margin-right: auto;
+				padding:0px;
+				background-color: #fbfcf5;
+			}
+			.contain{
+				background-color: #fbfcf5;
+			}
+			.res_content{
+			  display: inline-block;
+			  margin-left:100px;
+			}
+			.res_content2{
+			  margin:0 auto;
+			}
+			#res_tit{
+			  font-size:30px;
+			  margin-bottom:30px;
+			  font-weight: bolder;
+			  text-align: center;
+			}
+			.res2_tit{
+			  font-size:20px;
+			  margin-top:20px;
+			}
+			#res2_tit{
+			  padding-bottom:7px;
+			  border-bottom:7px solid  #D4C1A1;
+			}
+			.msgBox{
+			  font-size:15px;
+			  border:3px solid #ECE6CC;
+			  border-radius:8px;
+			  background-color:#ECE6CC;
+			  margin-bottom:10px;
+			  text-align:center;
+			  width:975px;
+			}
+			#msg{
+			  height:50px;
+			}
+			table{
+			  border-collapse: collapse;
+			}
+			.table{
+				border-top:7px solid  #D4C1A1;
+				border-radius:5px;
+			}
+			.table tr{
+			  border-bottom: 2px solid #f1f1f1;
+			}
+			.table th{
+			  padding-top:20px;
+			  padding-bottom:20px;
+			  background-color:#f1f1f1;
+			}
+			.table td{
+			  padding-left:10px;
+			  padding-top:20px;
+			  padding-bottom:20px;
+			}
+			.card_com{
+			  width:200px;
+			}
+			.card_num{
+			  width:35px;
+			}
+			.card_term{
+			  width:70px;
+			}
+			.scroll {
+			  overflow-x: hidden;
+			  overflow-y: scroll;
+			  border: solid 1px #aaa;
+			  padding-left: 8px;
+			  font-size: 14px;
+			  box-sizing: border-box;
+			  height:145px;
+			  width:975px;
+			}
+			#res2_btn{
+			  width:100px;
+			  height:55px;
+			  margin-left:450px;
+			  margin-top: 30px;
+			  background-color:#D4C1A1;
+			  border:none;
+			  border-radius:7px;
+			}
+			.totalPricefield{
+			  background-color:#ECE6CC;
+			}
         </style>
  		<script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
   		<link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
   		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <title>Welcom Delluna!</title>
+        <title>Reservation</title>
 		<script type="text/javascript">
-			
 			var sessionLevel = '${member.userLevel}';
-			
 			if(sessionLevel == null || sessionLevel == 'null' || sessionLevel=="" || sessionLevel == "1"){
 				alert("관리자 권한이 없습니다.");
 				location.href="/main";
 			}
 		</script>
         <script type="text/javascript">
-
     	function dateAdd(sDate, nNum) {
     		var yyyy = parseInt(sDate.substr(0, 4), 10);
     		var mm = parseInt(sDate.substr(4, 2), 10) - 1;
     		var dd = parseInt(sDate.substr(6, 2), 10);
-
     		nNum *= 1;
     		nNum = nNum -1;
     		var newDt = new Date(yyyy,mm,dd);
@@ -128,11 +132,9 @@
     	    if(day < 10){
     	        day = "0"+day;
     	    }
-
     	    var today = year+""+month+""+day;
 			return today;
         }
-
     	$(document).ready(function() {
 			$('#ReservationDays').on('mouseup', function(e) {
 				var price = ('${room.fee}' * $('#ReservationDays').val());
@@ -147,7 +149,6 @@
 				$('#Mileage').html("<span id='Mileage'>" + Mileage + " p</span>");
 				$('#CheckOut').html("<span id='CheckOut'>"+checkout+"</span>");
 			});
-
 	 		$("#Breakfast").click(function() {
 				if($("#Breakfast").is(":checked")) {
 					var price = ($('#ReservationPeopleNumber').val() * 20000);
@@ -164,7 +165,6 @@
 				$('#TotalPrice').html("<span id='TotalPrice'>" + finish + " 원</span>");
 				$('#Mileage').html("<span id='Mileage'>" + Mileage + " p</span>");
 			});
-
 			$('#ReservationPeopleNumber').on('mouseup', function(e) {
 				if($("#Breakfast").is(":checked")) {
 					var price = ($('#ReservationPeopleNumber').val() * 20000);
@@ -181,11 +181,7 @@
 				$('#TotalPrice').html("<span id='TotalPrice'>" + finish + " 원</span>");
 				$('#Mileage').html("<span id='Mileage'>" + Mileage + " p</span>");
 			});
-			
-			
 		});
-
-
         function reservation() {
         	var Id = $('#UserId').val();
         	var ReservationDays = $('#ReservationDays').val();
@@ -206,8 +202,6 @@
 			var agree1 = $('#agree1').val();
 			var agree2 = $('#agree2').val();
 			var RoomType = '${room.roomType}';
-			
-			
         	var data = {"UserId" : Id,
                 	"ReservationDays" : ReservationDays,
                 	"ReservationPeopleNumber" : ReservationPeopleNumber,
@@ -223,7 +217,6 @@
                     "CardValid" : CardValid,
                     "RoomType" : RoomType
         	};
-
         	if(ReservationDays == "-박") {
         		alert("숙박일 수를 입력해주세요.");
     			$('#ReservationDays').focus();
@@ -233,13 +226,12 @@
     			$('#ReservationPeopleNumber').focus();
     			return false;
             } else if (!$("#agree1").is(":checked")) {
-            	alert("개인정보 수집에 동의해주세요.");   
+            	alert("개인정보 수집에 동의해주세요.");
             	return false;
             } else if (!$("#agree2").is(":checked")) {
-            	alert("결제 취소 규정에 동의해주세요.");   
+            	alert("결제 취소 규정에 동의해주세요.");
             	return false;
             }
-
             $.ajax({
             	type : "POST",
     			url : "/admin/reservateAction.do",
@@ -248,14 +240,12 @@
     			success : function(data) {
     				var result = data["resultMsg"];
     				if(result == "success"){
-
     					alert("예약되었습니다!");
     					location.href="/admin/reservation.do?rno=${roomNo}";
     				}else {
     					alert("이미 예약된 날짜입니다.");
     				}
         		}
-
             }
           )
         }
@@ -276,7 +266,7 @@
 		   			</c:choose>
        			</span>
             </nav>
-            
+
         </div>
       <table align=center><tr><td>
       <div class=contain>

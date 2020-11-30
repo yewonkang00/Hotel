@@ -6,38 +6,8 @@
 <html lang="ko">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
-    <style>
-        body {
-          background-color: #EEEFF1;
-        }
-        .contain {
-            background-color: #EEEFF1;
-        }
-        .finish {
-            background-color: #EEEFF1;
-        }
-      textarea {
-          overflow:auto;
-          vertical-align:top;
-          padding:8px;
-          box-sizing:border-box;
-          border:solid 1px #aaa;
-      }
-
-      table {
-          border-collapse: collapse;
-          border-spacing: 0;
-          table-layout: fixed;
-          border-spacing: 0;
-          width: 100%;
-      }
-      .tbData td {padding:14px 20px 14px 20px;}
-      .tbData tbody th:first-child { border-left:none; }
-      .tb-1 td.fm { padding-top:16px; padding-bottom:16px; }
-
-    </style>
-    <title> 예약 확인/취소 </title>
+    <link rel="stylesheet" href="/resources/css/style_mypage.css" type="text/css">
+    <title>My Reservation</title>
     
     <script type="text/javascript">
 	    var sessionUserId = '${member.userId}';
@@ -91,9 +61,9 @@
     <div class=left>
           <h2 class=tit>마이 페이지</h2>
             <ul class=menu>
-              <li class="m1">
-                <a href="mypage_dbreward.html">
-                  <span>DB 리워즈</span>
+          	  <li class="m1">
+                <a href="/mypage/memberinfo">
+                  <span>개인 정보</span>
                 </a>
               </li>
               <li class="m2">
@@ -102,21 +72,17 @@
                 </a>
               </li>
               <li class="m3">
-                <a href="/mypage/memberinfo">
-                  <span>개인 정보</span>
-                </a>
-              </li>
-              <li class="m4">
                 <a href="mypage_qna.html">
                   <span>문의 내역</span>
-                </a>
-              </li>
-            </ul>
+              </a>
+            </li>
+          </ul>
     </div>
     <div class=contents>
       <h1>예약 확인/취소</h1>
       <h5>*당일 취소 불가</h5>
-      <table border="1">
+      <table class="table table-hover">
+       	<thead>
       	<tr>
       	<td>No</td>
       	<td>체크인</td>
@@ -127,6 +93,8 @@
       	<td>조식 여부</td>
       	<td>결제 금액</td>
       	<td></td>
+      	</tr>
+      	</thead>
       	<c:forEach items="${reservation}" var="item" varStatus="idx"> 
       	<tr>
       		<td>${idx.index+1}</td>
@@ -152,7 +120,6 @@
 			</c:if>
       	</tr>
       	</c:forEach>
-      	</tr>
       </table>
     </div>
     <%@include file = "/WEB-INF/views/layout/final.jsp" %>

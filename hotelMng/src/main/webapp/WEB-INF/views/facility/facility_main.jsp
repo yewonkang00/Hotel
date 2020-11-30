@@ -40,6 +40,11 @@
                     <span>Banquet Hall</span>
                 </a>
             </li>
+            <li class="m5">
+            	<a href="/facility_restaurant.do">
+            		<span>Restaurant</span>
+            	</a>
+            </li>
         </ul>
     </div>
     <div class=contents>
@@ -72,6 +77,13 @@
                 <div class=topexp>
                     <p>웨딩뿐 아니라 기업연회, 가족연회까지 DB호텔만의 품격있는 연회장과 함께 하십시오.<br></p>
                 </div>
+                <div class=lbox>
+            	<h3><b>Restaurant</b></h3>
+            	<a href="/facility_restaurant.do"><img src="${pageContext.request.contextPath}/resources/image/restaurant.jpg" width="300" height="220"></a>
+            	<div class=topexp>
+            		<p>셰프들의 손에서 탄생한 맛과 풍미의 향연을 즐길 수 있습니다.<br/></p>
+            	</div>
+            </div>
             </div>
         </div>
     </div>
