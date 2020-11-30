@@ -51,7 +51,7 @@ a {
 }
 h3 {
     margin: 19px 0 8px;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 700;
 }
 h4 {
@@ -95,6 +95,10 @@ h4 {
 th {
     text-align: left;
 }
+.pd {
+    text-align: left;
+    width: 15%;
+}
 
 .table-hover > tbody > tr:hover {
     background-color: #f5f5f5;
@@ -114,4 +118,14 @@ th {
     background-color: #333333;
     font-size: 12px;
     font-weight: 400;
+}
+
+.col_full {
+    display: block;
+    position: relative;
+    margin-right: 4%;
+    margin-bottom: 50px;
+    clear: both;
+    float: none;
+    margin-right: 0;
 }
