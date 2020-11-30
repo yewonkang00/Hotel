@@ -15,10 +15,10 @@
 						,UserPhone
 						,UserBirth
 						,UserEmail
-						,UserAddressState
-						,UserAddressCity
-						,UserAddressStreet
-						,UserAddressDetail
+						,UserPostCode
+						,UserAddress
+						,UserDetailAddress
+						,UserExtraAddress
 						,UserLevel
 						,UserGrade
 						,UserMile
@@ -31,12 +31,12 @@
 				, #{UserPhone}
 				, #{UserBirth}
 				, #{UserEmail}
-				, #{UserAddressState}
-				, #{UserAddressCity}
-				, #{UserAddressStreet}
-				, #{UserAddressDetail}
+				, #{UserPostCode}
+				, #{UserAddress}
+				, #{UserDetailAddress}
+				, #{UserExtraAddress}
 				, '1'
-				, '0'
+				, 'NEW'
 				, '0'
 				, #{UserGender}
 		)
@@ -109,6 +109,12 @@
 	<update id="updateMile" parameterType="MemberVo">
 		UPDATE MEMBER
 		SET UserMile = #{UserMile}
+		WHERE UserId = #{UserId}
+	</update>
+	
+	<update id="updateGrade" parameterType="MemberVo">
+		UPDATE MEMBER
+		SET UserGrade = #{UserGrade}
 		WHERE UserId = #{UserId}
 	</update>
 	

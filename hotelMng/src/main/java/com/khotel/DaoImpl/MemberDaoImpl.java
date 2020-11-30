@@ -102,6 +102,12 @@ public class MemberDaoImpl implements MemberDao {
 	public void updateMile(MemberVo memberVo) throws Exception {
 		sqlSession.update("member.updateMile", memberVo);	
 	}
+
+	@Override
+	public void updateGrade(MemberVo memberVo) throws Exception {
+		sqlSession.update("member.updateGrade", memberVo);
+		
+	}
 	
 
 }

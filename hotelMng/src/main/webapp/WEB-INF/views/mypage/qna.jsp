@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css" type="text/css">
-    <title> 문의 내역 </title>
+    <title>My QnA</title>
     <style>
         body {
           background-color: #EEEFF1;
@@ -62,11 +62,11 @@
     <div class=left>
           <h2 class=tit>마이 페이지</h2>
             <ul class=menu>
-              <li class="m1">
-                  <a href="mypage_dbreward.html">
-                    <span>DB 리워즈</span>
-                  </a>
-                </li>
+<%--              <li class="m1">--%>
+<%--                  <a href="mypage_dbreward.html">--%>
+<%--                    <span>DB 리워즈</span>--%>
+<%--                  </a>--%>
+<%--                </li>--%>
                 <li class="m2">
                   <a href="/mypage/reservation">
                     <span>예약 확인/취소</span>

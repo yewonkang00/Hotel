@@ -3,17 +3,37 @@
 <!DOCTYPE html>
 <html lang="ko">
  <head>
-
-    <style>	
-       * {
-           font-family: 'Noto Sans KR', sans-serif;
-         }
-	</style>
-
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/resources/css/style_room.css" type="text/css">
         <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
-
+        <style>
+        .room_button {
+    		background-color: #D4C1A1;
+   			border-radius: 3px;
+    		border: 1px solid #D4C1A1;
+    		display: inline-block;
+    		cursor: pointer;
+    		color: #ffffff;
+    		font-size: 15px;
+    		font-weight: bold;
+    		padding: 8px 24px;
+    		text-decoration: none;
+    		text-align: center;
+   		 	justify-content: center;
+    		align-items: center;
+    		margin-left: 350px;
+    		position: absolute;
+    		top: 830px;
+    		right: 550px;
+		}
+		.room_button:hover {
+     		background-color:#dbb790;
+ 		}
+		.room_button:active {
+     		position:relative;
+	 		top:1px;
+  		}
+        </style>
         <title>Suite room</title>
 
     </head>
@@ -46,14 +66,15 @@
             	</ul>
           </div>
           <div class=contents>
-              <h2 id=gaeyo>Suite Room</h2>
+            <h2 id=gaeyo>Suite Room</h2>
             <img src="/resources/image/suiteroom.jpg" width="800" height="500">
             <p> 스위트룸은 프라이빗한 휴식을 즐길 수 있는 객실입니다.<br/>
                 스위트룸과 함께 최고의 휴식을 경험해보십시오.<br/>
                 문의전화 02-0000-0000<br/>
-                전망 : 시티 뷰 | 침대 : 더블(킹 사이즈) | 크기 : 159m<br/>
+                전망 : 시티 뷰 | 침대 : 더블(킹 사이즈) | 크기 : 159m^2<br/>
                 룸 구성 : 침실 1, 욕실 1, 화장실 2, 응접실 1, 집무실 1, 다이닝 룸 1<br/>
             </p>
+            <a href="/searchRoom.do" class="room_button">예약하기</a>
             <table class=roomtb>
               <thead>
                 <tr>

@@ -10,10 +10,10 @@ public class MemberVo {
 	private String UserBirth = null;
 	private String UserEmail = null;
 	private String UserGender = null;
-	private String UserAddressState = null;
-	private String UserAddressCity = null;
-	private String UserAddressStreet = null;
-	private String UserAddressDetail = null;
+	private String UserPostCode = null;
+	private String UserAddress = null;
+	private String UserDetailAddress = null;
+	private String UserExtraAddress = null;
 	private String UserLevel = null;
 	private String UserGrade = null;
 	private String UserMile = null;
@@ -54,30 +54,6 @@ public class MemberVo {
 	public void setUserEmail(String userEmail) {
 		UserEmail = userEmail;
 	}
-	public String getUserAddressState() {
-		return UserAddressState;
-	}
-	public void setUserAddressState(String userAddressState) {
-		UserAddressState = userAddressState;
-	}
-	public String getUserAddressCity() {
-		return UserAddressCity;
-	}
-	public void setUserAddressCity(String userAddressCity) {
-		UserAddressCity = userAddressCity;
-	}
-	public String getUserAddressStreet() {
-		return UserAddressStreet;
-	}
-	public void setUserAddressStreet(String userAddressStreet) {
-		UserAddressStreet = userAddressStreet;
-	}
-	public String getUserAddressDetail() {
-		return UserAddressDetail;
-	}
-	public void setUserAddressDetail(String userAddressDetail) {
-		UserAddressDetail = userAddressDetail;
-	}
 	public String getUserLevel() {
 		return UserLevel;
 	}
@@ -101,6 +77,30 @@ public class MemberVo {
 	}
 	public void setUserGender(String userGender) {
 		UserGender = userGender;
+	}
+	public String getUserPostCode() {
+		return UserPostCode;
+	}
+	public void setUserPostCode(String userPostCode) {
+		UserPostCode = userPostCode;
+	}
+	public String getUserAddress() {
+		return UserAddress;
+	}
+	public void setUserAddress(String userAddress) {
+		UserAddress = userAddress;
+	}
+	public String getUserDetailAddress() {
+		return UserDetailAddress;
+	}
+	public void setUserDetailAddress(String userDetailAddress) {
+		UserDetailAddress = userDetailAddress;
+	}
+	public String getUserExtraAddress() {
+		return UserExtraAddress;
+	}
+	public void setUserExtraAddress(String userExtraAddress) {
+		UserExtraAddress = userExtraAddress;
 	}
 	
 	

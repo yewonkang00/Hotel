@@ -2,12 +2,6 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <style>
-        * {
-            font-family: 'Noto Sans KR', sans-serif;
-        }
-    </style>
-
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/resources/css/style_room.css" type="text/css">
     <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
@@ -43,7 +37,7 @@
             </ul>
     </div>
     <div class=contents>
-        <h2 id=gaeyo>감각적인 인테리어와 함께한 DB다이렉트 객실은 품격있는 라이프스타일 공간입니다.</h2>
+        <h2 id=gaeyo>감각적인 인테리어와 함께한 호텔 루시드의 객실은 품격있는 라이프스타일 공간입니다.</h2>
         <div class=intbox>
             <div class=lbox>
                 <h3><b>Standard Room</b></h3>
@@ -70,7 +64,7 @@
                 <h3><b>Suite Room</b></h3>
                 <a href="/room_suite.do"><img src="/resources/image/suiteroom.jpg" width="300" height="220"></a>
                 <div class=topexp>
-                    <p>DB다이렉트만의 품격을 갖춘 공간으로 특별한 경험을 누릴 수 있습니다.<br></p>
+                    <p>호텔 루시드만의 품격을 갖춘 공간으로 특별한 경험을 누릴 수 있습니다.<br></p>
                 </div>
             </div>
         </div>

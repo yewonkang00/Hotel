@@ -162,7 +162,22 @@ public class HomeController {
 		return map;
 	}
 	
-	//관리자 페이지
+	//아이디 중복 체크
+	@RequestMapping(value = "/memeber/idcheck.do") 
+	public @ResponseBody Map check(MemberVo registMember, HttpServletRequest request) throws Exception {
+		Map map = new HashMap();
+		MemberVo selectMemberVo = new MemberVo();
+		
+		selectMemberVo = memberService.selectMember(registMember);
+		if(selectMemberVo != null) {
+			map.put("resultMsg", "fail");
+		} else {
+			map.put("resultMsg", "success");
+		}
+		return map;
+	}
+	
+	//관리자 페이지 회원 리스트
 	@RequestMapping(value = "/admin/memberList")
 	public String memberList(Locale locale, Model model, HttpServletRequest request) throws Exception {
 		List<MemberVo> memberList = null;
@@ -176,6 +191,22 @@ public class HomeController {
 		model.addAttribute("memberList", memberList );
 		return "/admin/memberList";
 	}
+	
+	//관리자 페이지 객실 예약
+		@RequestMapping(value = "/admin/reservationList")
+		public String reservationList(Locale locale, Model model, HttpServletRequest request) throws Exception {
+			List<ReservationVo> reservationList = null;
+			
+			//예약 리스트 가져오기
+			try {
+				reservationList = reservationService.listReservation();
+			} catch (Exception e) {
+				
+			}
+			model.addAttribute("reservationList", reservationList );
+			System.out.println(reservationList);
+			return "/admin/reservationList";
+		}
 	
 	//관리자 페이지
 	@RequestMapping(value = "/admin/roomList")
@@ -347,14 +378,13 @@ public class HomeController {
 		System.out.println("room" + roomVo);
 		model.addAttribute("roomNo", roomNo);
 		model.addAttribute("resdate", resdate);
-		model.addAttribute("UserId", UserId);
-		model.addAttribute("UserName", UserName);
+		model.addAttribute("member", member);
 		model.addAttribute("room", roomVo);
-		return "/reservation/reservation2";
+		return "/admin/reservation2";
 	}
 
 	//예약페이지
-	@RequestMapping(value = "/admin/reservateAction.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/reservateAction.do")
 	public @ResponseBody Map reservateAction(ReservationVo reservation, HttpServletRequest request) throws Exception {
 		HashMap<String, Object> roomMap = new HashMap();
 		MemberVo member = new MemberVo();
@@ -368,6 +398,23 @@ public class HomeController {
 		String mile = reservation.getMileage();
 		String originmile = member.getUserMile();
 		int totalmile = Integer.parseInt(mile) + Integer.parseInt(originmile);
+		
+		String grade = "";
+		if(totalmile == 0) {
+			grade = "NEW";
+		} else if(totalmile < 10000) {
+			grade = "SILVER";
+		} else if(totalmile < 30000) {
+			grade = "GOLD";
+		} else if(totalmile < 60000) {
+			grade = "PLATINUM";
+		} else if(totalmile < 100000) {
+			grade = "DIAMOND";
+		} else if(totalmile < 150000) {
+			grade = "VIP";
+		} else if(totalmile < 300000) {
+			grade = "VVIP";
+		}
 		System.out.println("mile: " + Integer.toString(totalmile));
 		
 		roomMap.put("ReservationCheckIn", checkIn);
@@ -379,7 +426,9 @@ public class HomeController {
 		Map resultmap = new HashMap();
 		if(resCnt == 0) {
 			member.setUserMile(Integer.toString(totalmile));
+			member.setUserGrade(grade);
 			memberService.updateMile(member);
+			memberService.updateGrade(member);
 			reservationService.insertReservation(reservation);
 			resultmap.put("resultMsg", "success");
 		} else {
@@ -433,7 +482,15 @@ public class HomeController {
 		map.put("resultMsg", "Success");
 		return map;
 	}
-	
+
+	@RequestMapping(value = "/admin/memberDelete")
+	public String memberDelete(Model model, HttpServletRequest request) throws Exception {
+		MemberVo member = new MemberVo();
+		String userId = request.getParameter("userId");
+		member.setUserId(userId);
+		memberService.deleteMember(member);
+		return "/admin/memberList";
+	}
 		
 	//관리자 페이지에서 member에서 update버튼을 누르면 memberlevel을 바꿔줌
 	@RequestMapping(value = "/admin/levelAction.do")
@@ -443,6 +500,39 @@ public class HomeController {
 		map.put("resultMsg", "Success");
 		return map;
 	}
+	
+	//관리자 페이지에서 member에서 해당 회원 정보와 예약 정보 가져옴
+	@RequestMapping(value = "/admin/memberDetail.do")
+	public String memberDetail(Model model, HttpServletRequest request) throws Exception {
+		MemberVo member = new MemberVo();
+		MemberVo memberDetail = new MemberVo();
+		ReservationVo reservation = new ReservationVo();
+		List <ReservationVo> resDetail = null;
+		String UserId = request.getParameter("userId");
+		member.setUserId(UserId);
+		reservation.setUserId(UserId);
+		
+		memberDetail = memberService.selectMember(member);
+		resDetail = reservationService.selectReservationList(reservation);
+		model.addAttribute("memberDetail", memberDetail);
+		model.addAttribute("resDetail", resDetail);
+		System.out.println(memberDetail);
+		
+		return "/admin/memberDetail";
+	}
+	
+	//관리자 페이지에서 객실 정보 가져옴
+		@RequestMapping(value = "/admin/roomDetail.do")
+		public String roomDetail(Model model, HttpServletRequest request) throws Exception {
+			RoomVo room = new RoomVo();
+			int roomNo = Integer.parseInt(request.getParameter("rno"));
+			room.setRoomNo(roomNo);
+			RoomVo roomdetail = new RoomVo();
+			roomdetail = roomService.selectRoom(room);
+			model.addAttribute("roomDetail", roomdetail);
+			
+			return "/admin/roomDetail";
+		}
 	
 	//메인화면(홈화면)
 	@RequestMapping(value = "/main", method = RequestMethod.GET)

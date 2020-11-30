@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"  %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-    
+
 <!DOCTYPE html>
 <html lang="ko">
     <head>
@@ -12,7 +12,7 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
-        <title>Welcom Delluna!</title>
+        <title>Reservation : STEP1</title>
         <style>
           .res_content{
           display: inline-block;
@@ -42,6 +42,15 @@
             padding-top:30px;
             padding-bottom:20px;
             padding-left: 40px;
+          }
+          .empty{
+            border-top: 2px solid #f1f1f1;
+            border-bottom: 2px solid #f1f1f1;
+          }
+          .empty td{
+            width:960px;
+            padding-top:30px;
+            padding-bottom:20px;
           }
           .res_romm b{
             font-size: 22px;
@@ -77,23 +86,19 @@
           }
           #hidden_ho1{
             display:none;
-            padding-top:10px;
           }
           #hidden_ho2{
             display:none;
-            padding-top:10px;
           }
           #hidden_ho3{
             display:none;
-            padding-top:10px;
           }
           #hidden_ho4{
             display:none;
-            padding-top:10px;
           }
           .hidden_ho p{
             margin-left:10px;
-            text-align: center;
+            text-align: left;
           }
           .hidden_ho button{
             margin-bottom: 13px;
@@ -197,64 +202,65 @@
            return today;
          }
 
-         function searchRoom() {
+         function searchRoom(room) {
+           var SearchRoom = room;
            var SearchFrom = $('#reservationCheckIn').val();
-         var SearchTo = $('#res_checkout').val();
-         if(SearchFrom >= SearchTo){
-           alert("체크아웃을 확인하세요.");
-           return;
-         }
-         SearchFrom = SearchFrom.substr(0,4) + SearchFrom.substr(5,2) + SearchFrom.substr(8,2);
-         SearchTo = SearchTo.substr(0,4) + SearchTo.substr(5,2) + SearchTo.substr(8,2);
-         SearchTo = dateAdd(SearchTo, 0);
+           var SearchTo = $('#res_checkout').val();
+           if(SearchFrom >= SearchTo){
+             alert("체크아웃을 확인하세요.");
+             return;
+           }
+         	SearchFrom = SearchFrom.substr(0,4) + SearchFrom.substr(5,2) + SearchFrom.substr(8,2);
+         	SearchTo = SearchTo.substr(0,4) + SearchTo.substr(5,2) + SearchTo.substr(8,2);
+         	SearchTo = dateAdd(SearchTo, 0);
 
-         location.href="/searchRoomAction.do?searchFrom="+SearchFrom+"&searchTo="+SearchTo;
-       }
+         	location.href="/searchRoomAction.do?searchFrom="+SearchFrom+"&searchTo="+SearchTo+"&searchRoom="+SearchRoom;
+       	}
 
-             $(function() {
-                 //모든 datepicker에 대한 공통 옵션 설정
-                 $.datepicker.setDefaults({
-                     dateFormat: 'yy-mm-dd' //Input Display Format 변경
-                     ,showOtherMonths: true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
-                     ,showMonthAfterYear:true //년도 먼저 나오고, 뒤에 월 표시
-                     ,changeYear: true //콤보박스에서 년 선택 가능
-                     ,changeMonth: true //콤보박스에서 월 선택 가능
-                     ,showOn: "both" //button:버튼을 표시하고,버튼을 눌러야만 달력 표시 ^ both:버튼을 표시하고,버튼을 누르거나 input을 클릭하면 달력 표시
-                     ,buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif" //버튼 이미지 경로
-                     ,buttonImageOnly: true //기본 버튼의 회색 부분을 없애고, 이미지만 보이게 함
-                     ,buttonText: "선택" //버튼에 마우스 갖다 댔을 때 표시되는 텍스트
-                     ,yearSuffix: "년" //달력의 년도 부분 뒤에 붙는 텍스트
-                     ,monthNamesShort: ['1','2','3','4','5','6','7','8','9','10','11','12'] //달력의 월 부분 텍스트
-                     ,monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'] //달력의 월 부분 Tooltip 텍스트
-                     ,dayNamesMin: ['일','월','화','수','목','금','토'] //달력의 요일 부분 텍스트
-                     ,dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'] //달력의 요일 부분 Tooltip 텍스트
-                     ,minDate: "-1M" //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
-                     ,maxDate: "+1M" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
-                 });
+        $(function() {
+            //모든 datepicker에 대한 공통 옵션 설정
+            $.datepicker.setDefaults({
+                dateFormat: 'yy-mm-dd' //Input Display Format 변경
+                ,showOtherMonths: true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
+                ,showMonthAfterYear:true //년도 먼저 나오고, 뒤에 월 표시
+                ,changeYear: true //콤보박스에서 년 선택 가능
+                ,changeMonth: true //콤보박스에서 월 선택 가능
+                ,showOn: "both" //button:버튼을 표시하고,버튼을 눌러야만 달력 표시 ^ both:버튼을 표시하고,버튼을 누르거나 input을 클릭하면 달력 표시
+                ,buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif" //버튼 이미지 경로
+                ,buttonImageOnly: true //기본 버튼의 회색 부분을 없애고, 이미지만 보이게 함
+                ,buttonText: "선택" //버튼에 마우스 갖다 댔을 때 표시되는 텍스트
+                ,yearSuffix: "년" //달력의 년도 부분 뒤에 붙는 텍스트
+                ,monthNamesShort: ['1','2','3','4','5','6','7','8','9','10','11','12'] //달력의 월 부분 텍스트
+                ,monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'] //달력의 월 부분 Tooltip 텍스트
+                ,dayNamesMin: ['일','월','화','수','목','금','토'] //달력의 요일 부분 텍스트
+                ,dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'] //달력의 요일 부분 Tooltip 텍스트
+                ,minDate: "-1M" //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
+                ,maxDate: "+1M" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
+            });
 
-                 //input을 datepicker로 선언
-                 $("#reservationCheckIn").datepicker();
-                 $("#res_checkout").datepicker();
+            //input을 datepicker로 선언
+            $("#reservationCheckIn").datepicker();
+            $("#res_checkout").datepicker();
 
-                 var checkIn = '${searchFrom}';
-                 var checkOut = dateAdd('${searchTo}',2);
+            var checkIn = '${searchFrom}';
+            var checkOut = dateAdd('${searchTo}',2);
 
-                 if(checkIn == null || checkIn == 'null' || checkIn == ""){
-                     //From의 초기값을 오늘 날짜로 설정
-                     $('#reservationCheckIn').datepicker('setDate', 'today'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
-                     //To의 초기값을 내일로 설정
-                     $('#res_checkout').datepicker('setDate', '+1D'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
+            if(checkIn == null || checkIn == 'null' || checkIn == ""){
+                //From의 초기값을 오늘 날짜로 설정
+                $('#reservationCheckIn').datepicker('setDate', 'today'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
+                //To의 초기값을 내일로 설정
+                $('#res_checkout').datepicker('setDate', '+1D'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
 
-                 } else {
-                     checkIn = checkIn.substr(0,4) + "-" + checkIn.substr(4,2) + "-" + checkIn.substr(6,2);
-                     checkOut = checkOut.substr(0,4) + "-" + checkOut.substr(4,2) + "-" + checkOut.substr(6,2);
-                   $('#reservationCheckIn').datepicker('setDate', checkIn);
-                   $('#res_checkout').datepicker('setDate', checkOut);
-                 }
+            } else {
+                checkIn = checkIn.substr(0,4) + "-" + checkIn.substr(4,2) + "-" + checkIn.substr(6,2);
+                checkOut = checkOut.substr(0,4) + "-" + checkOut.substr(4,2) + "-" + checkOut.substr(6,2);
+              $('#reservationCheckIn').datepicker('setDate', checkIn);
+              $('#res_checkout').datepicker('setDate', checkOut);
+            }
 
-             });
+        });
 
-         </script>
+        </script>
         <script type="text/javascript">
           var err = document.getElementById("error");
           function plus(){
@@ -273,6 +279,11 @@
               cnt--;
               count.value = cnt;
             }
+          }
+          function datediff(input, output) {
+		  	var diff = output - input;
+		  	var currDay = 24 * 60 * 60 * 1000;
+		  	return parseInt(diff/currDay);
           }
           function hye(){
             var con = document.getElementById("hidden_hye");
@@ -334,196 +345,284 @@
               click.innerHTML="호실 선택 +";
             }
           }
-        </script>
+    </script>
     </head>
     <body>
         <%@include file = "/WEB-INF/views/layout/header.jsp" %>
-        <center>
+        <table align=center><tr><td>
           <div class=res_content>
           	<div class=res_content2>
-            <b id="res_tit"><br><br><h4>STEP 1</h4></br><br>객실, 날짜, 인원 선택<br><br></b>
+            <b id="res_tit"><h4>STEP 1<br>객실, 날짜 선택</h4></b>
             <div class=res_search>
               <div class=res_res>
                 <form name="srchRoomFrm" id="res_form" method="post">
                   <table class="res_table">
                     <tr>
                       <td><b>객실</b></td>
-                      <td><b>체크인</b></td>
-                      <td><b>체크아웃</b></td>
-                      <td><b>인원</b></td>
+                      <td><b>&emsp;체크인</b></td>
+                      <td><b>&emsp;&emsp;&emsp;숙박일 수</b></td>
+                      <td><b>&emsp;&emsp;체크아웃</b></td>
                       <td></td>
                     </tr>
                     <tr>
                       <td>
-                    	   <select name="room_name" style="cursor:pointer;">
-                  		      <option>모든 객실</option>
-                  		      <option value="standard">Standard Room</option>
+                    	   <select name="room_name" style="cursor:pointer;" id="selectRoom">
+                    	   <c:choose>
+                    	   <c:when test="${param.searchRoom eq 'all' || param.searchRoom eq null}">
+                  		      	<option value="all">모든 객실</option>
+                  		      	<option value="standard">Standard Room</option>
                     	       <option value="deluxe">Deluxe Room</option>
                     	       <option value="executive">Executive Room</option>
                   		       <option value="suite">Suite Room</option>
-                    	     </select>
+                  		   </c:when>
+                    	   <c:when test="${param.searchRoom eq 'standard'}">
+                  		      	<option value="all">모든 객실</option>
+                  		      	<option value="standard" selected>Standard Room</option>
+                    	       <option value="deluxe">Deluxe Room</option>
+                    	       <option value="executive">Executive Room</option>
+                  		       <option value="suite">Suite Room</option>
+                  		   </c:when>
+                  		   <c:when test="${param.searchRoom eq 'deluxe'}">
+                  		      	<option value="all">모든 객실</option>
+                  		      	<option value="standard">Standard Room</option>
+                    	       <option value="deluxe" selected>Deluxe Room</option>
+                    	       <option value="executive">Executive Room</option>
+                  		       <option value="suite">Suite Room</option>
+                  		   </c:when>
+                  		   <c:when test="${param.searchRoom eq 'executive'}">
+                  		      	<option value="all">모든 객실</option>
+                  		      	<option value="standard">Standard Room</option>
+                    	       <option value="deluxe">Deluxe Room</option>
+                    	       <option value="executive" selected>Executive Room</option>
+                  		       <option value="suite">Suite Room</option>
+                  		   </c:when>
+                  		   <c:when test="${param.searchRoom eq 'suite'}">
+                  		      	<option value="all">모든 객실</option>
+                  		      	<option value="standard">Standard Room</option>
+                    	       <option value="deluxe">Deluxe Room</option>
+                    	       <option value="executive">Executive Room</option>
+                  		       <option value="suite" selected>Suite Room</option>
+                  		   </c:when>
+
+                  		   </c:choose>
+                    	   </select>
                       </td>
                       <td>
                         <input type="text" id="reservationCheckIn" value="">
                       </td>
                       <td>
-              					<input type="text" id="res_checkout" value="">
+                      	&emsp;&emsp;&emsp;
+                      	<script type="text/javascript">
+                      	document.write(datediff(${param.searchFrom},${param.searchTo})+1);
+                      	</script>
+                      	박
                       </td>
                       <td>
+              		  	<input type="text" id="res_checkout" value="">
+                      </td>
+                      <!-- <td>
                         <button type="button" name="button" id="minus"onclick="minus()">-</button>
                         <input type="text" value="2" id="count">
                         <button type="button" name="button" id="pl_m" onclick="plus()">+</button>
-                      </td>
-                      <td><button type="button" id="res_btn" onclick="javaScript:searchRoom();">검색</button></td>
+                      </td> -->
+                      <td><button type="button" id="res_btn" onclick="javaScript:searchRoom($('#selectRoom').val());">검색</button></td>
                     </tr>
                   </table>
                 </form>
               </div>
             </div>
           <!--빈 객실 보여주기-->
-            <br><br><br>
+          <br>
             <table class="res_room">
               <tbody>
-                <tr class="hang">
-                  <td><img src="/resources/image/standardroom.jpg" width="200" height="150"></td>
-                  <td>
-                    <b>Standard room</b><br><br>
-                    리워즈 3,000p 혜택<br>
-                    <a href="javaScript:hye();" id="hye_click">혜택 및 이용 안내 +</a><br>
-                    <div id="hidden_hye">
-                      <p>무료 WIFI / 피트니스 센터 무료 이용 / 어메니티</p>
-                    </div>
-                  </td>
-                  <td><b>78,000 원~</b><br> <!--1박 가격-->
-                    1박<br>
-                    n개의 객실이 있습니다.
-                  </td>
-                  <td><button onclick="room_select1();" type="button" class="resroom_btn" id="resroom_btn1">호실 선택 +</button></td>
-                </tr>
-                <tr class="hidden_ho" id="hidden_ho1">
-                  <td>
-                    <p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;201호</p>
-                    <p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;202호</p>
-                    <p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;203호</p>
-                  </td>
-                  <td>
-                    <p> single bed</p>
-                    <p> twin bed</p>
-                    <p> family twin</p>
-                  </td>
-                  <td>
-                    <button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
-                    <button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
-                    <button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
-                  </td>
-                </tr>
-                <tr class="hang">
-                  <td><img src="/resources/image/deluxe room.jpg" width="200" height="150"></td>
-                  <td>
-                    <b>Deluxe room</b><br><br>
-                    리워즈 5,000p 혜택<br>
-                    <a href="javaScript:hye();" id="hye_click">혜택 및 이용 안내 +</a><br>
-                    <div id="hidden_hye">
-                      <p>무료 WIFI / 피트니스 센터 무료 이용 / 어메니티</p>
-                    </div>
-                  </td>
-                  <td><b>98,000 원~</b><br> <!--1박 가격-->
-                    1박<br>
-                    n개의 객실이 있습니다.
-                  </td>
-                  <td><button onclick="room_select2();" type="button" class="resroom_btn" id="resroom_btn2">호실 선택 +</button></td>
-                </tr>
-                <tr class="hidden_ho" id="hidden_ho2">
-                  <td>
-                    <p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;501호</p>
-                    <p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;502호</p>
-                    <p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;503호</p>
-                  </td>
-                  <td>
-                    <p> single bed</p>
-                    <p> twin bed</p>
-                    <p> family twin</p>
-                  </td>
-                  <td>
-                    <button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
-                    <button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
-                    <button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
-                  </td>
-                </tr>
-                <tr class="hang">
-                  <td><img src="/resources/image/executive room.jpg" width="200" height="150"></td>
-                  <td>
-                    <b>Executive room</b><br><br>
-                    리워즈 7,000p 혜택<br>
-                    <a href="javaScript:hye();" id="hye_click">혜택 및 이용 안내 +</a><br>
-                    <div id="hidden_hye">
-                      <p>무료 WIFI / 피트니스 센터 무료 이용 / 어메니티</p>
-                      <p>수영장 무료 이용 / 라운지바 이용 가능</p>
-                    </div>
-                  </td>
-                  <td><b>118,000 원~</b><br> <!--1박 가격-->
-                    1박<br>
-                    n개의 객실이 있습니다.
-                  </td>
-                  <td><button onclick="room_select3();" type="button" class="resroom_btn" id="resroom_btn3">호실 선택 +</button></td>
-                </tr>
-                <tr class="hidden_ho" id="hidden_ho3">
-                  <td>
-                    <p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;801호</p>
-                    <p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;802호</p>
-                    <p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;803호</p>
-                  </td>
-                  <td>
-                    <p> single bed</p>
-                    <p> twin bed</p>
-                    <p> family twin</p>
-                  </td>
-                  <td>
-                    <button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
-                    <button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
-                    <button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
-                  </td>
-                </tr>
-                <tr class="hang">
-                  <td><img src="/resources/image/suiteroom.jpg" width="200" height="150"></td>
-                  <td>
-                    <b>Suite room</b><br><br>
-                    리워즈 9,000p 혜택<br>
-                    <a href="javaScript:hye();" id="hye_click">혜택 및 이용 안내 +</a><br>
-                    <div id="hidden_hye">
-                      <p>무료 WIFI / 피트니스 센터 무료 이용 / 어메니티</p>
-                      <p>수영장 무료 이용 / 라운지바 이용 가능</p>
-                    </div>
-                  </td>
-                  <td><b>138,000 원~</b><br> <!--1박 가격-->
-                    1박<br>
-                    n개의 객실이 있습니다.
-                  </td>
-                  <td><button onclick="room_select4();" type="button" class="resroom_btn" id="resroom_btn4">호실 선택 +</button></td>
-                </tr>
-                <tr class="hidden_ho" id="hidden_ho4">
-                  <td>
-                    <p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;1101호</p>
-                    <p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;1102호</p>
-                    <p>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;1103호</p>
-                  </td>
-                  <td>
-                    <p> single bed</p>
-                    <p> twin bed</p>
-                    <p> family twin</p>
-                  </td>
-                  <td>
-                    <button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
-                    <button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
-                    <button type="button" id="res_btn3" onclick="location.href='res2.html'">이 방 예약하기</button><br>
-                  </td>
-                </tr>
+                <c:choose>
+             		<c:when test="${param.searchRoom eq 'all' || param.searchRoom eq 'standard'}">
+             			<tr class="hang">
+                  		<td><img src="/resources/image/standardroom.jpg" width="200" height="150"></td>
+                  		<td>
+	                    	<b>Standard room</b><br><br>
+	                    	마일리지 1,000p 혜택<br>
+	                    	<a href="javaScript:hye();" id="hye_click">혜택 및 이용 안내 +</a><br>
+	                    	<div id="hidden_hye">
+	                      		<p>무료 WIFI / 피트니스 센터 무료 이용 / 어메니티</p>
+	                    	</div>
+                  		</td>
+                  		<td><b>100,000 원~</b><br> <!--1박 가격-->
+	                    	<c:forEach items="${roomListCnt}" var="itemCnt">
+	                    	<c:if test="${itemCnt.roomType eq 'standard'}">
+	                    		${itemCnt.roomTypeCnt}
+	                    	</c:if>
+	                    	</c:forEach>
+	                    	개의 객실이 있습니다.
+	                  	</td>
+                  		<td><button onclick="room_select1();" type="button" class="resroom_btn" id="resroom_btn1">호실 선택 +</button></td>
+                		</tr>
+                		<tr class="hidden_ho" id="hidden_ho1">
+                		<td></td>
+                		<td></td>
+                		<td colspan="2" style="text-align: left">
+                		<c:forEach items="${roomList}" var="item" varStatus="status">
+                			<c:if test="${item.roomType eq 'standard'}">
+	                  			<br>&emsp;&emsp;⦁&emsp;${item.roomNo} 호
+	                  			&emsp;&emsp;&emsp;&nbsp;${item.bedType} bed
+	                  			<c:if test="${item.bedType eq 'single'}">
+	                  			&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
+	                  			</c:if>
+	                  			<c:if test="${item.bedType eq 'twin'}">
+	                  			&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" onClick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
+	          					</c:if>
+                  				<hr style="border: solid 1px #f3f3f3;" width=420px align="left">
+	                  		</c:if>
+	                  	</c:forEach>
+	                  	</td>
+	                  	</tr>
+		         	</c:when>
+		         </c:choose>
+		         <c:choose>
+		         	<c:when test="${param.searchRoom eq 'all' || param.searchRoom eq 'deluxe'}">
+			         	<tr class="hang">
+	                  	    <td><img src="/resources/image/deluxe room.jpg" width="200" height="150"></td>
+	                  		<td>
+	                    	<b>Deluxe room</b><br><br>
+	                    	마일리지 1,600p 혜택<br>
+	                    	<a href="javaScript:hye();" id="hye_click">혜택 및 이용 안내 +</a><br>
+	                    	<div id="hidden_hye">
+	                      		<p>무료 WIFI / 피트니스 센터 무료 이용 / 어메니티</p>
+	                    	</div>
+	                  		</td>
+		                  	<td><b>160,000 원~</b><br> <!--1박 가격-->
+		                    	<c:forEach items="${roomListCnt}" var="itemCnt">
+		                    	<c:if test="${itemCnt.roomType eq 'deluxe'}">
+		                    		${itemCnt.roomTypeCnt}
+		                    	</c:if>
+		                    	</c:forEach>
+			                    개의 객실이 있습니다.
+		                  	</td>
+	                  		<td><button onclick="room_select2();" type="button" class="resroom_btn" id="resroom_btn2">호실 선택 +</button></td>
+	                	</tr>
+                	  	<tr class="hidden_ho" id="hidden_ho2">
+                		<td></td>
+                		<td></td>
+                		<td colspan="2" style="text-align: left">
+                		<c:forEach items="${roomList}" var="item">
+                			<c:if test="${item.roomType eq 'deluxe'}">
+	                  			<br>&emsp;&emsp;⦁&emsp;${item.roomNo} 호
+	                  			&emsp;&emsp;&emsp;&nbsp;${item.bedType} bed
+	                  			<c:if test="${item.bedType eq 'single'}">
+	                  			&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
+	                  			</c:if>
+	                  			<c:if test="${item.bedType eq 'twin'}">
+	                  			&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
+	          					</c:if>
+	                  			<hr style="border: solid 1px #f3f3f3;" width=420px align="left">
+	                  		</c:if>
+	                  	</c:forEach>
+	                  	</td>
+	                  	</tr>
+                	</c:when>
+		         </c:choose>
+		         <c:choose>
+                	<c:when test="${param.searchRoom eq 'all' || param.searchRoom eq 'executive'}">
+		        		<tr class="hang">
+	                  		<td><img src="/resources/image/executive room.jpg" width="200" height="150"></td>
+	                  		<td>
+	                    	<b>Executive room</b><br><br>
+	                    	마일리지 2,500p 혜택<br>
+	                    	<a href="javaScript:hye();" id="hye_click">혜택 및 이용 안내 +</a><br>
+	                    	<div id="hidden_hye">
+	                      		<p>무료 WIFI / 피트니스 센터 무료 이용 / 어메니티</p>
+	                      		<p>수영장 무료 이용 / 라운지바 이용 가능</p>
+	                    	</div>
+	                  		</td>
+	                  		<td><b>250,000 원~</b><br> <!--1박 가격-->
+		                    	<c:forEach items="${roomListCnt}" var="itemCnt">
+		                    	<c:if test="${itemCnt.roomType eq 'executive'}">
+		                    		${itemCnt.roomTypeCnt}
+		                    	</c:if>
+		                    	</c:forEach>
+	                    		개의 객실이 있습니다.
+	                  		</td>
+	                  		<td><button onclick="room_select3();" type="button" class="resroom_btn" id="resroom_btn3">호실 선택 +</button></td>
+	                	</tr>
+	                	<tr class="hidden_ho" id="hidden_ho3">
+                		<td></td>
+                		<td></td>
+                		<td colspan="2" style="text-align: left">
+                		<c:forEach items="${roomList}" var="item">
+                			<c:if test="${item.roomType eq 'executive'}">
+	                  			<br>&emsp;&emsp;⦁&emsp;${item.roomNo} 호
+	                  			&emsp;&emsp;&emsp;&nbsp;${item.bedType} bed
+	                  			<c:if test="${item.bedType eq 'single'}">
+	                  			&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
+	                  			</c:if>
+	                  			<c:if test="${item.bedType eq 'twin'}">
+	                  			&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
+	          					</c:if>
+	                  			<hr style="border: solid 1px #f3f3f3;" width=420px align="left">
+	                  		</c:if>
+	                  	</c:forEach>
+	                  	</td>
+	                  	</tr>
+	                </c:when>
+		         </c:choose>
+		         <c:choose>
+	                <c:when test="${param.searchRoom eq 'all' || param.searchRoom eq 'suite'}">
+		        		<tr class="hang">
+                  			<td><img src="/resources/image/suiteroom.jpg" width="200" height="150"></td>
+                  			<td>
+                    		<b>Suite room</b><br><br>
+                    			마일리지 3,500p 혜택<br>
+                    		<a href="javaScript:hye();" id="hye_click">혜택 및 이용 안내 +</a><br>
+                    		<div id="hidden_hye">
+                      			<p>무료 WIFI / 피트니스 센터 무료 이용 / 어메니티</p>
+                      			<p>수영장 무료 이용 / 라운지바 이용 가능</p>
+                    		</div>
+                 			</td>
+                  			<td><b>350,000 원~</b><br> <!--1박 가격-->
+		                    	<c:forEach items="${roomListCnt}" var="itemCnt">
+		                    	<c:if test="${itemCnt.roomType eq 'suite'}">
+		                    		${itemCnt.roomTypeCnt}
+		                    	</c:if>
+		                    	</c:forEach>
+                    			개의 객실이 있습니다.
+                  			</td>
+                  			<td><button onclick="room_select4();" type="button" class="resroom_btn" id="resroom_btn4">호실 선택 +</button></td>
+                		</tr>
+                		<tr class="hidden_ho" id="hidden_ho4">
+                		<td></td>
+                		<td></td>
+                		<td colspan="2" style="text-align: left">
+                		<c:forEach items="${roomList}" var="item">
+                			<c:if test="${item.roomType eq 'suite'}">
+	                  			<br>&emsp;&emsp;⦁&emsp;${item.roomNo} 호
+	                  			&emsp;&emsp;&emsp;&nbsp;${item.bedType} bed
+	                  			<c:if test="${item.bedType eq 'single'}">
+	                  			&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
+	                  			</c:if>
+	                  			<c:if test="${item.bedType eq 'twin'}">
+	                  			&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
+	          					</c:if>
+	                  			<hr style="border: solid 1px #f3f3f3;" width=420px align="left">
+	                  		</c:if>
+	                  	</c:forEach>
+	                  	</td>
+	                  	</tr>
+                	</c:when>
+                	<c:when test="${param.searchRoom eq null}">
+		        		<tr class="empty">
+                  			<td align="center">
+								예약을 원하시는 객실, 날짜를 선택해주세요.
+                  			</td>
+                		</tr>
+                	</c:when>
+		        </c:choose>
+
               </tbody>
             </table>
             </div>
         </div>
-        </center>
-        <%@include file = "/WEB-INF/views/layout/final.jsp" %>
+        </td></tr>
+        </table>
 
     </body>
 </html>

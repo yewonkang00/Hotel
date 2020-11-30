@@ -13,14 +13,14 @@
 
       <meta charset="utf-8">
       <link rel="stylesheet" href="/resources/css/style_qna.css" type="text/css">
-      <title> 문의사항 </title>
+      <title>QnA Write</title>
 
       <script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
       <script type="text/javascript" src='/resources/js/jquery.form.js'></script>
       <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"></script>
       <script charset="UTF-8" type="text/javascript" src="http://t1.daumcdn.net/postcode/api/core/190107/1546836247227/190107.js"></script>
   </head>
-  
+
 
 
 <body>
@@ -46,13 +46,12 @@
       <h1>문의하기</h1>
        <form  id="form1" name="form1" action="/qna/insert.do" method="post">
 
-
            <h3 class="tit_">● 문의사항</h3>
-           
+
            <div class="col_one_third">
-		                    <h3 class="join_title">작성자</h3>
-		                    <div class="d_form large">${dto.getUserId()}</div>
-		                </div>
+               <h3 class="join_title">작성자</h3>
+               <div class="d_form large">${dto.getUserId()}</div>
+           </div>
 
            <div class="col_two_third">
                <h3 class="join_title">제목</h3>

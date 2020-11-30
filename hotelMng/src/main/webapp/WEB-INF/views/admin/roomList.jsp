@@ -9,39 +9,54 @@
         <link rel="stylesheet" href="/resources/css/style_admin.css" type="text/css">
         <script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
         <style>
-
             * {
                 font-family: 'Noto Sans KR', sans-serif;
             }
-
         </style>
         <title>Room List</title>
+       	<script type="text/javascript">
+       	function standard() {
+			
+        } 
+        </script>
 
     </head>
-
+	<script type="text/javascript">
+			
+		var sessionLevel = '${member.userLevel}';
+		
+		if(sessionLevel == null || sessionLevel == 'null' || sessionLevel=="" || sessionLevel == "1"){
+			alert("관리자 권한이 없습니다.");
+			location.href="/main";
+		}
+	</script>
     <body>
-        <div class=header>
-            <img src="/resources/image/moon.png" width="100" height="100">
-            <nav>
-                <span><a href="/admin/memberList">회원리스트</a></span>
-                <span><a href="/admin/roomList">객실List</a></span>
-                <span>
-		        	<c:choose>
-		  				<c:when test="${member != null}"><a href="/logout.do">로그아웃</a></c:when>
-		   				<c:otherwise><a href="/login.do">로그인</a></c:otherwise>
-		   			</c:choose>
-       			</span>
-            </nav>
-        </div>
+        <%@include file = "/WEB-INF/views/admin/admin_header.jsp" %>
 
         <div class=contents>
-            <p style="text-align:center;">Room LIST</p>
+            <p style="text-align:center;">객실 LIST</p>
+            <!-- <button type="button" id="standard" onClick="standard()">standard</button>
+            <button type="button" id="deluxe" onClick="deluxe()">deluxe</button>
+            <button type="button" id="executive" onClick="executive()">executive</button>
+            <button type="button" id="suite" onClick="suite()">suite</button>
+            <br><br> -->
+            <div class="form-group row justify-content-center">
+				<div class="w100" style="text-align: center">
+					<select class="form-control form-control-sm" name="searchType" id="searchType">
+						<option value="RoomNo">호수</option>
+					</select>
+                    <input type="text" class="form-control form-control-sm" name="keyword" id="keyword">
+                    <button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch">검색</button>
+				</div>
+                <br>
+			</div>
             <table class="table table-hover">
                 <thead>
                     <tr>
                         <td>No</td>
-                        <td>RoomNO</td>
+                        <td>RoomNo</td>
                         <td>RoomType</td>
+                        <td>BedType</td>
                         <td>RoomMaxPeople</td>
                         <td>RoomFee</td>
                         <td> </td>
@@ -52,21 +67,17 @@
 
                 <tr>
                     <td>${idx.index+1}</td>
-                    <td>${item.roomNo}</td>
+                    <td><a href="/admin/roomDetail.do?rno=${item.roomNo}">${item.roomNo}</a></td>
                     <td>${item.roomType}</td>
+                    <td>${item.bedType}</td>
                     <td>${item.roomMaxPeople}</td>
-                    <td>${item.roomFee}</td>
+                    <td>${item.fee}</td>
                     <td><input type="button" value="예약" class="submit-btn" onClick="javaScript:location.href='/admin/reservation.do?rno=${item.roomNo}';">	</td>
                 </tr>
 
                 </c:forEach>
             </table>
         </div>
- 
-
-	</div>
-	
-
 
 
 </body>

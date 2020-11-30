@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
-        <title>회원가입</title>
+        <title>Member Join</title>
         <style>
           body {
               background-color: #EEEFF1;
@@ -21,40 +21,59 @@
               width: 460px;
           }
         </style>
-        
+
     <script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src='/resources/js/jquery.form.js'></script>
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"></script>
 	<script charset="UTF-8" type="text/javascript" src="http://t1.daumcdn.net/postcode/api/core/190107/1546836247227/190107.js"></script>
-	
+
     <script type="text/javascript">
+	function idcheck() {
+		var UserId = $('#UserId').val();
+		var data = {"UserId" : UserId};
+		$.ajax({
+			type : "POST",
+			url : "/memeber/idcheck.do",
+			data : data,
+			datatype : 'json',
+			success : function(data) {
+				var result = data["resultMsg"];
+				if(result == "success"){
+					alert("사용 가능한 아이디입니다.");
+				}else if(result == "fail"){
+					alert("이미 사용중인 아이디입니다.");
+					$('#UserId').focus();
+				}
+			}
+		})
+	}
 
 	function register() {
 		var UserId = $('#UserId').val();
 		var UserPassword = $('#UserPassword').val();
 		var UserName = $('#UserName').val();
-		var UserBirth = $('#bir_yy').val()+$('#bir_mm').val()+$('#bir_dd').val();
+		var UserBirth = $('#UserBirth').val();
 		var UserPhone = $('#UserPhone').val();
-		var UserAddressState = $('#UserAddressState').val();
-		var UserAddressCity = $('#UserAddressCity').val();
-		var UserAddressStreet = $('#UserAddressStreet').val();
-		var UserAddressDetail = $('#UserAddressDetail').val();
+		var UserPostCode = $('#UserPostCode').val();
+		var UserAddress = $('#UserAddress').val();
+		var UserDetailAddress = $('#UserDetailAddress').val();
+		var UserExtraAddress = $('#UserExtraAddress').val();
 		var passwordCheck = $('#passwordCheck').val();
 		var UserGender = $('#UserGender').val();
 		var UserEmail = $('#UserEmail').val();
 
-		var data = {"UserId" : UserId, 
+		var data = {"UserId" : UserId,
 				"UserPassword" : UserPassword,
 				"UserName" : UserName,
 				"UserBirth" : UserBirth,
 				"UserPhone" : UserPhone,
 				"UserEmail" : UserEmail,
-				"UserAddressState" : "",
-				"UserAddressCity" : "",
-				"UserAddressStreet" : "",
-				"UserAddressDetail" : "",
+				"UserPostCode" : UserPostCode,
+				"UserAddress" : UserAddress,
+				"UserDetailAddress" : UserDetailAddress,
+				"UserExtraAddress" : UserExtraAddress,
 				"UserLevel" : "1",
-				"UserGrade" : "0",
+				"UserGrade" : "NEW",
 				"UserMile" : "0",
 				"UserGender" : UserGender
 		};
@@ -75,18 +94,26 @@
 			alert("이름을 입력해주세요.");
 			$('#UserName').focus();
 			return false;
-		} /* else if (UserBirth == "") {
+		} else if (UserEmail == "") {
+			alert("이메일을 입력해주세요.");
+			$('#UserEmail').focus();
+			return false;
+		} else if (UserBirth == "") {
 			alert("생일을 입력해주세요.");
 			$('#UserBirth').focus();
-			return false; 
-		} */else if (UserPhone == "") {
+			return false;
+		} else if (UserPhone == "") {
 			alert("핸드폰 번호를 입력해주세요.");
 			$('#UserPhone').focus();
 			return false;
-		} /* else if (UserAddressState == "" || UserAddressCity == "" || UserAddressStreet == "" || UserAddressDetail == "") {
+		} else if(UserGender == "") {
+			alert("성별을 입력해주세요.");
+			$('#UserGender').focus();
+			return false;
+		} else if (UserPostCode == "") {
 			alert("주소를 입력해주세요.");
 			return false;
-		} */
+		}
 
 		$.ajax({
 			type : "POST",
@@ -99,38 +126,21 @@
 					alert("회원가입이 완료되었습니다!");
 					location.href="/login.do";
 				}else if(result == "IDDup"){
-					alert("이미 사용중인 아이디입니다.");
+					alert("아이디 중복을 확인하세요.");
 					$('#UserId').focus();
 				}
 			}
 		})
 	}
-		
+
 	</script>
-	  
+
 	</head>
 
 
     <body>
         <!-- header -->
-        <div class=header>
-            <a href="index.html"><img src="/resources/image/moon.png" width="80" height="80s"></a>
-            <nav>
-              <span><a href="intro.html">호텔 소개</a></span>
-              <span><a href="room.html">객실</a></span>
-              <span><a href="restaurant.html">레스토랑</a></span>
-              <span><a href="res.html">예약</a></span>
-              <span><a href="res_confirm.html">예약 확인</a></span>
-              <span><a href="qna.html">고객문의</a></span>
-              <span><a href="facility.html">편의시설</a></span>
-              <span>
-	        	<c:choose>
-	  				<c:when test="${member != null}"><a href="/logout.do">로그아웃</a></c:when>
-	   				<c:otherwise><a href="/login.do">로그인</a></c:otherwise>
-	   			</c:choose>
-	          </span>
-            </nav>
-        </div>
+        <%@include file = "/WEB-INF/views/layout/header.jsp" %>
 
         <!-- wrapper -->
         <div id="wrapper">
@@ -144,7 +154,7 @@
                     </h3>
                     <span class="box int_id">
                         <input type="text" id="UserId" class="int" maxlength="20">
-                        <input type="button" id="id" onclick="__" class="btn_idcheck" value="중복 체크">
+                        <input type="button" id="id" onclick="idcheck()" class="btn_idcheck" value="중복 확인">
                     </span>
                 </div>
 
@@ -177,43 +187,12 @@
                 <!-- BIRTH -->
                 <div>
                     <h3 class="join_title"><label for="yy">생년월일</label></h3>
-
                     <div id="bir_wrap">
-                        <!-- BIRTH_YY -->
-                        <div id="bir_yy">
-                            <span class="box">
-                                <input type="text" id="yy" class="int" maxlength="4" placeholder="년(4자)">
-                            </span>
-                        </div>
-
-                        <!-- BIRTH_MM -->
-                        <div id="bir_mm">
-                            <span class="box">
-                                <select id="mm" class="sel">
-                                    <option>월</option>
-                                    <option value="01">1</option>
-                                    <option value="02">2</option>
-                                    <option value="03">3</option>
-                                    <option value="04">4</option>
-                                    <option value="05">5</option>
-                                    <option value="06">6</option>
-                                    <option value="07">7</option>
-                                    <option value="08">8</option>
-                                    <option value="09">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                </select>
-                            </span>
-                        </div>
-
-                        <!-- BIRTH_DD -->
-                        <div id="bir_dd">
-                            <span class="box">
-                                <input type="text" id="dd" class="int" maxlength="2" placeholder="일">
-                            </span>
-                        </div>
-                    </div>
+                    <div id="bir_yy">
+                    <span class="box int_birth">
+                        <input type="text" id="UserBirth" class="int" maxlength="6" placeholder="주민등록번호 앞의 6자리">
+                	</span>
+                	</div>
                 </div>
 
                 <!-- GENDER -->
@@ -221,7 +200,7 @@
                     <h3 class="join_title"><label for="gender">성별</label></h3>
                     <span class="box gender_code">
                         <select id="UserGender" class="sel">
-                            <option>성별</option>
+                            <option value="">성별</option>
                             <option value="M">남자</option>
                             <option value="F">여자</option>
                         </select>
@@ -233,7 +212,7 @@
                 <div>
                     <h3 class="join_title"><label for="phoneNo">휴대전화</label></h3>
                     <span class="box int_mobile">
-                        <input type="tel" id="UserPhone" class="int" maxlength="16" placeholder="전화번호 입력">
+                        <input type="tel" id="UserPhone" class="int" maxlength="11" placeholder="전화번호 '-'구분없이 입력">
                     </span>
                 </div>
 
@@ -251,16 +230,16 @@
                     <h3 class="join_title"><label for="address">주소</label></h3>
                 </div>
 
-                <input type="text" id="sample6_postcode" class="d_form std" placeholder="우편번호">
-                <input type="button" onclick="sample6_execDaumPostcode()" class="btn_zip" value="우편번호 찾기"><br>
-                <input type="text" id="sample6_address" class="d_form large" placeholder="주소"><br>
-                <input type="text" id="sample6_detailAddress" class="d_form mini" placeholder="상세주소">
-                <input type="text" id="sample6_extraAddress" class="d_form mini" placeholder="참고항목">
+                <input type="text" id="UserPostCode" class="d_form std" placeholder="우편번호">
+                <input type="button" onclick="execDaumPostcode()" class="btn_zip" value="우편번호 찾기"><br>
+                <input type="text" id="UserAddress" class="d_form large" placeholder="주소"><br>
+                <input type="text" id="UserDetailAddress" class="d_form mini" placeholder="상세주소">
+                <input type="text" id="UserExtraAddress" class="d_form mini" placeholder="참고항목">
                 <br>
 
                 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
                 <script>
-                    function sample6_execDaumPostcode() {
+                    function execDaumPostcode() {
                         new daum.Postcode({
                             oncomplete: function(data) {
                                 var addr = '';
@@ -282,14 +261,14 @@
                                     if (extraAddr !== '') {
                                         extraAddr = ' (' + extraAddr + ')';
                                     }
-                                    document.getElementById("sample6_extraAddress").value = extraAddr;
+                                    document.getElementById("UserExtraAddress").value = extraAddr;
                                 }
                                 else {
-                                    document.getElementById("sample6_extraAddress").value = '';
+                                    document.getElementById("UserExtraAddress").value = '';
                                 }
-                                document.getElementById('sample6_postcode').value = data.zonecode;
-                                document.getElementById("sample6_address").value = addr;
-                                document.getElementById("sample6_detailAddress").focus();
+                                document.getElementById("UserPostCode").value = data.zonecode;
+                                document.getElementById("UserAddress").value = addr;
+                                document.getElementById("UserDetailAddress").focus();
                             }
                         }).open();
                   }

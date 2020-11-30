@@ -1,9 +1,9 @@
+@charset "UTF-8";
 body {
     margin-left:auto;
     margin-right: auto;
     padding:0px;
-    background-color: white;
-    font-family:나눔고딕;
+    background-color: #fbfcf5;
 }
 a {
     color:#111111;
@@ -47,7 +47,7 @@ a {
     margin-right: auto;
     min-height: 500px;
     padding: 50px;
-    background-color: white;
+    background-color: #fbfcf5;
     font-size: 18px;
     color: #333333
 }
@@ -93,4 +93,15 @@ th {
     background-color: #333333;
     font-size: 10px;
     font-weight: 400;
+}
+
+.finish {
+    clear: both;
+    width: 1200px;
+    margin-left:auto;
+    margin-right: auto;
+    padding: 50px;
+    font-size: 18px;
+    color: #333333;
+    background-color: #fbfcf5;
 }
