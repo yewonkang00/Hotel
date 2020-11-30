@@ -44,35 +44,51 @@
               </li>
           </ul>
     </div>
+
     <div class=contents>
-      <h1>개인 정보</h1>
-      <table border="1">
-      <tr>
-      	<td>이름</td>
-      	<td>아이디</td>
-      	<td>등급</td>
-      	<td>전화번호</td>
-      	<td>이메일</td>
-      	<td>마일리지</td>
-      	<td>생년월일</td>
-      	<td>주소</td>
-      </tr>
-      <tr>
-      	<td>${member.userName}</td>
-      	<td>${member.userId}</td>
-      	<td>${member.userGrade}</td>
-      	<td>${member.userPhone}</td>
-      	<td>${member.userEmail}</td>
-      	<td>${member.userMile}</td>
-      	<td>${member.userBirth}</td>
-      	<td>${member.userPostCode} ${member.userAddress} ${member.userDetailAddress} ${member.userExtraAddress}</td>
-    </table>
-    <div class="btn_area">
-              	<button type="button" id="res_btn" onClick="memberdelete();">
-              	<span>회원 탈퇴하기</span>
-              </button>
-              </div>
-    </div>
+        <h1>개인 정보</h1>
+        <table class="table">
+            <tr>
+                <th class="pd">이름</th>
+                <td>${member.userName}</td>
+            </tr>
+            <tr>
+                <th>아이디</th>
+                <td>${member.userId}</td>
+            </tr>
+            <tr>
+                <th>등급</th>
+                <td>${member.userGrade}</td>
+            </tr>
+            <tr>
+                <th>전화번호</th>
+                <td>${member.userPhone}</td>
+            </tr>
+            <tr>
+                <th>이메일</th>
+                <td>${member.userEmail}</td>
+            </tr>
+            <tr>
+                <th>마일리지</th>
+                <td>${member.userMile}</td>
+            </tr>
+            <tr>
+                <th>생년월일</th>
+                <td>${member.userBirth}</td>
+            </tr>
+            <tr>
+                <th>주소</th>
+                <td>${member.userPostCode} ${member.userAddress} ${member.userDetailAddress} ${member.userExtraAddress}</td>
+            </tr>
+        </table>
+
+        <br>
+        <div class="btn_area">
+                    <button type="button" class="submit-btn" id="res_btn" onClick="memberdelete();">
+                    <span>회원 탈퇴하기</span>
+                  </button>
+                  </div>
+        </div>
     <%@include file = "/WEB-INF/views/layout/final.jsp" %>
   </div>
 
