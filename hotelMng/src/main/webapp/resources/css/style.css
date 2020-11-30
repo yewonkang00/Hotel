@@ -96,8 +96,8 @@ a {
     background-image: url("../img/oria-hotel-4636405_1280.jpg");
     background-size: cover;
     margin-top: auto;
-    min-width: 1200px;
-    height: 700px;
+    min-width: 1000px;
+    height: 550px;
     padding: 8px;
 }
 .tit{
@@ -459,7 +459,7 @@ textarea {
     padding-top: 20px;
     border-bottom: 3pt solid  #D4C1A1;
   }
-  
+
   .myButton {
 	   background-color:#D4C1A1;
 	   border-radius:3px;

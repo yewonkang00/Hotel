@@ -4,6 +4,12 @@
 <html lang="ko">
     <head>
         <meta charset="UTF-8">
+          <script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
+          <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+          <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+          <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+          <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+          <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
         <style>
             * {
                 font-family: 'Noto Sans KR', sans-serif;
@@ -96,7 +102,7 @@
           }
           .res_search{
             margin-top: 50px;
-            border-top:30pt solid  #D4C1A1;
+            border-top:6pt solid #f1f1f1;
             width:90%;
             border-radius:10px;
             border-bottom:6pt solid #f1f1f1;
