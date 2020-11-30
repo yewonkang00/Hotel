@@ -28,7 +28,6 @@
 		                </li>
 		            </ul>
 		        </div>
-
 		        <div class=contents>
 		            <h2>게시물 보기</h2>
 

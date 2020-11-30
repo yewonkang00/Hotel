@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css" type="text/css">
-    <title>My QnA</title>
+    <title> 문의 내역 </title>
     <style>
         body {
           background-color: #EEEFF1;

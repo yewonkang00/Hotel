@@ -82,7 +82,7 @@
   
     </head>
     <body>
-	<%@include file = "/WEB-INF/views/admin/admin_header.jsp" %>
+        <%@include file = "/WEB-INF/views/admin/admin_header.jsp" %>
 
         <div class=contents>
 			<p style="text-align:center;">MEMBER LIST</p>
@@ -97,6 +97,7 @@
 					<button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch">검색</button>
 				</div>
 				<br>
+
 			</div>
 			<!-- search{e} -->
         	<table class="table table-hover">

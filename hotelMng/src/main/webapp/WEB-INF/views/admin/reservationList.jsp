@@ -13,10 +13,12 @@
             }
         </style>
         <title>Reservation List</title>
+        
+        
   <script type="text/javascript">
-
+			
 		var sessionLevel = '${member.userLevel}';
-
+		
 		if(sessionLevel == null || sessionLevel == 'null' || sessionLevel=="" || sessionLevel == "1"){
 			alert("관리자 권한이 없습니다.");
 			location.href="/main";
