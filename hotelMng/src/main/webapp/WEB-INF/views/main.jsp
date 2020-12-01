@@ -4,13 +4,18 @@
 <html lang="ko">
     <head>
         <meta charset="UTF-8">
+        <script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
         <style>
             * {
                 font-family: 'Noto Sans KR', sans-serif;
             }
             body {
-                margin-left:auto;
-                margin-right: auto;
+                margin : auto;
                 padding:0px;
                 background-color: white;
                 font-family:나눔고딕;
@@ -30,7 +35,7 @@
                 height: 770px;
                 padding: 8px;
             }
-
+            
             .contain{
                 width: 1200px;
 				margin-top:30px;
@@ -44,7 +49,7 @@
             }
 
         </style>
-        <style>
+		<style>
             * {
                 font-family: 'Noto Sans KR', sans-serif;
             }
@@ -70,7 +75,6 @@
                 height: 770px;
                 padding: 8px;
             }
-
             .contain{
                 width: 1200px;
 				margin-top:30px;
@@ -82,7 +86,6 @@
             .index_contents {
                 margin-left: 45px;
             }
-
         </style>
         <style>
           button{
@@ -96,16 +99,17 @@
           }
           .res_search{
             margin-top: 50px;
-            border-top:30pt solid  #D4C1A1;
+            border-top:6pt solid #f1f1f1;
             width:90%;
+            align:center;
             border-radius:10px;
             border-bottom:6pt solid #f1f1f1;
             margin:0 auto;
-            padding-left:30%;
+            padding-left:35%;
           }
           .res_res{
             display: inline-block;
-            text-align: center;
+            text-align:center;
           }
           .res_table td{
             text-align:center;
@@ -163,18 +167,11 @@
           }
         </style>
         <script type="text/javascript">
-         var sessionUserId = '${member.userId}';
-         var sessionLevel = '${member.userLevel}';
-         if(sessionUserId == null || sessionUserId == 'null' || sessionUserId=="" || sessionUserId == "1"){
-           alert("로그인 후 이용해주세요.");
-           location.href="/login.do";
-         }
 
          function dateAdd(sDate, nNum) {
            var yyyy = parseInt(sDate.substr(0, 4), 10);
            var mm = parseInt(sDate.substr(4, 2), 10) - 1;
            var dd = parseInt(sDate.substr(6, 2), 10);
-
            nNum *= 1;
            nNum = nNum -1;
            var newDt = new Date(yyyy,mm,dd);
@@ -188,11 +185,9 @@
              if(day < 10){
                  day = "0"+day;
              }
-
              var today = year+""+month+""+day;
            return today;
          }
-
          function searchRoom(room) {
            var SearchRoom = room;
            var SearchFrom = $('#reservationCheckIn').val();
@@ -204,10 +199,8 @@
          	SearchFrom = SearchFrom.substr(0,4) + SearchFrom.substr(5,2) + SearchFrom.substr(8,2);
          	SearchTo = SearchTo.substr(0,4) + SearchTo.substr(5,2) + SearchTo.substr(8,2);
          	SearchTo = dateAdd(SearchTo, 0);
-
          	location.href="/searchRoomAction.do?searchFrom="+SearchFrom+"&searchTo="+SearchTo+"&searchRoom="+SearchRoom;
        	}
-
         $(function() {
             //모든 datepicker에 대한 공통 옵션 설정
             $.datepicker.setDefaults({
@@ -226,31 +219,25 @@
                 ,dayNamesMin: ['일','월','화','수','목','금','토'] //달력의 요일 부분 텍스트
                 ,dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'] //달력의 요일 부분 Tooltip 텍스트
                 ,minDate: "-1M" //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
-                ,maxDate: "+1M" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
+                ,maxDate: "+1Y" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
             });
-
             //input을 datepicker로 선언
             $("#reservationCheckIn").datepicker();
             $("#res_checkout").datepicker();
-
             var checkIn = '${searchFrom}';
             var checkOut = dateAdd('${searchTo}',2);
-
             if(checkIn == null || checkIn == 'null' || checkIn == ""){
                 //From의 초기값을 오늘 날짜로 설정
                 $('#reservationCheckIn').datepicker('setDate', 'today'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
                 //To의 초기값을 내일로 설정
                 $('#res_checkout').datepicker('setDate', '+1D'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
-
             } else {
                 checkIn = checkIn.substr(0,4) + "-" + checkIn.substr(4,2) + "-" + checkIn.substr(6,2);
                 checkOut = checkOut.substr(0,4) + "-" + checkOut.substr(4,2) + "-" + checkOut.substr(6,2);
               $('#reservationCheckIn').datepicker('setDate', checkIn);
               $('#res_checkout').datepicker('setDate', checkOut);
             }
-
         });
-
         </script>
         <script type="text/javascript">
           var err = document.getElementById("error");
@@ -286,6 +273,7 @@
         <div class=res_search>
         	<div class=res_res>
                 <form name="srchRoomFrm" id="res_form" method="post">
+                  
                   <table class="res_table">
                     <tr>
                       <td><b>객실</b></td>
@@ -363,12 +351,12 @@
             </div>
         <div class=contain>
         	<div class=index_contents>
-
-        		<p> 안녕하세요</p>
-	            <p> 가나다라</p>
-	            <p> 마바사아</p>
-	            <b><p> 브런치 타임: AM 11:30 ~ PM 1:30</p>
-	            <p> 영업시간 : AM 10:00 ~ PM 9:00</p></b>
+        	
+        		<p> 안녕하세요</p>	
+	            <p> 가나다라</p>	
+	            <p> 마바사아</p>	
+	            <b><p> 브런치 타임: AM 11:30 ~ PM 1:30</p>	
+	            <p> 영업시간 : AM 10:00 ~ PM 9:00</p></b>	
 	            <p>
 	            	<img src="/resources/image/hotel2.jpg" width="300">
 	            <p>

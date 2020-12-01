@@ -13,12 +13,12 @@
             }
         </style>
         <title>Reservation List</title>
-
-
+        
+        
   <script type="text/javascript">
-
+			
 		var sessionLevel = '${member.userLevel}';
-
+		
 		if(sessionLevel == null || sessionLevel == 'null' || sessionLevel=="" || sessionLevel == "1"){
 			alert("관리자 권한이 없습니다.");
 			location.href="/main";
@@ -27,10 +27,10 @@
 
     </head>
     <body>
-		<%@include file = "/WEB-INF/views/admin/admin_header.jsp" %>
+        <%@include file = "/WEB-INF/views/admin/admin_header.jsp" %>
 
         <div class=contents>
-			<p style="text-align:center;">예약 LIST</p>
+			<p style="text-align:center;">RESERVATION LIST</p>
 			<!-- search{s} -->
 			<div class="form-group row justify-content-center">
 				<div class="w100" style="text-align: center">
