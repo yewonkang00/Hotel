@@ -7,7 +7,6 @@
 	<script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/resources/css/style_room.css" type="text/css">
-    <link rel="stylesheet" href="/resources/css/styleintro_hotel.css" type="text/css">
     <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
     <script type="text/javascript">
     function dateAdd(sDate, nNum) {
@@ -115,7 +114,6 @@
                 </td>
             </tr>
         </table>
-
     </div>
     <%@include file = "/WEB-INF/views/layout/final.jsp" %>
 </div>

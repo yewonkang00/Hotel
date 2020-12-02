@@ -25,6 +25,7 @@ a {
     background-color:#D4C1A1;
     margin-left:40px;
     margin-top:15px;
+    margin-right: -130px;
 }
 .banner{
     width:240px;
@@ -91,7 +92,7 @@ h4 {
 }
 .intbox {
     border-bottom: 1px solid #E8E4DE;
-    margin: 25px 0 50px 0;
+    margin: 0;
     overflow: hidden;
     padding: 0;
     color: #101010;
@@ -99,30 +100,31 @@ h4 {
 }
 .intbox .lbox {
     float: left;
-    margin-right: 30px;
+    margin-right: 160px;
     width: 400px;
-    height: 70px;
+    height: 350px;
     margin-bottom: 50px;
     padding: 0;
     color: #101010;
 }
 .intbox .rbox {
     float: left;
-    width: 400px;
+    width: 370px;
+    height: 400px;
     margin-bottom :50px;
     padding: 0;
 
 }
 .intbox .lbox .topexp{
     float: left;
-    width: 250px;
+    width: 350px;
 }
 .intbox .rbox .topxep{
     float: left;
-    width : 250px;
+    width : 280px;
 }
 .contain{
-    width: 1200px;
+    width: 1500px;
     margin-top:30px;
     min-height: 500px;
     background-color: #fbfcf5;
@@ -130,9 +132,9 @@ h4 {
     color: #333333
 }
 .contents{
-  float:right;
-  margin-right:-120px;
-  width:960px;
+  float:left;
+  margin-left:170px;
+  width:1000px;
   height:1200px;
 }
 #res_btn{

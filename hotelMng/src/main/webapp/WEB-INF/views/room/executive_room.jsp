@@ -140,7 +140,6 @@
                 </td>
             </tr>
         </table>
-
     </div>
     <%@include file = "/WEB-INF/views/layout/final.jsp" %>
 </div>
