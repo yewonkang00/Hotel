@@ -2,7 +2,7 @@ package com.khotel.DaoImpl;
 
 import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -59,8 +59,13 @@ public class MemberDaoImpl implements MemberDao {
 	}
 
 	@Override
-	public List<MemberVo> listMember() throws Exception {
-		return sqlSession.selectList("member.listMember");
+	public List<MemberVo> listMember(int start, int end, String search_option, String keyword) throws Exception {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("search_option", "");
+		map.put("keyword", "");
+		map.put("start", start);
+		map.put("end", end);
+		return sqlSession.selectList("member.listMember", map);
 	}
 
 	@Override

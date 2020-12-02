@@ -56,7 +56,7 @@
 				<th>조회수</th>
 			</tr>
 			</thead>
-
+			
 			<c:forEach var="row" items="${map.list}">
 				<tr>
 					<td>${row.QNACODE}</td>

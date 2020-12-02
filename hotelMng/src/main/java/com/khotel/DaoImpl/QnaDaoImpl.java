@@ -46,12 +46,6 @@ public class QnaDaoImpl implements QnaDao {
 
 	@Override
 	public void create(QnaVo vo) throws Exception {
-		System.out.println(vo.getQNACODE());
-		System.out.println(vo.getQNACONTENT());
-		System.out.println(vo.getQNATITLE());
-		System.out.println(vo.getQNAWRITER());
-		System.out.println(vo.getQNAREGISTERDATE());
-		System.out.println(vo.getQNAVIEWCOUNT());
 		sqlSession.insert("QNA.create", vo);
 		
 	}
