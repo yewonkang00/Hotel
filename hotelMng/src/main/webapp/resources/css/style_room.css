@@ -136,7 +136,7 @@ h4 {
   height:1200px;
 }
 #res_btn{
-     margin-left:70px;
+     margin-left:80px;
      border-style:none;
      height:55px;
      width:100px;
@@ -145,30 +145,21 @@ h4 {
      color:#ffffff;
      border-radius:5px;
      background-color: #D4C1A1;
+     float:left;
+     margin-top: 90px;
 }
-.room_button {
-	 background-color:#D4C1A1;
-	 border-radius:3px;
-	 border:1px solid #D4C1A1;
-	 display:inline-block;
-	 cursor:pointer;
-	 color:#ffffff;
-	 font-size:15px;
-     font-weight:bold;
-     padding:8px 24px;
-     text-decoration:none;
-     text-align: center;
-     justify-content:center;
-     align-items:center;
-     margin-left: 350px;
-     position: absolute;
-     top: 830px;
-     right: 550px;
-   }
-.room_button:hover {
+#res_btn:hover {
      background-color:#dbb790;
   }
-.room_button:active {
+#res_btn:active {
      position:relative;
 	 top:1px;
   }
+.explain {
+	float:left;
+	height: 150px;
+	width: 620px;
+	font-size: 18px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}

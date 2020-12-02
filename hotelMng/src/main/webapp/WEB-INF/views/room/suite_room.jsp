@@ -105,17 +105,14 @@
           <div class=contents>
             <h2 id=gaeyo>Suite Room</h2>
             <img src="/resources/image/suiteroom.jpg" width="800" height="500">
-            <p> 스위트룸은 프라이빗한 휴식을 즐길 수 있는 객실입니다.
-            	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-	        	<td>
-	        	<button type="button" id="res_btn" onclick="javaScript:search()">예약하기</button>
-	        	</td>
-            	<br/>
-                스위트룸과 함께 최고의 휴식을 경험해보십시오.<br/>
-                문의전화 02-0000-0000<br/>
-                전망 : 시티 뷰 | 침대 : 더블(킹 사이즈) | 크기 : 159m^2<br/>
-                룸 구성 : 침실 1, 욕실 1, 화장실 2, 응접실 1, 집무실 1, 다이닝 룸 1<br/>
-            </p>
+            <div class=explain>
+           		스위트룸은 프라이빗한 휴식을 즐길 수 있는 객실입니다.<br/>
+           		스위트룸과 함께 최고의 휴식을 경험해보십시오.<br/>
+           		문의전화 02-0000-0000<br/>
+           		전망 : 시티 뷰 | 침대 : 더블(킹 사이즈) | 크기 : 159m^2<br/>
+           		룸 구성 : 침실 1, 욕실 1, 화장실 2, 응접실 1, 집무실 1, 다이닝 룸 1<br/>
+            </div>
+            <button type="button" id="res_btn" onclick="javaScript:search()">예약하기</button>
             <table class=roomtb>
               <thead>
                 <tr>
@@ -123,8 +120,8 @@
                   <td>65인치 스마트 TV<br/>
                       50~100Mbps 초고속 유무선(wifi) 인터넷 무료<br/>
                       220V, 110V 전압 사용 가능<br/>
-                      커피, 차 티백 무료 제공<br/>
-                      엑스트라 베드 1개 추가 30,000원/1박<br/>
+                  	     커피, 차 티백 무료 제공<br/>
+              		     엑스트라 베드 1개 추가 30,000원/1박<br/>
                   </td>
                 </tr>
                 <tr>
