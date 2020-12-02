@@ -47,7 +47,7 @@
                 </div>
               </div>
             </div>
+            <%@include file = "/WEB-INF/views/layout/final.jsp" %>
         </div>
-        <%@include file = "/WEB-INF/views/layout/final.jsp" %>
     </body>
 </html>

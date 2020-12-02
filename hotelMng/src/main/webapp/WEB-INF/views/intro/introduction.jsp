@@ -66,7 +66,7 @@
 				우리는 최고의 라이프스타일 전문가로서 더 많은 인류에게 품격과 자부심을 경험케 한다.<br> <br>
 			</p>
 		</div>
+		<%@include file = "/WEB-INF/views/layout/final.jsp" %>
 	</div>
-	<%@include file = "/WEB-INF/views/layout/final.jsp" %>
 </body>
 </html>
