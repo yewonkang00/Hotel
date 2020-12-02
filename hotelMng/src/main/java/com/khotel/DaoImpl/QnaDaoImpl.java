@@ -95,4 +95,14 @@ public class QnaDaoImpl implements QnaDao {
 		return 0;
 	}
 
+	@Override
+	public List<QnaVo> listSome(int start, int end, String UserId) throws Exception {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("start", start);
+		map.put("end", end);
+		map.put("UserId", UserId);
+		return sqlSession.selectList("QNA.listSome", map);
+		
+	}
+
 }

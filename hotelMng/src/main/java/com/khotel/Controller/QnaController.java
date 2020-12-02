@@ -117,7 +117,7 @@ public class QnaController {
 		vo.setQNACONTENT(content);
 		vo.setQNAWRITER(writer);
 		Date now = new Date();
-		SimpleDateFormat format = new SimpleDateFormat("yyyy³â MM¿ù ddÀÏ HH½Ã mmºÐ");
+		SimpleDateFormat format = new SimpleDateFormat("yyyy년 MM월 dd일 HH시 mm분");
 		String time = format.format(now);
 		vo.setQNAREGISTERDATE(time);
 		qnaService.create(vo);
@@ -158,6 +158,26 @@ public class QnaController {
 			@RequestParam int QNACODE) throws Exception{
 		qnaService.delete(QNACODE);
 		return "redirect:/qna/list.do";
+	}
+	
+	@RequestMapping(value = "/admin/qnaList")
+	public ModelAndView inlist(
+			@RequestParam(defaultValue="1") int curPage
+			) throws Exception {
+		int count = 100;
+		Pager pager = new Pager(count, curPage);
+		int start = pager.getPageBegin();
+		int end = pager.getPageEnd();
+		List<QnaVo> list = qnaService.listAll(start, end, "", "");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/admin/qnaList");
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list", list);
+		map.put("count", count);
+		map.put("pager", pager);
+		mav.addObject("map", map);
+		return mav;
+	
 	}
 	
 	

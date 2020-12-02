@@ -38,7 +38,7 @@
               </li>
               
               <li class="m3">
-                  <a href="mypage_qna.html">
+                  <a href="/mypage/mylist">
                       <span>문의 내역</span>
                   </a>
               </li>

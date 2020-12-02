@@ -19,6 +19,24 @@
 		) 
 		where rn between ${start} and ${end}
 	</select>
+	
+	<select id="QNA.listSome" resultType="com.khotel.Vo.QnaVo">
+		<!-- select QNACODE, QNATITLE, username, QNAWRITER, QNAREGISTERDATE, QNAVIEWCOUNT
+		from qna q, member m
+		where q.qnawriter = m.userid 
+		order by QNACODE desc -->
+		select *
+		from (
+			select rownum as rn, A.*
+			from (
+		select QNACODE, QNATITLE, QNAWRITER, QNAREGISTERDATE, QNAVIEWCOUNT
+		from QNA
+		where QNAWRITER = #{UserId}
+		order by QNACODE desc
+			) A
+		) 
+		where rn between ${start} and ${end}
+	</select>
 
 	<insert id="create" parameterType="QnaVo">
 		INSERT INTO QNA ( 
