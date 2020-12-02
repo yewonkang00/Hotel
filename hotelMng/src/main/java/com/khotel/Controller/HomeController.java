@@ -196,7 +196,6 @@ public class HomeController {
 		//�쉶�썝 媛��졇�삤湲� - check
 		try {
 			list = memberService.listMember(start, end, "", "");
-			System.out.println(list);
 			map.put("list", list);
 			map.put("count", count);
 			map.put("pager", pager);
@@ -211,18 +210,31 @@ public class HomeController {
 	
 	//愿�由ъ옄 �럹�씠吏� 媛앹떎 �삁�빟
 		@RequestMapping(value = "/admin/reservationList")
-		public String reservationList(Locale locale, Model model, HttpServletRequest request) throws Exception {
-			List<ReservationVo> reservationList = null;
+		public ModelAndView reservationList(
+				@RequestParam(defaultValue="1") int curPage,
+				Locale locale, Model model, HttpServletRequest request) throws Exception {
+			int count = 100;
+			Pager pager = new Pager(count, curPage);
+			int start = pager.getPageBegin();
+			int end = pager.getPageEnd();
+			List<ReservationVo> list = null;
+			Map<String, Object> map = new HashMap<String, Object>();
+			ModelAndView mav = new ModelAndView();
+			mav.setViewName("/admin/reservationList");
 			
 			//�삁�빟 由ъ뒪�듃 媛��졇�삤湲�
 			try {
-				reservationList = reservationService.listReservation();
+				list = reservationService.listReservation(start, 10000, "", "");
+				map.put("list", list);
+				map.put("count", count);
+				map.put("pager", pager);
 			} catch (Exception e) {
 				
 			}
-			model.addAttribute("reservationList", reservationList );
-			System.out.println(reservationList);
-			return "/admin/reservationList";
+			mav.addObject("list", list);
+			mav.addObject("pager", pager);
+			mav.addObject("count", count);
+			return mav;
 		}
 	
 	//愿�由ъ옄 �럹�씠吏�

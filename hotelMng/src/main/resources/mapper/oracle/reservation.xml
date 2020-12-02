@@ -58,9 +58,17 @@
 	</delete>
 	
 	<select id="listReservation" resultType="ReservationVo">	
-	SELECT *
-	FROM Reservation
-	order by ReservationCode desc
+	select *
+		from (
+			select rownum as rn, A.*
+			from (
+		SELECT *
+		FROM Reservation
+		order by ReservationCode desc
+		
+			) A
+		) 
+		where rn between ${start} and ${end}
 	</select>
 
 </mapper>

@@ -1,6 +1,8 @@
 package com.khotel.DaoImpl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
@@ -50,8 +52,13 @@ public class ReservationDaoImpl implements ReservationDao{
 	}
 
 	@Override
-	public List<ReservationVo> listReservation() throws Exception {
-		return sqlSession.selectList("reservation.listReservation");
+	public List<ReservationVo> listReservation(int start, int end, String search_option, String keyword) throws Exception {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("search_option", "");
+		map.put("keyword", keyword);
+		map.put("start", start);
+		map.put("end", end);		
+		return sqlSession.selectList("reservation.listReservation", map);
 	}
 	
 	
