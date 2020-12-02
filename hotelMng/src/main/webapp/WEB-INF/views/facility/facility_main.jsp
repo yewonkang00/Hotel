@@ -48,13 +48,13 @@
         </ul>
     </div>
     <div class=contents>
-        <h2 id=gaeyo>DB호텔은 당신의 완벽한 휴식을 책입집니다.</h2>
+        <h2 id=gaeyo>호텔 루시드는 당신의 완벽한 휴식을 책입집니다.</h2>
         <div class=intbox>
             <div class=lbox>
                 <h3><b>The Executive Rounge</b></h3>
                 <a href="/facility_rounge.do"><img src="${pageContext.request.contextPath}/resources/image/rounge.jpg" width="300" height="220"></a>
                 <div class=topexp>
-                    <p>DB호텔만의 차별화된 품격이 돋보이는 이그제큐티브 라운지에서 특별한 다이닝 경험을 만들 수 있습니다. <br></p>
+                    <p>호텔 루시드만의 차별화된 품격이 돋보이는 이그제큐티브 라운지에서 특별한 다이닝 경험을 만들 수 있습니다. <br></p>
                 </div>
             </div>
             <div class=rbox>
@@ -75,7 +75,7 @@
                 <h3><b>Banquet Hall</b></h3>
                 <a href="/facility_hall.do"><img src="${pageContext.request.contextPath}/resources/image/banquet hall.jpg" width="300" height="220"></a>
                 <div class=topexp>
-                    <p>웨딩뿐 아니라 기업연회, 가족연회까지 DB호텔만의 품격있는 연회장과 함께 하십시오.<br></p>
+                    <p>웨딩뿐 아니라 기업연회, 가족연회까지 호텔 루시드만의 품격있는 연회장과 함께 하십시오.<br></p>
                 </div>
              </div>
              <div class=lbox>
