@@ -16,7 +16,7 @@
 <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
 
 
-<title>Welcome Delluna!</title>
+<title>Hotel Lucid Introduction</title>
 
 </head>
 

@@ -10,45 +10,6 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
-        <style>
-            * {
-                font-family: 'Noto Sans KR', sans-serif;
-            }
-            body {
-                margin : auto;
-                padding:0px;
-                background-color: white;
-                font-family:나눔고딕;
-            }
-            ::-webkit-scrollbar {
-                display: none;
-            }
-            a {
-                color:#111111;
-                text-decoration:none
-            }
-            .banner_main{
-                background-image: url(/resources/image/outdoor.jpg);
-                background-size: 1920px 850px;
-                margin-top: auto;
-                min-width: 700px;
-                height: 770px;
-                padding: 8px;
-            }
-            
-            .contain{
-                width: 1200px;
-				margin-top:30px;
-                min-height: 500px;
-                background-color: white;
-                font-size: 18px;
-                color: #333333
-            }
-            .index_contents {
-                margin-left: 45px;
-            }
-
-        </style>
 		<style>
             * {
                 font-family: 'Noto Sans KR', sans-serif;
@@ -57,7 +18,7 @@
                 margin-left:auto;
                 margin-right: auto;
                 padding:0px;
-                background-color: white;
+                background-color: #fbfcf5;
                 font-family:나눔고딕;
             }
             ::-webkit-scrollbar {
@@ -76,16 +37,17 @@
                 padding: 8px;
             }
             .contain{
-                width: 1200px;
+                width: 1920px;
 				margin-top:30px;
                 min-height: 500px;
-                background-color: white;
+                background-color: #fbfcf5;
                 font-size: 18px;
                 color: #333333
             }
             .index_contents {
                 margin-left: 45px;
             }
+
         </style>
         <style>
           button{
@@ -106,6 +68,7 @@
             border-bottom:6pt solid #f1f1f1;
             margin:0 auto;
             padding-left:35%;
+            background-color: white;
           }
           .res_res{
             display: inline-block;
@@ -165,6 +128,13 @@
             border-radius:5px;
             background-color: #D4C1A1;
           }
+          #res_btn:hover {
+     		background-color:#dbb790;
+  		  }
+		  #res_btn:active {
+     	  position:relative;
+	      top:1px;
+  		  }
         </style>
         <script type="text/javascript">
 
@@ -264,7 +234,7 @@
 		  	return parseInt(diff/currDay);
           }
     </script>
-        <title>Welcome Delluna!</title>
+        <title>Welcome Hotel Lucid!</title>
 
     </head>
     <body>
@@ -352,17 +322,14 @@
         <div class=contain>
         	<div class=index_contents>
         	
-        		<p> 안녕하세요</p>	
-	            <p> 가나다라</p>	
-	            <p> 마바사아</p>	
-	            <b><p> 브런치 타임: AM 11:30 ~ PM 1:30</p>	
-	            <p> 영업시간 : AM 10:00 ~ PM 9:00</p></b>	
+        		<p> 호텔 루시드는 언제나 한결같이 품격있는 서비스와 시설로 고객에게 깊은 감동을 주는 브랜드를 지향하고 있습니다.</p>	
+	            <p> 균형 있는 라이프스타일을 추구하며 품격의 가치를 아는 고객분들을 위해 세련되고 안락한 객실과 세심한 배려가 묻어나는 고품격 호텔 서비스를 준비하고 있습니다.</p>	
+	            <p> 호텔 레스토랑과 라운지에서 제공되는 최고급 요리는 즐거운 경험을 제공하며 다양한 시설은 비즈니스와 레저를 모두 즐기고 싶어하시는 고객분들을 만족시키는데 부족함이 없습니다.</p>
+	            <p> 지금, 호텔 루시드에서 특별한 경험을 즐기세요</p>	
 	            <p>
 	            	<img src="/resources/image/hotel2.jpg" width="300">
-	            <p>
-	            	<a href="reservationqa.html">호텔 예약 문의하기</a>
 	    	</div>
+	    	<%@include file = "/WEB-INF/views/layout/final.jsp" %>
         </div>
-        <%@include file = "/WEB-INF/views/layout/final.jsp" %>
     </body>
 </html>
