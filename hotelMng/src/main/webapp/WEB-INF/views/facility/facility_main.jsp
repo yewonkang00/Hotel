@@ -77,7 +77,8 @@
                 <div class=topexp>
                     <p>웨딩뿐 아니라 기업연회, 가족연회까지 DB호텔만의 품격있는 연회장과 함께 하십시오.<br></p>
                 </div>
-                <div class=lbox>
+             </div>
+             <div class=lbox>
             	<h3><b>Restaurant</b></h3>
             	<a href="/facility_restaurant.do"><img src="${pageContext.request.contextPath}/resources/image/restaurant.jpg" width="300" height="220"></a>
             	<div class=topexp>
@@ -86,8 +87,7 @@
             </div>
             </div>
         </div>
+        <%@include file = "/WEB-INF/views/layout/final.jsp" %>
     </div>
-    <%@include file = "/WEB-INF/views/layout/final.jsp" %>
-</div>
 </body>
 </html>
