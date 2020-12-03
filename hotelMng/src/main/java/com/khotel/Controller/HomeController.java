@@ -625,7 +625,7 @@ public class HomeController {
 	
 	      return "/intro/introduction_hotel";
 	   }
-	
 
-	
+
+
 }
