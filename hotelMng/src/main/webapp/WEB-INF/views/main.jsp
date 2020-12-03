@@ -10,7 +10,7 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
-		<style>
+      <style>
             * {
                 font-family: 'Noto Sans KR', sans-serif;
             }
@@ -20,7 +20,7 @@
                 padding:0px;
                 background-color: #fbfcf5;
                 font-family:나눔고딕;
-				overflow-x: hidden;
+                overflow-x: hidden;
             }
             ::-webkit-scrollbar {
                 display: none;
@@ -39,8 +39,8 @@
             }
             .contain{
                 width: 1920px;
-				margin-top:30px;
-                min-height: 500px;
+            	margin-top:30px;
+                min-height: 700px;
                 background-color: #fbfcf5;
                 font-size: 18px;
                 color: #333333
@@ -48,7 +48,72 @@
             .index_contents {
                 margin-left: 45px;
             }
+            .intro{
+               margin-top: 10px;
+               border-top:1px solid #D4C1A1;
+               width:1920px;
+               text-align:center;
+               border-bottom: none;
+               border-right: none;
+               margin-left:-50px;
+               display: inline-block;    
+            }
+            .intro_facility{
+               font-size: 20px;
+            }
+            .intro_facility a{
+             position: relative;
+             display: inline-block;
+             margin-right: 20px;
+             margin-left: 10px;
+             padding: 10px;
+         }
 
+         .intro_facility a:first-child::before{
+             content: '';
+         }
+
+         .intro_facility a::before {
+             position: absolute;
+             top: 2px;
+             left: -15px;
+             content: '|';
+             display: inline-block;
+             width: 1px;
+             height: 10px;
+         }
+         .floor_guide {
+               width: 1900px;
+             border-collapse: separate;
+             border-spacing: 1px;
+             text-align: center;
+             line-height: 1.5;
+             border-top: 1px solid #D4C1A1;
+             margin : 20px 5px;
+             margin-left: -5px;
+             margin-bottom: 100px;
+         }
+         .floor_guide th {
+             width: 150px;
+             padding: 20px;
+             font-weight: bold;
+             vertical-align: middle;
+             border-bottom: 1px solid #D4C1A1;
+             color: #dbb790;
+         }
+         .floor_guide td {
+            width: 100px;
+            padding: 10px;
+            border-bottom: 1px solid #D4C1A1;
+            border-right: 1px solid #D4C1A1;
+         }
+         .floor_guide td.right {
+             width: 350px;
+             padding: 10px;
+             vertical-align: middle;
+             border-bottom: 1px solid #D4C1A1;
+             border-right: none;
+         }
         </style>
         <style>
           button{
@@ -130,12 +195,12 @@
             background-color: #D4C1A1;
           }
           #res_btn:hover {
-     		background-color:#dbb790;
-  		  }
-		  #res_btn:active {
-     	  position:relative;
-	      top:1px;
-  		  }
+           background-color:#dbb790;
+          }
+        #res_btn:active {
+          position:relative;
+         top:1px;
+          }
         </style>
         <script type="text/javascript">
 
@@ -167,11 +232,11 @@
              alert("체크아웃을 확인하세요.");
              return;
            }
-         	SearchFrom = SearchFrom.substr(0,4) + SearchFrom.substr(5,2) + SearchFrom.substr(8,2);
-         	SearchTo = SearchTo.substr(0,4) + SearchTo.substr(5,2) + SearchTo.substr(8,2);
-         	SearchTo = dateAdd(SearchTo, 0);
-         	location.href="/searchRoomAction.do?searchFrom="+SearchFrom+"&searchTo="+SearchTo+"&searchRoom="+SearchRoom;
-       	}
+            SearchFrom = SearchFrom.substr(0,4) + SearchFrom.substr(5,2) + SearchFrom.substr(8,2);
+            SearchTo = SearchTo.substr(0,4) + SearchTo.substr(5,2) + SearchTo.substr(8,2);
+            SearchTo = dateAdd(SearchTo, 0);
+            location.href="/searchRoomAction.do?searchFrom="+SearchFrom+"&searchTo="+SearchTo+"&searchRoom="+SearchRoom;
+          }
         $(function() {
             //모든 datepicker에 대한 공통 옵션 설정
             $.datepicker.setDefaults({
@@ -230,9 +295,9 @@
             }
           }
           function datediff(input, output) {
-		  	var diff = output - input;
-		  	var currDay = 24 * 60 * 60 * 1000;
-		  	return parseInt(diff/currDay);
+           var diff = output - input;
+           var currDay = 24 * 60 * 60 * 1000;
+           return parseInt(diff/currDay);
           }
     </script>
         <title>Welcome Hotel Lucid!</title>
@@ -242,7 +307,7 @@
         <%@include file = "/WEB-INF/views/layout/header.jsp" %>
         <div class=banner_main></div>
         <div class=res_search>
-        	<div class=res_res>
+           <div class=res_res>
                 <form name="srchRoomFrm" id="res_form" method="post">
                   
                   <table class="res_table">
@@ -255,59 +320,59 @@
                     </tr>
                     <tr>
                       <td>
-                    	   <select name="room_name" style="cursor:pointer;" id="selectRoom">
-                    	   <c:choose>
-                    	   <c:when test="${param.searchRoom eq 'all' || param.searchRoom eq null}">
-                  		      	<option value="all">모든 객실</option>
-                  		      	<option value="standard">Standard Room</option>
-                    	       <option value="deluxe">Deluxe Room</option>
-                    	       <option value="executive">Executive Room</option>
-                  		       <option value="suite">Suite Room</option>
-                  		   </c:when>
-                    	   <c:when test="${param.searchRoom eq 'standard'}">
-                  		      	<option value="all">모든 객실</option>
-                  		      	<option value="standard" selected>Standard Room</option>
-                    	       <option value="deluxe">Deluxe Room</option>
-                    	       <option value="executive">Executive Room</option>
-                  		       <option value="suite">Suite Room</option>
-                  		   </c:when>
-                  		   <c:when test="${param.searchRoom eq 'deluxe'}">
-                  		      	<option value="all">모든 객실</option>
-                  		      	<option value="standard">Standard Room</option>
-                    	       <option value="deluxe" selected>Deluxe Room</option>
-                    	       <option value="executive">Executive Room</option>
-                  		       <option value="suite">Suite Room</option>
-                  		   </c:when>
-                  		   <c:when test="${param.searchRoom eq 'executive'}">
-                  		      	<option value="all">모든 객실</option>
-                  		      	<option value="standard">Standard Room</option>
-                    	       <option value="deluxe">Deluxe Room</option>
-                    	       <option value="executive" selected>Executive Room</option>
-                  		       <option value="suite">Suite Room</option>
-                  		   </c:when>
-                  		   <c:when test="${param.searchRoom eq 'suite'}">
-                  		      	<option value="all">모든 객실</option>
-                  		      	<option value="standard">Standard Room</option>
-                    	       <option value="deluxe">Deluxe Room</option>
-                    	       <option value="executive">Executive Room</option>
-                  		       <option value="suite" selected>Suite Room</option>
-                  		   </c:when>
+                          <select name="room_name" style="cursor:pointer;" id="selectRoom">
+                          <c:choose>
+                          <c:when test="${param.searchRoom eq 'all' || param.searchRoom eq null}">
+                                 <option value="all">모든 객실</option>
+                                 <option value="standard">Standard Room</option>
+                              <option value="deluxe">Deluxe Room</option>
+                              <option value="executive">Executive Room</option>
+                               <option value="suite">Suite Room</option>
+                           </c:when>
+                          <c:when test="${param.searchRoom eq 'standard'}">
+                                 <option value="all">모든 객실</option>
+                                 <option value="standard" selected>Standard Room</option>
+                              <option value="deluxe">Deluxe Room</option>
+                              <option value="executive">Executive Room</option>
+                               <option value="suite">Suite Room</option>
+                           </c:when>
+                           <c:when test="${param.searchRoom eq 'deluxe'}">
+                                 <option value="all">모든 객실</option>
+                                 <option value="standard">Standard Room</option>
+                              <option value="deluxe" selected>Deluxe Room</option>
+                              <option value="executive">Executive Room</option>
+                               <option value="suite">Suite Room</option>
+                           </c:when>
+                           <c:when test="${param.searchRoom eq 'executive'}">
+                                 <option value="all">모든 객실</option>
+                                 <option value="standard">Standard Room</option>
+                              <option value="deluxe">Deluxe Room</option>
+                              <option value="executive" selected>Executive Room</option>
+                               <option value="suite">Suite Room</option>
+                           </c:when>
+                           <c:when test="${param.searchRoom eq 'suite'}">
+                                 <option value="all">모든 객실</option>
+                                 <option value="standard">Standard Room</option>
+                              <option value="deluxe">Deluxe Room</option>
+                              <option value="executive">Executive Room</option>
+                               <option value="suite" selected>Suite Room</option>
+                           </c:when>
 
-                  		   </c:choose>
-                    	   </select>
+                           </c:choose>
+                          </select>
                       </td>
                       <td>
                         <input type="text" id="reservationCheckIn" value="">
                       </td>
                       <td>
-                      	&emsp;&emsp;&emsp;
-                      	<script type="text/javascript">
-                      	document.write(datediff(${param.searchFrom},${param.searchTo})+1);
-                      	</script>
-                      	박
+                         &emsp;&emsp;&emsp;
+                         <script type="text/javascript">
+                         document.write(datediff(${param.searchFrom},${param.searchTo})+1);
+                         </script>
+                         박
                       </td>
                       <td>
-              		  	<input type="text" id="res_checkout" value="">
+                         <input type="text" id="res_checkout" value="">
                       </td>
                       <!-- <td>
                         <button type="button" name="button" id="minus"onclick="minus()">-</button>
@@ -321,16 +386,47 @@
               </div>
             </div>
         <div class=contain>
-        	<div class=index_contents>
-        	
-        		<p> 호텔 루시드는 언제나 한결같이 품격있는 서비스와 시설로 고객에게 깊은 감동을 주는 브랜드를 지향하고 있습니다.</p>	
-	            <p> 균형 있는 라이프스타일을 추구하며 품격의 가치를 아는 고객분들을 위해 세련되고 안락한 객실과 세심한 배려가 묻어나는 고품격 호텔 서비스를 준비하고 있습니다.</p>	
-	            <p> 호텔 레스토랑과 라운지에서 제공되는 최고급 요리는 즐거운 경험을 제공하며 다양한 시설은 비즈니스와 레저를 모두 즐기고 싶어하시는 고객분들을 만족시키는데 부족함이 없습니다.</p>
-	            <p> 지금, 호텔 루시드에서 특별한 경험을 즐기세요</p>	
-	            <p>
-	            	<img src="/resources/image/hotel2.jpg" width="300">
-	    	</div>
-	    	<%@include file = "/WEB-INF/views/layout/final.jsp" %>
+           <div class=index_contents>
+                 <div class=intro>
+                   <span class=intro_facility>
+                     <a><img src="/resources/image/stair.png" width= 25px>  층수 14  </a>
+                     <a><img src="/resources/image/bed.png" width=25px>  객실 60  </a>
+                     <a><img src="resources/image/parking.png" width =25px>  주차 100대  </a>
+                  </span>
+                  <table class=floor_guide>
+                     <tr>
+                     <th>연회장</th>
+                     <td>13F</td>
+                     <td class=right>13F Lucid Hall</td>
+                     </tr>
+                     <tr>
+                     <th>라운지</th>
+                     <td>13F-14F</td>
+                     <td class=right>13F Executive Rounge</td>
+                     </tr>
+                     <tr>
+                     <th>일반층</th>
+                     <td>1F-12F</td>
+                     <td class=right>12F-10F 스위트룸 / 9F-7F 이그제큐티브룸 / 6F-4F 디럭스룸 / 3F-1F 스탠다드룸 / 8F, 4F 흡연실 / 1F 레스토랑, 로비</td>
+                     </tr>
+                     <tr>
+                     <th>부대시설</th>
+                     <td>B1</td>
+                     <td class=right>B1F 실내 체육관, 실내 수영장</td>
+                     </tr>
+                     <tr>
+                     <th>부대시설</th>
+                     <td>B2</td>
+                     <td class=right>B2F 실내 골프장, 사우나</td>
+                  </table>
+               </div>
+               <br/><br/><br/><br/>
+              <p> 호텔 루시드는 언제나 한결같이 품격있는 서비스와 시설로 고객에게 깊은 감동을 주는 브랜드를 지향하고 있습니다.</p>   
+               <p> 균형 있는 라이프스타일을 추구하며 품격의 가치를 아는 고객분들을 위해 세련되고 안락한 객실과 세심한 배려가 묻어나는 고품격 호텔 서비스를 준비하고 있습니다.</p>   
+               <p> 호텔 레스토랑과 라운지에서 제공되는 최고급 요리는 즐거운 경험을 제공하며 다양한 시설은 비즈니스와 레저를 모두 즐기고 싶어하시는 고객분들을 만족시키는데 부족함이 없습니다.</p>
+               <p> 지금, 호텔 루시드에서 특별한 경험을 즐기세요</p>   
+          </div>
+          <%@include file = "/WEB-INF/views/layout/final.jsp" %>
         </div>
     </body>
 </html>
