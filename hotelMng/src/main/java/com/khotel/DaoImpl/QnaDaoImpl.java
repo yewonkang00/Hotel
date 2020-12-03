@@ -46,12 +46,6 @@ public class QnaDaoImpl implements QnaDao {
 
 	@Override
 	public void create(QnaVo vo) throws Exception {
-		System.out.println(vo.getQNACODE());
-		System.out.println(vo.getQNACONTENT());
-		System.out.println(vo.getQNATITLE());
-		System.out.println(vo.getQNAWRITER());
-		System.out.println(vo.getQNAREGISTERDATE());
-		System.out.println(vo.getQNAVIEWCOUNT());
 		sqlSession.insert("QNA.create", vo);
 		
 	}
@@ -93,6 +87,22 @@ public class QnaDaoImpl implements QnaDao {
 	public int countArticle(String search_option, String keyword) throws Exception {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public List<QnaVo> listSome(int start, int end, String UserId) throws Exception {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("start", start);
+		map.put("end", end);
+		map.put("UserId", UserId);
+		return sqlSession.selectList("QNA.listSome", map);
+		
+	}
+
+	@Override
+	public int countQna() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("QNA.count");
 	}
 
 }

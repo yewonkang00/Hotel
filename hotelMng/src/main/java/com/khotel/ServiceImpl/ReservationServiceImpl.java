@@ -49,8 +49,14 @@ public class ReservationServiceImpl implements ReservationService{
 	}
 
 	@Override
-	public List<ReservationVo> listReservation() throws Exception {
-		return reservationDao.listReservation();
+	public List<ReservationVo> listReservation(int start, int end, String search_option, String keyword) throws Exception {
+		return reservationDao.listReservation( start,  end,  search_option,  keyword);
+	}
+
+	@Override
+	public int countReservation() {
+		
+		return reservationDao.countReservation();
 	}
 
 	

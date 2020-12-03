@@ -22,6 +22,11 @@ public interface QnaService {
 	
 	public void delete(int QNACODE) throws Exception; //글삭제
 	
+	public int countQna();
+	
+	public List<QnaVo> listSome(int start, int end, String UserId) throws Exception;
+	
+	
 	
 	//목록(페이지 나누기, 검색 기능 포함)
 	public List<QnaVo> listAll(

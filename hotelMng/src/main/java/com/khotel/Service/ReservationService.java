@@ -11,6 +11,7 @@ public interface ReservationService {
 	public void insertReservation(ReservationVo reservationVo) throws Exception;
 	public void updateReservation(ReservationVo reservationVo) throws Exception;
 	public void deleteReservation(ReservationVo reservationVo) throws Exception;
-	public List<ReservationVo> listReservation() throws Exception;
+	public List<ReservationVo> listReservation(int start, int end, String search_option, String keyword) throws Exception;
 	public List<ReservationVo> selectReservationList(ReservationVo reservationVo) throws Exception;
+	public int countReservation();
 }

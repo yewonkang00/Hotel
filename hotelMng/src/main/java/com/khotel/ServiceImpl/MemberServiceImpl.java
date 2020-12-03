@@ -57,8 +57,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public List<MemberVo> listMember() throws Exception {
-		return memberDao.listMember();
+	public List<MemberVo> listMember(int start, int end, String search_option, String keyword) throws Exception {
+		return memberDao.listMember( start,  end, search_option, keyword);
 	}
 
 	@Override

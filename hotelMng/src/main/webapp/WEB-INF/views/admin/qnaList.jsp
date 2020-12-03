@@ -28,19 +28,7 @@
 <%@include file = "/WEB-INF/views/layout/header.jsp" %>
 <div class=contain>
 	<div class=left>
-		<h2 class=tit>문의 사항</h2>
-		<ul class=menu>
-			<li class="m1">
-				<a href="/qna/list.do">
-					<span>게시판</span>
-				</a>
-			</li>
-			<li class="m2">
-				<a href="/qna/write.do">
-					<span>문의하기</span>
-				</a>
-			</li>
-		</ul>
+	
 	</div>
 
 	<div class=contents>
@@ -56,7 +44,7 @@
 				<th>조회수</th>
 			</tr>
 			</thead>
-			
+
 			<c:forEach var="row" items="${map.list}">
 				<tr>
 					<td>${row.QNACODE}</td>
@@ -99,7 +87,7 @@
 		</table>
 		<button type="button" id="btnWrite" onclick="location.href='/qna/write.do'">글쓰기</button>
 	</div>
-	<%@include file = "/WEB-INF/views/layout/final.jsp" %>
 </div>
+<%@include file = "/WEB-INF/views/layout/final.jsp" %>
 </body>
 </html>

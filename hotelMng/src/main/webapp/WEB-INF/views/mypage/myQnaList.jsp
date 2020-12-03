@@ -28,23 +28,28 @@
 <%@include file = "/WEB-INF/views/layout/header.jsp" %>
 <div class=contain>
 	<div class=left>
-		<h2 class=tit>문의 사항</h2>
+		<h2 class=tit>마이 페이지</h2>
 		<ul class=menu>
-			<li class="m1">
-				<a href="/qna/list.do">
-					<span>게시판</span>
-				</a>
-			</li>
-			<li class="m2">
-				<a href="/qna/write.do">
-					<span>문의하기</span>
-				</a>
-			</li>
-		</ul>
+          	  <li class="m1">
+                <a href="/mypage/memberinfo">
+                  <span>개인 정보</span>
+                </a>
+              </li>
+              <li class="m2">
+                <a href="/mypage/reservation">
+                  <span>예약 확인/취소</span>
+                </a>
+              </li>
+              <li class="m3">
+                <a href="/mypage/mylist">
+                  <span>문의 내역</span>
+              </a>
+            </li>
+          </ul>
 	</div>
 
 	<div class=contents>
-		<h1>게시판</h1>
+		<h1>나의 문의 내역</h1>
 		<%-- ${map.count}개의 문의사항이 있습니다. --%>
 		<table class="table table-hover">
 			<thead>
@@ -56,7 +61,7 @@
 				<th>조회수</th>
 			</tr>
 			</thead>
-			
+
 			<c:forEach var="row" items="${map.list}">
 				<tr>
 					<td>${row.QNACODE}</td>
@@ -97,9 +102,8 @@
 			</tr>
 
 		</table>
-		<button type="button" id="btnWrite" onclick="location.href='/qna/write.do'">글쓰기</button>
 	</div>
-	<%@include file = "/WEB-INF/views/layout/final.jsp" %>
 </div>
+<%@include file = "/WEB-INF/views/layout/final.jsp" %>
 </body>
 </html>
