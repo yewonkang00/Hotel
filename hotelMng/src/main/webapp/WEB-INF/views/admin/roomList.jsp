@@ -39,11 +39,11 @@
 
         <div class=contents>
             <p style="text-align:center;">ROOM LIST</p>
-            <!-- <button type="button" id="standard" onClick="standard()">standard</button>
-            <button type="button" id="deluxe" onClick="deluxe()">deluxe</button>
-            <button type="button" id="executive" onClick="executive()">executive</button>
-            <button type="button" id="suite" onClick="suite()">suite</button>
-            <br><br> -->
+            <button type="button" id="standard"><a href="/admin/roomList?roomtype=standard">standard</button>
+            <button type="button" id="deluxe" ><a href="/admin/roomList?roomtype=deluxe">deluxe</button>
+            <button type="button" id="executive" ><a href="/admin/roomList?roomtype=executive">executive</button>
+            <button type="button" id="suite" ><a href="/admin/roomList?roomtype=suite">suite</button>
+            <br><br>
             <div class="form-group row justify-content-center">
 				<div class="w100" style="text-align: center">
 					<select class="form-control form-control-sm" name="searchType" id="searchType">

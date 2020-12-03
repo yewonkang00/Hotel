@@ -28,4 +28,5 @@ public interface RoomService {
 	public List<RoomVo> searchRoomListCnt(ReservationVo reservation) throws Exception;
 	public List<RoomVo> searchSelectRoomList(ReservationVo reservation) throws Exception;
 	public List<RoomVo> searchSelectRoomListCnt(ReservationVo reservation) throws Exception;
+	public List<RoomVo> listclassRoom(String roomclass) throws Exception;
 }

@@ -124,5 +124,12 @@ public class RoomDaoImpl implements RoomDao{
 	@Override
 	public List<RoomVo> searchSelectRoomListCnt(ReservationVo reservation) throws Exception {
 		return sqlSession.selectList("room.findEmptySelectRoomListCnt", reservation);
-	}	
+	}
+
+	@Override
+	public List<RoomVo> listclassRoom(String room) throws Exception {
+		System.out.println(room);
+		
+		return sqlSession.selectList("roomlistclass", room);
+				}	
 }

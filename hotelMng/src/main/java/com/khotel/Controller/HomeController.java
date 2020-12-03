@@ -240,7 +240,9 @@ public class HomeController {
 	
 	//愿�由ъ옄 �럹�씠吏�
 	@RequestMapping(value = "/admin/roomList")
-	public ModelAndView roomList(@RequestParam(defaultValue="1") int curPage,
+	public ModelAndView roomList(
+			@RequestParam("roomtype") String room,
+			@RequestParam(defaultValue="1") int curPage,
 			Locale locale, Model model, HttpServletRequest request) throws Exception {
 		int count = 100;
 		Pager pager = new Pager(count, curPage);
@@ -250,10 +252,10 @@ public class HomeController {
 		Map<String, Object> map = new HashMap<String, Object>();
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("admin/roomList");
-		
+		list = roomService.listclassRoom(room);
 		//�쉶�썝 媛��졇�삤湲� - check
 		try {
-			list = roomService.listRoom(start, end, "", "");
+			list = roomService.listclassRoom(room);
 			System.out.println(list);
 			map.put("list", list);
 			map.put("count", count);
