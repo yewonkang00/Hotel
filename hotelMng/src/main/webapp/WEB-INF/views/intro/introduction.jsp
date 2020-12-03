@@ -16,7 +16,7 @@
 <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
 
 
-<title>Welcome Delluna!</title>
+<title>Hotel Lucid Introduction</title>
 
 </head>
 
@@ -27,15 +27,15 @@
 		<div class=left>
 			<h2 class=tit>호텔 소개</h2>
 			<ul class=menu>
-				<li class="m1"><a href="/intro.do"> <span>개요</span>
+				<li class="m1"><a href="/intro.do"> <span>그룹 루시드</span>
 				</a></li>
-				<li class="m2"><a href="/intro_hotel.do"> <span>호텔땡땡</span>
+				<li class="m2"><a href="/intro_hotel.do"> <span>호텔 루시드</span>
 				</a></li>
 			</ul>
 		</div>
 
 		<div class=contents>
-			<h2 id=gaeyo>개요</h2>
+			<h2 id=gaeyo>Group Lucid</h2>
 			<img src="/resources/image/hotel.jpg" width=650px height=400>
 			<h3>
 				<b>루시드 GROUP AFFILIATE</b>
@@ -66,7 +66,7 @@
 				우리는 최고의 라이프스타일 전문가로서 더 많은 인류에게 품격과 자부심을 경험케 한다.<br> <br>
 			</p>
 		</div>
+		<%@include file = "/WEB-INF/views/layout/final.jsp" %>
 	</div>
-	<%@include file = "/WEB-INF/views/layout/final.jsp" %>
 </body>
 </html>

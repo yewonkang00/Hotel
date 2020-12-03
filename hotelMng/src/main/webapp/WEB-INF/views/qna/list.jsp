@@ -99,7 +99,7 @@
 		</table>
 		<button type="button" id="btnWrite" onclick="location.href='/qna/write.do'">글쓰기</button>
 	</div>
+	<%@include file = "/WEB-INF/views/layout/final.jsp" %>
 </div>
-<%@include file = "/WEB-INF/views/layout/final.jsp" %>
 </body>
 </html>
