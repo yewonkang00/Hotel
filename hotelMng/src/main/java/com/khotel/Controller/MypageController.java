@@ -1,9 +1,7 @@
 package com.khotel.Controller;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import java.text.DateFormat;
+import java.util.*;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -105,5 +103,19 @@ public class MypageController {
 		mav.addObject("map", map);
 		return mav;
 	
+	}
+
+	@RequestMapping(value = "/myreward.do", method = RequestMethod.GET)
+	public String myreward(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+
+		String formattedDate = dateFormat.format(date);
+
+		model.addAttribute("serverTime", formattedDate );
+
+		return "/mypage/myreward";
 	}
 }

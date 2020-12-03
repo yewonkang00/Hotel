@@ -110,6 +110,22 @@ th {
 .table-hover > tbody > tr.active:hover > th {
     background-color: #e8e8e8;
 }
+table .r td{
+    border-left:1pt solid #D3D3D3;
+    border-right:1pt solid #D3D3D3;
+}
+.r{
+    height:50px;
+}
+.h{
+    height:50px;
+}
+.d{
+    width:80px;
+}
+.name{
+    width:170px;
+}
 
 .submit-btn {
     padding: 8px 11px;
