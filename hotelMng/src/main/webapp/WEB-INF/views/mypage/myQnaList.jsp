@@ -46,10 +46,10 @@
               	</a>
 			  </li>
 				<li class="m4">
-					<a href="/mypage/myreward">
-						<span>Lucid 리워즈</span>
-					</a>
-				</li>
+                  <a href="/mypage/myreward">
+                  	<span>Lucid 리워즈</span>
+                  </a>
+                </li>
           </ul>
 	</div>
 

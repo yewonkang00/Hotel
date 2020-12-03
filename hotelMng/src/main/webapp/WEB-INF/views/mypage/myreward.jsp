@@ -5,6 +5,14 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="/resources/css/style_mypage.css" type="text/css">
     <title>My Information</title>
+    
+    <script type="text/javascript">
+	    var sessionUserId = '${member.userId}';
+	    if(sessionUserId == null || sessionUserId == 'null' || sessionUserId=="" || sessionUserId == "1"){
+	      alert("로그인 후 이용해주세요.");
+	      location.href="/login.do";
+	    }
+	</script>
 </head>
 
 <body>
@@ -31,16 +39,16 @@
                 </a>
             </li>
             <li class="m4">
-                <a href="/mypage/myreward">
-                    <span>Lucid 리워즈</span>
-                </a>
-            </li>
+	            <a href="/mypage/myreward">
+	            	<span>Lucid 리워즈</span>
+	            </a>
+	        </li>
         </ul>
     </div>
 
     <div class=contents>
         <h1>Lucid Reward</h1>
-        <p> ${member.userName}님의 Lucid Reward 등급은 ${member.userGrade}입니다.</p>
+        <p> ${member.userName}님의 Lucid Reward 등급은 ${member.userGrade} 입니다.</p>
         <table class="table" style="text-align: center">
             <thead>
             <tr class="h">

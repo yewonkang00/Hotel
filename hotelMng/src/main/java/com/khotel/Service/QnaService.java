@@ -6,21 +6,21 @@ import com.khotel.Vo.QnaVo;
 
 public interface QnaService {
 	
-	public void deleteFile(String fullName); //Ã·ºÎÆÄÀÏ »èÁ¦
+	public void deleteFile(String fullName); //ì²¨ë¶€íŒŒì¼ ì‚­ì œ
 	
-	public List<String> getAttach(int QNACODE); //Ã·ºÎÆÄÀÏ ¸ñ·Ï
+	public List<String> getAttach(int QNACODE); //ì²¨ë¶€íŒŒì¼ ëª©ë¡
 	
-	public void addAttach(String fullName); //Ã·ºÎÆÄÀÏ ÀúÀå
+	public void addAttach(String fullName); //ì²¨ë¶€íŒŒì¼ ì €ì¥
 	
-	public void updateAttach(String fullName, int QNACODE); //Ã·ºÎÆÄÀÏ ¼öÁ¤
+	public void updateAttach(String fullName, int QNACODE); //ì²¨ë¶€íŒŒì¼ ìˆ˜ì •
 	
-	public void create(QnaVo vo) throws Exception; //±Û¾²±â
+	public void create(QnaVo vo) throws Exception; //ê¸€ì“°ê¸°
 	
-	public QnaVo read(int QNACODE) throws Exception; //±ÛÀĞ±â
+	public QnaVo read(int QNACODE) throws Exception; //ê¸€ì½ê¸°
 	
-	public void update(QnaVo vo) throws Exception; //±Û¼öÁ¤
+	public void update(QnaVo vo) throws Exception; //ê¸€ìˆ˜ì •
 	
-	public void delete(int QNACODE) throws Exception; //±Û»èÁ¦
+	public void delete(int QNACODE) throws Exception; //ê¸€ì‚­ì œ
 	
 	public int countQna();
 	
@@ -28,15 +28,15 @@ public interface QnaService {
 	
 	
 	
-	//¸ñ·Ï(ÆäÀÌÁö ³ª´©±â, °Ë»ö ±â´É Æ÷ÇÔ)
+	//ëª©ë¡(í˜ì´ì§€ ë‚˜ëˆ„ê¸°, ê²€ìƒ‰ ê¸°ëŠ¥ í¬í•¨)
 	public List<QnaVo> listAll(
 			int start, int end, String search_option, String keyword) throws Exception;
 	
 	
-	//Á¶È¸¼ö Áõ°¡ Ã³¸®
+	//ì¡°íšŒìˆ˜ ì¦ê°€ ì²˜ë¦¬
 	public void increaseViewcnt(int QNACODE) throws Exception;
 	
 	
-	//·¹ÄÚµå °³¼ö °è»ê
+	//ë ˆì½”ë“œ ê°œìˆ˜ ê³„ì‚°
 	public int countArticle(String search_option, String keyword) throws Exception;
 }

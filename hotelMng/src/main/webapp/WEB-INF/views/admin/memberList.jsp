@@ -17,10 +17,10 @@
         
   <script type="text/javascript">
 
- 	 function list(page){
+  	function list(page){
 		location.href="/admin/memberList?curPage="+page
 	}
-			
+	
 	var sessionLevel = '${member.userLevel}';
 	
 	if(sessionLevel == null || sessionLevel == 'null' || sessionLevel=="" || sessionLevel == "1"){
@@ -136,7 +136,6 @@
 			</tr>
 			</c:forEach>
 			
-			<!-- 페이지 네비게이션 -->
 			<tr>
 				<td colspan="8" align="center">
 					<c:if test="${pager.curBlock > 1}">
@@ -164,7 +163,6 @@
 					</c:if>
 				</td>
 			</tr>
-			
 			
 		</table>
         </div>

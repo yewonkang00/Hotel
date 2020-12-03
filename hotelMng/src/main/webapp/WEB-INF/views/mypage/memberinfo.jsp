@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"  %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -8,6 +10,12 @@
 
 
     <script type="text/javascript">
+    var sessionUserId = '${member.userId}';
+    if(sessionUserId == null || sessionUserId == 'null' || sessionUserId=="" || sessionUserId == "1"){
+      alert("로그인 후 이용해주세요.");
+      location.href="/login.do";
+    }
+    
 	function memberdelete() {
 		var confirm_test = confirm("회원 탈퇴하시겠습니까?");
 		if(confirm_test == true) {
@@ -44,7 +52,7 @@
               </li>
               <li class="m4">
                   <a href="/mypage/myreward">
-                      <span>Lucid 리워즈</span>
+                  	<span>Lucid 리워즈</span>
                   </a>
               </li>
           </ul>
@@ -67,7 +75,7 @@
             </tr>
             <tr>
                 <th>전화번호</th>
-                <td>${member.userPhone}</td>
+                <td>${fn:substring(member.userPhone,0,3)} - ${fn:substring(member.userPhone,3, 7)} - ${fn:substring(member.userPhone,7,11)}</td>
             </tr>
             <tr>
                 <th>이메일</th>

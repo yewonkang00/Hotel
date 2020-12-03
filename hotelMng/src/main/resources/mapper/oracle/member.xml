@@ -54,6 +54,7 @@
 			from (
 		select *
 		from Member
+		where Userlevel='1'
 		
 			) A
 		) 
