@@ -65,17 +65,42 @@
       	position:relative;
       	top:1px;
       }
-
     </style>
+    <script type="text/javascript">
+      function towel(){
+        alert("수건을 10분 이내로 가져다 드리겠습니다.");
+        // 수건 요청이 완료되었습니다. 로 할까?
+      }
+      function water(){
+        alert("물을 10분 이내로 가져다 드리겠습니다.");
+      }
+      function amenity(){
+        alert("어메니티를 10분 이내로 가져다 드리겠습니다.");
+      }
+      function clean(){
+        alert("11시~4시 사이에 객실을 청소해 드리겠습니다.");
+      }
+      function staff_call(){
+        if (confirm("확인 버튼을 누르면 바로 통화가 연결됩니다.") == true){    //연결
+          return;
+        }
+        else{ //취소
+          return;
+        }
+      }
+      function staff(){
+        alert("직원이 10분이내로 도착합니다.");
+      }
+      </script>
   </head>
 <body>
     <div class="flex-container">
-        <input type=button class="button-menu" value="수건">
-        <input type=button class="button-menu" value="물">
-        <input type=button class="button-menu" value="휴지">
-        <input type=button class="button-menu" value="청소 요청">
-        <input type=button class="button-menu" value="직원 연결">
-        <input type=button class="button-menu" value="직원 호출">
+        <input type=button class="button-menu" onClick="towel();" value="수건">
+        <input type=button class="button-menu" onClick="water();" value="물">
+        <input type=button class="button-menu" onClick="amenity();" value="어메니티">
+        <input type=button class="button-menu" onClick="clean();" value="청소 요청">
+        <input type=button class="button-menu" onClick="staff_call();" value="직원 연결">
+        <input type=button class="button-menu" onClick="staff();" value="직원 호출">
     </div>
 
 </body>
