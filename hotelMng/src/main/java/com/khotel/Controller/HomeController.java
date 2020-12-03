@@ -130,6 +130,9 @@ public class HomeController {
 		else if(selectMemberVo.getUserPassword().equals(loginMember.getUserPassword())){
 			if(selectMemberVo.getUserLevel().equals("2")) {
 				map.put("resultMsg", "Manager");
+			} else if(selectMemberVo.getUserLevel().equals("3")) {
+				String staff = selectMemberVo.getUserId();
+				map.put("resultMsg", staff);
 			} else {
 				map.put("resultMsg", "Success");
 			}
