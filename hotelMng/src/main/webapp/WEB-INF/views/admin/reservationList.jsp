@@ -18,9 +18,9 @@
   <script type="text/javascript">
 
   		function list(page){
-		location.href="/admin/reservationList?curPage="+page
+			location.href="/admin/reservationList?curPage="+page
 		}
-			
+		
 		var sessionLevel = '${member.userLevel}';
 		
 		if(sessionLevel == null || sessionLevel == 'null' || sessionLevel=="" || sessionLevel == "1"){
@@ -64,7 +64,7 @@
 			<c:forEach items="${list}" var="item" varStatus="idx">
 			<tr>
 				<td>${item.reservationCode}</td>
-				<td>${item.roomCode}</td>
+				<td><a href="/admin/roomDetail.do?rno=${item.roomCode}">${item.roomCode}</td>
 				<td><a href="/admin/memberDetail.do?userId=${item.userId}">${item.userId}</td>
 				<td>${item.reservationCheckIn}</td>
 				<td>${item.reservationCheckOut}</td>

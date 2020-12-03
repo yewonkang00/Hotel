@@ -29,7 +29,11 @@ import com.khotel.Util.BoardPaging;
 import com.khotel.Vo.MemberVo;
 import com.khotel.Vo.ReservationVo;
 import com.khotel.Vo.RoomVo;
+import com.khotel.Vo.StaffVo;
+import com.khotel.Vo.TabletVo;
 import com.khotel.Service.RoomService;
+import com.khotel.Service.StaffService;
+import com.khotel.Service.TabletService;
 import com.khotel.ServiceImpl.Pager;
 import com.khotel.Service.ReservationService;
 
@@ -52,6 +56,12 @@ public class HomeController {
 	
 	@Autowired
 	private RoomService roomService;
+	
+	@Autowired
+	private StaffService staffService;
+	
+	@Autowired
+	private TabletService tabletService;
 	
 	@Autowired 
 	private BoardPaging boardPaging;
@@ -87,7 +97,7 @@ public class HomeController {
 		return "/login/login";
 	}	
 	
-	//濡쒓렇�븘�썐 泥섎━
+	//로그아웃 처리
 	@RequestMapping(value = "/logout.do", method = RequestMethod.GET)
 	public String logout(Locale locale, Model model, HttpServletRequest request) {
 		
@@ -99,7 +109,7 @@ public class HomeController {
 		return "/main";
 	}
 	
-	//濡쒓렇�씤�뿉 �븘�씠�뵒, 鍮꾨�踰덊샇瑜� 諛쏆븘�꽌 濡쒓렇�씤 泥섎━�븯�뒗 �럹�씠吏�
+	//로그인에 아이디, 비밀번호를 받아서 로그인 처리하는 페이지
 	@RequestMapping(value = "/memeber/loginAction.do") 
 	public @ResponseBody Map join(MemberVo loginMember, HttpServletRequest request) throws Exception {
 		
@@ -109,7 +119,7 @@ public class HomeController {
 		HttpSession session = request.getSession();
 		System.out.println(loginMember.getUserId());
 		
-		//loginMember�뿉 �븘�씠�뵒, 鍮꾨�踰덊샇 �젙蹂닿� �엳怨� db�뿉�꽌 洹� �젙蹂댁뿉 �빐�떦�븯�뒗 member瑜� 李얠븘 selectMemberVo�뿉 ���엯
+		//loginMember에 아이디, 비밀번호 정보가 있고 db에서 그 정보에 해당하는 member를 찾아 selectMemberVo에 대입
 		selectMemberVo = memberService.selectMember(loginMember);
 		if(selectMemberVo == null) {
 			map.put("resultMsg", "IDfail");
@@ -133,7 +143,7 @@ public class HomeController {
 	}
 	
 
-	//�쉶�썝媛��엯�쑝濡� �꽆寃⑥＜�뒗 �럹�씠吏�
+	//회원가입으로 넘겨주는 페이지
 	@RequestMapping(value = "/memeber/regist.do", method = RequestMethod.GET)
 	public String signup(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
@@ -148,7 +158,7 @@ public class HomeController {
 		return "/login/register";
 	}	
 	
-	//�쉶�썝媛��엯 泥섎━�븯�뒗 �럹�씠吏�
+	//회원가입 처리하는 페이지
 	@RequestMapping(value = "/memeber/registAction.do") 
 	public @ResponseBody Map regist(MemberVo registMember, HttpServletRequest request) throws Exception {
 		Map map = new HashMap();
@@ -164,7 +174,7 @@ public class HomeController {
 		return map;
 	}
 	
-	//�븘�씠�뵒 以묐났 泥댄겕
+	//아이디 중복 체크
 	@RequestMapping(value = "/memeber/idcheck.do") 
 	public @ResponseBody Map check(MemberVo registMember, HttpServletRequest request) throws Exception {
 		Map map = new HashMap();
@@ -179,7 +189,7 @@ public class HomeController {
 		return map;
 	}
 	
-	//愿�由ъ옄 �럹�씠吏� �쉶�썝 由ъ뒪�듃
+	//관리자 페이지 회원 리스트
 	@RequestMapping(value = "/admin/memberList")
 	public ModelAndView memberList(
 			@RequestParam(defaultValue="1") int curPage,
@@ -194,7 +204,7 @@ public class HomeController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("/admin/memberList");
 		
-		//�쉶�썝 媛��졇�삤湲� - check
+		//회원 가져오기 - check
 		try {
 			list = memberService.listMember(start, end, "", "");
 			map.put("list", list);
@@ -209,36 +219,36 @@ public class HomeController {
 		return mav;
 	}
 	
-	//愿�由ъ옄 �럹�씠吏� 媛앹떎 �삁�빟
-		@RequestMapping(value = "/admin/reservationList")
-		public ModelAndView reservationList(
-				@RequestParam(defaultValue="1") int curPage,
-				Locale locale, Model model, HttpServletRequest request) throws Exception {
-			int count = reservationService.countReservation();
-			Pager pager = new Pager(count, curPage);
-			int start = pager.getPageBegin();
-			int end = pager.getPageEnd();
-			List<ReservationVo> list = null;
-			Map<String, Object> map = new HashMap<String, Object>();
-			ModelAndView mav = new ModelAndView();
-			mav.setViewName("/admin/reservationList");
+	//관리자 페이지 객실 예약
+	@RequestMapping(value = "/admin/reservationList")
+	public ModelAndView reservationList(
+			@RequestParam(defaultValue="1") int curPage,
+			Locale locale, Model model, HttpServletRequest request) throws Exception {
+		int count = reservationService.countReservation();
+		Pager pager = new Pager(count, curPage);
+		int start = pager.getPageBegin();
+		int end = pager.getPageEnd();
+		List<ReservationVo> list = null;
+		Map<String, Object> map = new HashMap<String, Object>();
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/admin/reservationList");
+		
+		//�삁�빟 由ъ뒪�듃 媛��졇�삤湲�
+		try {
+			list = reservationService.listReservation(start, end, "", "");
+			map.put("list", list);
+			map.put("count", count);
+			map.put("pager", pager);
+		} catch (Exception e) {
 			
-			//�삁�빟 由ъ뒪�듃 媛��졇�삤湲�
-			try {
-				list = reservationService.listReservation(start, end, "", "");
-				map.put("list", list);
-				map.put("count", count);
-				map.put("pager", pager);
-			} catch (Exception e) {
-				
-			}
-			mav.addObject("list", list);
-			mav.addObject("pager", pager);
-			mav.addObject("count", count);
-			return mav;
 		}
+		mav.addObject("list", list);
+		mav.addObject("pager", pager);
+		mav.addObject("count", count);
+		return mav;
+	}
 	
-	//愿�由ъ옄 �럹�씠吏�
+	//관리자 페이지
 	@RequestMapping(value = "/admin/roomList")
 	public ModelAndView roomList(
 			@RequestParam("roomtype") String room,
@@ -274,7 +284,7 @@ public class HomeController {
 		return "/admin/admin";
 	}
 
-	//�떖�젰�뿉 �삁�빟 �쁽�솴 �몴�떆
+	//달력에 예약 현황 표시
 	@RequestMapping(value = "/admin/reservation.do", method = RequestMethod.GET)
 	public String reservation(Model model, HttpServletRequest request, DateData dateData){
 		
@@ -301,23 +311,23 @@ public class HomeController {
 		
 		Calendar cal = Calendar.getInstance();
 		DateData calendarData;
-		//寃��깋 �궇吏�
+		//검색 날짜
 		if(dateData.getDate().equals("")&&dateData.getMonth().equals("")){
 			dateData = new DateData(String.valueOf(cal.get(Calendar.YEAR)),String.valueOf(cal.get(Calendar.MONTH)),String.valueOf(cal.get(Calendar.DATE)),null);
 		}
-		//寃��깋 �궇吏� end
+		//검색 날짜 end
 
 		Map<String, Integer> today_info =  dateData.today_info(dateData);
 		List<DateData> dateList = new ArrayList<DateData>();
 		
-		//�떎吏덉쟻�씤 �떖�젰 �뜲�씠�꽣 由ъ뒪�듃�뿉 �뜲�씠�꽣 �궫�엯 �떆�옉.
-		//�씪�떒 �떆�옉 �씤�뜳�뒪源뚯� �븘臾닿쾬�룄 �뾾�뒗 �뜲�씠�꽣 �궫�엯
+		//실질적인 달력 데이터 리스트에 데이터 삽입 시작.
+		//일단 시작 인덱스까지 아무것도 없는 데이터 삽입
 		for(int i=1; i<today_info.get("start"); i++){
 			calendarData= new DateData(null, null, null, null);
 			dateList.add(calendarData);
 		}
 		
-		//�궇吏� �궫�엯
+		//날짜 삽입
 		for (int i = today_info.get("startDay"); i <= today_info.get("endDay"); i++) {
 			if(i==today_info.get("today")){
 				calendarData= new DateData(String.valueOf(dateData.getYear()), String.valueOf(dateData.getMonth()), String.valueOf(i), "today");
@@ -327,7 +337,7 @@ public class HomeController {
 			dateList.add(calendarData);
 		}
 
-		//�떖�젰 鍮덇납 鍮� �뜲�씠�꽣濡� �궫�엯
+		//달력 빈곳 빈 데이터로 삽입
 		int index = 7-dateList.size()%7;
 		
 		if(dateList.size()%7!=0){
@@ -339,8 +349,8 @@ public class HomeController {
 		}
 		System.out.println(dateList);
 		
-		//諛곗뿴�뿉 �떞�쓬
-		model.addAttribute("dateList", dateList);		//�궇吏� �뜲�씠�꽣 諛곗뿴
+		//배열에 담음
+		model.addAttribute("dateList", dateList);		//날짜 데이터 배열
 		model.addAttribute("today_info", today_info);
 		model.addAttribute("roomNo", roomNo);
 		model.addAttribute("reservationList", reservationList);
@@ -348,7 +358,7 @@ public class HomeController {
 	}
 	
 /*
-	//�삁�빟�씠 媛��뒫�븳 諛⑹씤吏� �솗�씤
+	//예약이 가능한 방인지 확인
 	@RequestMapping(value = "/admin/reservationCheck.do") 
 	public @ResponseBody Map reservation(@RequestParam HashMap<String, Object> map, HttpServletRequest request) throws Exception {
 		HashMap<String, Object> roomMap = new HashMap();
@@ -373,7 +383,7 @@ public class HomeController {
 	}
 
 	
-	//�삁�빟�솕硫댁뿉�꽌 �삁�빟�씠 媛��뒫�븳吏� �솗�씤
+	//예약화면에서 예약이 가능한지 확인
 		@RequestMapping(value = "/admin/datecheck.do") 
 		public @ResponseBody Map datecheck(@RequestParam HashMap<String, Object> map, HttpServletRequest request) throws Exception {
 			HashMap<String, Object> roomMap = new HashMap();
@@ -404,7 +414,7 @@ public class HomeController {
 */	
 	
 	
-	//�삁�빟�럹�씠吏�
+	//예약페이지
 	@RequestMapping(value = "/admin/reservate.do", method = RequestMethod.GET)
 	public String reservate(Model model, HttpServletRequest request) throws Exception {
 		MemberVo member = new MemberVo();
@@ -429,7 +439,7 @@ public class HomeController {
 		return "/admin/reservation2";
 	}
 
-	//�삁�빟�럹�씠吏�
+	//예약페이지
 	@RequestMapping(value = "/admin/reservateAction.do")
 	public @ResponseBody Map reservateAction(ReservationVo reservation, HttpServletRequest request) throws Exception {
 		HashMap<String, Object> roomMap = new HashMap();
@@ -484,7 +494,7 @@ public class HomeController {
 		return resultmap;
 	}
 	
-	//�삁�빟 �긽�꽭 �럹�씠吏�
+	//예약 상세 페이지
 	@RequestMapping(value = "/admin/reservationDetailAction.do", method = RequestMethod.GET) 
 	public String reservationDetailAction(Model model, HttpServletRequest request) throws Exception { 
 		ReservationVo reservation = new ReservationVo();
@@ -538,7 +548,7 @@ public class HomeController {
 		return "/admin/memberList";
 	}
 		
-	//愿�由ъ옄 �럹�씠吏��뿉�꽌 member�뿉�꽌 update踰꾪듉�쓣 �늻瑜대㈃ memberlevel�쓣 諛붽퓭以�
+	//관리자 페이지에서 member에서 update버튼을 누르면 memberlevel을 바꿔줌
 	@RequestMapping(value = "/admin/levelAction.do")
 	public @ResponseBody Map level(MemberVo updateMember, HttpServletRequest request) throws Exception {
 		Map map = new HashMap();
@@ -547,7 +557,7 @@ public class HomeController {
 		return map;
 	}
 	
-	//愿�由ъ옄 �럹�씠吏��뿉�꽌 member�뿉�꽌 �빐�떦 �쉶�썝 �젙蹂댁� �삁�빟 �젙蹂� 媛��졇�샂
+	//관리자 페이지에서 member에서 해당 회원 정보와 예약 정보 가져옴
 	@RequestMapping(value = "/admin/memberDetail.do")
 	public String memberDetail(Model model, HttpServletRequest request) throws Exception {
 		MemberVo member = new MemberVo();
@@ -567,7 +577,7 @@ public class HomeController {
 		return "/admin/memberDetail";
 	}
 	
-	//愿�由ъ옄 �럹�씠吏��뿉�꽌 媛앹떎 �젙蹂� 媛��졇�샂
+	//관리자 페이지에서 객실 정보 가져옴
 		@RequestMapping(value = "/admin/roomDetail.do")
 		public String roomDetail(Model model, HttpServletRequest request) throws Exception {
 			RoomVo room = new RoomVo();
@@ -580,7 +590,7 @@ public class HomeController {
 			return "/admin/roomDetail";
 		}
 	
-	//硫붿씤�솕硫�(�솃�솕硫�)
+	//메인화면(홈화면)
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public String main(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
@@ -625,7 +635,51 @@ public class HomeController {
 	
 	      return "/intro/introduction_hotel";
 	   }
+	
+	@RequestMapping(value = "/admin/staffList")
+	public String staffList(Locale locale, Model model, HttpServletRequest request) throws Exception {
+		List<StaffVo> staffList = null;
+		//회원 가져오기
+		try {
+			staffList = staffService.listStaff();
+		} catch (Exception e) {
+			
+		}
+		model.addAttribute("staffList", staffList );
+		System.out.println(staffList);
+		return "/admin/staffList";
+	}
+	
+	@RequestMapping(value = "/tablet/room101")
+	public String tablet(Locale locale, Model model, HttpServletRequest request) throws Exception {
+		return "/tablet/tablet";
+	}
+	
+	
+	@RequestMapping(value = "/tabletAction", method = RequestMethod.POST)
+	public @ResponseBody Map tab(TabletVo usertab, HttpServletRequest request) throws Exception {
+		
+		tabletService.insertTablet(usertab);
 
+		Map resultmap = new HashMap();
+		resultmap.put("resultMsg", "success");
+		return resultmap;
+	}
 
-
+	@RequestMapping(value = "/staff01", method = RequestMethod.GET)
+	public String staff(Model model, HttpServletRequest request) throws Exception {
+		List<TabletVo> tabletList = null;
+		tabletList = tabletService.listTablet();
+		model.addAttribute("List", tabletList);
+		return "/tablet/staffTablet";
+	}
+	
+	@RequestMapping(value = "/staff01/update", method = RequestMethod.POST)
+	public @ResponseBody Map update(TabletVo usertab, HttpServletRequest request) throws Exception {
+		
+		tabletService.updateTablet(usertab);
+		Map resultmap = new HashMap();
+		resultmap.put("resultMsg", "success");
+		return resultmap;
+	}
 }

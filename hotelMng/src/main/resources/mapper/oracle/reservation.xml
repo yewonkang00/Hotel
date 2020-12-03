@@ -3,7 +3,6 @@
 
 <mapper namespace="reservation">
 
-
 	<insert id = "insertReservation" parameterType="ReservationVo">
 		INSERT INTO RESERVATION (ReservationCode
 								,ReservationCheckIn

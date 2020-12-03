@@ -68,11 +68,9 @@
              margin-left: 10px;
              padding: 10px;
          }
-
          .intro_facility a:first-child::before{
              content: '';
          }
-
          .intro_facility a::before {
              position: absolute;
              top: 2px;
@@ -203,7 +201,6 @@
           }
         </style>
         <script type="text/javascript">
-
          function dateAdd(sDate, nNum) {
            var yyyy = parseInt(sDate.substr(0, 4), 10);
            var mm = parseInt(sDate.substr(4, 2), 10) - 1;
@@ -420,11 +417,13 @@
                      <td class=right>B2F 실내 골프장, 사우나</td>
                   </table>
                </div>
-               <br/><br/><br/><br/>
-              <p> 호텔 루시드는 언제나 한결같이 품격있는 서비스와 시설로 고객에게 깊은 감동을 주는 브랜드를 지향하고 있습니다.</p>   
+               <br><br><br><br><br><br><br>
+               <table align=center><tr><td>
+               <p> 호텔 루시드는 언제나 한결같이 품격있는 서비스와 시설로 고객에게 깊은 감동을 주는 브랜드를 지향하고 있습니다.</p>   
                <p> 균형 있는 라이프스타일을 추구하며 품격의 가치를 아는 고객분들을 위해 세련되고 안락한 객실과 세심한 배려가 묻어나는 고품격 호텔 서비스를 준비하고 있습니다.</p>   
                <p> 호텔 레스토랑과 라운지에서 제공되는 최고급 요리는 즐거운 경험을 제공하며 다양한 시설은 비즈니스와 레저를 모두 즐기고 싶어하시는 고객분들을 만족시키는데 부족함이 없습니다.</p>
                <p> 지금, 호텔 루시드에서 특별한 경험을 즐기세요</p>   
+          	   </td></tr></table>
           </div>
           <%@include file = "/WEB-INF/views/layout/final.jsp" %>
         </div>

@@ -1,7 +1,9 @@
 package com.khotel.Controller;
 
-import java.text.DateFormat;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -30,15 +32,15 @@ import com.khotel.Vo.RoomVo;
 public class MypageController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MypageController.class);
-	
-	@Inject
-	QnaService qnaService;
-	
+
 	@Autowired
 	private ReservationService reservationService;
 	
 	@Autowired
 	private MemberService memberService;
+	
+	@Inject
+	QnaService qnaService;
 	
 	@RequestMapping(value = "/mypage/memberinfo")
 	public String mypage(Locale locale, Model model, HttpServletRequest request) {
@@ -104,8 +106,8 @@ public class MypageController {
 		return mav;
 	
 	}
-
-	@RequestMapping(value = "/mypage/myreward", method = RequestMethod.GET)
+	
+	@RequestMapping(value="/mypage/myreward", method = RequestMethod.GET)
 	public String myreward(Locale locale, Model model) {
 		return "/mypage/myreward";
 	}

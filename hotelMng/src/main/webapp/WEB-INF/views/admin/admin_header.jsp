@@ -14,10 +14,11 @@
     <div class=logo></div>
     <nav>
         <span><a></a></span>
-        <span><a href="/admin/qnaList">문의 List</a></span>
+        <span><a href="/admin/staffList">직원 List</a></span>
         <span><a href="/admin/memberList">회원 List</a></span>
         <span><a href="/admin/roomList?roomtype=standard">객실 List</a></span>
         <span><a href="/admin/reservationList">예약 List</a></span>
+        <span><a href="/admin/qnaList">문의 List</a></span>
         <span>
             <c:choose>
                 <c:when test="${member != null}"><a href="/logout.do">로그아웃</a></c:when>

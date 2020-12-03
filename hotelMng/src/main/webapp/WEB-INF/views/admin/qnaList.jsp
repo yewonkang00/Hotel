@@ -49,7 +49,7 @@
 				<tr>
 					<td>${row.QNACODE}</td>
 					<td><a href = "/qna/view.do?QNACODE=${row.QNACODE}&curPage=${map.pager.curPage}">${row.QNATITLE}</a></td>
-					<td>${row.QNAWRITER}</td>
+					<td><a href="/admin/memberDetail.do?userId=${row.QNAWRITER}">${row.QNAWRITER}</td>
 					<td>${row.QNAREGISTERDATE}</td>
 					<td>${row.QNAVIEWCOUNT}</td>
 				</tr>
