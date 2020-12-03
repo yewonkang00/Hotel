@@ -38,7 +38,7 @@
         <%@include file = "/WEB-INF/views/admin/admin_header.jsp" %>
 
         <div class=contents>
-            <p style="text-align:center;">ROOM LIST</p>
+            <br><p style="text-align:center;">ROOM LIST</p>
             <button type="button" id="standard"><a href="/admin/roomList?roomtype=standard">standard</button>
             <button type="button" id="deluxe" ><a href="/admin/roomList?roomtype=deluxe">deluxe</button>
             <button type="button" id="executive" ><a href="/admin/roomList?roomtype=executive">executive</button>

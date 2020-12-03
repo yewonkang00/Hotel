@@ -14,7 +14,7 @@
 	</style>
 	<meta charset="UTF-8">
 	<title>QnA list</title>
-	<link rel="stylesheet" href="/resources/css/style_qna.css" type="text/css">
+	<link rel="stylesheet" href="/resources/css/style_admin.css" type="text/css">
 
 	<script type="text/javascript">
 		function list(page){
@@ -25,14 +25,14 @@
 </head>
 
 <body>
-<%@include file = "/WEB-INF/views/layout/header.jsp" %>
+<%@include file = "/WEB-INF/views/admin/admin_header.jsp" %>
 <div class=contain>
 	<div class=left>
 	
 	</div>
 
 	<div class=contents>
-		<h1>게시판</h1>
+		<br><p style="text-align:center;">QNA LIST</p><br>
 		<%-- ${map.count}개의 문의사항이 있습니다. --%>
 		<table class="table table-hover">
 			<thead>
@@ -88,6 +88,5 @@
 		<button type="button" id="btnWrite" onclick="location.href='/qna/write.do'">글쓰기</button>
 	</div>
 </div>
-<%@include file = "/WEB-INF/views/layout/final.jsp" %>
 </body>
 </html>

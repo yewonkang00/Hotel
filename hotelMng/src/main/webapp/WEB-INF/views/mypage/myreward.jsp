@@ -31,8 +31,9 @@
                 </a>
             </li>
             <li class="m4">
-                <a href="/myreward.do"></a>
+                <a href="/mypage/myreward">
                     <span>Lucid 리워즈</span>
+                </a>
             </li>
         </ul>
     </div>
@@ -40,7 +41,7 @@
     <div class=contents>
         <h1>Lucid Reward</h1>
         <p> ${member.userName}님의 Lucid Reward 등급은 ${member.userGrade}입니다.</p>
-        <table>
+        <table class="table" style="text-align: center">
             <thead>
             <tr class="h">
                 <td class="name">등급명</td>

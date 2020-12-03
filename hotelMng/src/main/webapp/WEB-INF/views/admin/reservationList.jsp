@@ -34,7 +34,7 @@
         <%@include file = "/WEB-INF/views/admin/admin_header.jsp" %>
 
         <div class=contents>
-			<p style="text-align:center;">RESERVATION LIST</p>
+			<br><p style="text-align:center;">RESERVATION LIST</p>
 			<!-- search{s} -->
 			<div class="form-group row justify-content-center">
 				<div class="w100" style="text-align: center">
@@ -74,7 +74,7 @@
 			</c:forEach>
 			
 			<tr>
-				<td colspan="5" align="center">
+				<td colspan="7" align="center">
 					<c:if test="${pager.curBlock > 1}">
 						<a href="javascript:list('1')">[처음]</a>
 					</c:if>

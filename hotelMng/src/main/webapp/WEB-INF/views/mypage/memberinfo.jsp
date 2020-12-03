@@ -43,8 +43,9 @@
                   </a>
               </li>
               <li class="m4">
-                  <a href="/myreward.do"></a>
-                  <span>Lucid 리워즈</span>
+                  <a href="/mypage/myreward">
+                      <span>Lucid 리워즈</span>
+                  </a>
               </li>
           </ul>
     </div>
