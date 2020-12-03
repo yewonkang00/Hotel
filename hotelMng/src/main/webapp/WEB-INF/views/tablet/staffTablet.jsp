@@ -27,8 +27,8 @@
 			datatype : 'json',
 			success : function(data) {
 				var result = data["resultMsg"];
-				if(result == "Success"){
-					location.href="/admin/memberList";
+				if(result == "success"){
+					location.href="/staff01";
 				}
 			}
 		})
