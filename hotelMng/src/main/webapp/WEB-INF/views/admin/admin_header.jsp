@@ -14,8 +14,14 @@
     <div class=logo></div>
     <nav>
         <span><a></a></span>
+<<<<<<< HEAD
         <span><a href="/admin/memberList">회원 List</a></span>
         <span><a href="/admin/roomList">객실 List</a></span>
+=======
+        <span><a href="/admin/qnaList">문의 List</a></span>
+        <span><a href="/admin/memberList">회원 List</a></span>
+        <span><a href="/admin/roomList?roomtype=standard">객실 List</a></span>
+>>>>>>> 0d90439c11f74314fde3665a99ef76c38cd5e782
         <span><a href="/admin/reservationList">예약 List</a></span>
         <span>
             <c:choose>

@@ -15,7 +15,11 @@
         <link rel="stylesheet" href="/resources/css/styleintro.css" type="text/css">
         <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
 
+<<<<<<< HEAD
         <title>Hotel Lucid</title>
+=======
+        <title>Group Lucid</title>
+>>>>>>> 0d90439c11f74314fde3665a99ef76c38cd5e782
 
     </head>
     <body>
@@ -24,13 +28,18 @@
             <div class=left>
                 <h2 class=tit>호텔 소개</h2>
                 <ul class=menu>
+<<<<<<< HEAD
                     <li class="m1"><a href="/intro.do"> <span>개요</span>
+=======
+                    <li class="m1"><a href="/intro.do"> <span>그룹 루시드</span>
+>>>>>>> 0d90439c11f74314fde3665a99ef76c38cd5e782
                     </a></li>
                     <li class="m2"><a href="/intro_hotel.do"> <span>호텔 루시드</span>
                     </a></li>
                 </ul>
             </div>
             <div class=contents>
+            <h2 id=gaeyo>Hotel Lucid</h2>
               <img src="/resources/image/room.jpg" width=650px height=400>
               <div class="intro">
                 <div class=intro_left>
@@ -47,7 +56,7 @@
                 </div>
               </div>
             </div>
+            <%@include file = "/WEB-INF/views/layout/final.jsp" %>
         </div>
-        <%@include file = "/WEB-INF/views/layout/final.jsp" %>
     </body>
 </html>

@@ -48,8 +48,16 @@
 	</update>
 		
 	<select id="listMember" resultType="MemberVo">	
-	SELECT *
-	FROM Member
+	select *
+		from (
+			select rownum as rn, A.*
+			from (
+		select *
+		from Member
+		
+			) A
+		) 
+		where rn between ${start} and ${end}
 	</select>
 	
 	

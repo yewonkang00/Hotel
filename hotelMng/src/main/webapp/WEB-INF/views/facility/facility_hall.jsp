@@ -50,7 +50,7 @@
     <div class=contents>
         <h2 id=gaeyo>Banquet Hall</h2>
         <img src="${pageContext.request.contextPath}/resources/image/banquet hall.jpg" width="800" height="500">
-        <p> DB호텔의 연회장에서 특별한 시간을 보내십시오.<br/>
+        <p> 호텔 루시드의 연회장에서 특별한 시간을 보내십시오.<br/>
             웨딩, 기업 연회, 가족 연회 등 다양하게 연출을 변화할 수 있습니다.<br/>
             문의전화 02-0000-0000<br/>
             크기 : 400m^2 | 수용인원 : 정찬(코스) 기준 200석<br/>

@@ -3,6 +3,7 @@
 
 <mapper namespace="reservation">
 
+
 	<insert id = "insertReservation" parameterType="ReservationVo">
 		INSERT INTO RESERVATION (ReservationCode
 								,ReservationCheckIn
@@ -16,6 +17,10 @@
 								,Breakfast
 								,TotalPrice
 								,Mileage
+								,Card
+								,CardNum
+								,CardValid
+								,RoomType
 		)
 		
 		VALUES ((select nvl(max(reservationcode)+1,0) from reservation)
@@ -30,6 +35,10 @@
 				, #{Breakfast}
 				, #{TotalPrice}
 				, #{Mileage}
+				, #{Card}
+				, #{CardNum}
+				, #{CardValid}
+				, #{RoomType}
 		)
 	
 	</insert>
@@ -48,10 +57,24 @@
 		DELETE FROM RESERVATION
 		WHERE ReservationCode = #{ReservationCode}
 	</delete>
-
-
-
-
-
+	
+	<select id="listReservation" resultType="ReservationVo">	
+	select *
+		from (
+			select rownum as rn, A.*
+			from (
+		SELECT *
+		FROM Reservation
+		order by ReservationCode desc
+		
+			) A
+		) 
+		where rn between ${start} and ${end}
+	</select>
+	
+	<select id="reservation.Count" resultType="int">
+		select COUNT(ReservationCode)
+		from Reservation
+	</select>
 
 </mapper>

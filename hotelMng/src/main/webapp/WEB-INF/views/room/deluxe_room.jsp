@@ -7,8 +7,8 @@
 	<script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/resources/css/style_room.css" type="text/css">
-    <link rel="stylesheet" href="/resources/css/styleintro_hotel.css" type="text/css">
     <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+<<<<<<< HEAD
 	<style>
         .room_button {
     		background-color: #D4C1A1;
@@ -37,6 +37,8 @@
 	 		top:1px;
   		}
     </style>
+=======
+>>>>>>> 0d90439c11f74314fde3665a99ef76c38cd5e782
     <script type="text/javascript">
     function dateAdd(sDate, nNum) {
         var yyyy = parseInt(sDate.substr(0, 4), 10);
@@ -107,6 +109,7 @@
     <div class=contents>
         <h2 id=gaeyo>Deluxe Room</h2>
         <img src="/resources/image/deluxe room.jpg" width="800" height="500">
+<<<<<<< HEAD
         <p> 디럭스룸은 다른 호텔의 동급 객실보다 여유로운 공간을 제공합니다.
         	&emsp;&emsp;&emsp;&emsp;&emsp;
         	<td>
@@ -118,6 +121,16 @@
             전망 : 시티 뷰 | 침대 : 더블 / 트윈 / 트리플 | 크기 : 45m^2<br/>
             룸 구성 : 침실 1, 욕실 1, 화장실 1<br/>
         </p>
+=======
+        <div class=explain> 
+        	디럭스룸은 다른 호텔의 동급 객실보다 여유로운 공간을 제공합니다.<br/>
+        	디럭스룸에서 비즈니스와 여행의 여유로움을 즐기십시오.<br/>
+           	문의전화 02-0000-0000<br/>
+          	전망 : 시티 뷰 | 침대 : 더블 / 트윈 / 트리플 | 크기 : 45m^2<br/>
+          	룸 구성 : 침실 1, 욕실 1, 화장실 1<br/>
+        </div>
+        <button type="button" id="res_btn" onclick="javaScript:search()">예약하기</button>
+>>>>>>> 0d90439c11f74314fde3665a99ef76c38cd5e782
         <table class=roomtb>
             <thead>
             <tr>
@@ -146,7 +159,6 @@
                 </td>
             </tr>
         </table>
-
     </div>
     <%@include file = "/WEB-INF/views/layout/final.jsp" %>
 </div>

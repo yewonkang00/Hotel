@@ -2,6 +2,7 @@ package com.khotel.DaoImpl;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
@@ -61,7 +62,12 @@ public class RoomDaoImpl implements RoomDao{
 	}
 	
 	@Override
-	public List<RoomVo> listRoom() throws Exception {
+	public List<RoomVo> listRoom(int start, int end, String search_option, String keyword) throws Exception {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("search_option", "");
+		map.put("keyword", keyword);
+		map.put("start", start);
+		map.put("end", end);
 		return sqlSession.selectList("room.listRoom");
 	}
 
@@ -118,5 +124,12 @@ public class RoomDaoImpl implements RoomDao{
 	@Override
 	public List<RoomVo> searchSelectRoomListCnt(ReservationVo reservation) throws Exception {
 		return sqlSession.selectList("room.findEmptySelectRoomListCnt", reservation);
-	}	
+	}
+
+	@Override
+	public List<RoomVo> listclassRoom(String room) throws Exception {
+		System.out.println(room);
+		
+		return sqlSession.selectList("roomlistclass", room);
+				}	
 }

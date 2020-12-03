@@ -56,8 +56,8 @@ public class RoomServiceImpl implements RoomService {
 	}
 	
 	@Override
-	public List<RoomVo> listRoom() throws Exception {
-		return roomDao.listRoom();
+	public List<RoomVo> listRoom(int start, int end, String search_option, String keyword) throws Exception {
+		return roomDao.listRoom(start, end, search_option, keyword);
 	}
 
 	@Override
@@ -118,6 +118,12 @@ public class RoomServiceImpl implements RoomService {
 	@Override
 	public List<RoomVo> searchSelectRoomListCnt(ReservationVo reservation) throws Exception {
 		return roomDao.searchSelectRoomListCnt(reservation);
+	}
+
+	@Override
+	public List<RoomVo> listclassRoom(String room) throws Exception {
+		// TODO Auto-generated method stub
+		return roomDao.listclassRoom(room);
 	}	
 	
 

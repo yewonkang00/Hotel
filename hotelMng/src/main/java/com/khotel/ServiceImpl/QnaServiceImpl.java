@@ -81,4 +81,16 @@ public class QnaServiceImpl implements QnaService{
 		return 0;
 	}
 
+	@Override
+	public List<QnaVo> listSome(int start, int end, String UserId) throws Exception {
+		// TODO Auto-generated method stub
+		return qnaDao.listSome(start, end, UserId);
+	}
+
+	@Override
+	public int countQna() {
+		
+		return qnaDao.countQna();
+	}
+
 }

@@ -80,7 +80,12 @@ h4 {
     margin : 20px 10px;
 }
 .intbox {
+<<<<<<< HEAD
     margin: 25px 0 50px 0;
+=======
+    border-bottom: 1px solid #E8E4DE;
+    margin: 0;
+>>>>>>> 0d90439c11f74314fde3665a99ef76c38cd5e782
     overflow: hidden;
     padding: 0;
     color: #101010;
@@ -89,30 +94,43 @@ h4 {
 }
 .intbox .lbox {
     float: left;
+<<<<<<< HEAD
     margin-right: 85px;
+=======
+    margin-right: 160px;
+>>>>>>> 0d90439c11f74314fde3665a99ef76c38cd5e782
     width: 400px;
-    height: 70px;
+    height: 350px;
     margin-bottom: 50px;
     padding: 0;
     color: #101010;
 }
 .intbox .rbox {
     float: left;
+<<<<<<< HEAD
     width: 450px;
+=======
+    width: 370px;
+    height: 400px;
+>>>>>>> 0d90439c11f74314fde3665a99ef76c38cd5e782
     margin-bottom :50px;
     padding: 0;
 
 }
 .intbox .lbox .topexp{
     float: left;
+<<<<<<< HEAD
     width: 450px;
+=======
+    width: 350px;
+>>>>>>> 0d90439c11f74314fde3665a99ef76c38cd5e782
 }
 .intbox .rbox .topxep{
     float: left;
-    width : 250px;
+    width : 280px;
 }
 .contain{
-    width: 1200px;
+    width: 1500px;
     margin-top:30px;
     min-height: 500px;
     background-color: #fbfcf5;
@@ -120,8 +138,15 @@ h4 {
     color: #333333
 }
 .contents{
+<<<<<<< HEAD
     float:right;
     margin-right:-120px;
     width:960px;
     min-height:1200px;
+=======
+  float:left;
+  margin-left:40px;
+  width:1000px;
+  min-height:1200px;
+>>>>>>> 0d90439c11f74314fde3665a99ef76c38cd5e782
 }

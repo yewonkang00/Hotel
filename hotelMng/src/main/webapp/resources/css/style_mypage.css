@@ -80,6 +80,15 @@ h4 {
     border-collapse: collapse;
     width: 100%;
 }
+<<<<<<< HEAD
+=======
+
+table thead {
+    background-color:#D4C1A1;
+    padding-top:20px;
+    padding-bottom: 20px;
+}
+>>>>>>> 0d90439c11f74314fde3665a99ef76c38cd5e782
 .table > thead > tr > th,
 .table > tbody > tr > th,
 .table > tfoot > tr > th,
@@ -110,6 +119,28 @@ th {
 .table-hover > tbody > tr.active:hover > th {
     background-color: #e8e8e8;
 }
+<<<<<<< HEAD
+=======
+tbody tr{
+    border-bottom:1pt solid #D3D3D3;
+}
+table .r td{
+    border-left:1pt solid #D3D3D3;
+    border-right:1pt solid #D3D3D3;
+}
+.r{
+    height:50px;
+}
+.h{
+    height:50px;
+}
+.d{
+    width:80px;
+}
+.name{
+    width:170px;
+}
+>>>>>>> 0d90439c11f74314fde3665a99ef76c38cd5e782
 
 .submit-btn {
     padding: 8px 11px;

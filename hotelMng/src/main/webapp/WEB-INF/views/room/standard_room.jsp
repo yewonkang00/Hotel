@@ -7,6 +7,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/resources/css/style_room.css" type="text/css">
         <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+<<<<<<< HEAD
 		<style>
         .room_button {
     		background-color: #D4C1A1;
@@ -35,6 +36,8 @@
 	 		top:1px;
   		}
         </style>
+=======
+>>>>>>> 0d90439c11f74314fde3665a99ef76c38cd5e782
 		<script type="text/javascript">
 	    function dateAdd(sDate, nNum) {
 	        var yyyy = parseInt(sDate.substr(0, 4), 10);
@@ -106,6 +109,7 @@
           <div class=contents>
             <h2 id=gaeyo>Standard Room</h2>
             <img src="/resources/image/standardroom.jpg" width="800" height="500">
+<<<<<<< HEAD
             <p> 스탠다드룸은 혼자 또는 친구와 함께 할 수 있는 방입니다.
             	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 	        	<td>
@@ -117,6 +121,16 @@
                 전망 : 시티 뷰 | 침대 : 더블(킹 사이즈) / 트윈 | 크기 : 30m^2<br/>
                 룸 구성 : 침실 1, 욕실 1, 화장실 1<br/>
             </p>
+=======
+            <div class=explain>
+            	스탠다드룸은 혼자 또는 친구와 함께 할 수 있는 방입니다.<br/>
+            	세련된 인테리어와 디자인 소품이 조화를 즐기며 아늑한 휴식을 취하십시오.<br/>
+            	문의전화 02-0000-0000<br/>
+            	 전망 : 시티 뷰 | 침대 : 더블(킹 사이즈) / 트윈 | 크기 : 30m^2<br/>
+            	 룸 구성 : 침실 1, 욕실 1, 화장실 1<br/>
+            </div>
+            <button type="button" id="res_btn" onclick="javaScript:search()">예약하기</button>
+>>>>>>> 0d90439c11f74314fde3665a99ef76c38cd5e782
             <table class=roomtb>
               <thead>
                 <tr>

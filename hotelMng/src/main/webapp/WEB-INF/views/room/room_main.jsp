@@ -37,34 +37,42 @@
             </ul>
     </div>
     <div class=contents>
+<<<<<<< HEAD
         <h2 id=gaeyo>감각적인 인테리어와 함께한 호텔 루시드의 객실은 품격있는 라이프스타일 공간입니다.</h2>
+=======
+        <h2 id=gaeyo>감각적인 인테리어와 함께한 호텔 루시드의 객실은 품격 있는 라이프스타일 공간입니다.</h2>
+>>>>>>> 0d90439c11f74314fde3665a99ef76c38cd5e782
         <div class=intbox>
             <div class=lbox>
                 <h3><b>Standard Room</b></h3>
-                <a href="/room_standard.do"><img src="/resources/image/standardroom.jpg" width="300" height="220"></a>
+                <a href="/room_standard.do"><img src="/resources/image/standardroom.jpg" width="350" height="280"></a>
                 <div class=topexp>
                     <p>아늑하고 깔끔한 분위기로 편안한 휴식을 취할 수 있습니다.<br></p>
                 </div>
             </div>
             <div class=rbox>
                 <h3><b>Deluxe Room</b></h3>
-                <a href="/room_deluxe.do"><img src="/resources/image/deluxe room.jpg" width="300" height="220"></a>
+                <a href="/room_deluxe.do"><img src="/resources/image/deluxe room.jpg" width="350" height="280"></a>
                 <div class=topexp>
-                    <p>여유로운 휴식을 취할 수 있습니다.<br></p>
+                    <p>보다 더 넓은 객실에서 여유로운 휴식을 취할 수 있습니다.<br/></p>
                 </div>
             </div>
             <div class=lbox>
                 <h3><b>Executive Room</b></h3>
-                <a href="/room_executive.do"><img src="/resources/image/executive room.jpg" width="300" height="220"></a>
+                <a href="/room_executive.do"><img src="/resources/image/executive room.jpg" width="350" height="280"></a>
                 <div class=topexp>
-                    <p>이그제큐티브 라운지 이용으로 특별한 여유를 즐길 수 있습니다.<br></p>
+                    <p>이그제큐티브 라운지 이용으로 특별한 여유를 즐길 수 있습니다.<br/></p>
                 </div>
             </div>
             <div class=rbox>
                 <h3><b>Suite Room</b></h3>
-                <a href="/room_suite.do"><img src="/resources/image/suiteroom.jpg" width="300" height="220"></a>
+                <a href="/room_suite.do"><img src="/resources/image/suiteroom.jpg" width="350" height="280"></a>
                 <div class=topexp>
+<<<<<<< HEAD
                     <p>호텔 루시드만의 품격을 갖춘 공간으로 특별한 경험을 누릴 수 있습니다.<br></p>
+=======
+                    <p>호텔 루시드만의 품격을 갖춘 공간으로 특별한 경험을 누릴 수 있습니다.<br/></p>
+>>>>>>> 0d90439c11f74314fde3665a99ef76c38cd5e782
                 </div>
             </div>
         </div>

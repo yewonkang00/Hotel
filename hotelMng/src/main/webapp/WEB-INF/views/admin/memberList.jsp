@@ -16,6 +16,10 @@
         
         
   <script type="text/javascript">
+
+ 	 function list(page){
+		location.href="/admin/memberList?curPage="+page
+	}
 			
 	var sessionLevel = '${member.userLevel}';
 	
@@ -85,7 +89,11 @@
         <%@include file = "/WEB-INF/views/admin/admin_header.jsp" %>
 
         <div class=contents>
+<<<<<<< HEAD
 			<p style="text-align:center;">MEMBER LIST</p>
+=======
+			<br><p style="text-align:center;">MEMBER LIST</p>
+>>>>>>> 0d90439c11f74314fde3665a99ef76c38cd5e782
 			<!-- search{s} -->
 			<div class="form-group row justify-content-center">
 				<div class="w100" style="text-align: center">
@@ -114,7 +122,7 @@
 			</tr>
 			</thead>
 
-			<c:forEach items="${memberList}" var="item" varStatus="idx">
+			<c:forEach items="${list}" var="item" varStatus="idx">
 			<tr>
 				<td>${idx.index+1}</td>
 				<td><a href="javaScript:memberDetail('${item.userId}');">${item.userId}</a></td>
@@ -131,6 +139,37 @@
 				<td><input type="button" value="Update" class="submit-btn" onClick="javaScript:updateLevel('${item.userId}','${item.userLevel}');"></td>
 			</tr>
 			</c:forEach>
+			
+			<!-- 페이지 네비게이션 -->
+			<tr>
+				<td colspan="8" align="center">
+					<c:if test="${pager.curBlock > 1}">
+						<a href="javascript:list('1')">[처음]</a>
+					</c:if>
+					<c:if test = "${pager.curBlock > 1}">
+						<a href= "javascript:list('${pager.blockBegin}')">[이전]</a>
+					</c:if>
+
+					<c:forEach var="num" begin="${pager.blockBegin}" end="${pager.blockEnd}">
+						<c:choose>
+							<c:when test="${num==pager.curPage}">
+								<span style="color:red;">${num}</span>&nbsp;
+							</c:when>
+							<c:otherwise>
+								<a href="javascript:list('${num}')">${num}</a>&nbsp;
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+					<c:if test="${pager.curBlock <= pager.totBlock}">
+						<a href="javascript:list('${pager.nextPage}')">[다음]</a>
+					</c:if>
+					<c:if test="${pager.curPage <= pager.totPage}">
+						<a href="javascript:list('${pager.totPage}')">[끝]</a>
+					</c:if>
+				</td>
+			</tr>
+			
+			
 		</table>
         </div>
     <!-- pagination{e} -->

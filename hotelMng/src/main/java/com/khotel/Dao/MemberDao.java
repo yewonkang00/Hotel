@@ -16,7 +16,7 @@ public interface MemberDao {
 	public void updateLevel(MemberVo memberVo) throws Exception;
 	public void deleteMember(MemberVo memberVo) throws Exception;
 	public MemberVo checkId(String id)throws Exception;
-	public List<MemberVo> listMember() throws Exception;
+	public List<MemberVo> listMember(int start, int end, String search_option, String keyword) throws Exception;
 	public int selectBoardCount();
 	public List<MemberVo> listBlockSelect(HashMap<String, Object> map);
 	public MemberVo boardView(String id);

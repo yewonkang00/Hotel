@@ -1,8 +1,9 @@
 package com.khotel.Controller;
 
-import java.util.List;
-import java.util.Locale;
+import java.text.DateFormat;
+import java.util.*;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -13,10 +14,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.khotel.Service.MemberService;
+import com.khotel.Service.QnaService;
 import com.khotel.Service.ReservationService;
+import com.khotel.ServiceImpl.Pager;
 import com.khotel.Vo.MemberVo;
+import com.khotel.Vo.QnaVo;
 import com.khotel.Vo.ReservationVo;
 import com.khotel.Vo.RoomVo;
 
@@ -24,7 +30,10 @@ import com.khotel.Vo.RoomVo;
 public class MypageController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MypageController.class);
-
+	
+	@Inject
+	QnaService qnaService;
+	
 	@Autowired
 	private ReservationService reservationService;
 	
@@ -68,5 +77,36 @@ public class MypageController {
 		model.addAttribute("reservation", reservationList);
 		System.out.println("reservation: "+ reservationList);
 		return "/mypage/reservation";
+	}
+	
+	@RequestMapping(value = "/mypage/mylist")
+	public ModelAndView mylist(
+			@RequestParam(defaultValue="1") int curPage,
+			HttpServletRequest request
+			) throws Exception {
+		MemberVo vo = new MemberVo();
+		HttpSession session = request.getSession();
+		vo = (MemberVo) session.getAttribute("member");
+		String UserId = vo.getUserId();
+		
+		int count = 1;
+		Pager pager = new Pager(count, curPage);
+		int start = pager.getPageBegin();
+		int end = pager.getPageEnd();
+		List<QnaVo> list = qnaService.listSome(start, end, UserId);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/mypage/myQnaList");
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list", list);
+		map.put("count", count);
+		map.put("pager", pager);
+		mav.addObject("map", map);
+		return mav;
+	
+	}
+
+	@RequestMapping(value = "/mypage/myreward", method = RequestMethod.GET)
+	public String myreward(Locale locale, Model model) {
+		return "/mypage/myreward";
 	}
 }

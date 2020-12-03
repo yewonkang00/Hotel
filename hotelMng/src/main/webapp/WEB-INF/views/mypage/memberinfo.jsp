@@ -38,10 +38,22 @@
               </li>
               
               <li class="m3">
+<<<<<<< HEAD
                   <a href="mypage_qna.html">
                       <span>문의 내역</span>
                   </a>
               </li>
+=======
+                  <a href="/mypage/mylist">
+                      <span>문의 내역</span>
+                  </a>
+              </li>
+              <li class="m4">
+                  <a href="/mypage/myreward">
+                      <span>Lucid 리워즈</span>
+                  </a>
+              </li>
+>>>>>>> 0d90439c11f74314fde3665a99ef76c38cd5e782
           </ul>
     </div>
 

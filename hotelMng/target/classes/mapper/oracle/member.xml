@@ -15,10 +15,10 @@
 						,UserPhone
 						,UserBirth
 						,UserEmail
-						,UserAddressState
-						,UserAddressCity
-						,UserAddressStreet
-						,UserAddressDetail
+						,UserPostCode
+						,UserAddress
+						,UserDetailAddress
+						,UserExtraAddress
 						,UserLevel
 						,UserGrade
 						,UserMile
@@ -31,12 +31,12 @@
 				, #{UserPhone}
 				, #{UserBirth}
 				, #{UserEmail}
-				, #{UserAddressState}
-				, #{UserAddressCity}
-				, #{UserAddressStreet}
-				, #{UserAddressDetail}
+				, #{UserPostCode}
+				, #{UserAddress}
+				, #{UserDetailAddress}
+				, #{UserExtraAddress}
 				, '1'
-				, '0'
+				, 'NEW'
 				, '0'
 				, #{UserGender}
 		)
@@ -48,8 +48,16 @@
 	</update>
 		
 	<select id="listMember" resultType="MemberVo">	
-	SELECT *
-	FROM Member
+	select *
+		from (
+			select rownum as rn, A.*
+			from (
+		select *
+		from Member
+		
+			) A
+		) 
+		where rn between ${start} and ${end}
 	</select>
 	
 	
@@ -109,6 +117,12 @@
 	<update id="updateMile" parameterType="MemberVo">
 		UPDATE MEMBER
 		SET UserMile = #{UserMile}
+		WHERE UserId = #{UserId}
+	</update>
+	
+	<update id="updateGrade" parameterType="MemberVo">
+		UPDATE MEMBER
+		SET UserGrade = #{UserGrade}
 		WHERE UserId = #{UserId}
 	</update>
 	

@@ -104,6 +104,7 @@
     <div class=contents>
         <h2 id=gaeyo>Executive Room</h2>
         <img src="/resources/image/executive room.jpg" width="800" height="500">
+<<<<<<< HEAD
         <p> 이그제큐티브 객실은 야경이 돋보이는 객실입니다.
         	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
         	<td>
@@ -115,6 +116,16 @@
             전망 : 시티 뷰 | 침대 : 더블 / 트윈 / 트리플 | 크기 : 45m^2<br/>
             룸 구성 : 침실 1, 욕실 1, 화장실 1<br/>
         </p>
+=======
+        <div class=explain>
+        	이그제큐티브 객실은 야경이 돋보이는 객실입니다.<br/>
+        	이그제큐티브 라운지 서비스를 즐기며 편안한 휴식을 취하십시오.<br/>
+        	문의전화 02-0000-0000<br/>
+        	전망 : 시티 뷰 | 침대 : 더블 / 트윈 / 트리플 | 크기 : 45m^2<br/>
+        	 룸 구성 : 침실 1, 욕실 1, 화장실 1<br/>
+        </div>
+        <button type="button" id="res_btn" onclick="javaScript:search()">예약하기</button>
+>>>>>>> 0d90439c11f74314fde3665a99ef76c38cd5e782
         <table class=roomtb>
             <thead>
             <tr>
@@ -143,7 +154,6 @@
                 </td>
             </tr>
         </table>
-
     </div>
     <%@include file = "/WEB-INF/views/layout/final.jsp" %>
 </div>
