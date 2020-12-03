@@ -105,9 +105,9 @@ public class MemberController {
 	public String searchRoom(Locale locale, Model model, HttpServletRequest request) throws Exception {
 		List<RoomVo> roomList = null;
 		
-		//회원 가져오기 - check
+		//�쉶�썝 媛��졇�삤湲� - check
 		try {
-			roomList = roomService.listRoom();
+			roomList = roomService.listRoom(0, 100000, "", "");
 		} catch (Exception e) {
 			
 		}
@@ -153,7 +153,7 @@ public class MemberController {
 		return "/reservation/res";
 	}
 	
-	//예약페이지
+	//�삁�빟�럹�씠吏�
 		@RequestMapping(value = "/reservate.do", method = RequestMethod.GET)
 		public String reservate(Model model, HttpServletRequest request) throws Exception {
 			MemberVo member = new MemberVo();

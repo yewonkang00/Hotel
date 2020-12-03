@@ -99,4 +99,10 @@ public class QnaDaoImpl implements QnaDao {
 		
 	}
 
+	@Override
+	public int countQna() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("QNA.count");
+	}
+
 }

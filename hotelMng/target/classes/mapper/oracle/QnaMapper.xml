@@ -77,5 +77,11 @@
 	<delete id="deleteArticle">
 		delete from qna where QNACODE = #{QNACODE}
 	</delete>
+	
+	<select id="QNA.count" resultType="int">
+		select COUNT(QNACODE)
+		from QNA
+	</select>
+	
 
 </mapper>

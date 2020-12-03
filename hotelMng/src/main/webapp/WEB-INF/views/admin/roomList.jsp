@@ -22,6 +22,10 @@
 
     </head>
 	<script type="text/javascript">
+
+		function list(page){
+		location.href="/admin/roomList?curPage="+page
+		}
 			
 		var sessionLevel = '${member.userLevel}';
 		
@@ -43,7 +47,7 @@
             <div class="form-group row justify-content-center">
 				<div class="w100" style="text-align: center">
 					<select class="form-control form-control-sm" name="searchType" id="searchType">
-						<option value="RoomNo">호수</option>
+						<option value="RouomNo">호수</option>
 					</select>
 					<input type="text" class="form-control form-control-sm" name="keyword" id="keyword">
                     <button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch">검색</button>
@@ -64,7 +68,7 @@
                     </tr>
                 </thead>
 
-                <c:forEach items="${roomList}" var="item" varStatus="idx">
+                <c:forEach items="${list}" var="item" varStatus="idx">
 
                 <tr>
                     <td>${idx.index+1}</td>
@@ -75,8 +79,11 @@
                     <td>${item.fee}</td>
                     <td><input type="button" value="예약" class="submit-btn" onClick="javaScript:location.href='/admin/reservation.do?rno=${item.roomNo}';">	</td>
                 </tr>
+            
 
                 </c:forEach>
+                
+          
             </table>
         </div>
 

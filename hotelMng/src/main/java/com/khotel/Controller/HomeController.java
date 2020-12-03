@@ -184,7 +184,8 @@ public class HomeController {
 	public ModelAndView memberList(
 			@RequestParam(defaultValue="1") int curPage,
 			Locale locale, Model model, HttpServletRequest request) throws Exception {
-		int count = 100;
+		
+		int count = memberService.selectBoardCount();
 		Pager pager = new Pager(count, curPage);
 		int start = pager.getPageBegin();
 		int end = pager.getPageEnd();
@@ -213,7 +214,7 @@ public class HomeController {
 		public ModelAndView reservationList(
 				@RequestParam(defaultValue="1") int curPage,
 				Locale locale, Model model, HttpServletRequest request) throws Exception {
-			int count = 100;
+			int count = reservationService.countReservation();
 			Pager pager = new Pager(count, curPage);
 			int start = pager.getPageBegin();
 			int end = pager.getPageEnd();
@@ -224,7 +225,7 @@ public class HomeController {
 			
 			//�삁�빟 由ъ뒪�듃 媛��졇�삤湲�
 			try {
-				list = reservationService.listReservation(start, 10000, "", "");
+				list = reservationService.listReservation(start, end, "", "");
 				map.put("list", list);
 				map.put("count", count);
 				map.put("pager", pager);
@@ -239,17 +240,31 @@ public class HomeController {
 	
 	//愿�由ъ옄 �럹�씠吏�
 	@RequestMapping(value = "/admin/roomList")
-	public String roomList(Locale locale, Model model, HttpServletRequest request) throws Exception {
-		List<RoomVo> roomList = null;
+	public ModelAndView roomList(@RequestParam(defaultValue="1") int curPage,
+			Locale locale, Model model, HttpServletRequest request) throws Exception {
+		int count = 100;
+		Pager pager = new Pager(count, curPage);
+		int start = pager.getPageBegin();
+		int end = pager.getPageEnd();
+		List<RoomVo> list = null;
+		Map<String, Object> map = new HashMap<String, Object>();
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("admin/roomList");
 		
 		//�쉶�썝 媛��졇�삤湲� - check
 		try {
-			roomList = roomService.listRoom();
+			list = roomService.listRoom(start, end, "", "");
+			System.out.println(list);
+			map.put("list", list);
+			map.put("count", count);
+			map.put("pager", pager);
 		} catch (Exception e) {
 			
 		}
-		model.addAttribute("roomList", roomList );
-		return "admin/roomList";
+		mav.addObject("list", list);
+		mav.addObject("pager", pager);
+		mav.addObject("count", count);
+		return mav;
 	}
 	
 	@RequestMapping(value = "/admin")

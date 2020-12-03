@@ -53,5 +53,11 @@ public class ReservationServiceImpl implements ReservationService{
 		return reservationDao.listReservation( start,  end,  search_option,  keyword);
 	}
 
+	@Override
+	public int countReservation() {
+		
+		return reservationDao.countReservation();
+	}
+
 	
 }

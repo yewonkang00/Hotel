@@ -70,5 +70,10 @@
 		) 
 		where rn between ${start} and ${end}
 	</select>
+	
+	<select id="reservation.Count" resultType="int">
+		select COUNT(ReservationCode)
+		from Reservation
+	</select>
 
 </mapper>

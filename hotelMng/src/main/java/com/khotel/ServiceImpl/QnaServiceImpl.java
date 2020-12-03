@@ -87,4 +87,10 @@ public class QnaServiceImpl implements QnaService{
 		return qnaDao.listSome(start, end, UserId);
 	}
 
+	@Override
+	public int countQna() {
+		
+		return qnaDao.countQna();
+	}
+
 }

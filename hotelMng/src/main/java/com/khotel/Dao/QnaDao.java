@@ -22,6 +22,8 @@ public interface QnaDao {
 	
 	public void delete(int QNACODE) throws Exception; //글삭제
 	
+	public int countQna();
+	
 	public List<QnaVo> listSome(int start, int end, String UserId) throws Exception; //내 문의만 찾기
 	
 	
