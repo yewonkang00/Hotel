@@ -25,7 +25,7 @@
       }
       .flex-container {
           height: 100%;
-          width: 60%;
+          width: 100%;
           position: absolute;
           display: inline-flex;
           flex-direction: row;
@@ -65,6 +65,16 @@
       	position:relative;
       	top:1px;
       }
+
+      .clear {
+          clear: both;
+          display: block;
+          font-size: 0px;
+          height: 0px;
+          line-height: 0;
+          width: 100%;
+          overflow:hidden;
+      }
     </style>
     <script type="text/javascript">
       function towel(){
@@ -97,8 +107,10 @@
     <div class="flex-container">
         <input type=button class="button-menu" onClick="towel();" value="수건">
         <input type=button class="button-menu" onClick="water();" value="물">
+        <div class="clear"></div>
         <input type=button class="button-menu" onClick="amenity();" value="어메니티">
         <input type=button class="button-menu" onClick="clean();" value="청소 요청">
+        <div class="clear"></div>
         <input type=button class="button-menu" onClick="staff_call();" value="직원 연결">
         <input type=button class="button-menu" onClick="staff();" value="직원 호출">
     </div>

@@ -20,6 +20,7 @@
                 padding:0px;
                 background-color: #fbfcf5;
                 font-family:나눔고딕;
+				overflow-x: hidden;
             }
             ::-webkit-scrollbar {
                 display: none;
