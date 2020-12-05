@@ -62,12 +62,7 @@ public class RoomDaoImpl implements RoomDao{
 	}
 	
 	@Override
-	public List<RoomVo> listRoom(int start, int end, String search_option, String keyword) throws Exception {
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("search_option", "");
-		map.put("keyword", keyword);
-		map.put("start", start);
-		map.put("end", end);
+	public List<RoomVo> listRoom() throws Exception {
 		return sqlSession.selectList("room.listRoom");
 	}
 
