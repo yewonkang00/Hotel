@@ -39,10 +39,6 @@
 
         <div class=contents>
             <p style="text-align:center;">ROOM LIST</p>
-            <button type="button" id="standard"><a href="/admin/roomList?roomtype=standard">standard</button>
-            <button type="button" id="deluxe" ><a href="/admin/roomList?roomtype=deluxe">deluxe</button>
-            <button type="button" id="executive" ><a href="/admin/roomList?roomtype=executive">executive</button>
-            <button type="button" id="suite" ><a href="/admin/roomList?roomtype=suite">suite</button>
             <br><br>
             <div class="form-group row justify-content-center">
 				<div class="w100" style="text-align: center">
@@ -68,7 +64,7 @@
                     </tr>
                 </thead>
 
-                <c:forEach items="${list}" var="item" varStatus="idx">
+                <c:forEach items="${roomList}" var="item" varStatus="idx">
 
                 <tr>
                     <td>${idx.index+1}</td>
@@ -77,7 +73,7 @@
                     <td>${item.bedType}</td>
                     <td>${item.roomMaxPeople}</td>
                     <td>${item.fee}</td>
-                    <td><input type="button" value="예약" class="submit-btn" onClick="javaScript:location.href='/admin/reservation.do?rno=${item.roomNo}';"></td>
+                    <td><input type="button" value="예약" class="submit-btn" onClick="javaScript:location.href='/admin/reservation.do?rno=${item.roomNo}';">	</td>
                 </tr>
             
 

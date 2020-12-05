@@ -264,36 +264,22 @@ public class HomeController {
 			return mav;
 		}
 	
-	//愿�由ъ옄 �럹�씠吏�
+	
 	@RequestMapping(value = "/admin/roomList")
-	public ModelAndView roomList(
-			@RequestParam("roomtype") String room,
-			@RequestParam(defaultValue="1") int curPage,
-			Locale locale, Model model, HttpServletRequest request) throws Exception {
-		int count = 100;
-		Pager pager = new Pager(count, curPage);
-		int start = pager.getPageBegin();
-		int end = pager.getPageEnd();
-		List<RoomVo> list = null;
-		Map<String, Object> map = new HashMap<String, Object>();
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("admin/roomList");
-		list = roomService.listclassRoom(room);
-		//�쉶�썝 媛��졇�삤湲� - check
+	public String roomList(Locale locale, Model model, HttpServletRequest request) throws Exception {
+		List<RoomVo> roomList = null;
+		
+		//회원 가져오기 - check
 		try {
-			list = roomService.listclassRoom(room);
-			System.out.println(list);
-			map.put("list", list);
-			map.put("count", count);
-			map.put("pager", pager);
+			roomList = roomService.listRoom();
 		} catch (Exception e) {
 			
 		}
-		mav.addObject("list", list);
-		mav.addObject("pager", pager);
-		mav.addObject("count", count);
-		return mav;
+		model.addAttribute("roomList", roomList);
+		return "admin/roomList";
 	}
+	
+	
 	
 	@RequestMapping(value = "/admin")
 	public String admin(Locale locale, Model model, HttpServletRequest request) throws Exception {
