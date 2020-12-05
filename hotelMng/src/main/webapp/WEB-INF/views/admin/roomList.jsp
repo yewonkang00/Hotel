@@ -77,7 +77,7 @@
                     <td>${item.bedType}</td>
                     <td>${item.roomMaxPeople}</td>
                     <td>${item.fee}</td>
-                    <td><input type="button" value="예약" class="submit-btn" onClick="javaScript:location.href='/admin/reservation.do?rno=${item.roomNo}';">	</td>
+                    <td><input type="button" value="예약" class="submit-btn" onClick="javaScript:location.href='/admin/reservation.do?rno=${item.roomNo}';"></td>
                 </tr>
             
 

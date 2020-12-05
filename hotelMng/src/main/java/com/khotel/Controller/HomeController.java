@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.khotel.Service.MemberService;
+import com.khotel.Service.QnaService;
 import com.khotel.Util.BoardPaging;
 import com.khotel.Vo.MemberVo;
 import com.khotel.Vo.ReservationVo;
@@ -55,6 +56,9 @@ public class HomeController {
 	
 	@Autowired 
 	private BoardPaging boardPaging;
+	
+	@Autowired
+	private QnaService qnaService;
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -177,6 +181,28 @@ public class HomeController {
 			map.put("resultMsg", "success");
 		}
 		return map;
+	}
+	
+	
+	@RequestMapping(value="/admin/qnaview.do", method=RequestMethod.GET)
+	public ModelAndView view(@RequestParam int QNACODE,
+			@RequestParam int curPage,
+			HttpSession session) throws Exception{
+		
+		qnaService.increaseViewcnt(QNACODE);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("admin/qnaview");
+		mav.addObject("dto", qnaService.read(QNACODE));
+		mav.addObject("curpage", curPage);
+		return mav;
+		
+	}
+	
+	@RequestMapping(value="/admin/delete.do", method=RequestMethod.GET)
+	public String updat(
+			@RequestParam int QNACODE) throws Exception{
+		qnaService.delete(QNACODE);
+		return "redirect:/admin/qnaList";
 	}
 	
 	//愿�由ъ옄 �럹�씠吏� �쉶�썝 由ъ뒪�듃

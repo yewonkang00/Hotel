@@ -48,7 +48,7 @@
 			<c:forEach var="row" items="${map.list}">
 				<tr>
 					<td>${row.QNACODE}</td>
-					<td><a href = "/qna/view.do?QNACODE=${row.QNACODE}&curPage=${map.pager.curPage}">${row.QNATITLE}</a></td>
+					<td><a href = "/admin/qnaview.do?QNACODE=${row.QNACODE}&curPage=${map.pager.curPage}">${row.QNATITLE}</a></td>
 					<td>${row.QNAWRITER}</td>
 					<td>${row.QNAREGISTERDATE}</td>
 					<td>${row.QNAVIEWCOUNT}</td>
@@ -85,7 +85,6 @@
 			</tr>
 
 		</table>
-		<button type="button" id="btnWrite" onclick="location.href='/qna/write.do'">글쓰기</button>
 	</div>
 </div>
 <%@include file = "/WEB-INF/views/layout/final.jsp" %>

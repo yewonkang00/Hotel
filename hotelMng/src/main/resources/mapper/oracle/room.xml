@@ -7,6 +7,7 @@
 		SELECT *
 		FROM RoomType natural join RoomNo
 		where roomtype = #{room}
+		order by roomno
 	</select>
 	
 
