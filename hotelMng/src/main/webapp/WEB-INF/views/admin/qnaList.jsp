@@ -18,7 +18,7 @@
 
 	<script type="text/javascript">
 		function list(page){
-			location.href="/qna/list.do?curPage="+page
+			location.href="/admin/qnaList?curPage="+page
 		}
 	</script>
 
