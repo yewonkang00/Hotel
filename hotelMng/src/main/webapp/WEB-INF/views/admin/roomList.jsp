@@ -38,7 +38,6 @@
         <%@include file = "/WEB-INF/views/admin/admin_header.jsp" %>
 
         <div class=contents>
-            <p style="text-align:center;">ROOM LIST</p>
             <br><p style="text-align:center;">ROOM LIST</p>
             <br><br>
             <table class="table table-hover">

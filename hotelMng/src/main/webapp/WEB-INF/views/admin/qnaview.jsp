@@ -14,6 +14,7 @@
 		    <%@include file = "/WEB-INF/views/layout/header.jsp" %>
 		    <div class=contain>
 		        <div class=left>
+
 		        </div>
 		        <div class=contents>
 		            <h2>게시물 보기</h2>
