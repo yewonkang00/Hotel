@@ -18,7 +18,7 @@
 
 	<script type="text/javascript">
 		function list(page){
-			location.href="/qna/list.do?curPage="+page
+			location.href="/admin/qnaList?curPage="+page
 		}
 	</script>
 
@@ -48,8 +48,9 @@
 			<c:forEach var="row" items="${map.list}">
 				<tr>
 					<td>${row.QNACODE}</td>
-					<td><a href = "/qna/view.do?QNACODE=${row.QNACODE}&curPage=${map.pager.curPage}">${row.QNATITLE}</a></td>
-					<td><a href="/admin/memberDetail.do?userId=${row.QNAWRITER}">${row.QNAWRITER}</td>
+
+					<td><a href = "/admin/qnaview.do?QNACODE=${row.QNACODE}&curPage=${map.pager.curPage}">${row.QNATITLE}</a></td>
+					<td>${row.QNAWRITER}</td>
 					<td>${row.QNAREGISTERDATE}</td>
 					<td>${row.QNAVIEWCOUNT}</td>
 				</tr>
@@ -85,7 +86,6 @@
 			</tr>
 
 		</table>
-		<button type="button" id="btnWrite" onclick="location.href='/qna/write.do'">글쓰기</button>
 	</div>
 </div>
 </body>

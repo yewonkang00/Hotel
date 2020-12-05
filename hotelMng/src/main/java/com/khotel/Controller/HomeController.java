@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.khotel.Service.MemberService;
+import com.khotel.Service.QnaService;
 import com.khotel.Util.BoardPaging;
 import com.khotel.Vo.MemberVo;
 import com.khotel.Vo.ReservationVo;
@@ -65,6 +66,9 @@ public class HomeController {
 	
 	@Autowired 
 	private BoardPaging boardPaging;
+	
+	@Autowired
+	private QnaService qnaService;
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -192,6 +196,29 @@ public class HomeController {
 		return map;
 	}
 	
+	
+	@RequestMapping(value="/admin/qnaview.do", method=RequestMethod.GET)
+	public ModelAndView view(@RequestParam int QNACODE,
+			@RequestParam int curPage,
+			HttpSession session) throws Exception{
+		
+		qnaService.increaseViewcnt(QNACODE);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("admin/qnaview");
+		mav.addObject("dto", qnaService.read(QNACODE));
+		mav.addObject("curpage", curPage);
+		return mav;
+		
+	}
+	
+	@RequestMapping(value="/admin/delete.do", method=RequestMethod.GET)
+	public String updat(
+			@RequestParam int QNACODE) throws Exception{
+		qnaService.delete(QNACODE);
+		return "redirect:/admin/qnaList";
+	}
+	
+
 	//관리자 페이지 회원 리스트
 	@RequestMapping(value = "/admin/memberList")
 	public ModelAndView memberList(
@@ -251,36 +278,23 @@ public class HomeController {
 		return mav;
 	}
 	
+
 	//관리자 페이지
 	@RequestMapping(value = "/admin/roomList")
-	public ModelAndView roomList(
-			@RequestParam("roomtype") String room,
-			@RequestParam(defaultValue="1") int curPage,
-			Locale locale, Model model, HttpServletRequest request) throws Exception {
-		int count = 100;
-		Pager pager = new Pager(count, curPage);
-		int start = pager.getPageBegin();
-		int end = pager.getPageEnd();
-		List<RoomVo> list = null;
-		Map<String, Object> map = new HashMap<String, Object>();
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("admin/roomList");
-		list = roomService.listclassRoom(room);
-		//�쉶�썝 媛��졇�삤湲� - check
+	public String roomList(Locale locale, Model model, HttpServletRequest request) throws Exception {
+		List<RoomVo> roomList = null;
+		
+		//회원 가져오기 - check
 		try {
-			list = roomService.listclassRoom(room);
-			System.out.println(list);
-			map.put("list", list);
-			map.put("count", count);
-			map.put("pager", pager);
+			roomList = roomService.listRoom();
 		} catch (Exception e) {
 			
 		}
-		mav.addObject("list", list);
-		mav.addObject("pager", pager);
-		mav.addObject("count", count);
-		return mav;
+		model.addAttribute("roomList", roomList);
+		return "admin/roomList";
 	}
+	
+	
 	
 	@RequestMapping(value = "/admin")
 	public String admin(Locale locale, Model model, HttpServletRequest request) throws Exception {
