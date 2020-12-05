@@ -125,4 +125,9 @@ public class RoomServiceImpl implements RoomService {
 		return roomDao.listclassRoom(room);
 	}
 
+	@Override
+	public List<RoomVo> listRoom2() throws Exception {
+		return roomDao.listRoom2();
+	}
+
 }

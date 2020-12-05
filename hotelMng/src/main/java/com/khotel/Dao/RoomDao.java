@@ -15,7 +15,8 @@ public interface RoomDao {
 	public List<RoomVo> listRoomReservation(String roomNo) throws Exception;
 	public int findRoomReservation(HashMap<String, Object> map);
 	public int findRoom(HashMap<String, Object> map);
-	public List<RoomVo> listRoom() throws Exception;
+	public List<RoomVo> listRoom(int start, int end, String search_option, String keyword) throws Exception;
+	public List<RoomVo> listRoom2() throws Exception;	
 	public List<RoomVo> listBlockSelect(HashMap<String, Object> map);
 	public RoomVo boardView(String id);
 	public List<RoomVo> listFindRoom(HashMap<String, Object> map);
@@ -27,4 +28,5 @@ public interface RoomDao {
 	public List<RoomVo> searchSelectRoomList(ReservationVo reservation) throws Exception;
 	public List<RoomVo> searchSelectRoomListCnt(ReservationVo reservation) throws Exception;
 	public List<RoomVo> listclassRoom(String roomclass) throws Exception;
+	
 }

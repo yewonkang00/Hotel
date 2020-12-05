@@ -48,7 +48,6 @@
 			<c:forEach var="row" items="${map.list}">
 				<tr>
 					<td>${row.QNACODE}</td>
-
 					<td><a href = "/admin/qnaview.do?QNACODE=${row.QNACODE}&curPage=${map.pager.curPage}">${row.QNATITLE}</a></td>
 					<td>${row.QNAWRITER}</td>
 					<td>${row.QNAREGISTERDATE}</td>

@@ -201,23 +201,20 @@ public class HomeController {
 	public ModelAndView view(@RequestParam int QNACODE,
 			@RequestParam int curPage,
 			HttpSession session) throws Exception{
-		
 		qnaService.increaseViewcnt(QNACODE);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("admin/qnaview");
 		mav.addObject("dto", qnaService.read(QNACODE));
 		mav.addObject("curpage", curPage);
 		return mav;
-		
 	}
-	
+  
 	@RequestMapping(value="/admin/delete.do", method=RequestMethod.GET)
 	public String updat(
 			@RequestParam int QNACODE) throws Exception{
 		qnaService.delete(QNACODE);
 		return "redirect:/admin/qnaList";
 	}
-	
 
 	//관리자 페이지 회원 리스트
 	@RequestMapping(value = "/admin/memberList")
@@ -278,7 +275,6 @@ public class HomeController {
 		return mav;
 	}
 	
-
 	//관리자 페이지
 	@RequestMapping(value = "/admin/roomList")
 	public String roomList(Locale locale, Model model, HttpServletRequest request) throws Exception {
@@ -286,10 +282,12 @@ public class HomeController {
 		
 		//회원 가져오기 - check
 		try {
-			roomList = roomService.listRoom();
+			roomList = roomService.listRoom2();
 		} catch (Exception e) {
 			
 		}
+		System.out.println(roomList);
+
 		model.addAttribute("roomList", roomList);
 		return "admin/roomList";
 	}
