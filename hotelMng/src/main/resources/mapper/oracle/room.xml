@@ -7,6 +7,7 @@
 		SELECT *
 		FROM RoomType natural join RoomNo
 		where roomtype = #{room}
+		order by roomno
 	</select>
 	
 	<select id="selectRoom" parameterType="RoomVo" resultType="RoomVo">
@@ -19,6 +20,11 @@
 		order by fee, roomno
 	</select>
 	
+	<select id="listRoom2" resultType="RoomVo">	
+		SELECT *
+		FROM RoomType natural join RoomNo
+		order by fee, roomno
+	</select>
 	
 	<select id="listRoomReservation" parameterType="String" resultType="ReservationVo">
 		SELECT *

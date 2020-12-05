@@ -95,7 +95,7 @@
 			<td>${roomDetail.composition}</td>
 			<td>${roomDetail.things}</td>
 			<td>${roomDetail.fee}</td>
-			<td>${roomDetail.managerCode}</td>
+			<td>${roomDetail.staffId}</td>
 			</tr>
 			
 		</table>

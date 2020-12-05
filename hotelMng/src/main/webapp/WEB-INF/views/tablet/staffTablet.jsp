@@ -44,6 +44,12 @@ if(sessionLevel == null || sessionLevel == 'null' || sessionLevel=="" || session
 </script>
 </head>
 <body>
+	<div class header>
+		<c:choose>
+           <c:when test="${member != null}"><a href="/logout.do">로그아웃</a></c:when>
+           <c:otherwise><a href="/login.do">로그인</a></c:otherwise>
+        </c:choose>
+    </div>
 	<table align=center><tr><td>
 	<div class=contents>
 		<br><p style="text-align:center;">Request LIST</p>

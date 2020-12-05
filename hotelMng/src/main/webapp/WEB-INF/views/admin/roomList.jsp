@@ -14,11 +14,6 @@
             }
         </style>
         <title>Room List</title>
-       	<script type="text/javascript">
-       	function standard() {
-			
-        } 
-        </script>
         
         <script type="text/javascript">
 	    var sessionUserId = '${member.userId}';
@@ -31,10 +26,6 @@
     </head>
 	<script type="text/javascript">
 
-		function list(page){
-			location.href="/admin/roomList?curPage="+page
-		}
-			
 		var sessionLevel = '${member.userLevel}';
 		
 		if(sessionLevel == null || sessionLevel == 'null' || sessionLevel=="" || sessionLevel == "1"){
@@ -48,22 +39,7 @@
 
         <div class=contents>
             <br><p style="text-align:center;">ROOM LIST</p>
-            <button type="button" id="standard"><a href="/admin/roomList?roomtype=standard">standard</button>
-            <button type="button" id="deluxe"><a href="/admin/roomList?roomtype=deluxe">deluxe</button>
-            <button type="button" id="executive"><a href="/admin/roomList?roomtype=executive">executive</button>
-            <button type="button" id="suite"><a href="/admin/roomList?roomtype=suite">suite</button>
             <br><br>
-            <div class="form-group row justify-content-center">
-				<div class="w100" style="text-align: center">
-					<select class="form-control form-control-sm" name="searchType" id="searchType">
-						<option value="RoomNo">호수</option>
-					</select>
-					<input type="text" class="form-control form-control-sm" name="keyword" id="keyword">
-                    <button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch">검색</button>
-				</div>
-				<br>
-
-			</div>
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -79,7 +55,7 @@
                     </tr>
                 </thead>
 
-                <c:forEach items="${list}" var="item" varStatus="idx">
+                <c:forEach items="${roomList}" var="item" varStatus="idx">
 
                 <tr>
                     <td>${idx.index+1}</td>

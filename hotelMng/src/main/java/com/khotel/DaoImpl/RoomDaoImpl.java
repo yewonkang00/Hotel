@@ -131,5 +131,10 @@ public class RoomDaoImpl implements RoomDao{
 		System.out.println(room);
 
 		return sqlSession.selectList("roomlistclass", room);
+	}
+
+	@Override
+	public List<RoomVo> listRoom2() throws Exception {
+		return sqlSession.selectList("room.listRoom2");
 	}	
 }
