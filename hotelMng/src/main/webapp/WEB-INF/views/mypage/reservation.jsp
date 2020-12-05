@@ -74,8 +74,13 @@
               <li class="m3">
                 <a href="/mypage/mylist">
                   <span>문의 내역</span>
-              </a>
-            </li>
+                </a>
+              </li>
+	          <li class="m4">
+	            <a href="/mypage/myreward">
+	            	<span>Lucid 리워즈</span>
+	            </a>
+	          </li>
           </ul>
     </div>
     <div class=contents>

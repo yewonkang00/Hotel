@@ -60,12 +60,11 @@ public class ReservationDaoImpl implements ReservationDao{
 		map.put("end", end);		
 		return sqlSession.selectList("reservation.listReservation", map);
 	}
-
+	
 	@Override
 	public int countReservation() {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne("reservation.Count");
 	}
-	
 	
 }

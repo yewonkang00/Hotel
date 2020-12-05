@@ -14,7 +14,7 @@
 	</style>
 	<meta charset="UTF-8">
 	<title>QnA list</title>
-	<link rel="stylesheet" href="/resources/css/style_qna.css" type="text/css">
+	<link rel="stylesheet" href="/resources/css/style_mypage.css" type="text/css">
 
 	<script type="text/javascript">
 		function list(page){
@@ -43,8 +43,13 @@
               <li class="m3">
                 <a href="/mypage/mylist">
                   <span>문의 내역</span>
-              </a>
-            </li>
+              	</a>
+			  </li>
+				<li class="m4">
+                  <a href="/mypage/myreward">
+                  	<span>Lucid 리워즈</span>
+                  </a>
+                </li>
           </ul>
 	</div>
 

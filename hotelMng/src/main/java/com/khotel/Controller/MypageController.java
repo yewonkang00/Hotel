@@ -32,15 +32,15 @@ import com.khotel.Vo.RoomVo;
 public class MypageController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MypageController.class);
-	
-	@Inject
-	QnaService qnaService;
-	
+
 	@Autowired
 	private ReservationService reservationService;
 	
 	@Autowired
 	private MemberService memberService;
+	
+	@Inject
+	QnaService qnaService;
 	
 	@RequestMapping(value = "/mypage/memberinfo")
 	public String mypage(Locale locale, Model model, HttpServletRequest request) {
@@ -105,5 +105,10 @@ public class MypageController {
 		mav.addObject("map", map);
 		return mav;
 	
+	}
+	
+	@RequestMapping(value="/mypage/myreward", method = RequestMethod.GET)
+	public String myreward(Locale locale, Model model) {
+		return "/mypage/myreward";
 	}
 }

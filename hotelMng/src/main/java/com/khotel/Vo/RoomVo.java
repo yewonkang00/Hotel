@@ -8,7 +8,7 @@ public class RoomVo {
 	private String Fee = null;
 	private String Things = null;
 	private String RoomSize = null;
-	private int ManagerCode = 0;
+	private String StaffId = null;
 	private String RoomView = null;
 	private String Composition = null;
 	private String BedType = null;
@@ -50,12 +50,6 @@ public class RoomVo {
 	public void setRoomSize(String roomSize) {
 		RoomSize = roomSize;
 	}
-	public int getManagerCode() {
-		return ManagerCode;
-	}
-	public void setManagerCode(int managerCode) {
-		ManagerCode = managerCode;
-	}
 	public String getRoomView() {
 		return RoomView;
 	}
@@ -85,6 +79,12 @@ public class RoomVo {
 	}
 	public void setRoomTypeCnt(int roomTypeCnt) {
 		RoomTypeCnt = roomTypeCnt;
+	}
+	public String getStaffId() {
+		return StaffId;
+	}
+	public void setStaffId(String staffId) {
+		StaffId = staffId;
 	}
 
 	

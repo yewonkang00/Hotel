@@ -17,10 +17,10 @@
         
   <script type="text/javascript">
 
- 	 function list(page){
+  	function list(page){
 		location.href="/admin/memberList?curPage="+page
 	}
-			
+	
 	var sessionLevel = '${member.userLevel}';
 	
 	if(sessionLevel == null || sessionLevel == 'null' || sessionLevel=="" || sessionLevel == "1"){
@@ -89,7 +89,7 @@
         <%@include file = "/WEB-INF/views/admin/admin_header.jsp" %>
 
         <div class=contents>
-			<p style="text-align:center;">MEMBER LIST</p>
+			<br><p style="text-align:center;">MEMBER LIST</p>
 			<!-- search{s} -->
 			<div class="form-group row justify-content-center">
 				<div class="w100" style="text-align: center">
@@ -136,9 +136,8 @@
 			</tr>
 			</c:forEach>
 			
-			<!-- 페이지 네비게이션 -->
 			<tr>
-				<td colspan="5" align="center">
+				<td colspan="8" align="center">
 					<c:if test="${pager.curBlock > 1}">
 						<a href="javascript:list('1')">[처음]</a>
 					</c:if>
@@ -164,7 +163,6 @@
 					</c:if>
 				</td>
 			</tr>
-			
 			
 		</table>
         </div>

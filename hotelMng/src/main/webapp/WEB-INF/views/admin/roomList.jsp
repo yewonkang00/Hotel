@@ -19,12 +19,20 @@
 			
         } 
         </script>
+        
+        <script type="text/javascript">
+	    var sessionUserId = '${member.userId}';
+	    if(sessionUserId == null || sessionUserId == 'null' || sessionUserId=="" || sessionUserId == "1"){
+	      alert("로그인 후 이용해주세요.");
+	      location.href="/login.do";
+	    }
+	    </script>
 
     </head>
 	<script type="text/javascript">
 
 		function list(page){
-		location.href="/admin/roomList?curPage="+page
+			location.href="/admin/roomList?curPage="+page
 		}
 			
 		var sessionLevel = '${member.userLevel}';
@@ -33,17 +41,20 @@
 			alert("관리자 권한이 없습니다.");
 			location.href="/main";
 		}
+		
 	</script>
     <body>
         <%@include file = "/WEB-INF/views/admin/admin_header.jsp" %>
 
         <div class=contents>
             <p style="text-align:center;">ROOM LIST</p>
+            <br><p style="text-align:center;">ROOM LIST</p>
+
             <br><br>
             <div class="form-group row justify-content-center">
 				<div class="w100" style="text-align: center">
 					<select class="form-control form-control-sm" name="searchType" id="searchType">
-						<option value="RouomNo">호수</option>
+						<option value="RoomNo">호수</option>
 					</select>
 					<input type="text" class="form-control form-control-sm" name="keyword" id="keyword">
                     <button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch">검색</button>
@@ -60,6 +71,8 @@
                         <td>BedType</td>
                         <td>RoomMaxPeople</td>
                         <td>RoomFee</td>
+                        <td>StaffId</td>
+                        
                         <td> </td>
                     </tr>
                 </thead>
@@ -73,13 +86,11 @@
                     <td>${item.bedType}</td>
                     <td>${item.roomMaxPeople}</td>
                     <td>${item.fee}</td>
+                    <td>${item.staffId}</td>
                     <td><input type="button" value="예약" class="submit-btn" onClick="javaScript:location.href='/admin/reservation.do?rno=${item.roomNo}';">	</td>
                 </tr>
-            
 
                 </c:forEach>
-                
-          
             </table>
         </div>
 
