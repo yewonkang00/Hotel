@@ -9,6 +9,13 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
         <style>
+
+		body {
+			background-color: #fbfcf5;
+		}
+		.contain {
+			background-color: #fbfcf5;
+		}
         .res_content{
           display: inline-block;
           margin-left:100px;

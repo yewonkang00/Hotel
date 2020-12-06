@@ -14,6 +14,10 @@
         <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
         <title>Reservation STEP1</title>
         <style>
+
+		  body {
+			  background-color: #fbfcf5;
+		  }
           .res_content{
           display: inline-block;
           text-align: center;
@@ -166,6 +170,13 @@
             border-radius:7px;
             background-color: #D4C1A1;
           }
+		  .resroom_btn_small{
+			  width:100px;
+			  height:40px;
+			  border-style:none;
+			  border-radius:7px;
+			  background-color: #D4C1A1;
+		  }
           #res_btn3{
             border-style:none;
             border-radius:5px;
@@ -472,10 +483,10 @@
 	                  			<br>&emsp;&emsp;⦁&emsp;${item.roomNo} 호
 	                  			&emsp;&emsp;&emsp;&nbsp;${item.bedType} bed
 	                  			<c:if test="${item.bedType eq 'single'}">
-	                  			&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
+	                  			&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" class="resroom_btn_small" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
 	                  			</c:if>
 	                  			<c:if test="${item.bedType eq 'twin'}">
-	                  			&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" onClick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
+	                  			&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" class="resroom_btn_small" onClick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
 	          					</c:if>
                   				<hr style="border: solid 1px #f3f3f3;" width=420px align="left">
 	                  		</c:if>
@@ -515,10 +526,10 @@
 	                  			<br>&emsp;&emsp;⦁&emsp;${item.roomNo} 호
 	                  			&emsp;&emsp;&emsp;&nbsp;${item.bedType} bed
 	                  			<c:if test="${item.bedType eq 'single'}">
-	                  			&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
+	                  			&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" class="resroom_btn_small" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
 	                  			</c:if>
 	                  			<c:if test="${item.bedType eq 'twin'}">
-	                  			&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
+	                  			&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" class="resroom_btn_small" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
 	          					</c:if>
 	                  			<hr style="border: solid 1px #f3f3f3;" width=420px align="left">
 	                  		</c:if>
@@ -559,10 +570,10 @@
 	                  			<br>&emsp;&emsp;⦁&emsp;${item.roomNo} 호
 	                  			&emsp;&emsp;&emsp;&nbsp;${item.bedType} bed
 	                  			<c:if test="${item.bedType eq 'single'}">
-	                  			&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
+	                  			&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" class="resroom_btn_small" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
 	                  			</c:if>
 	                  			<c:if test="${item.bedType eq 'twin'}">
-	                  			&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
+	                  			&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" class="resroom_btn_small" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
 	          					</c:if>
 	                  			<hr style="border: solid 1px #f3f3f3;" width=420px align="left">
 	                  		</c:if>
@@ -603,10 +614,10 @@
 	                  			<br>&emsp;&emsp;⦁&emsp;${item.roomNo} 호
 	                  			&emsp;&emsp;&emsp;&nbsp;${item.bedType} bed
 	                  			<c:if test="${item.bedType eq 'single'}">
-	                  			&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
+									&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" class="resroom_btn_small" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
 	                  			</c:if>
 	                  			<c:if test="${item.bedType eq 'twin'}">
-	                  			&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
+	                  			&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" class="resroom_btn_small" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
 	          					</c:if>
 	                  			<hr style="border: solid 1px #f3f3f3;" width=420px align="left">
 	                  		</c:if>
