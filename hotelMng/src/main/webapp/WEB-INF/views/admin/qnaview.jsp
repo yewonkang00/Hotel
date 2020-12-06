@@ -13,36 +13,37 @@
 		<body>
 		    <%@include file = "/WEB-INF/views/admin/admin_header.jsp" %>
 		    <div class=contain>
+
 		        <div class=contents>
-                    <br>
+		            <br>
 		            <h2>문의사항 상세 보기</h2>
-					<table class="table">
-						<tr>
-							<th>작성자</th>
-							<td>${dto.QNAWRITER}</td>
-						</tr>
-						<tr>
-							<th>작성일자</th>
-							<td>${dto.QNAREGISTERDATE}</td>
-						</tr>
-						<tr>
-							<th>제목</th>
-							<td>${dto.QNAWRITER}</td>
-						</tr>
-<%--						<tr>--%>
-<%--							<th>분류</th>--%>
-<%--							<td>${dto.QNACODE}</td>--%>
-<%--						</tr>--%>
-						<tr>
-							<th>내용</th>
-							<td>${dto.QNACONTENT}</td>
-						</tr>
-					</table>
+			            <table class="table">
+							<tr>
+								<th>작성자</th>
+								<td><a href="/admin/memberDetail.do?userId=${dto.QNAWRITER}">${dto.QNAWRITER}</td>
+							</tr>
+							<tr>
+								<th>작성일자</th>
+								<td>${dto.QNAREGISTERDATE}</td>
+							</tr>
+							<tr>
+								<th>제목</th>
+								<td>${dto.QNAWRITER}</td>
+							</tr>
+							<%-- <tr>
+								<th>분류</th>
+								<td>${dto.QNACODE}</td>
+							</tr> --%>
+							<tr>
+								<th>내용</th>
+								<td>${dto.QNACONTENT}</td>
+							</tr>
+						</table>
 
 		            <div>
 		                <input type="hidden" name = "QNACODE" value="${dto.QNACODE}">
 		                    <button type ="button" class="submit-btn" id = "btnDelete" onclick="location.href='/admin/delete.do?QNACODE=${dto.QNACODE}'">삭제</button>
-		                    <button type ="button" class="submit-btn" id ="btnList" onclick="location.href='/qna/list.do'">목록</button>
+		                    <button type ="button" class="submit-btn" id ="btnList" onclick="location.href='/admin/qnaList'">목록</button>
 		            </div>
 
 		        </div>
