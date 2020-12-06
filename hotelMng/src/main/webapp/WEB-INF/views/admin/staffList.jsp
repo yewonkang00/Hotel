@@ -51,7 +51,7 @@
         <%@include file = "/WEB-INF/views/admin/admin_header.jsp" %>
 
         <div class=contents>
-			<br><p style="text-align:center;">Staff LIST</p>
+			<br><p style="text-align:center;">STAFF LIST</p>
 			<!-- search{s} -->
 			<!-- search{e} -->
 			<br>

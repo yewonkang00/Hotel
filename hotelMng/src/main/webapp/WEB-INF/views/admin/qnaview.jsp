@@ -13,10 +13,11 @@
 		<body>
 		    <%@include file = "/WEB-INF/views/admin/admin_header.jsp" %>
 		    <div class=contain>
+
 		        <div class=contents>
 		            <h2>게시물 보기</h2>
 
-					<table class="table">
+		            <table class="table">
 						<tr>
 							<th>작성자</th>
 							<td>${dto.QNAWRITER}</td>
@@ -42,7 +43,7 @@
 		            <div>
 		                <input type="hidden" name = "QNACODE" value="${dto.QNACODE}">
 		                    <button type ="button" class="submit-btn" id = "btnDelete" onclick="location.href='/admin/delete.do?QNACODE=${dto.QNACODE}'">삭제</button>
-		                    <button type ="button" class="submit-btn" id ="btnList" onclick="location.href='/qna/list.do'">목록</button>
+		                    <button type ="button" class="submit-btn" id ="btnList" onclick="location.href='/admin/qnaList'">목록</button>
 		            </div>
 
 		        </div>

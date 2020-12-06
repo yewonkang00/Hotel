@@ -14,8 +14,7 @@
         <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
         <title>Reservation STEP1</title>
         <style>
-
-		  body {
+          body {
 			  background-color: #fbfcf5;
 		  }
           .res_content{
@@ -170,7 +169,7 @@
             border-radius:7px;
             background-color: #D4C1A1;
           }
-		  .resroom_btn_small{
+          .resroom_btn_small{
 			  width:100px;
 			  height:40px;
 			  border-style:none;
@@ -614,7 +613,7 @@
 	                  			<br>&emsp;&emsp;⦁&emsp;${item.roomNo} 호
 	                  			&emsp;&emsp;&emsp;&nbsp;${item.bedType} bed
 	                  			<c:if test="${item.bedType eq 'single'}">
-									&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" class="resroom_btn_small" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
+	                  			&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" class="resroom_btn_small" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>
 	                  			</c:if>
 	                  			<c:if test="${item.bedType eq 'twin'}">
 	                  			&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" class="resroom_btn_small" onclick="location.href='/reservate.do?checkIn=${searchFrom}&checkOut=${searchTo}&rno=${item.roomNo}'">이 방 예약하기</button>

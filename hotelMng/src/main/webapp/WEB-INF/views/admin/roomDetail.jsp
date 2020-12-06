@@ -95,7 +95,7 @@
 			<td>${roomDetail.composition}</td>
 			<td>${roomDetail.things}</td>
 			<td>${roomDetail.fee}</td>
-			<td>${roomDetail.staffId}</td>
+			<td><a href="/admin/staffDetail.do?staff=${roomDetail.staffId}">${roomDetail.staffId}</a></td>
 			</tr>
 			
 		</table>

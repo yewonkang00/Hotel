@@ -91,19 +91,8 @@
         <div class=contents>
 			<br><p style="text-align:center;">MEMBER LIST</p>
 			<!-- search{s} -->
-			<div class="form-group row justify-content-center">
-				<div class="w100" style="text-align: center">
-					<select class="form-control form-control-sm" name="searchType" id="searchType">
-						<option value="UserName">이름</option>
-						<option value="UserId">아이디</option>
-					</select>
-					<input type="text" class="form-control form-control-sm" name="keyword" id="keyword">
-					<button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch">검색</button>
-				</div>
-				<br>
-
-			</div>
 			<!-- search{e} -->
+			<br>
         	<table class="table table-hover">
 			<thead>
 			<tr>

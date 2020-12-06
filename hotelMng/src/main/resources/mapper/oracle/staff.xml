@@ -9,4 +9,8 @@
 	order by STAFFID
 	</select>
 	
+	<select id="selectStaff" parameterType="StaffVo" resultType="StaffVo">
+		SELECT * FROM STAFF WHERE StaffId = #{StaffId}
+	</select>
+	
 </mapper>
