@@ -15,7 +15,7 @@
 				, #{RoomNo}
 				, #{Request}
 				, 'N'
-				, (select to_char(SYSDATE,'YYYY/MM/DD HH24:MI') from dual)
+				, (select to_char(LOCALTIMESTAMP,'YYYY/MM/DD HH24:MI') from dual)
 		)
 		
 	</insert>
