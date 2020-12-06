@@ -58,18 +58,18 @@
 			   <input name="qnatitle" id="qnatitle" size="80" class="d_form large" placeholder="제목을 입력하세요">
            </div>
 
-<%--           <div class="col_one_third col_last">--%>
-<%--               <h3 class="join_title"><label for="question_type">질문유형</label></h3>--%>
-<%--               <select id="question_type" name="question_type" class="box">--%>
-<%--                   <option value="">-- Select One --</option>--%>
-<%--                   <option value="satisfy">만족</option>--%>
-<%--                   <option value="compliment">칭찬</option>--%>
-<%--                   <option value="requirement">요구</option>--%>
-<%--                   <option value="improvement">개선요청</option>--%>
-<%--                   <option value="complaint">불만</option>--%>
-<%--                   <option value="etc">기타</option>--%>
-<%--               </select>--%>
-<%--           </div>--%>
+<!--            <div class="col_one_third col_last">
+               <h3 class="join_title"><label for="question_type">질문유형</label></h3>
+               <select id="question_type" name="question_type" class="box">
+                   <option value="">-- Select One --</option>
+                   <option value="satisfy">만족</option>
+                   <option value="compliment">칭찬</option>
+                   <option value="requirement">요구</option>
+                   <option value="improvement">개선요청</option>
+                   <option value="complaint">불만</option>
+                   <option value="etc">기타</option>
+               </select>
+           </div> -->
 
           <div class="clear"></div>
 
