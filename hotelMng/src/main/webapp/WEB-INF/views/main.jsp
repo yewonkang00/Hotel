@@ -108,7 +108,7 @@
          .floor_guide td.right {
              width: 350px;
              padding: 10px;
-             text-align: right;
+             text-align: center;
              vertical-align: middle;
              border-bottom: 1px solid #D4C1A1;
              border-right: none;
