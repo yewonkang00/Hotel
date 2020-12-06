@@ -613,17 +613,30 @@ public class HomeController {
 	}
 	
 	//관리자 페이지에서 객실 정보 가져옴
-		@RequestMapping(value = "/admin/roomDetail.do")
-		public String roomDetail(Model model, HttpServletRequest request) throws Exception {
-			RoomVo room = new RoomVo();
-			int roomNo = Integer.parseInt(request.getParameter("rno"));
-			room.setRoomNo(roomNo);
-			RoomVo roomdetail = new RoomVo();
-			roomdetail = roomService.selectRoom(room);
-			model.addAttribute("roomDetail", roomdetail);
-			
-			return "/admin/roomDetail";
-		}
+	@RequestMapping(value = "/admin/roomDetail.do")
+	public String roomDetail(Model model, HttpServletRequest request) throws Exception {
+		RoomVo room = new RoomVo();
+		int roomNo = Integer.parseInt(request.getParameter("rno"));
+		room.setRoomNo(roomNo);
+		RoomVo roomdetail = new RoomVo();
+		roomdetail = roomService.selectRoom(room);
+		model.addAttribute("roomDetail", roomdetail);
+		
+		return "/admin/roomDetail";
+	}
+	
+	//관리자 페이지에서 직원 정보 가져옴
+	@RequestMapping(value = "/admin/staffDetail.do")
+	public String staffDetail(Model model, HttpServletRequest request) throws Exception {
+		StaffVo staff = new StaffVo();
+		String id = request.getParameter("staff");
+		staff.setStaffId(id);
+		StaffVo staffdetail = new StaffVo();
+		staffdetail = staffService.selectStaff(staff);
+		model.addAttribute("staffDetail", staffdetail);
+		
+		return "/admin/staffDetail";
+	}
 	
 	//메인화면(홈화면)
 	@RequestMapping(value = "/main", method = RequestMethod.GET)

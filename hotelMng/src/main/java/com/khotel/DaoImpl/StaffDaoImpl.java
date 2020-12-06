@@ -24,4 +24,9 @@ public class StaffDaoImpl implements StaffDao {
 	public List<StaffVo> listStaff() throws Exception {
 		return sqlSession.selectList("staff.listStaff");
 	}
+
+	@Override
+	public StaffVo selectStaff(StaffVo staffVo) throws Exception {
+		return sqlSession.selectOne("staff.selectStaff", staffVo);
+	}
 }

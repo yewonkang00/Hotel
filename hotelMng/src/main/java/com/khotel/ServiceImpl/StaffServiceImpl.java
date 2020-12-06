@@ -27,4 +27,9 @@ public class StaffServiceImpl implements StaffService {
 	public List<StaffVo> listStaff() throws Exception {
 		return staffDao.listStaff();
 	}
+
+	@Override
+	public StaffVo selectStaff(StaffVo staffVo) throws Exception {
+		return staffDao.selectStaff(staffVo);
+	}
 }

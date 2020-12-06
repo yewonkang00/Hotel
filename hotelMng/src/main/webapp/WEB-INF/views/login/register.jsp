@@ -73,8 +73,6 @@
 				"UserDetailAddress" : UserDetailAddress,
 				"UserExtraAddress" : UserExtraAddress,
 				"UserLevel" : "1",
-				"UserGrade" : "NEW",
-				"UserMile" : "0",
 				"UserGender" : UserGender
 		};
 

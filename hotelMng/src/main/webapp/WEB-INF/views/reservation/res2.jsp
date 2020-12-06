@@ -9,8 +9,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
         <style>
-
-		body {
+        body {
 			background-color: #fbfcf5;
 		}
 		.contain {
@@ -183,11 +182,19 @@
 
 			$('#ReservationPeopleNumber').on('mouseup', function(e) {
 				if($("#Breakfast").is(":checked")) {
-					var addroom = ($('#ReservationPeopleNumber').val() - 2) * 30000;
+					if($('#ReservationPeopleNumber').val() > 2) {
+						var addroom = ($('#ReservationPeopleNumber').val() - 2) * 30000;
+					}else {
+						var addroom = 0;
+					}
 					var price = ($('#ReservationPeopleNumber').val() * 20000) + addroom;
 					$('#AddPrice').html("<span id='AddPrice'>" + price + " 원</span>");
 				} else {
-					var addroom = ($('#ReservationPeopleNumber').val() - 2) * 30000;
+					if($('#ReservationPeopleNumber').val() > 2) {
+						var addroom = ($('#ReservationPeopleNumber').val() - 2) * 30000;
+					}else {
+						var addroom = 0;
+					}
 					var price = addroom;
 					$('#AddPrice').html("<span id='AddPrice'>" + price + " 원</span>");
 				}
@@ -372,7 +379,7 @@
 							<th scope="row">인원</th>
 							<td class="fm" colspan="3">
 								<select id ="ReservationPeopleNumber" class="sel" style="width:80px;">
-			                		<option>-인</option>
+			                		<option>인원선택</option>
 		                    		<option value="1">1인</option>
 		                    		<option value="2">2인</option>
 		                    		<option value="3">3인</option>
@@ -435,13 +442,13 @@
 						<tr>
 							<th scope="row">카드번호</th>
 							<td class="fm">
-								<input type="text" class="card_num" title="첫번째 자리" id="card_no1" name="CardNo1" maxlength="4" style="ime-mode:disabled" onkeyup="nextF(this,'card_no2')">
+								<input type="text" class="card_num" title="첫번째 자리" id="card_no1" name="CardNo1" maxlength="4" style="ime-mode:disabled">
 								<span class="fmTxt-3">-</span>
-								<input type="text" class="card_num" title="두번째 자리" id="card_no2" name="CardNo2" maxlength="4" style="ime-mode:disabled" onkeyup="nextF(this,'card_no3')">
+								<input type="text" class="card_num" title="두번째 자리" id="card_no2" name="CardNo2" maxlength="4" style="ime-mode:disabled">
 								<span class="fmTxt-3">-</span>
-								<input type="password" class="card_num" title="세번째 자리" id="card_no3" name="CardNo3" maxlength="4" autocomplete="new-password" style="ime-mode:disabled" onkeyup="nextF(this,'card_no4')">
+								<input type="password" class="card_num" title="세번째 자리" id="card_no3" name="CardNo3" maxlength="4" autocomplete="new-password" style="ime-mode:disabled">
 								<span class="fmTxt-3">-</span>
-								<input type="text" class="card_num" title="네번째 자리" id="card_no4" name="CardNo4" maxlength="4" style="ime-mode:disabled" onkeyup="nextF(this,'card_termYY')">
+								<input type="text" class="card_num" title="네번째 자리" id="card_no4" name="CardNo4" maxlength="4" style="ime-mode:disabled">
 							</td>
 							<th scope="row">유효기간</th>
 							<td class="fm">

@@ -39,7 +39,7 @@
 
         <div class=contents>
             <br><p style="text-align:center;">ROOM LIST</p>
-            <br><br>
+            <br>
             <table class="table table-hover">
                 <thead>
                     <tr>
