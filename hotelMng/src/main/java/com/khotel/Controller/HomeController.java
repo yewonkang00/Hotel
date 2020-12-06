@@ -503,7 +503,7 @@ public class HomeController {
 			grade = "DIAMOND";
 		} else if(totalmile < 150000) {
 			grade = "VIP";
-		} else if(totalmile < 300000) {
+		} else {
 			grade = "VVIP";
 		}
 		System.out.println("mile: " + Integer.toString(totalmile));

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="/resources/css/style_mypage.css" type="text/css">
     <title>My Information</title>
-
+    
     <script type="text/javascript">
 	    var sessionUserId = '${member.userId}';
 	    if(sessionUserId == null || sessionUserId == 'null' || sessionUserId=="" || sessionUserId == "1"){
@@ -13,11 +13,11 @@
 	      location.href="/login.do";
 	    }
 	</script>
-  <style>
-  .j{
-    font-size: 10px;
-  }
-  </style>
+	  <style>
+		  .j{
+		    font-size: 10px;
+		  }
+	  </style>
 </head>
 
 <body>
@@ -68,16 +68,16 @@
             </tr>
             </thead>
             <tbody>
-              <tr class="r">
-                <td>조건</td>
-                <td class="j">무료가입 즉시</td>
-                <td class="j">마일리지<br> 1p 이상</td>
-                <td class="j">마일리지<br> 10,000p 이상</td>
-                <td class="j">마일리지<br> 30,000p 이상</td>
-                <td class="j">마일리지<br> 60,000p 이상</td>
-                <td class="j">마일리지<br> 100,000p 이상</td>
-                <td class="j">마일리지<br> 150,000p 이상</td>
-              </tr>
+            <tr class="r">
+              <td>조건</td>
+              <td class="j">무료가입<br> 즉시</td>
+              <td class="j">마일리지<br> 1p <br>이상</td>
+              <td class="j">마일리지<br> 10,000p <br>이상</td>
+              <td class="j">마일리지<br> 30,000p <br>이상</td>
+              <td class="j">마일리지<br> 60,000p <br>이상</td>
+              <td class="j">마일리지<br> 100,000p <br>이상</td>
+              <td class="j">마일리지<br> 150,000p <br>이상</td>
+            </tr>
             <tr class="r">
                 <td>Wi-Fi</td>
                 <td>○</td>
