@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class=header>
-    <a href="/main"><img src="/resources/image/moon.png" width="100" height="100"></a>
+    <a href="/admin"><img src="/resources/image/moon.png" width="100" height="100"></a>
     <div class=logo></div>
     <nav>
         <span><a></a></span>

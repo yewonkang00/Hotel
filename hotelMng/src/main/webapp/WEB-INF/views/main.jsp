@@ -38,7 +38,7 @@
                 padding: 8px;
             }
             .contain{
-                width: 1920px;
+                width: 100%;
             	margin-top:30px;
                 min-height: 700px;
                 background-color: #fbfcf5;
@@ -51,7 +51,7 @@
             .intro{
                margin-top: 10px;
                border-top:1px solid #D4C1A1;
-               width:1920px;
+               width:100%;
                text-align:center;
                border-bottom: none;
                border-right: none;
@@ -81,7 +81,7 @@
              height: 10px;
          }
          .floor_guide {
-               width: 1900px;
+             width: 100%;
              border-collapse: separate;
              border-spacing: 1px;
              text-align: center;
@@ -108,6 +108,7 @@
          .floor_guide td.right {
              width: 350px;
              padding: 10px;
+             text-align: right;
              vertical-align: middle;
              border-bottom: 1px solid #D4C1A1;
              border-right: none;
@@ -132,7 +133,6 @@
             border-bottom:6pt solid #f1f1f1;
             margin:0 auto;
             padding-left:35%;
-            background-color: white;
           }
           .res_res{
             display: inline-block;
@@ -404,7 +404,7 @@
                      <tr>
                      <th>일반층</th>
                      <td>1F-12F</td>
-                     <td class=right>12F-10F 스위트룸 / 9F-7F 이그제큐티브룸 / 6F-4F 디럭스룸 / 3F-1F 스탠다드룸 / 8F, 4F 흡연실 / 1F 레스토랑, 로비</td>
+                     <td class=right>12F-10F 스위트룸 / 9F-7F 이그제큐티브룸 / 6F-4F 디럭스룸 <br> 3F-1F 스탠다드룸 / 8F, 4F 흡연실 / 1F 레스토랑, 로비</td>
                      </tr>
                      <tr>
                      <th>부대시설</th>
