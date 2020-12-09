@@ -51,7 +51,7 @@
 		#{QNATITLE}, 
 		#{QNACONTENT}, 
 		#{QNAWRITER},
-		#{QNAREGISTERDATE}
+		(select to_char(LOCALTIMESTAMP,'YYYY/MM/DD HH24:MI') from dual)
 		)
 		</insert>
 
