@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/resources/css/style_admin.css" type="text/css">
 <script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
-<title>Insert title here</title>
+<title>Staff 01</title>
 
 <script type="text/javascript">
 var sessionLevel = '${member.userLevel}';
