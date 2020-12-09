@@ -54,6 +54,7 @@
 			from (
 		select *
 		from Member
+		where Userlevel='1'
 		
 			) A
 		) 
@@ -62,8 +63,8 @@
 	
 	
 	<select id="selectBoardCount" resultType="Integer">
-		SELECT COUNT(*) FROM Member
-	</select>
+      SELECT COUNT(*) FROM Member where username is not null
+   </select>
 
 	<select id="listBlockSelect" parameterType="java.util.Map" resultType="MemberVo">
 		SELECT *

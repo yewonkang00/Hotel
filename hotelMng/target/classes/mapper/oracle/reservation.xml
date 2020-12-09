@@ -3,7 +3,6 @@
 
 <mapper namespace="reservation">
 
-
 	<insert id = "insertReservation" parameterType="ReservationVo">
 		INSERT INTO RESERVATION (ReservationCode
 								,ReservationCheckIn
@@ -23,11 +22,11 @@
 								,RoomType
 		)
 		
-		VALUES ((select nvl(max(reservationcode)+1,0) from reservation)
+		VALUES (seq_res.NEXTVAL
 				, #{ReservationCheckIn}
 				, #{ReservationCheckOut}
 				, #{ReservationPeopleNumber}
-				, sysdate
+				, (select to_char(LOCALTIMESTAMP,'YYYY/MM/DD') from dual)
 				, #{ReservationMemo}
 				, #{UserId}
 				, #{RoomCode}

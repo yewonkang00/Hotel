@@ -507,7 +507,22 @@ public class HomeController {
 			grade = "VVIP";
 		}
 		System.out.println("mile: " + Integer.toString(totalmile));
-		
+		System.out.println("getReservationCheckIn: " + reservation.getReservationCheckIn());
+		System.out.println("getReservationCheckOut: " + reservation.getReservationCheckOut());
+		System.out.println("getReservationPeopleNumber: " + reservation.getReservationPeopleNumber());
+		System.out.println("getReservationDays: " + reservation.getReservationDays());
+		System.out.println("getReservationMemo: " + reservation.getReservationMemo());
+		System.out.println("getUserId: " + reservation.getUserId());
+		System.out.println("getRoomCode: " + reservation.getRoomCode());
+		System.out.println("getReservationDays: " + reservation.getReservationDays());
+		System.out.println("getBreakfast: " + reservation.getBreakfast());
+		System.out.println("getTotalPrice: " + reservation.getTotalPrice());
+		System.out.println("getMileage: " + reservation.getMileage());
+		System.out.println("getCard: " + reservation.getCard());
+		System.out.println("getCardNum: " + reservation.getCardNum());
+		System.out.println("getCardValid: " + reservation.getCardValid());
+		System.out.println("getRoomType: " + reservation.getRoomType());
+
 		roomMap.put("ReservationCheckIn", checkIn);
 		roomMap.put("ReservationCheckOut", checkOut);
 		roomMap.put("roomNo", roomNo);
