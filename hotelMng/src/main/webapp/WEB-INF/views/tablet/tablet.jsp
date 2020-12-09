@@ -10,10 +10,43 @@
     <title>Customer Service</title>
  	
     <script type="text/javascript">
+    	function getWorldTime(tzOffset) { // 24시간제
+    	  var now = new Date();
+    	  var tz = now.getTime() + (now.getTimezoneOffset() * 60000) + (tzOffset * 3600000);
+    	  now.setTime(tz);
+
+
+    	  var s =
+    	    leadingZeros(now.getFullYear(), 4) + '-' +
+    	    leadingZeros(now.getMonth() + 1, 2) + '-' +
+    	    leadingZeros(now.getDate(), 2) + ' ' +
+
+    	    leadingZeros(now.getHours(), 2) + ':' +
+    	    leadingZeros(now.getMinutes(), 2) + ':' +
+    	    leadingZeros(now.getSeconds(), 2);
+
+    	  return s;
+    	}
+
+
+    	function leadingZeros(n, digits) {
+    	  var zero = '';
+    	  n = n.toString();
+
+    	  if (n.length < digits) {
+    	    for (i = 0; i < digits - n.length; i++)
+    	      zero += '0';
+    	  }
+    	  return zero + n;
+    	}
+    	
     	function request(num) {
 			var num = num;
 			var RoomNo = 101;
 			var text = null;
+			var date = new Date();
+			date = getWorldTime(+9);
+			
 			if(num == 1) text = "수건";
 			if(num == 2) text = "물";
 			if(num == 3) text = "어메니티";
@@ -21,7 +54,8 @@
 			if(num == 5) text = "연결";
 			if(num == 6) text = "직원";
 			var data = {"RoomNo" : RoomNo,
-					"Request" : text
+					"Request" : text,
+					"Time" : date
 			};
 
 			$.ajax({

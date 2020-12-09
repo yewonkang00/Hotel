@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -118,7 +119,7 @@ public class QnaController {
 		vo.setQNACONTENT(content);
 		vo.setQNAWRITER(writer);
 		Date now = new Date();
-		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm", Locale.KOREA);
 		String time = format.format(now);
 		vo.setQNAREGISTERDATE(time);
 		qnaService.create(vo);
