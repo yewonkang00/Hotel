@@ -11,8 +11,8 @@
 <body>
     <div class="finish">
     <p> 사업자 번호: 110-10-12345<br/>
-    사업장소재지: 경기도 안산시 상록구 한양대학로 55<br/>
-    대표자: GROUP LUCID<br/>
+    사업장소재지: 경기도 이천시 마장면 장암리<br/>
+    대표자: 홍길동<br/>
     Copyright ⓒ 2020 Hotel Group. All rights reserved.
     </p>
     </div>
