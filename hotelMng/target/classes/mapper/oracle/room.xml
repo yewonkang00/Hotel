@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="room">
-	
+
 	<select id="roomlistclass" parameterType="String" resultType="RoomVo">
 		SELECT *
 		FROM RoomType natural join RoomNo
@@ -10,7 +10,6 @@
 		order by roomno
 	</select>
 	
-
 	<select id="selectRoom" parameterType="RoomVo" resultType="RoomVo">
 		SELECT * FROM RoomType natural join RoomNo WHERE RoomNo = #{RoomNo}
 	</select>
@@ -21,6 +20,11 @@
 		order by fee, roomno
 	</select>
 	
+	<select id="listRoom2" resultType="RoomVo">	
+		SELECT *
+		FROM RoomType natural join RoomNo
+		order by fee, roomno
+	</select>
 	
 	<select id="listRoomReservation" parameterType="String" resultType="ReservationVo">
 		SELECT *

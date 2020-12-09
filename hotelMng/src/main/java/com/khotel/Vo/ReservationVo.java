@@ -114,7 +114,5 @@ public class ReservationVo {
 	public void setRoomType(String roomType) {
 		RoomType = roomType;
 	}
-	
-	
 
 }

@@ -22,7 +22,7 @@
 								,RoomType
 		)
 		
-		VALUES (seq.NEXTVAL
+		VALUES (seq_res.NEXTVAL
 				, #{ReservationCheckIn}
 				, #{ReservationCheckOut}
 				, #{ReservationPeopleNumber}
