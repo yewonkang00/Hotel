@@ -1,9 +1,9 @@
-# Hotel
+# Lucid Hotel
 #### 도메인 연결 주소 : http://www.lucidhotel.tk/
 
 #### 서버 주소 : http://13.125.121.250/
 
-#### 객실 테블릿 주소 : http://www.lucidhotel.tk/tablet/room101 또는 http://13.125.121.250/tablet/room101 (101호 객실 테블릿)
+#### 객실 테블릿 주소 : http://www.lucidhotel.tk/tablet/room101 또는 http://13.125.121.250/tablet/room101 (101호)
 
 #### 무료 서버를 이용하여 연결이 불안정할 수 있어 새로 고침을 계속 하시다보면 사이트가 뜹니다.
 
